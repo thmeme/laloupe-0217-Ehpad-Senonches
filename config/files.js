@@ -13,6 +13,9 @@ module.exports = function(lineman) {
                 "vendor/js/jquery.js",
                 "vendor/js/bootstrap.js",
                 "vendor/js/angular.js",
+                "vendor/js/angular-ui-router.js",
+                "vendor/js/tinymce.js",
+                "vendor/js/tinymce.angular.js",
                 "vendor/js/**/*.js"
             ],
             app: [
