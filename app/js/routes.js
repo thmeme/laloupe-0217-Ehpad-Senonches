@@ -81,6 +81,33 @@ angular.module('app')
                     }
                 }
             })
+            .state('user.news', {
+                url: '/news',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/news.html',
+                        controller: 'NewsController'
+                    }
+                }
+            })
+            .state('user.calendar', {
+                url: '/calendar',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/calendar.html',
+                        controller: 'CalendarController'
+                    }
+                }
+            })
+            .state('user.users', {
+                url: '/users',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/users.html',
+                        controller: 'UsersController'
+                    }
+                }
+            })
             .state('user.profile', {
                 url: '/profile',
                 views: {

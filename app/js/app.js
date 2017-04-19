@@ -1,1 +1,1 @@
-angular.module('app', ['ui.router', 'ui.bootstrap', 'ui.tinymce', 'ngMaterial', 'ngMessages']);
+angular.module('app', ['ui.router', 'ui.tinymce', 'ngMaterial', 'ngMessages']);

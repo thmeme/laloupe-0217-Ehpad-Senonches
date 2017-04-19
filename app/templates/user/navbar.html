@@ -1,47 +1,23 @@
-<!-- <nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-            <a class="navbar-brand" href="#"></a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav">
-                <li ui-sref-active="active"><a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()">Dashboard</a></li>
-                <li ui-sref-active="active"><a ui-sref="user.profile" ng-show="auth.isAuthenticated()">Profile</a></li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                <li ui-sref-active="active"><a ui-sref="anon.home">Website</a></li>
-                    <li><a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#'>Logout</a></li>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav> -->
-
 <div class="navbar-fixed">
-  <nav>
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a ui-sref="user.submenu">Sous-menus</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">Javascript</a></li>
-          <li><a href="mobile.html">Mobile</a></li>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">Javascript</a></li>
-          <li><a href="mobile.html">Mobile</a></li>
-        </ul>
-      </div>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a ui-sref="user.submenu">Sous-menus</a></li>
+                <li><a ui-sref="user.news">Actualités</a></li>
+                <li><a ui-sref="user.calendar">Agenda</a></li>
+                <li><a ui-sref="user.users">Utilisateurs</a></li>
+                <li><a ng-click="logout()" href='#'>Logout</a></li>
+
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a ui-sref="user.submenu">Sous-menus</a></li>
+                <li><a ui-sref="user.news">Actualités</a></li>
+                <li><a ui-sref="user.calendar">Agenda</a></li>
+                <li><a ui-sref="user.users">Utilisateurs</a></li>
+                <li><a ng-click="logout()" href='#'>Logout</a></li>
+            </ul>
+        </div>
     </nav>
 </div>
