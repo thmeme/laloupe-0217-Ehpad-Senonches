@@ -63,6 +63,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('user.admin', {
+                url: '/admin',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/admin.html',
+                        controller: 'AdminController'
+                    }
+                }
+            })
             .state('user.profile', {
                 url: '/profile',
                 views: {
