@@ -1,3 +1,14 @@
+/*Navbar*/
+
 #sidenav-overlay {
-  z-index:150
+    z-index: 150
+}
+
+nav {
+    background-color: #be0d55;
+}
+
+/*Submenu*/
+.txtAeraSubmenu {
+  width: 80%;
 }
