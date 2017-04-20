@@ -1,4 +1,3 @@
-Création des sous-Menus
 <div class="container txtAeraSubmenu">
     <form method="post" ng-submit="addSubmenu()">
         <div ng-cloak>
@@ -12,6 +11,11 @@ Création des sous-Menus
         <input type="text" class="form-control" placeholder="Nouveau sous-menu" ng-model='newSubmenu.title'>
         <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content"></textarea>
         <button class="btn" type="submit">Valider</button>
+        <div class="inset" ng-cloak>
+            <md-switch ng-model="newSubmenu.status" aria-label="status">
+                Status
+            </md-switch>
+        </div>
     </form>
 </div>
 <div class="container">
@@ -25,13 +29,23 @@ Création des sous-Menus
                             <tr>
                                 <th>Date de création</th>
                                 <th>Titre du sous-menu</th>
+                                <th>commandes</th>
+                                <th>En ligne</th>
                             </tr>
 
-                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'admission'} | orderBy: '-date'">
+                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'} | orderBy: '-date'">
                                 <td class="">{{Submenu.date | date : 'medium'}}</td>
                                 <td class="">{{Submenu.title}}</td>
 
-                                <td class="">{{}}</tb>
+                                <td class="">
+                                    <md-button class="md-fab" aria-label="Eat cake">
+                                        <md-icon><i class="material-icons md-18">create</i></md-icon>
+                                    </md-button>
+                                    <md-button class="md-fab" aria-label="Eat cake">
+                                        <md-icon><i class="material-icons">delete</i></md-icon>
+                                    </md-button>
+                                </td>
+
                             </tr>
                         </table>
                     </md-content>
@@ -43,12 +57,13 @@ Création des sous-Menus
                             <tr>
                                 <th>Date de création</th>
                                 <th>Titre du sous-menu</th>
+                                <th>commandes</th>
+
                             </tr>
 
-                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'sejour'} | orderBy: '-date'">
+                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre séjour'} | orderBy: '-date'">
                                 <td class="">{{Submenu.date | date : 'medium'}}</td>
                                 <td class="">{{Submenu.title}}</td>
-
                                 <td class="">{{}}</tb>
                             </tr>
                         </table>
@@ -61,12 +76,13 @@ Création des sous-Menus
                             <tr>
                                 <th>Date de création</th>
                                 <th>Titre du sous-menu</th>
+                                <th>commandes</th>
+
                             </tr>
 
-                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'droits'} | orderBy: '-date'">
+                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'} | orderBy: '-date'">
                                 <td class="">{{Submenu.date | date : 'medium'}}</td>
                                 <td class="">{{Submenu.title}}</td>
-
                                 <td class="">{{}}</tb>
                             </tr>
                         </table>
