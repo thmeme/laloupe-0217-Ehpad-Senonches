@@ -15,10 +15,64 @@ Création des sous-Menus
     </form>
 </div>
 <div class="container">
-    <h6>Votre admission</h6>
-    <div class="" ng-repeat="Submenu in listSubmenu | orderBy: '-date'">
-        <p class="">{{Submenu.title}}</p>
-        <p class="">le {{Submenu.date | date : 'medium'}}</p>
-        <p class="">{{}}</p>
+    <div ng-cloak>
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Votre admission">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Votre admission</h1>
+                        <table>
+                            <tr>
+                                <th>Date de création</th>
+                                <th>Titre du sous-menu</th>
+                            </tr>
+
+                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'admission'} | orderBy: '-date'">
+                                <td class="">{{Submenu.date | date : 'medium'}}</td>
+                                <td class="">{{Submenu.title}}</td>
+
+                                <td class="">{{}}</tb>
+                            </tr>
+                        </table>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Votre séjour">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Votre séjour</h1>
+                        <table>
+                            <tr>
+                                <th>Date de création</th>
+                                <th>Titre du sous-menu</th>
+                            </tr>
+
+                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'sejour'} | orderBy: '-date'">
+                                <td class="">{{Submenu.date | date : 'medium'}}</td>
+                                <td class="">{{Submenu.title}}</td>
+
+                                <td class="">{{}}</tb>
+                            </tr>
+                        </table>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Vos droits">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Vos droits</h1>
+                        <table>
+                            <tr>
+                                <th>Date de création</th>
+                                <th>Titre du sous-menu</th>
+                            </tr>
+
+                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'droits'} | orderBy: '-date'">
+                                <td class="">{{Submenu.date | date : 'medium'}}</td>
+                                <td class="">{{Submenu.title}}</td>
+
+                                <td class="">{{}}</tb>
+                            </tr>
+                        </table>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
     </div>
 </div>

@@ -2,9 +2,9 @@ angular.module('app')
     .controller('SubmenuController', function($scope, CurrentUser, SubmenuService) {
         $scope.user = CurrentUser.user();
         $scope.menus = [
-            "Votre admission",
-            "Votre séjour",
-            "Vos droits"
+            "admission",
+            "sejour",
+            "droits"
         ];
 
         $scope.addSubmenu = function() {
