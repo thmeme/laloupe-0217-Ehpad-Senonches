@@ -1,6 +1,5 @@
 angular.module('app')
     .controller('NavbarController', function($scope, Auth, CurrentUser, $timeout) {
-      $timeout(function(){$(".button-collapse").sideNav();},0);
 
 
         $scope.isCollapsed = true;

@@ -1,4 +1,4 @@
-<div class="container txtAeraSubmenu">
+<div class="container">
     <form method="post" ng-submit="addSubmenu()">
         <div ng-cloak>
             <md-input-container style="margin-right: 10px;">
@@ -8,12 +8,16 @@
                 </md-select>
             </md-input-container>
         </div>
-        <input type="text" class="form-control" placeholder="Nouveau sous-menu" ng-model='newSubmenu.title'>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Nouveau sous-menu</label>
+            <input ng-model="newSubmenu.title">
+          </md-input-container>
+
         <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content"></textarea>
         <button class="btn" type="submit">Valider</button>
-        <div class="inset" ng-cloak>
-            <md-switch ng-model="newSubmenu.status" aria-label="status">
-                Status
+        <div class="inset">
+            <md-switch ng-model="newSubmenu.isOnline" aria-label="status">
+                En ligne
             </md-switch>
         </div>
     </form>

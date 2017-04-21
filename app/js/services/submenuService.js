@@ -10,11 +10,11 @@ angular.module('app')
             getOne: function(id) {
                 return $http.get(`/submenus/${id}`);
             },
-            update: function(id) {
-                return $http.put('/submenus', id);
+            update: function(id, submenu) {
+                return $http.put(`/submenus/${id}`, submenu);
             },
             delete: function(id) {
-                return $http.delete('/submenus/${id}', id);
+                return $http.delete(`/submenus/${id}`);
             }
         };
     });

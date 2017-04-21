@@ -9,11 +9,15 @@ angular.module('app')
         $scope.idSubmenu = $stateParams.id;
         console.log('id', $scope.idSubmenu);
 
-        SubmenuService.getOne($scope.idSubmenu).then(function(res) {
-          console.log('res One', res);
-          $scope.submenu = res.data;
-
-        });
+        function loadSubmenu(id) {
+          if (id !== undefined) {
+            SubmenuService.getOne($scope.idSubmenu).then(function(res) {
+              console.log('res One', res);
+              $scope.submenu = res.data;
+            });
+          }
+        }
+      loadSubmenu($scope.idSubmenu);
 
 
         $scope.addSubmenu = function() {
@@ -22,19 +26,25 @@ angular.module('app')
                 $scope.newSubmenu.content = '';
                 $scope.newSubmenu.title = '';
                 $scope.newSubmenu.menu = '';
-                loadSubmenu();
+                loadAllSubmenus();
 
             });
         };
 
-        function loadSubmenu() {
+        function loadAllSubmenus() {
             SubmenuService.getAll().then(function(res) {
                 console.log('listSubmenus', res);
                 $scope.listSubmenu = res.data;
                 console.log('res.data', res.data);
             });
         }
-        loadSubmenu();
+        loadAllSubmenus();
+
+        $scope.updateSubmenu = function () {
+          SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
+            console.log('update', res);
+          });
+        };
 
         $scope.tinymceOptions = {
             onChange: function(e) {

@@ -1,24 +1,24 @@
-<div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Logo</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a ui-sref="user.submenu">Sous-menus</a></li>
-                <li><a ui-sref="user.news">Actualités</a></li>
-                <li><a ui-sref="user.calendar">Agenda</a></li>
-                <li><a ui-sref="user.carousel">Carousel</a></li>
-                <li><a ui-sref="user.users">Utilisateurs</a></li>
-                <li><a ng-click="logout()" href='#'>Logout</a></li>
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button aria-label="Go Back">
+            <a ui-sref="user.submenu">Sous-menus</a></md-button>
+        <md-button aria-label="Go Back">
+            <a ui-sref="user.news">Actualités</a></md-button>
+        <md-button aria-label="Go Back">
+            <a ui-sref="user.calendar">Agenda</a></md-button>
+        <md-button aria-label="Go Back">
+            <a ui-sref="user.users">Utilisateurs</a></md-button>
 
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a ui-sref="user.submenu">Sous-menus</a></li>
-                <li><a ui-sref="user.news">Actualités</a></li>
-                <li><a ui-sref="user.calendar">Agenda</a></li>
-                <li><a ui-sref="user.users">Utilisateurs</a></li>
-                <li><a ng-click="logout()" href='#'>Logout</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+        <!-- <md-truncate style="position: absolute; left: 90px; right: 170px; top: 13px; bottom: 13px;">Toolbar with Standard Buttons</md-truncate> -->
+
+        <span flex></span>
+        <md-button class="md-raised" aria-label="Learn More">
+            Learn More
+        </md-button>
+        <md-button class="md-fab md-mini" aria-label="Favorite">
+
+            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+        </md-button>
+    </div>
+
+</md-toolbar>

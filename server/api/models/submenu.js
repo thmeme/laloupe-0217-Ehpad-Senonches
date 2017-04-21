@@ -12,7 +12,11 @@ const submenuSchema = new mongoose.Schema({
         type: String,
     },
     date: {
-        type: Date
+        type: Date,
+    },
+    isOnline: {
+      type: Boolean,
+      default: false,
     }
 });
 
@@ -32,6 +36,7 @@ export default class Submenu {
     }
 
     findById(req, res) {
+        console.log('req in back', req.params, req.body, req.query);
         model.findById(req.params.id, function(err, submenu) {
           if (err || !submenu) {
               res.sendStatus(403);
@@ -58,14 +63,16 @@ export default class Submenu {
         });
     }
     update(req, res) {
-        model.update({
-            _id: req.params.id,
-        }, req.body, function(err, submenu) {
-            res.json({
-                success: true,
-                submenu: submenu
-            });
-
+        model.findByIdAndUpdate(req.params.id,
+          req.body, { new: true },function(err, submenu) {
+            if (err) {
+              res.status(500).send(err);
+            } else {
+              res.json({
+                  success: true,
+                  submenu: submenu
+              });
+            }
         });
     }
     delete(req, res) {
