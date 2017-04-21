@@ -7,11 +7,14 @@ angular.module('app')
             getAll: function() {
                 return $http.get('/submenus');
             },
+            getOne: function(id) {
+                return $http.get(`/submenus/${id}`);
+            },
             update: function(id) {
                 return $http.put('/submenus', id);
             },
             delete: function(id) {
-                return $http.delete('/submenus', id);
+                return $http.delete('/submenus/${id}', id);
             }
         };
     });

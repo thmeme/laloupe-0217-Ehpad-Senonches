@@ -30,7 +30,6 @@
                                 <th>Date de création</th>
                                 <th>Titre du sous-menu</th>
                                 <th>commandes</th>
-                                <th>En ligne</th>
                             </tr>
 
                             <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'} | orderBy: '-date'">
@@ -38,10 +37,10 @@
                                 <td class="">{{Submenu.title}}</td>
 
                                 <td class="">
-                                    <md-button class="md-fab" aria-label="Eat cake">
-                                        <md-icon><i class="material-icons md-18">create</i></md-icon>
+                                    <md-button class="md-fab md-mini" aria-label="Eat cake">
+                                        <a ng-href="/#!/user/submenu/{{Submenu._id}}"><md-icon><i class="material-icons md-18">create</i></md-icon>
                                     </md-button>
-                                    <md-button class="md-fab" aria-label="Eat cake">
+                                    <md-button class="md-fab md-mini" aria-label="Eat cake">
                                         <md-icon><i class="material-icons">delete</i></md-icon>
                                     </md-button>
                                 </td>

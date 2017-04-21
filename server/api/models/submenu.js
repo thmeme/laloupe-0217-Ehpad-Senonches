@@ -30,6 +30,16 @@ export default class Submenu {
                 }
             });
     }
+
+    findById(req, res) {
+        model.findById(req.params.id, function(err, submenu) {
+          if (err || !submenu) {
+              res.sendStatus(403);
+          } else {
+              res.json(submenu);
+          }
+        });
+    }
     create(req, res) {
         let submenu = req.body;
         console.log('back', req.body);

@@ -1,0 +1,21 @@
+<div class="container txtAeraSubmenu">
+    <form method="post" ng-submit="updateSubmenu()">
+        <div ng-cloak>
+          <p>{{submenu.menu}} et</p>
+            <md-input-container style="margin-right: 10px;">
+                <label>Menu</label>
+                <md-select ng-model="newSubmenu.menu">
+                    <md-option ng-repeat="menu in menus" value="{{menu}}">{{menu}}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <input type="text" class="form-control" placeholder="Nouveau sous-menu" ng-model='newSubmenu.title'>
+        <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content">{{submenu.content}}</textarea>
+        <button class="btn" type="submit">Mettre à jour</button>
+        <div class="inset" ng-cloak>
+            <md-switch ng-model="newSubmenu.status" aria-label="status">
+                Status
+            </md-switch>
+        </div>
+    </form>
+</div>

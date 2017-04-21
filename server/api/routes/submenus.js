@@ -8,6 +8,8 @@ module.exports = (app) => {
 
     var submenu = new Submenu();
 
+    router.get('/:id', Auth.hasAuthorization, submenu.findById);
+
     router.get('/', Auth.hasAuthorization, submenu.findAll);
 
     router.post('/', Auth.hasAuthorization, submenu.create);

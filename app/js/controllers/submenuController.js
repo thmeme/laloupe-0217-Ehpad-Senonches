@@ -1,12 +1,20 @@
 angular.module('app')
-    .controller('SubmenuController', function($scope, CurrentUser, SubmenuService) {
+    .controller('SubmenuController', function($scope, $stateParams, CurrentUser, SubmenuService) {
         $scope.user = CurrentUser.user();
         $scope.menus = [
             "Votre admission",
             "Votre séjour",
             "Vos droits"
         ];
-        
+        $scope.idSubmenu = $stateParams.id;
+        console.log('id', $scope.idSubmenu);
+
+        SubmenuService.getOne($scope.idSubmenu).then(function(res) {
+          console.log('res One', res);
+          $scope.submenu = res.data;
+
+        });
+
 
         $scope.addSubmenu = function() {
             SubmenuService.create($scope.newSubmenu).then(function(res) {
@@ -34,6 +42,7 @@ angular.module('app')
             },
             inline: false,
             skin: 'ehpad1',
+            height: 300,
             theme: 'modern',
             plugins: 'advlist autolink lists link image charmap code table',
             toolbar: 'undo redo | insert | bold italic | alignleft aligncenter alignright | code | preview media | textcolor backcolor emoticons'
