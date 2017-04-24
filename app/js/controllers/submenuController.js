@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('SubmenuController', function($scope, $stateParams, CurrentUser, SubmenuService) {
+    .controller('SubmenuController', function($scope, $stateParams, $window, CurrentUser, SubmenuService) {
         $scope.user = CurrentUser.user();
         $scope.menus = [
             "Votre admission",
@@ -10,14 +10,14 @@ angular.module('app')
         console.log('id', $scope.idSubmenu);
 
         function loadSubmenu(id) {
-          if (id !== undefined) {
-            SubmenuService.getOne($scope.idSubmenu).then(function(res) {
-              console.log('res One', res);
-              $scope.submenu = res.data;
-            });
-          }
+            if (id !== undefined) {
+                SubmenuService.getOne($scope.idSubmenu).then(function(res) {
+                    console.log('res One', res);
+                    $scope.submenu = res.data;
+                });
+            }
         }
-      loadSubmenu($scope.idSubmenu);
+        loadSubmenu($scope.idSubmenu);
 
 
         $scope.addSubmenu = function() {
@@ -40,10 +40,21 @@ angular.module('app')
         }
         loadAllSubmenus();
 
-        $scope.updateSubmenu = function () {
-          SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
-            console.log('update', res);
-          });
+        $scope.updateSubmenu = function() {
+            SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
+                console.log('update', res);
+            });
+        };
+        $scope.deleteSubmenu = function(id) {
+            var result = $window.confirm("Ếtes vous sûr de vouloir supprimer ce sous-menu ?");
+            if (result === true) {
+                SubmenuService.delete(id).then(function(res) {
+                    console.log('delete', res);
+                    loadAllSubmenus();
+                });
+            }
+            loadAllSubmenus();
+
         };
 
         $scope.tinymceOptions = {

@@ -14,13 +14,16 @@ nav {
 .txtAeraSubmenu {
     width: 80%;
 }
+
 .columnAdmin {
-  min-width: 700px;
+    min-width: 700px;
 }
+
 .SwitchvalidSubmenu {
-  vertical-align:middle;
-  display: inline-block;
+    vertical-align: middle;
+    display: inline-block;
 }
+
 table {
     border-collapse: collapse;
 }
@@ -29,19 +32,25 @@ td, th {
     border: 1px solid black;
 }
 
-.tabsdemoDynamicHeight md-content {
+.tabsSubmenu md-content {
     background-color: transparent !important;
 }
 
-.tabsdemoDynamicHeight md-content md-tabs {
+.tabsSubmenu md-content md-tabs {
     background: #f6f6f6;
     border: 1px solid #e1e1e1;
 }
 
-.tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+.tabsSubmenu md-content md-tabs md-tabs-wrapper {
     background: white;
 }
 
-.tabsdemoDynamicHeight md-content h1:first-child {
+.tabsSubmenu md-content h1:first-child {
     margin-top: 0;
+}
+.btnListSubmenu {
+  margin-top: 22px;
+}
+.headListSubmenu {
+  margin-left: 15px;
 }
