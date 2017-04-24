@@ -10,7 +10,7 @@ angular.module('app')
             getOne: function(id) {
                 return $http.get(`/news/${id}`);
             },
-            update: function(id, submenu) {
+            update: function(id, news) {
                 return $http.put(`/news/${id}`, news);
             },
             delete: function(id) {

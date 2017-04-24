@@ -99,6 +99,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('user.edit-news', {
+                url: '/news/:id',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/edit-news.html',
+                        controller: 'newsController'
+                    }
+                }
+            })
             .state('user.calendar', {
                 url: '/calendar',
                 views: {

@@ -36,10 +36,10 @@
                 <td class="">
                   <md-button class="md-fab md-mini" aria-label="Eat cake">
                     <a ng-href="/#!/user/news/{{news._id}}">
-                      <md-icon><i class="material-icons md-18">create</i></md-icon>
+                      <md-icon><i class="material-icons md-18">create</i></md-icon></a>
                   </md-button>
                   <md-button class="md-fab md-mini" aria-label="Eat cake">
-                    <md-icon><i class="material-icons">delete</i></md-icon>
+                    <md-icon><i class="material-icons" ng-click='deleteNews(news._id)'>delete</i></md-icon>
                   </md-button>
                 </td>
               </tr>
