@@ -1,1 +1,52 @@
-Gestion de l'admin
+<div layout="column" layout-align='center' flex="66">
+  <form method="post" ng-submit="addNews()">
+    <div ng-cloak>
+
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Nouvelle actualité</label>
+        <input ng-model="newNews.title">
+      </md-input-container>
+    </div>
+    <textarea ui-tinymce="tinymceOptions" ng-model="newNews.content"></textarea>
+    <button class="btn" type="submit">Valider</button>
+    <div class="inset">
+      <md-switch ng-model="newNews.isOnline" aria-label="status">
+        En ligne
+      </md-switch>
+    </div>
+  </form>
+</div>
+<div layout="column">
+  <div ng-cloak>
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Vos Actualités">
+          <md-content class="md-padding">
+            <table>
+              <tr>
+                <th>Date de création</th>
+                <th>Titre de l'actualité</th>
+                <th>commandes</th>
+              </tr>
+
+              <tr class="listNews" ng-repeat="news in listNews | orderBy: '-date'">
+                <td class="">{{news.date | date : 'medium'}}</td>
+                <td class="">{{news.title}}</td>
+
+                <td class="">
+                  <md-button class="md-fab md-mini" aria-label="Eat cake">
+                    <a ng-href="/#!/user/news/{{news._id}}">
+                      <md-icon><i class="material-icons md-18">create</i></md-icon>
+                  </md-button>
+                  <md-button class="md-fab md-mini" aria-label="Eat cake">
+                    <md-icon><i class="material-icons">delete</i></md-icon>
+                  </md-button>
+                </td>
+              </tr>
+            </table>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+  </div>
+</div>

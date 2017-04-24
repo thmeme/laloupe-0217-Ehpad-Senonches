@@ -95,7 +95,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/news.html',
-                        controller: 'NewsController'
+                        controller: 'newsController'
                     }
                 }
             })
