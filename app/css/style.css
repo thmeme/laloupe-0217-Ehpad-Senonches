@@ -14,7 +14,13 @@ nav {
 .txtAeraSubmenu {
     width: 80%;
 }
-
+.columnAdmin {
+  min-width: 700px;
+}
+.SwitchvalidSubmenu {
+  vertical-align:middle;
+  display: inline-block;
+}
 table {
     border-collapse: collapse;
 }

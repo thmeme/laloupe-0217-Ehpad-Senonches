@@ -1,97 +1,95 @@
-<div layout="column" layout-align='center' flex="66">
-    <form method="post" ng-submit="addSubmenu()">
-        <div ng-cloak>
-            <md-input-container style="margin-right: 10px;">
-                <label>Menu</label>
-                <md-select ng-model="newSubmenu.menu">
-                    <md-option ng-repeat="menu in menus" value="{{menu}}">{{menu}}</md-option>
-                </md-select>
+<div layout="column" layout-align-gt-sm="space-around center">
+    <div class="columnAdmin">
+        <form method="post" ng-submit="addSubmenu()">
+            <div ng-cloak>
+                <md-input-container>
+                    <label>Menu</label>
+                    <md-select ng-model="newSubmenu.menu">
+                        <md-option ng-repeat="menu in menus" value="{{menu}}">{{menu}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Nouveau sous-menu</label>
+                <input ng-model="newSubmenu.title">
             </md-input-container>
+            <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content"></textarea>
+            <div >
+                <div class="inset SwitchvalidSubmenu">
+                    <md-switch ng-model="newSubmenu.isOnline" aria-label="status">
+                        En ligne
+                    </md-switch>
+                </div>
+                <md-button class="md-raised" type="submit">Valider</md-button>
+            </div>
+
+        </form>
+    </div>
+    <div class="columnAdmin">
+        <div ng-cloak>
+            <md-content>
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="Votre admission">
+                        <md-content class="md-padding">
+                            <h1 class="md-display-2">Votre admission</h1>
+                            <table>
+                                <tr>
+                                    <th>Date de création</th>
+                                    <th>Titre du sous-menu</th>
+                                    <th>commandes</th>
+                                </tr>
+                                <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'} | orderBy: '-date'">
+                                    <td class="">{{Submenu.date | date : 'medium'}}</td>
+                                    <td class="">{{Submenu.title}}</td>
+                                    <td class="">
+                                        <md-button class="md-fab md-mini" aria-label="Eat cake">
+                                            <a ng-href="/#!/user/submenu/{{Submenu._id}}">
+                                                <md-icon><i class="material-icons md-18">create</i></md-icon>
+                                        </md-button>
+                                        <md-button class="md-fab md-mini" aria-label="Eat cake">
+                                            <md-icon><i class="material-icons">delete</i></md-icon>
+                                        </md-button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Votre séjour">
+                        <md-content class="md-padding">
+                            <h1 class="md-display-2">Votre séjour</h1>
+                            <table>
+                                <tr>
+                                    <th>Date de création</th>
+                                    <th>Titre du sous-menu</th>
+                                    <th>commandes</th>
+                                </tr>
+                                <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre séjour'} | orderBy: '-date'">
+                                    <td class="">{{Submenu.date | date : 'medium'}}</td>
+                                    <td class="">{{Submenu.title}}</td>
+                                    <td class="">{{}}</tb>
+                                </tr>
+                            </table>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Vos droits">
+                        <md-content class="md-padding">
+                            <h1 class="md-display-2">Vos droits</h1>
+                            <table>
+                                <tr>
+                                    <th>Date de création</th>
+                                    <th>Titre du sous-menu</th>
+                                    <th>commandes</th>
+                                </tr>
+                                <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'} | orderBy: '-date'">
+                                    <td class="">{{Submenu.date | date : 'medium'}}</td>
+                                    <td class="">{{Submenu.title}}</td>
+                                    <td class="">{{}}</tb>
+                                </tr>
+                            </table>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
         </div>
-        <md-input-container class="md-block" flex-gt-sm>
-            <label>Nouveau sous-menu</label>
-            <input ng-model="newSubmenu.title">
-          </md-input-container>
-
-        <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content"></textarea>
-        <button class="btn" type="submit">Valider</button>
-        <div class="inset">
-            <md-switch ng-model="newSubmenu.isOnline" aria-label="status">
-                En ligne
-            </md-switch>
-        </div>
-    </form>
-</div>
-<div layout="column">
-    <div ng-cloak>
-        <md-content>
-            <md-tabs md-dynamic-height md-border-bottom>
-                <md-tab label="Votre admission">
-                    <md-content class="md-padding">
-                        <h1 class="md-display-2">Votre admission</h1>
-                        <table>
-                            <tr>
-                                <th>Date de création</th>
-                                <th>Titre du sous-menu</th>
-                                <th>commandes</th>
-                            </tr>
-
-                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'} | orderBy: '-date'">
-                                <td class="">{{Submenu.date | date : 'medium'}}</td>
-                                <td class="">{{Submenu.title}}</td>
-
-                                <td class="">
-                                    <md-button class="md-fab md-mini" aria-label="Eat cake">
-                                        <a ng-href="/#!/user/submenu/{{Submenu._id}}"><md-icon><i class="material-icons md-18">create</i></md-icon>
-                                    </md-button>
-                                    <md-button class="md-fab md-mini" aria-label="Eat cake">
-                                        <md-icon><i class="material-icons">delete</i></md-icon>
-                                    </md-button>
-                                </td>
-
-                            </tr>
-                        </table>
-                    </md-content>
-                </md-tab>
-                <md-tab label="Votre séjour">
-                    <md-content class="md-padding">
-                        <h1 class="md-display-2">Votre séjour</h1>
-                        <table>
-                            <tr>
-                                <th>Date de création</th>
-                                <th>Titre du sous-menu</th>
-                                <th>commandes</th>
-
-                            </tr>
-
-                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre séjour'} | orderBy: '-date'">
-                                <td class="">{{Submenu.date | date : 'medium'}}</td>
-                                <td class="">{{Submenu.title}}</td>
-                                <td class="">{{}}</tb>
-                            </tr>
-                        </table>
-                    </md-content>
-                </md-tab>
-                <md-tab label="Vos droits">
-                    <md-content class="md-padding">
-                        <h1 class="md-display-2">Vos droits</h1>
-                        <table>
-                            <tr>
-                                <th>Date de création</th>
-                                <th>Titre du sous-menu</th>
-                                <th>commandes</th>
-
-                            </tr>
-
-                            <tr class="listSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'} | orderBy: '-date'">
-                                <td class="">{{Submenu.date | date : 'medium'}}</td>
-                                <td class="">{{Submenu.title}}</td>
-                                <td class="">{{}}</tb>
-                            </tr>
-                        </table>
-                    </md-content>
-                </md-tab>
-            </md-tabs>
-        </md-content>
     </div>
 </div>
