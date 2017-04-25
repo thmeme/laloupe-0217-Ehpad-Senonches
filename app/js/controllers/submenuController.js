@@ -71,11 +71,15 @@ angular.module('app')
                 // put logic here for keypress and cut/paste changes
             },
             inline: false,
-            skin: 'ehpad1',
+            skin: 'ehpad2',
             height: 300,
             theme: 'modern',
-            plugins: 'advlist autolink lists link image charmap code table',
-            toolbar: 'undo redo | insert | bold italic | alignleft aligncenter alignright | code | preview media | textcolor backcolor emoticons'
+            plugins: 'advlist autolink lists colorpicker link textcolor image charmap code table',
+            toolbar1: 'undo redo | insert | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | preview media | forecolor backcolor | link image',
+            content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    // '//www.tinymce.com/css/codepen.min.css'
+  ]
         };
 
 

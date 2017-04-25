@@ -9,7 +9,10 @@
                 </md-select>
             </md-input-container>
         </div>
-        <input type="text" class="form-control" ng-model='submenu.title'>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Nouveau sous-menu</label>
+            <input ng-model="submenu.title">
+        </md-input-container>
         <textarea ui-tinymce="tinymceOptions" ng-model="submenu.content"></textarea>
         <div>
             <div class="inset SwitchvalidSubmenu">

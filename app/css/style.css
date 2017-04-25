@@ -8,6 +8,11 @@ nav {
     background-color: #be0d55;
 }
 
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+    background-color: #38b8c8;
+    color: rgba(255, 255, 255, 0.87);
+}
+
 
 /*Submenu*/
 
@@ -15,21 +20,13 @@ nav {
     width: 80%;
 }
 
-/*.columnAdmin {
-    min-width: 700px;
-}*/
+.columnAdmin {
+    width: 70%;
+}
 
 .SwitchvalidSubmenu {
     vertical-align: middle;
     display: inline-block;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-td, th {
-    border: 1px solid black;
 }
 
 .tabsSubmenu md-content {
@@ -41,6 +38,48 @@ td, th {
     border: 1px solid #e1e1e1;
 }
 
+md-tabs .md-tab.md-active {
+    color: #4c959e;
+}
+
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+    color: #dcf84e;
+    background: #dcf84e;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: #4c959e;
+}
+md-input-container.md-input-focused {
+  color: #4c959e;
+  border-color: #4c959e;
+
+}
+md-input-container:not(.md-input-invalid).md-input-focused label {
+    color: #4c959e;
+}
+md-select-menu md-content md-option[selected] {
+  color: #4c959e;
+}
+.md-button.md-raised {
+    color: white;
+    background-color: #4c959e;
+}
+.md-button.md-raised:not([disabled]):hover {
+    background-color: #4c959e;
+    color: black;
+}
+md-select-menu md-content md-option[selected]:focus {
+    color: #4c959e;
+}
+md-select:not([disabled]):focus .md-select-value {
+  border-bottom-color: #4c959e;
+}
+
+.md-button.md-default-theme.md-primary, .md-button.md-primary {
+    color: #4c959e;
+}
+
 .tabsSubmenu md-content md-tabs md-tabs-wrapper {
     background: white;
 }
@@ -48,9 +87,11 @@ td, th {
 .tabsSubmenu md-content h1:first-child {
     margin-top: 0;
 }
+
 .btnListSubmenu {
-  margin-top: 22px;
+    margin-top: 22px;
 }
+
 .headListSubmenu {
-  margin-left: 15px;
+    margin-left: 15px;
 }
