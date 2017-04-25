@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('newsController', function($scope, $stateParams, $state, CurrentUser, newsService) {
+  .controller('newsController', function($scope, $stateParams, $state, $mdDialog, CurrentUser, newsService) {
       $scope.user = CurrentUser.user();
 
       $scope.idNews = $stateParams.id;
@@ -51,12 +51,22 @@ angular.module('app')
         plugins: 'advlist autolink lists link image charmap code table',
         toolbar: 'undo redo | insert | bold italic | alignleft aligncenter alignright | code | preview media | textcolor backcolor emoticons'
       };
-      $scope.deleteNews = function(id) {
-        newsService.delete(id).then(function(res) {
-          loadAllNews();
+
+
+      $scope.showConfirm = function(ev, id) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+          .title('Voulez vous supprimer cet article ?')
+          .textContent('Une fois supprimé, celui-ci ne sera pas récupérable')
+          .ariaLabel('Lucky day')
+          .targetEvent(ev)
+          .ok('OUI')
+          .cancel('NON');
+
+        $mdDialog.show(confirm).then(function() {
+          newsService.delete(id).then(function(res) {
+            loadAllNews();
+          });
         });
       };
-      $scope.redirect = function() {
-      $state.go('user.news');
-  }
-});
+    });

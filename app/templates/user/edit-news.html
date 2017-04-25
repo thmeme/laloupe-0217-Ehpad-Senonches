@@ -1,12 +1,6 @@
 <div>
   <form method="post" ng-submit="updateNews()">
     <div ng-cloak>
-      <md-input-container style="margin-right: 10px;">
-        <label>Menu</label>
-        <md-select ng-model="news.news">
-          <md-option ng-repeat="news in news" value="{{news}}">{{news}}</md-option>
-        </md-select>
-      </md-input-container>
     </div>
     <input type="text" class="form-control" ng-model='news.title'>
     <textarea ui-tinymce="tinymceOptions" ng-model="news.content"></textarea>
