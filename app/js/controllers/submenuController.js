@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('SubmenuController', function($scope, $stateParams, $window, CurrentUser, SubmenuService) {
+    .controller('SubmenuController', function($scope, $stateParams, $window, $mdDialog, CurrentUser, SubmenuService) {
         $scope.user = CurrentUser.user();
         $scope.menus = [
             "Votre admission",
@@ -45,16 +45,25 @@ angular.module('app')
                 console.log('update', res);
             });
         };
-        $scope.deleteSubmenu = function(id) {
-            var result = $window.confirm("Ếtes vous sûr de vouloir supprimer ce sous-menu ?");
-            if (result === true) {
+
+        $scope.customFullscreen = false;
+        $scope.showConfirm = function(ev, id) {
+            console.log('ev', ev);
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.confirm()
+                .title('Voulez-vous supprimer ce sous-menus ?')
+                .textContent('Tous les éléments seront définitivement perdus')
+                .ariaLabel('Lucky day')
+                .targetEvent(ev)
+                .ok('Supprimer')
+                .cancel('Annuler');
+
+            $mdDialog.show(confirm).then(function() {
                 SubmenuService.delete(id).then(function(res) {
                     console.log('delete', res);
                     loadAllSubmenus();
                 });
-            }
-            loadAllSubmenus();
-
+            });
         };
 
         $scope.tinymceOptions = {
@@ -68,6 +77,8 @@ angular.module('app')
             plugins: 'advlist autolink lists link image charmap code table',
             toolbar: 'undo redo | insert | bold italic | alignleft aligncenter alignright | code | preview media | textcolor backcolor emoticons'
         };
+
+
 
 
     });

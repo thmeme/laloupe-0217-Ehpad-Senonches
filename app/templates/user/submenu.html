@@ -22,7 +22,6 @@
                 </div>
                 <md-button class="md-raised" type="submit">Valider</md-button>
             </div>
-
         </form>
     </div>
     <div class="columnAdmin">
@@ -45,7 +44,7 @@
                                         <md-icon><i class="material-icons md-18">create</i></md-icon>
                                     </a>
                                 </md-button>
-                                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" title="Supprimer" ng-click="deleteSubmenu(Submenu._id)">
+                                <md-button class="md-fab md-mini btnListSubmenu" ng-click="showConfirm($event, Submenu._id)">
                                     <md-icon><i class="material-icons">delete</i></md-icon>
                                 </md-button>
                                 <md-divider ng-if="!$last"></md-divider>
@@ -69,7 +68,7 @@
                                             <md-icon><i class="material-icons md-18">create</i></md-icon>
                                         </a>
                                     </md-button>
-                                    <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-click="deleteSubmenu(Submenu._id)">
+                                    <md-button class="md-fab md-mini btnListSubmenu" ng-click="showConfirm($event, Submenu._id)">
                                         <md-icon><i class="material-icons">delete</i></md-icon>
                                     </md-button>
                                     <md-divider ng-if="!$last"></md-divider>
@@ -79,7 +78,6 @@
                     </md-tab>
                     <md-tab label="Vos droits">
                         <md-content class="md-padding">
-
                             <md-list>
                                 <h2>Vos droits</h2>
                                 <md-list-item class="md-3-line" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'} | orderBy: '-date'">
@@ -95,7 +93,7 @@
                                             <md-icon><i class="material-icons md-18">create</i></md-icon>
                                         </a>
                                     </md-button>
-                                    <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-click="deleteSubmenu(Submenu._id)">
+                                    <md-button class="md-fab md-mini btnListSubmenu" ng-click="showConfirm($event, Submenu._id)">
                                         <md-icon><i class="material-icons">delete</i></md-icon>
                                     </md-button>
                                     <md-divider ng-if="!$last"></md-divider>
