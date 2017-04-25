@@ -95,7 +95,16 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/news.html',
-                        controller: 'NewsController'
+                        controller: 'newsController'
+                    }
+                }
+            })
+            .state('user.edit-news', {
+                url: '/news/:id',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/edit-news.html',
+                        controller: 'newsController'
                     }
                 }
             })
