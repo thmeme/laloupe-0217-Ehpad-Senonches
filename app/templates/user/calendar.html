@@ -1,1 +1,47 @@
-Gestion de l'admin
+<md-content layout-padding>
+  <form>
+
+    <div ng-repeat="evenement in evenements">
+      <p> {{ evenement.myDate }} </p>
+      <p> {{ evenement.myTitle }} </p>
+      <p> {{ evenement.myContent}} </p>
+    </div>
+
+    <div layout-gt-xs="row">
+      <div flex-gt-xs>
+        <md-min-datepicker ng-model="myDate"></md-datepicker>
+      </div>
+    </div>
+
+    <div layout-gt-xs="row">
+      <div flex-gt-xs>
+        <h4>Opening the calendar when the input is focused</h4>
+        <md-datepicker ng-model="myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+      </div>
+
+
+      <md-content layout-gt-sm="row" layout-padding>
+        <div>
+          <md-input-container>
+            <label>Title</label>
+            <input ng-model="myTitle">
+          </md-input-container>
+        </div>
+      </md-content>
+
+      <md-content layout-padding>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Ecrire votre actualitée ici!</label>
+            <input ng-model="myContent">
+            <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="addEvenement()">
+              save
+            </md-button>
+          </md-input-container>
+        </div>
+
+    </div>
+  </form>
+  </md-content>
+
+</md-content>
