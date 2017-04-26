@@ -109,7 +109,7 @@ angular.module('app')
                 }
             })
             .state('user.calendar', {
-                url: '/calendar',
+                url: '/evenements',
                 views: {
                     'content@': {
                         templateUrl: 'user/calendar.html',
