@@ -1,5 +1,6 @@
 angular.module('app')
-    .controller('SubmenuController', function($scope, $stateParams, $window, $mdDialog, CurrentUser, SubmenuService) {
+    .controller('SubmenuController', function($scope, $state, $stateParams, $window, $mdDialog, CurrentUser, SubmenuService) {
+        $scope.theme = 'ehpad';
         $scope.user = CurrentUser.user();
         $scope.menus = [
             "Votre admission",
@@ -77,11 +78,13 @@ angular.module('app')
             plugins: 'advlist autolink lists colorpicker link textcolor image charmap code table',
             toolbar1: 'undo redo | insert | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | preview media | forecolor backcolor | link image',
             content_css: [
-    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-    // '//www.tinymce.com/css/codepen.min.css'
-  ]
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                // '//www.tinymce.com/css/codepen.min.css'
+            ]
         };
-
+        $scope.redirect = function() {
+          $state.go('user.submenu');
+        };
 
 
 
