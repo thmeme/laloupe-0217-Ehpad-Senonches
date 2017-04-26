@@ -5,7 +5,7 @@ import evenement from './evenement.js';
 const evenementSchema = new mongoose.Schema({
       date: {
         type: Date,
-
+        default: Date.default
       },
       title: {
         type: String,

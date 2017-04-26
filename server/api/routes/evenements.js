@@ -14,9 +14,9 @@ module.exports = (app) => {
 
     // router.get('/:id', Auth.hasAuthorization, evenement.findById);
 
-    router.get('/', Auth.hasAuthorization, evenement.findAll);
-
     router.post('/', Auth.hasAuthorization, evenement.create);
+
+    router.get('/', Auth.hasAuthorization, evenement.findAll);
 
     // router.put('/:id', Auth.hasAuthorization, evenement.update);
 

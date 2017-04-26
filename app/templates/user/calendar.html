@@ -1,30 +1,16 @@
 <md-content layout-padding>
-  <form>
-
-    <div ng-repeat="evenement in evenements">
-      <p> {{ evenement.myDate }} </p>
-      <p> {{ evenement.myTitle }} </p>
-      <p> {{ evenement.myContent}} </p>
-    </div>
-
-    <div layout-gt-xs="row">
-      <div flex-gt-xs>
-        <md-min-datepicker ng-model="myDate"></md-datepicker>
-      </div>
-    </div>
-
+    <form>
     <div layout-gt-xs="row">
       <div flex-gt-xs>
         <h4>Opening the calendar when the input is focused</h4>
         <md-datepicker ng-model="myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
       </div>
 
-
       <md-content layout-gt-sm="row" layout-padding>
         <div>
           <md-input-container>
             <label>Title</label>
-            <input ng-model="myTitle">
+            <input ng-model="title">
           </md-input-container>
         </div>
       </md-content>
@@ -33,15 +19,42 @@
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
             <label>Ecrire votre actualitée ici!</label>
-            <input ng-model="myContent">
+            <input ng-model="content">
             <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="addEvenement()">
               save
             </md-button>
           </md-input-container>
         </div>
-
+      </md-content>
     </div>
   </form>
-  </md-content>
+  <!-- <div ng-repeat="evenement in evenements">
+    <p> {{ evenement.date }} </p>
+    <p> {{ evenement.title }} </p>
+    <p> {{ evenement.content}} </p>
+  </div> -->
+  <md-content class="md-padding">
+      <h1 class="md-display-2">Vos évènements</h1>
+      <table>
+          <tr>
+              <th>Date de création</th>
+              <th>Titre de l'évènement</th>
+              <th>commandes</th>
 
+          </tr>
+
+          <tr class="listSubmenu" ng-repeat="evenement in evenements">
+              <td class="">{{evenement.date | date : 'medium'}}</td>
+              <td class="">{{evenement.title}}</td>
+              <td class="">
+                  <md-button class="md-fab md-mini" aria-label="Eat cake">
+                      <a ng-href="/#!/user/submenu/{{Submenu._id}}"><md-icon><i class="material-icons md-18">create</i></md-icon>
+                  </md-button>
+                  <md-button class="md-fab md-mini" aria-label="Eat cake">
+                      <md-icon><i class="material-icons">delete</i></md-icon>
+                  </md-button>
+              </td>
+          </tr>
+      </table>
+  </md-content>
 </md-content>
