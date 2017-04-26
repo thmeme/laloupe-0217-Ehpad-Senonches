@@ -34,12 +34,14 @@
                 <td class="">{{news.title}}</td>
 
                 <td class="">
+                  <md-button class="md-fab md-mini btnList" ng-if="news.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
+                      <md-icon><i class="material-icons">done</i></md-icon>
+                  </md-button>
                   <md-button class="md-fab md-mini" aria-label="Eat cake">
                     <a ng-href="/#!/user/news/{{news._id}}">
-                      <md-icon><i class="material-icons md-18">create</i></md-icon></a>
+                      <md-icon><i class="material-icons md-18" title="Editer">create</i></md-icon></a>
                   </md-button>
-
-                    <md-button class="md-fab md-mini" ng-click="showConfirm($event, news._id)"><md-icon><i class="material-icons md-18">delete</i></md-icon></md-button>
+                    <md-button class="md-fab md-mini" ng-click="showConfirm($event, news._id)"><md-icon><i class="material-icons md-18" title="Supprimer">delete</i></md-icon></md-button>
 
                 </td>
               </tr>
