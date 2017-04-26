@@ -11,12 +11,16 @@ angular.module('app')
         $scope.evenements = [];
         let evenement = {
           date: $scope.myDate +'z',
+          start: $scope.start,
+          end: $scope.end,
           title: $scope.title,
           content: $scope.content
         };
         CalendarService.create(evenement).then(function(res) {
           console.log(evenement, res);
           $scope.myDate = '';
+          $scope.start = '';
+          $scope.end = '';
           $scope.title = '';
           $scope.content = '';
         }, function(err) {

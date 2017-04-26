@@ -1,60 +1,56 @@
 <md-content layout-padding>
-    <form>
+  <form>
     <div layout-gt-xs="row">
       <div flex-gt-xs>
-        <h4>Opening the calendar when the input is focused</h4>
-        <md-datepicker ng-model="myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-      </div>
+        <h3>Création d'un évènement :</h3>
+        <md-input-container>
+          <p><label>Title</label>
+            <input ng-model="title"></p>
+        </md-input-container>
 
-      <md-content layout-gt-sm="row" layout-padding>
-        <div>
-          <md-input-container>
-            <label>Title</label>
-            <input ng-model="title">
-          </md-input-container>
-        </div>
-      </md-content>
+        <p>L'évènement aura lieu le
+          <md-datepicker ng-model="myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker> .</p>
+        <p>L'évènement débute à <input ng-model="start" type="time" name="myTime2" class="time-mm-hh" /> et se termine à <input ng-model="end" type="time" name="myTime2" class="time-mm-hh" />.</p>
 
-      <md-content layout-padding>
-        <div layout-gt-sm="row">
-          <md-input-container class="md-block" flex-gt-sm>
+        <md-content layout-gt-sm="row" layout-padding>
+          <md-input-container class="example-full-width">
             <label>Ecrire votre actualitée ici!</label>
-            <input ng-model="content">
-            <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="addEvenement()">
-              save
-            </md-button>
+            <textarea ng-model="content"></textarea>
           </md-input-container>
-        </div>
-      </md-content>
+        </md-content>
+
+        <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="addEvenement()">save</md-button>
+      </div>
     </div>
   </form>
-  <!-- <div ng-repeat="evenement in evenements">
-    <p> {{ evenement.date }} </p>
-    <p> {{ evenement.title }} </p>
-    <p> {{ evenement.content}} </p>
-  </div> -->
+
   <md-content class="md-padding">
-      <h1 class="md-display-2">Vos évènements</h1>
-      <table>
-          <tr>
-              <th>Date de création</th>
-              <th>Titre de l'évènement</th>
-              <th>commandes</th>
+    <h1 class="md-display-2">Vos évènements</h1>
+    <table>
+      <tr>
+        <th>Date de l'évènement</th>
+        <th>Titre de l'évènement</th>
+        <th>Heure du début</th>
+        <th>Heure de fin</th>
+        <th>commandes</th>
 
-          </tr>
+      </tr>
 
-          <tr class="listSubmenu" ng-repeat="evenement in evenements">
-              <td class="">{{evenement.date | date : 'medium'}}</td>
-              <td class="">{{evenement.title}}</td>
-              <td class="">
-                  <md-button class="md-fab md-mini" aria-label="Eat cake">
-                      <a ng-href="/#!/user/submenu/{{Submenu._id}}"><md-icon><i class="material-icons md-18">create</i></md-icon>
-                  </md-button>
-                  <md-button class="md-fab md-mini" aria-label="Eat cake">
-                      <md-icon><i class="material-icons">delete</i></md-icon>
-                  </md-button>
-              </td>
-          </tr>
-      </table>
+      <tr class="listSubmenu" ng-repeat="evenement in evenements | orderBy: '-date'">
+        <td class="">{{evenement.date | date : 'mediumDate'}}</td>
+        <td class="">{{evenement.title}}</td>
+        <td class="">{{evenement.start | date: 'shortTime'}}</td>
+        <td class="">{{evenement.end | date: 'shortTime'}}</td>
+        <td class="">
+          <md-button class="md-fab md-mini" aria-label="Eat cake">
+            <a ng-href="/#!/user/submenu/{{Submenu._id}}">
+              <md-icon><i class="material-icons md-18">create</i></md-icon>
+          </md-button>
+          <md-button class="md-fab md-mini" aria-label="Eat cake">
+            <md-icon><i class="material-icons">delete</i></md-icon>
+          </md-button>
+        </td>
+      </tr>
+    </table>
   </md-content>
 </md-content>

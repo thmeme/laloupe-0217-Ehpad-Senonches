@@ -7,6 +7,12 @@ const evenementSchema = new mongoose.Schema({
         type: Date,
         default: Date.default
       },
+      start: {
+        type: String
+      },
+      end: {
+        type: String
+      },
       title: {
         type: String,
         require: true
