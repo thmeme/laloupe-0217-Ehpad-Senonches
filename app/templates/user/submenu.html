@@ -1,5 +1,4 @@
 <div layout="column" layout layout-align="space-around center">
-
     <div class="columnAdmin">
         <form method="post" ng-submit="addSubmenu()">
             <div ng-cloak>
@@ -33,6 +32,7 @@
                     <md-tab label="Votre admission">
                         <md-list>
                             <h2 class="headListSubmenu">Votre admission</h2>
+
                             <md-list-item class="md-3-line" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'} | orderBy: '-date'">
                                 <div class="md-list-item-text">
                                     <h4>Créé le {{Submenu.date | date : 'medium'}}</h4>
@@ -51,6 +51,7 @@
                                 </md-button>
                                 <md-divider ng-if="!$last"></md-divider>
                             </md-list-item>
+
                         </md-list>
                     </md-tab>
                     <md-tab label="Votre séjour">
