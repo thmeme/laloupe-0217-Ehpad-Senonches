@@ -1,1 +1,56 @@
-Gestion de l'admin
+<md-content layout-padding>
+  <form>
+    <div layout-gt-xs="row">
+      <div flex-gt-xs>
+        <h3>Création d'un évènement :</h3>
+        <md-input-container>
+          <p><label>Title</label>
+            <input ng-model="title"></p>
+        </md-input-container>
+
+        <p>L'évènement aura lieu le
+          <md-datepicker ng-model="myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker> .</p>
+        <p>L'évènement débute à <input ng-model="start" type="time" name="myTime2" class="time-mm-hh" /> et se termine à <input ng-model="end" type="time" name="myTime2" class="time-mm-hh" />.</p>
+
+        <md-content layout-gt-sm="row" layout-padding>
+          <md-input-container class="example-full-width">
+            <label>Ecrire votre actualitée ici!</label>
+            <textarea ng-model="content"></textarea>
+          </md-input-container>
+        </md-content>
+
+        <md-button class="md-fab md-mini" aria-label="Eat cake" ng-click="addEvenement()">save</md-button>
+      </div>
+    </div>
+  </form>
+
+  <md-content class="md-padding">
+    <h1 class="md-display-2">Vos évènements</h1>
+    <table>
+      <tr>
+        <th>Date de l'évènement</th>
+        <th>Titre de l'évènement</th>
+        <th>Heure du début</th>
+        <th>Heure de fin</th>
+        <th>commandes</th>
+
+      </tr>
+
+      <tr class="listSubmenu" ng-repeat="evenement in evenements | orderBy: '-date'">
+        <td class="">{{evenement.date | date : 'mediumDate'}}</td>
+        <td class="">{{evenement.title}}</td>
+        <td class="">{{evenement.start | date: 'shortTime'}}</td>
+        <td class="">{{evenement.end | date: 'shortTime'}}</td>
+        <td class="">
+          <md-button class="md-fab md-mini" aria-label="Eat cake">
+            <a ng-href="/#!/user/submenu/{{Submenu._id}}">
+              <md-icon><i class="material-icons md-18">create</i></md-icon>
+          </md-button>
+          <md-button class="md-fab md-mini" aria-label="Eat cake">
+            <md-icon><i class="material-icons">delete</i></md-icon>
+          </md-button>
+        </td>
+      </tr>
+    </table>
+  </md-content>
+</md-content>
