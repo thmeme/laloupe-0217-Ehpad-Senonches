@@ -16,6 +16,9 @@ module.exports = function(lineman) {
                 "vendor/js/angular-ui-router.js",
                 "vendor/js/tinymce.js",
                 "vendor/js/tinymce.angular.js",
+                "vendor/js/tinymce.angular.js",
+                "vendor/js/ng-file-upload-shim.js",
+                "vendor/js/ng-file-upload.js",
                 "vendor/js/**/*.js"
             ],
             app: [
