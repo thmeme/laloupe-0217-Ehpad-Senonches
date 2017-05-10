@@ -6,29 +6,36 @@ import bodyParser from 'body-parser';
 import methodOverride from 'method-override';
 import db from './db';
 import api from './api';
+import path from 'path';
 
 var app = express();
+
+/* Config Upload */
+let publicDir = path.join(__dirname, '../public/');
+app.use(express.static(publicDir));
+/* End Config upload */
+
 app.server = http.createServer(app);
 
 app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({
-    'extended': 'true'
+  'extended': 'true'
 }));
 app.use(bodyParser.json());
 app.use(bodyParser.json({
-    type: 'application/vnd.api+json'
+  type: 'application/vnd.api+json'
 }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 
 db(() => {
-    app.use('/', api(app));
-    process.on('SIGINT', () => {
-        console.log("\nStopping...");
-        process.exit();
-    });
-    app.server.listen(process.env.PORT || 3000);
-    console.log(`Server started on port ${app.server.address().port}`);
+  app.use('/', api(app));
+  process.on('SIGINT', () => {
+    console.log("\nStopping...");
+    process.exit();
+  });
+  app.server.listen(process.env.PORT || 3000);
+  console.log(`Server started on port ${app.server.address().port}`);
 });
 
 export default app;
