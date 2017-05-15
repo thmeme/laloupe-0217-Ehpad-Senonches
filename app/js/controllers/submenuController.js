@@ -107,12 +107,24 @@ angular.module('app')
       });
     }
 
+
+
     $scope.uploadImage = function() {
       console.log('image:', $scope.image);
       if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
-        uploadImage($scope.image.file); //call upload function
+        uploadImage($scope.image.file);
+         //call upload function
+         console.log('res add', $scope.newImage.title);
       }
     };
+
+    function loadimages() {
+      UploadService.getAll().then(function(res) {
+        console.log('load', res);
+      });
+    }
+    loadimages();
+
 
     $scope.modalShown = false;
     $scope.toggleModal = function() {

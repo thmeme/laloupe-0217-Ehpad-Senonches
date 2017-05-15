@@ -10,5 +10,7 @@ module.exports = (app) => {
 
   router.post('/image/', Auth.hasAuthorization, image.create);
 
+  router.get('/', Auth.hasAuthorization, image.getAll);
+
   app.use('/upload', router);
 };

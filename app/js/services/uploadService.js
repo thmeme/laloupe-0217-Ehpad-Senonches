@@ -10,13 +10,8 @@ angular.module('app')
           }
         });
       },
-      getAll: function(file) {
+      getAll: function() {
         return $http.get('/upload');
       }
-
-
     };
-
-
-
   });

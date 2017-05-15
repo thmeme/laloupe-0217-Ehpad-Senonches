@@ -18,7 +18,8 @@
     "method-override": "",
     "mongoose": "",
     "morgan": "",
-    "multer": "^1.3.0"
+    "multer": "^1.3.0",
+    "node-dir": "^0.1.16"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
