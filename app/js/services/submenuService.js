@@ -8,13 +8,13 @@ angular.module('app')
                 return $http.get('/submenus');
             },
             getOne: function(id) {
-                return $http.get('/submenus/${id}');
+                return $http.get(`/submenus/${id}`);
             },
             update: function(id, submenu) {
-                return $http.put('/submenus/${id}', submenu);
+                return $http.put(`/submenus/${id}`, submenu);
             },
             delete: function(id) {
-                return $http.delete('/submenus/${id}');
+                return $http.delete(`/submenus/${id}`);
             }
         };
     });

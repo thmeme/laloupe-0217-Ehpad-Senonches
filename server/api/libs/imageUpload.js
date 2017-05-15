@@ -1,5 +1,11 @@
 import multer from 'multer';
 import path from 'path';
+import mongoose from 'mongoose';
+
+
+
+
+
 
 let imageDir = path.join(__dirname, '../../public/uploads/images/');
 /* Multer storage settings */
@@ -33,4 +39,5 @@ export default class Image {
       }
     });
   }
+
 }
