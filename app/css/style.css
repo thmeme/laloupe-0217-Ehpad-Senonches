@@ -1,166 +1,183 @@
 /*Navbar*/
 
 #sidenav-overlay {
-    z-index: 150
+  z-index: 150
 }
 
 nav {
-    background-color: #be0d55;
+  background-color: #be0d55;
 }
 
 md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
-    background-color: #38b8c8;
-    color: rgba(255, 255, 255, 0.87);
+  background-color: #38b8c8;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 
 /*Submenu*/
 
 .txtAeraSubmenu {
-    width: 80%;
+  width: 80%;
 }
 
 .columnAdmin {
-    width: 70%;
-    margin-top: 20px;
+  width: 70%;
+  margin-top: 20px;
 }
 
 .SwitchvalidSubmenu {
-    vertical-align: middle;
-    display: inline-block;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .tabsSubmenu md-content {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 .tabsSubmenu md-content md-tabs {
-    background: #f6f6f6;
-    border: 1px solid #e1e1e1;
+  background: #f6f6f6;
+  border: 1px solid #e1e1e1;
 }
 
 md-tabs .md-tab.md-active {
-    color: #4c959e;
+  color: #4c959e;
 }
 
 md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
-    color: #dcf84e;
-    background: #dcf84e;
+  color: #dcf84e;
+  background: #dcf84e;
 }
 
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
-    border-color: #4c959e;
+  border-color: #4c959e;
 }
+
 md-input-container.md-input-focused {
   color: #4c959e;
   border-color: #4c959e;
 }
 
-
 md-input-container:not(.md-input-invalid).md-input-focused label {
-    color: #4c959e;
+  color: #4c959e;
 }
+
 md-select-menu md-content md-option[selected] {
   color: #4c959e;
 }
+
 .md-button.md-raised {
-    color: white;
-    background-color: #4c959e;
+  color: white;
+  background-color: #4c959e;
 }
+
 .md-button.md-raised:not([disabled]):hover {
-    background-color: #4c959e;
-    color: black;
+  background-color: #4c959e;
+  color: black;
 }
+
 md-select-menu md-content md-option[selected]:focus {
-    color: #4c959e;
+  color: #4c959e;
 }
+
 md-select:not([disabled]):focus .md-select-value {
   border-bottom-color: #4c959e;
 }
+
 .md-button.md-raised {
-    color: #dcf84e;
-    background-color: #4c959e;
+  color: #dcf84e;
+  background-color: #4c959e;
 }
+
 .md-button.md-default-theme.md-primary, .md-button.md-primary {
-    color: #4c959e;
+  color: #4c959e;
 }
 
 .tabsSubmenu md-content md-tabs md-tabs-wrapper {
-    background: white;
+  background: white;
 }
 
 .tabsSubmenu md-content h1:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .btnListSubmenu {
-    margin-top: 22px;
+  margin-top: 22px;
 }
 
 .headListSubmenu {
-    margin-left: 15px;
+  margin-left: 15px;
 }
+
 .btnRetour {
   color: #dcf84e;
   float: right;
 }
 
+
 /*upload*/
+
 .thumb {
-    width: 24px;
-    height: 24px;
-    float: none;
-    position: relative;
-    top: 7px;
+  width: 24px;
+  height: 24px;
+  float: none;
+  position: relative;
+  top: 7px;
 }
 
 form .progress {
-    line-height: 15px;
-}
+  line-height: 15px;
 }
 
+
+}
 .progress {
-    display: inline-block;
-    width: 100px;
-    border: 3px groove #CCC;
+  display: inline-block;
+  width: 100px;
+  border: 3px groove #CCC;
 }
-
 .progress div {
-    font-size: smaller;
-    background: orange;
-    width: 0;
+  font-size: smaller;
+  background: orange;
+  width: 0;
+}
+.addImage {
+  border: 1px solid #e1e1e1;
+  background-color: #f6f6f6;
+  padding-left: 10px;
 }
 
 /*modal galerie images*/
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */
-  position:absolute;
-  z-index:9999;
-  top:0;
-  left:0;
-  width:100%;
-  height:200%;
-  background-color:#000000;
+
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background-color: #000000;
   opacity: 0.6;
 }
 .ng-modal-dialog {
   /* A centered div above the overlay with a box shadow. */
-  z-index:10000;
-  position: absolute;
-  width: 50%; /* Default */
 
+  z-index: 10000;
+  position: absolute;
+  width: 50%;
+  /* Default */
   /* Center the dialog */
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
-
   background-color: #fff;
   box-shadow: 4px 4px 80px #000;
 }
 .ng-modal-dialog-content {
-  padding:10px;
+  padding: 10px;
   text-align: left;
 }
 .ng-modal-close {
@@ -174,14 +191,23 @@ form .progress {
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
 }
+.btnCopy {
+  line-height: 0px !important;
+  margin-top: 20px;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
 
 .listImages {
-  width: 100px;
+  margin-top: 15px;
+  max-height: 58px;
 }
 .pagingGalerieImages {
-    margin-top: 1.5em;
+  margin-top: 1.5em;
 }
 .blocBtnGalerie {
-  border-top: 1px solid #009688;  
+  border-top: 1px solid #009688;
 }
+
 /*end modal*/
