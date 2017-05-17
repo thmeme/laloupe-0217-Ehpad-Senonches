@@ -131,7 +131,7 @@ form .progress {
     width: 0;
 }
 
-/*modal*/
+/*modal galerie images*/
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */
   position:absolute;
@@ -173,5 +173,15 @@ form .progress {
   display: inline-block;
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
+}
+
+.listImages {
+  width: 100px;
+}
+.pagingGalerieImages {
+    margin-top: 1.5em;
+}
+.blocBtnGalerie {
+  border-top: 1px solid #009688;  
 }
 /*end modal*/

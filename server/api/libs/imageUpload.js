@@ -39,10 +39,14 @@ export default class Image {
 
   getAll(req, res) {
     dir.files(imageDir, function(err, files) {
-    if (err) throw err;
-    console.log(files);
-
-});
+      if (err) throw err;
+      console.log(files);
+      let fileNames = files.map((file) => {
+        return {fileName: file.split('/').pop()};
+      });
+      console.log(fileNames);
+      res.json(fileNames);
+    });
   }
 
 }
