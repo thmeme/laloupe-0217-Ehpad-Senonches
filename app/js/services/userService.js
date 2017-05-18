@@ -12,6 +12,9 @@ angular.module('app')
             },
             delete: function(id) {
                 return $http.delete('/users/' + id);
+            },
+            create: function(user) {
+                return $http.post('/users/', user);
             }
         };
     });

@@ -1,5 +1,6 @@
 angular.module('app')
     .controller('SubmenuController', function($scope, $state, $stateParams, $window, $mdDialog, CurrentUser, SubmenuService) {
+
         $scope.theme = 'ehpad';
         $scope.user = CurrentUser.user();
         $scope.menus = [

@@ -8,13 +8,13 @@ angular.module('app')
                 return $http.get('/evenements');
             }
             // getOne: function(id) {
-            //     return $http.get('/evenements/${id}');
+            //     return $http.get('/evenements/' + id);
             // },
             // update: function(id, evenement) {
-            //     return $http.put('/evenements/${id}', evenement);
+            //     return $http.put('/evenements/' +id, evenement);
             // },
             // delete: function(id) {
-            //     return $http.delete('/evenements/${id}');
+            //     return $http.delete('/evenements/' +id);
             // }
         };
     });

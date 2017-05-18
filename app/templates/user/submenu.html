@@ -16,7 +16,7 @@
             <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content"></textarea>
             <div>
                 <div class="inset SwitchvalidSubmenu">
-                    <md-switch ng-model="newSubmenu.isOnline" aria-label="status">
+                    <md-switch ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
                         En ligne
                     </md-switch>
                 </div>
@@ -46,7 +46,7 @@
                                         <md-icon><i class="material-icons md-18">create</i></md-icon>
                                     </a>
                                 </md-button>
-                                <md-button class="md-fab md-mini btnListSubmenu" title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
+                                <md-button class="md-fab md-mini btnListSubmenu" title="Supprimer" ng-click="showConfirm($event, Submenu._id)" ng-if="user.isAdmin">
                                     <md-icon><i class="material-icons">delete</i></md-icon>
                                 </md-button>
                                 <md-divider ng-if="!$last"></md-divider>
@@ -71,7 +71,7 @@
                                             <md-icon><i class="material-icons md-18">create</i></md-icon>
                                         </a>
                                     </md-button>
-                                    <md-button class="md-fab md-mini btnListSubmenu" title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
+                                    <md-button class="md-fab md-mini btnListSubmenu" title="Supprimer" ng-click="showConfirm($event, Submenu._id)" ng-if="user.isAdmin">
                                         <md-icon><i class="material-icons">delete</i></md-icon>
                                     </md-button>
                                     <md-divider ng-if="!$last"></md-divider>
@@ -96,7 +96,7 @@
                                             <md-icon><i class="material-icons md-18">create</i></md-icon>
                                         </a>
                                     </md-button>
-                                    <md-button class="md-fab md-mini btnListSubmenu" title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
+                                    <md-button class="md-fab md-mini btnListSubmenu" title="Supprimer" ng-click="showConfirm($event, Submenu._id)" ng-if="user.isAdmin">
                                         <md-icon><i class="material-icons">delete</i></md-icon>
                                     </md-button>
                                     <md-divider ng-if="!$last"></md-divider>

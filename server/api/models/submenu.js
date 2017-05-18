@@ -46,6 +46,8 @@ export default class Submenu {
         });
     }
     create(req, res) {
+      console.log('route admin')
+
         let submenu = req.body;
         console.log('back', req.body);
         submenu.date = new Date().toISOString();
@@ -62,7 +64,27 @@ export default class Submenu {
             }
         });
     }
+    createByUser(req, res) {
+      console.log('route non admin')
+        let submenu = req.body;
+        console.log('back', req.body);
+        submenu.date = new Date().toISOString();
+        delete submenu.isOnline;
+        model.create(submenu, (err, submenu) => {
+            if (err) {
+                res.status(500).send({
+                    error: err
+                });
+            } else {
+                res.json({
+                    success: true,
+                    submenu: submenu
+                });
+            }
+        });
+    }
     update(req, res) {
+      console.log('route non admin')
         model.findByIdAndUpdate(req.params.id,
           req.body, { new: true },function(err, submenu) {
             if (err) {
@@ -75,6 +97,21 @@ export default class Submenu {
             }
         });
     }
+    updateByUser(req, res) {
+      delete submenu.isOnline,
+        model.findByIdAndUpdate(req.params.id,
+          req.body, { new: true },function(err, submenu) {
+            if (err) {
+              res.status(500).send(err);
+            } else {
+              res.json({
+                  success: true,
+                  submenu: submenu
+              });
+            }
+        });
+    }
+
     delete(req, res) {
         model.findByIdAndRemove(req.params.id, function(err) {
             if (err) {

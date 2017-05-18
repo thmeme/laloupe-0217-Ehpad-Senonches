@@ -12,9 +12,11 @@ module.exports = (app) => {
 
     router.get('/', Auth.hasAuthorization, submenu.findAll);
 
-    router.post('/', Auth.hasAuthorization, submenu.create);
+    router.post('/admin/', Auth.isAdministrator, submenu.create);
+    router.post('/', Auth.hasAuthorization, submenu.createByUser);
 
-    router.put('/:id', Auth.hasAuthorization, submenu.update);
+    router.put('/admin/:id', Auth.isAdministrator, submenu.update);
+    router.put('/:id', Auth.hasAuthorization, submenu.updateByUser);
 
     router.delete('/:id', Auth.isAdministrator, submenu.delete);
 

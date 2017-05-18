@@ -112,13 +112,9 @@ export default class User {
                     }
                     res.status(500).send(err.message);
                 } else {
-                    let tk = jsonwebtoken.sign(user, token, {
-                        expiresIn: "24h"
-                    });
                     res.json({
                         success: true,
                         user: user,
-                        token: tk
                     });
                 }
             });
