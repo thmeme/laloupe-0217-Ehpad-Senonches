@@ -1,105 +1,125 @@
 /*Navbar*/
 
 #sidenav-overlay {
-    z-index: 150
+  z-index: 150
 }
 
 nav {
-    background-color: #be0d55;
+  background-color: #be0d55;
 }
 
 md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
-    background-color: #38b8c8;
-    color: rgba(255, 255, 255, 0.87);
+  background-color: #38b8c8;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 
 /*Submenu*/
 
 .txtAeraSubmenu {
-    width: 80%;
+  width: 80%;
 }
 
 .columnAdmin {
-    width: 70%;
+  width: 70%;
 }
 
 .SwitchvalidSubmenu {
-    vertical-align: middle;
-    display: inline-block;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .tabsSubmenu md-content {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 .tabsSubmenu md-content md-tabs {
-    background: #f6f6f6;
-    border: 1px solid #e1e1e1;
+  background: #f6f6f6;
+  border: 1px solid #e1e1e1;
 }
 
 md-tabs .md-tab.md-active {
-    color: #4c959e;
+  color: #4c959e;
 }
 
 md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
-    color: #dcf84e;
-    background: #dcf84e;
+  color: #dcf84e;
+  background: #dcf84e;
 }
 
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
-    border-color: #4c959e;
+  border-color: #4c959e;
 }
+
 md-input-container.md-input-focused {
   color: #4c959e;
   border-color: #4c959e;
 }
 
-
 md-input-container:not(.md-input-invalid).md-input-focused label {
-    color: #4c959e;
+  color: #4c959e;
 }
+
 md-select-menu md-content md-option[selected] {
   color: #4c959e;
 }
+
 .md-button.md-raised {
-    color: white;
-    background-color: #4c959e;
+  color: white;
+  background-color: #4c959e;
 }
+
 .md-button.md-raised:not([disabled]):hover {
-    background-color: #4c959e;
-    color: black;
+  background-color: #4c959e;
+  color: black;
 }
+
 md-select-menu md-content md-option[selected]:focus {
-    color: #4c959e;
+  color: #4c959e;
 }
+
 md-select:not([disabled]):focus .md-select-value {
   border-bottom-color: #4c959e;
 }
+
 .md-button.md-raised {
-    color: #dcf84e;
-    background-color: #4c959e;
+  color: #dcf84e;
+  background-color: #4c959e;
 }
+
 .md-button.md-default-theme.md-primary, .md-button.md-primary {
-    color: #4c959e;
+  color: #4c959e;
 }
 
 .tabsSubmenu md-content md-tabs md-tabs-wrapper {
-    background: white;
+  background: white;
 }
 
 .tabsSubmenu md-content h1:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .btnListSubmenu {
-    margin-top: 22px;
+  margin-top: 22px;
 }
 
 .headListSubmenu {
-    margin-left: 15px;
+  margin-left: 15px;
 }
+
 .btnRetour {
   color: #dcf84e;
   float: right;
+}
+
+.md-block {
+  border: 1px solid green;
+  width: 100%;
+  background-color: white;
+}
+
+#listEvent {
+  display: -webkit-inline-box;
+  white-space: pre;
+  font-weight: bold;
 }

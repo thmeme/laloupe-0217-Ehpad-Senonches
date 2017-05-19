@@ -117,6 +117,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('user.edit-calendar', {
+                url: '/evenements/:id',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/edit-calendar.html',
+                        controller: 'EditAgendaController'
+                    }
+                }
+            })
             .state('user.users', {
                 url: '/users',
                 views: {
