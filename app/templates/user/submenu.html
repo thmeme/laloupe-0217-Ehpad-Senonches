@@ -96,7 +96,7 @@
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
                   </a>
                 </md-button>
-                <md-button class="md-fab md-mini btnListSubmenu" title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
+                <md-button class="md-fab md-mini btnListSubmenu" ng-if='user.isAdmin' title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
                   <md-icon><i class="material-icons">delete</i></md-icon>
                 </md-button>
                 <md-divider ng-if="!$last"></md-divider>
@@ -121,7 +121,7 @@
                       <md-icon><i class="material-icons md-18">create</i></md-icon>
                     </a>
                   </md-button>
-                  <md-button class="md-fab md-mini btnListSubmenu" title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
+                  <md-button class="md-fab md-mini btnListSubmenu" ng-if='user.isAdmin' title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
                     <md-icon><i class="material-icons">delete</i></md-icon>
                   </md-button>
                   <md-divider ng-if="!$last"></md-divider>
@@ -146,7 +146,7 @@
                       <md-icon><i class="material-icons md-18">create</i></md-icon>
                     </a>
                   </md-button>
-                  <md-button class="md-fab md-mini btnListSubmenu" title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
+                  <md-button class="md-fab md-mini btnListSubmenu" ng-if='user.isAdmin' title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
                     <md-icon><i class="material-icons">delete</i></md-icon>
                   </md-button>
                   <md-divider ng-if="!$last"></md-divider>
