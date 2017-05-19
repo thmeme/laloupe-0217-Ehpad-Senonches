@@ -1,38 +1,70 @@
 angular.module('app')
-    .controller('CalendarController',
-        function($scope, CurrentUser, CalendarService) {
-            $scope.user = CurrentUser.user();
+  .controller('CalendarController',
+    function($scope, $state, $stateParams, $mdDialog, CurrentUser, CalendarService) {
+      $scope.user = CurrentUser.user();
+      // console.log($state.params);
+      $scope.newEvenement = {
+        date: undefined,
+        start: undefined,
+        end: undefined,
+        title: '',
+        content: '',
+        isOnline: false
+      };
 
-            CalendarService.getAll().then(function(res) {
-                $scope.evenements = res.data;
-            });
+      CalendarService.getAll().then(function(res) {
+        $scope.evenements = res.data;
+      });
 
-            $scope.addEvenement = function() {
-                $scope.evenements = [];
-                let evenement = {
-                    date: $scope.myDate + 'z',
-                    start: $scope.start,
-                    end: $scope.end,
-                    title: $scope.title,
-                    content: $scope.content
-                };
-                CalendarService.create(evenement).then(function(res) {
-                    console.log(evenement, res);
-                    $scope.myDate = '';
-                    $scope.start = '';
-                    $scope.end = '';
-                    $scope.title = '';
-                    $scope.content = '';
-                    loadEvents();
-                }, function(err) {
-                    console.log('echec');
-                });
+      function loadEvenement(id) {
+        if (id !== undefined) {
+          CalendarService.getOne($scope.idEvenements).then(function(res) {
+            console.log('res One', res);
+            $scope.evenement = res.data;
+          });
+        }
+      }
+      loadEvenement($scope.idEvenements);
 
-                function loadEvents() {
-                    CalendarService.getAll().then(function(res) {
-                        $scope.evenements = res.data;
-                    });
-                }
-                loadEvents();
-            };
+      $scope.addEvenement = function() {
+        $scope.evenements = [];
+        CalendarService.create($scope.newEvenement).then(function(res) {
+          $scope.newEvenement = {
+            date: undefined,
+            start: undefined,
+            end: undefined,
+            title: '',
+            content: '',
+            isOnline: false
+          };
+          loadEvenements();
         });
+      };
+
+
+        function loadEvenements() {
+          CalendarService.getAll().then(function(res) {
+            $scope.evenements = res.data;
+          });
+        }
+        loadEvenements();
+
+        $scope.customFullscreen = false;
+        $scope.showConfirm = function(ev, id) {
+          console.log('ev', ev);
+          // Appending dialog to document.body to cover sidenav in docs app
+          var confirm = $mdDialog.confirm()
+            .title('Voulez-vous supprimer cet évènement ?')
+            .textContent('Tous les éléments seront définitivement perdus')
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('Supprimer')
+            .cancel('Annuler');
+
+          $mdDialog.show(confirm).then(function() {
+            CalendarService.delete(id).then(function(res) {
+              loadEvenements();
+            });
+          });
+        };
+    });

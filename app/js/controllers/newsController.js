@@ -22,7 +22,6 @@ angular.module('app')
           $scope.newNews.title = '';
           $scope.newNews.menu = '';
           loadAllNews();
-
         });
       };
 
