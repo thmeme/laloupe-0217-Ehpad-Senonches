@@ -113,6 +113,7 @@ export default class Submenu {
     }
 
     delete(req, res) {
+      console.log('req remove', req.params);
         model.findByIdAndRemove(req.params.id, function(err) {
             if (err) {
                 res.status(500).send(err.message);

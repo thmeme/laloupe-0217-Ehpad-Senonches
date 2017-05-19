@@ -22,6 +22,7 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 
 .columnAdmin {
   width: 70%;
+  margin-top: 20px;
 }
 
 .SwitchvalidSubmenu {
@@ -112,14 +113,101 @@ md-select:not([disabled]):focus .md-select-value {
   float: right;
 }
 
-.md-block {
-  border: 1px solid green;
-  width: 100%;
-  background-color: white;
+
+/*upload*/
+
+.thumb {
+  width: 24px;
+  height: 24px;
+  float: none;
+  position: relative;
+  top: 7px;
 }
 
-#listEvent {
-  display: -webkit-inline-box;
-  white-space: pre;
-  font-weight: bold;
+form .progress {
+  line-height: 15px;
 }
+
+
+}
+.progress {
+  display: inline-block;
+  width: 100px;
+  border: 3px groove #CCC;
+}
+.progress div {
+  font-size: smaller;
+  background: orange;
+  width: 0;
+}
+.addImage {
+  border: 1px solid #e1e1e1;
+  background-color: #f6f6f6;
+  padding-left: 10px;
+}
+
+/*modal galerie images*/
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background-color: #000000;
+  opacity: 0.6;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+
+  z-index: 10000;
+  position: absolute;
+  width: 50%;
+  /* Default */
+  /* Center the dialog */
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+}
+.ng-modal-dialog-content {
+  padding: 10px;
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+}
+.btnCopy {
+  line-height: 0px !important;
+  margin-top: 20px;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.listImages {
+  margin-top: 15px;
+  max-height: 58px;
+}
+.pagingGalerieImages {
+  margin-top: 1.5em;
+}
+.blocBtnGalerie {
+  border-top: 1px solid #009688;
+}
+
+/*end modal*/

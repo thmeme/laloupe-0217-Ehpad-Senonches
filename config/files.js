@@ -17,12 +17,16 @@ module.exports = function(lineman) {
                 "vendor/js/angular-ui-router.js",
                 "vendor/js/tinymce.js",
                 "vendor/js/tinymce.angular.js",
+                "vendor/js/tinymce.angular.js",
+                "vendor/js/ng-file-upload-shim.js",
+                "vendor/js/ng-file-upload.js",
                 "vendor/js/**/*.js"
             ],
             app: [
                 "app/js/app.js",
                 "app/js/consts/*.js",
                 "app/js/directives/*.js",
+                "app/js/filters/*.js",
                 "app/js/factories/*.js",
                 "app/js/services/*.js",
                 "app/js/controllers/*.js",
