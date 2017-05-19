@@ -54,10 +54,9 @@
         <div class="md-list-item-text">
           <p>url : http://localhost:3000/uploads/images/{{image.fileName}}</p>
         </div>
-        <div ng-app="app">
-  <md-button class="md-fab md-mini btnCopy" ng-click-copy="http://localhost:3000/uploads/images/{{image.fileName}}"><i class="material-icons">content_copy</i></md-button>
-</div>
         <img ng-src="http://localhost:3000/uploads/images/{{image.fileName}}" class="listImages">
+        <md-button class="md-fab md-mini btnCopy" ng-click-copy="http://localhost:3000/uploads/images/{{image.fileName}}"><i class="material-icons">content_copy</i></md-button>
+
         <md-divider ng-if="!$last"></md-divider>
       </md-list-item>
       <section class="blocBtnGalerie" layout="row" layout-align="center center">
