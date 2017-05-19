@@ -9,7 +9,7 @@
             </div>
             <textarea ui-tinymce="tinymceOptions" ng-model="newNews.content"></textarea>
             <div class="inset SwitchvalidSubmenu">
-                <md-switch ng-model="newNews.isOnline" aria-label="status">
+                <md-switch ng-model="newNews.isOnline" ng-if='user.isAdmin' aria-label="status">
                     En ligne
                 </md-switch>
             </div>
@@ -38,7 +38,7 @@
                                         <md-icon><i class="material-icons md-18" title="Editer">create</i></md-icon>
                                     </a>
                                 </md-button>
-                                <md-button class="md-fab md-mini" ng-click="showConfirm($event, news._id)">
+                                <md-button class="md-fab md-mini" ng-click="showConfirm($event, news._id)" ng-if="user.isAdmin">
                                     <md-icon><i class="material-icons md-18" title="Supprimer">delete</i></md-icon>
                                 </md-button>
                                 <md-divider ng-if="!$last"></md-divider>

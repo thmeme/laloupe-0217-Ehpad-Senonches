@@ -30,16 +30,8 @@ angular.module('app')
                         controller: 'LoginController'
                     }
                 }
-            })
-            .state('anon.register', {
-                url: '/register',
-                views: {
-                    'content@': {
-                        templateUrl: 'anon/register.html',
-                        controller: 'RegisterController'
-                    }
-                }
             });
+
         $stateProvider
             .state('user', {
                 abstract: true,
@@ -52,6 +44,15 @@ angular.module('app')
                 },
                 data: {
                     access: AccessLevels.user
+                }
+            })
+            .state('user.register', {
+                url: '/register',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/register.html',
+                        controller: 'RegisterController'
+                    }
                 }
             })
             .state('user.dashboard', {
@@ -135,5 +136,28 @@ angular.module('app')
                     }
                 }
             });
+            $stateProvider
+                .state('admin', {
+                    abstract: true,
+                    url: '/admin',
+                    views: {
+                        'navbar@': {
+                            templateUrl: 'admin/navbar.html',
+                            controller: 'NavbarController'
+                        }
+                    },
+                    data: {
+                        access: AccessLevels.admin
+                    }
+                })
+                .state('admin.register', {
+                    url: '/register',
+                    views: {
+                        'content@': {
+                            templateUrl: 'admin/register.html',
+                            controller: 'RegisterController'
+                        }
+                    }
+                });
         $urlRouterProvider.otherwise('/');
     });
