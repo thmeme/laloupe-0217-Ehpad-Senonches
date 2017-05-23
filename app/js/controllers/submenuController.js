@@ -127,17 +127,6 @@ angular.module('app')
       }
     };
 
-    // function loadimages() {
-    //   // UploadService.getAll().then(function(res) {
-    //   //   console.log('load', res);
-    //   //   $scope.listimages = res.data;
-    //   // }, function (err) {
-    //   //   console.error('error on image load', err);
-    //   // });
-    // }
-    // loadimages();
-
-
     $scope.modalShown = false;
 
     $scope.toggleModal = function() {

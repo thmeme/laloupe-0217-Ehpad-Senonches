@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('newsController', function($scope, $stateParams, $state, $mdDialog, CurrentUser, newsService) {
+  .controller('newsController', function($scope, $stateParams, $state, UploadService, $mdDialog, CurrentUser, newsService) {
       $scope.user = CurrentUser.user();
 
       $scope.idNews = $stateParams.id;
@@ -72,4 +72,62 @@ angular.module('app')
           });
         });
       };
+
+      $scope.image = {
+        file: {},
+        progress: ''
+      };
+
+      function uploadImage(imageFile) {
+        UploadService.uploadImage(imageFile).then(function(res) {
+          console.log('After upload: ', res);
+          if (res.data.success) { //validate success
+            console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
+          } else {
+            console.error('An error occured during upload (file:' + res.config.data.name + ')');
+          }
+        }, function(err) { //catch error
+          console.log('Error status: ' + err.status);
+        }, function(evt) {
+          console.log('evt during upload: ', evt);
+          var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+          console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
+          $scope.image.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
+        });
+      }
+
+      $scope.uploadImage = function() {
+        console.log('image:', $scope.image);
+        if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
+          uploadImage($scope.image.file);
+           //call upload function
+          //  console.log('res add', $scope.newImage.title);
+        }
+      };
+
+      $scope.modalShown = false;
+
+      $scope.toggleModal = function() {
+        $scope.modalShown = !$scope.modalShown;
+        UploadService.getAll().then(function(res) {
+          console.log('load', res);
+          $scope.listimages = res.data;
+        }, function (err) {
+          console.error('error on image load', err);
+        });
+      };
+
+
+      $scope.currentPage = 0;
+      $scope.pageSize = 5;
+      $scope.listimages = [];
+      $scope.numberOfPages=function(){
+          return Math.ceil($scope.listimages.length/$scope.pageSize);
+      };
+      for (var i=0; i<$scope.listimages.length -1; i++) {
+          $scope.listimages.push("Item "+i);
+      }
+
+
+
     });
