@@ -41,6 +41,10 @@ angular.module('app')
         });
       };
 
+      $scope.redirectCreateCalendar = function() {
+        $state.go('user.create-calendar');
+      };
+
 
         function loadEvenements() {
           CalendarService.getAll().then(function(res) {

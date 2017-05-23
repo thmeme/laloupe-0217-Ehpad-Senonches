@@ -1,0 +1,37 @@
+<div layout="column" layout layout-align="space-around center">
+  <div class="columnAdmin">
+    <md-content layout-padding>
+      <form ng-submit="addEvenement()">
+        <div layout-gt-xs="row">
+          <div flex-gt-xs>
+            <h3>Création d'un évènement :</h3>
+            <md-input-container>
+              <p><label>Title</label>
+                <input ng-model="newEvenement.title"></p>
+            </md-input-container>
+            <p>L'évènement aura lieu le
+              <md-datepicker ng-model="newEvenement.date" md-placeholder="Enter date" md-open-on-focus></md-datepicker> .</p>
+            <p>L'évènement débute à <input ng-model="newEvenement.start" type="time" name="myTime2" class="time-mm-hh" /> et se termine à <input ng-model="newEvenement.end" type="time" name="myTime2" class="time-mm-hh" />.</p>
+            <md-content layout-gt-sm="row" layout-padding>
+              <md-input-container class="md-block" id="content">
+                <label>Ecrire votre actualitée ici!</label>
+                <textarea ng-model="newEvenement.content" rows="5" md-select-on-focus=""></textarea>
+              </md-input-container>
+            </md-content>
+            <div class="inset SwitchvalidEvenement">
+              <md-switch ng-if='user.isAdmin' ng-model="newEvenement.isOnline" aria-label="status">
+                En ligne
+              </md-switch>
+              <!-- <md-switch ng-if='user.isAdmin' ng-model="newEvenement.isOnline" aria-label="Switch 1">
+                Switch 1: {{ isOnline }}
+              </md-switch> -->
+            </div>
+          </md-content>
+
+            <md-button class="md-primary md-raised" type="submit" ng-click='redirect()'>Valider</md-button>
+          </div>
+        </div>
+      </form>
+  </div>
+
+</div>
