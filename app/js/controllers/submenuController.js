@@ -95,6 +95,10 @@ angular.module('app')
       $state.go('user.submenu');
     };
 
+    $scope.redirectCreateSubmenu = function() {
+      $state.go('user.create-submenu');
+    };
+
     $scope.image = {
       file: {},
       progress: ''

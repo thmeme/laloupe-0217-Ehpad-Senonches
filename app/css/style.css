@@ -112,7 +112,10 @@ md-select:not([disabled]):focus .md-select-value {
   color: #dcf84e;
   float: right;
 }
-
+/*nexs*/
+.formEditNews {
+  margin-top: 7%;
+}
 
 /*upload*/
 

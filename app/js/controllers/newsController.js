@@ -39,6 +39,13 @@ angular.module('app')
           console.log('update', res);
         });
       };
+
+      $scope.redirectListNews = function() {
+        $state.go('user.news');
+      };
+
+
+
       $scope.tinymceOptions = {
           onChange: function(e) {
               // put logic here for keypress and cut/paste changes
@@ -53,6 +60,10 @@ angular.module('app')
               '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
               // '//www.tinymce.com/css/codepen.min.css'
           ]
+      };
+
+      $scope.redirectCreateNews = function() {
+        $state.go('user.create-news');
       };
 
 
@@ -105,6 +116,7 @@ angular.module('app')
         }
       };
 
+
       $scope.modalShown = false;
 
       $scope.toggleModal = function() {
@@ -127,7 +139,5 @@ angular.module('app')
       for (var i=0; i<$scope.listimages.length -1; i++) {
           $scope.listimages.push("Item "+i);
       }
-
-
 
     });

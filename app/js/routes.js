@@ -82,6 +82,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('user.create-submenu', {
+                url: '/submenu',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/create-submenu.html',
+                        controller: 'SubmenuController'
+                    }
+                }
+            })
             .state('user.edit-submenu', {
                 url: '/submenu/:id',
                 views: {
@@ -96,6 +105,15 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/news.html',
+                        controller: 'newsController'
+                    }
+                }
+            })
+            .state('user.create-news', {
+                url: '/news',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/create-news.html',
                         controller: 'newsController'
                     }
                 }
