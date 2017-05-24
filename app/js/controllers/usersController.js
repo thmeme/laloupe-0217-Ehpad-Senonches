@@ -15,7 +15,7 @@ angular.module('app')
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.confirm()
           .title('Voulez-vous supprimer cet utilisateur ?')
-          .textContent('')
+          .textContent('Tous les éléments seront définitivement perdus')
           .ariaLabel('Lucky day')
           .targetEvent(ev)
           .ok('Supprimer')
