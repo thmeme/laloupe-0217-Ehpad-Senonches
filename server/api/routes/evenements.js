@@ -14,11 +14,13 @@ module.exports = (app) => {
 
     router.get('/:id', Auth.hasAuthorization, evenement.findById);
 
-    router.post('/', Auth.hasAuthorization, evenement.create);
-
     router.get('/', Auth.hasAuthorization, evenement.findAll);
 
-    router.put('/:id', Auth.hasAuthorization, evenement.update);
+    router.post('/admin/', Auth.isAdministrator, evenement.create);
+    router.post('/', Auth.hasAuthorization, evenement.createByUser);
+
+    router.put('/admin/:id', Auth.isAdministrator, evenement.update);
+    router.put('/:id', Auth.hasAuthorization, evenement.updateByUser);
 
     router.delete('/:id', Auth.isAdministrator, evenement.delete);
 

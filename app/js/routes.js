@@ -128,7 +128,7 @@ angular.module('app')
                 }
             })
             .state('user.users', {
-                url: '/users',
+                url: '/list',
                 views: {
                     'content@': {
                         templateUrl: 'user/users.html',

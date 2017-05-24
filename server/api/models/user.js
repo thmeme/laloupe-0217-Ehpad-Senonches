@@ -9,6 +9,14 @@ const hashCode = (s) => s.split("").reduce((a, b) => {
 }, 0);
 
 const userSchema = new mongoose.Schema({
+    Firstname: {
+        type: String,
+        required: true
+    },
+    Name: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: [true, 'Email address is required'],
@@ -140,6 +148,7 @@ export default class User {
     }
 
     delete(req, res) {
+      console.log('req remove', req.params);
         model.findByIdAndRemove(req.params.id, (err) => {
             if (err) {
                 res.status(500).send(err.message);
