@@ -69,7 +69,36 @@ export default class Evenement {
       }
     });
   }
+  createByUser(req, res) {
+    delete evenement.isOnline;
+    model.create(req.body, (err, evenement) => {
+      if (err) {
+        res.status(500).send({
+          error: err
+        });
+      } else {
+        res.json({
+          success: true,
+          evenement: evenement
+        });
+      }
+    });
+  }
   update(req, res) {
+    model.findByIdAndUpdate(req.params.id,
+      req.body, { new: true },function(err, evenement) {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.json({
+            success: true,
+            evenement: evenement
+          });
+        }
+      });
+  }
+  updateByUser(req, res) {
+    delete evenement.isOnline;
     model.findByIdAndUpdate(req.params.id,
       req.body, { new: true },function(err, evenement) {
         if (err) {

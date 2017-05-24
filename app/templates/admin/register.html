@@ -4,11 +4,19 @@
             <div ng-repeat="error in errors">{{error.error}}</div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Email Address">
+            <input id="Firstname" type="text" class="form-control" ng-model="user.Firstname" required placeholder="Prénom">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="Name" type="text" class="form-control" ng-model="user.Name" required placeholder="Nom">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Adresse Email">
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input id="password" type="password" class="form-control" ng-model="user.password" required placeholder="Password">
+                <input id="password" type="password" class="form-control" ng-model="user.password" required placeholder="Mot de passe">
             </div>
             <div>
         <p>Statut: <span class="radioValue">{{ data.group1 }}</span> </p>
