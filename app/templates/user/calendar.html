@@ -10,16 +10,16 @@
             <md-list>
               <md-list-item class="md-3-line" ng-repeat="evenement in evenements | orderBy: '-date'">
                 <div class="md-list-item-text listEvents" id="listEvent">
-                  <h4>{{evenement.date | date: "dd-MM-yyyy"}}</h4>
+                  <h4> Date de l'événement  {{evenement.date | date: "dd-MM-yyyy"}}</h4>
                   <h4>{{evenement.title}}</h4>
-                  <h4>{{evenement.start | date:'shortTime'}}</h4>
-                  <h4>{{evenement.end | date:'shortTime'}}</h4>
+                  <h4>Début : {{evenement.start | date:'shortTime'}} / Fin : {{evenement.end | date:'shortTime'}}</h4>
+                  <h4></h4>
                 </div>
 
                 <md-button class="md-fab md-mini btnList" ng-if="evenement.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
                   <md-icon><i class="material-icons">done</i></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini">
+                <md-button class="md-fab md-mini" title="Editer">
                   <a ng-href="/#!/user/evenements/{{evenement._id}}">
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
                   </a>
