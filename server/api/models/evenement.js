@@ -19,10 +19,10 @@ const evenementSchema = new mongoose.Schema({
     type: String,
     require: true
   },
-  content: {
-    type: String,
-    require: true
-  },
+  // content: {
+  //   type: String,
+  //   require: true
+  // },
   isOnline: {
     type: Boolean,
     // default: false,

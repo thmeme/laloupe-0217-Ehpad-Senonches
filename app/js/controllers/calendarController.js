@@ -8,7 +8,7 @@ angular.module('app')
         start: undefined,
         end: undefined,
         title: '',
-        content: '',
+        // content: '',
         isOnline: false
       };
 
@@ -34,7 +34,7 @@ angular.module('app')
             start: undefined,
             end: undefined,
             title: '',
-            content: '',
+            // content: '',
             isOnline: false
           };
           loadEvenements();
