@@ -1,9 +1,7 @@
 <div layout="column" layout layout-align="space-around center">
   <div>
-  <md-button class="md-primary md-raised btnRetour" ng-click='redirectCreateNews()' >Créer un événement</md-button>
+    <md-button class="md-primary md-raised btnRetour" ng-click='redirectCreateNews()'>Créer une actualité</md-button>
   </div>
-
-
   <div class="columnAdmin">
     <div ng-cloak class="tabsSubmenu">
       <md-content>
@@ -15,7 +13,6 @@
                   <h4>Créé le {{news.date | date : 'medium'}}</h4>
                   <h4>{{news.title}}</h4>
                 </div>
-
                 <md-button class="md-fab md-mini btnList" ng-if="news.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
                   <md-icon><i class="material-icons">done</i></md-icon>
                 </md-button>
