@@ -100,6 +100,15 @@ angular.module('app')
                     }
                 }
             })
+            // .state('user.galerie-images', {
+            //     url: '/galerie-images',
+            //     views: {
+            //         'content@': {
+            //             templateUrl: 'user/galerie-images.html',
+            //             controller: 'SubmenuController'
+            //         }
+            //     }
+            // })
             .state('user.news', {
                 url: '/news',
                 views: {

@@ -147,6 +147,9 @@ form .progress {
   border: 1px solid #e1e1e1;
   background-color: #f6f6f6;
   padding-left: 10px;
+  /*display: inline-block;*/
+
+
 }
 
 /*modal galerie images*/
@@ -206,7 +209,7 @@ form .progress {
   margin-top: 15px;
   max-height: 58px;
 }
-.pagingGalerieImages {
+.backgroundGalerieImages {
   margin-top: 1.5em;
 }
 .blocBtnGalerie {

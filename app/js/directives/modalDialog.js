@@ -2,7 +2,7 @@ angular.module('app').directive('modalDialog', function() {
   return {
     restrict: 'E',
     scope: {
-      show: '='
+      show: '=',
     },
     replace: true, // Replace with the template below
     transclude: true, // we want to insert custom content inside the directive
@@ -15,6 +15,7 @@ angular.module('app').directive('modalDialog', function() {
       scope.hideModal = function() {
         scope.show = false;
       };
+
     },
     templateUrl:'user/galerie-images.html'
   };
