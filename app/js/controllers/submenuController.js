@@ -99,18 +99,23 @@ angular.module('app')
       $state.go('user.create-submenu');
     };
 
+    $scope.galleryModalShown = false;
 
-
-    $scope.modalShown = false;
-
-    $scope.toggleModal = function() {
-      $scope.modalShown = !$scope.modalShown;
+    $scope.OpenModalgallery = function() {
+      $scope.galleryModalShown = !$scope.galleryModalShown;
       UploadService.getAll().then(function(res) {
         console.log('load', res);
         $scope.listimages = res.data;
       }, function (err) {
         console.error('error on image load', err);
       });
+    };
+
+    $scope.UploadImgModalShown = false;
+
+    $scope.OpenModalUploadImg = function() {
+      $scope.UploadImgModalShown = !$scope.UploadImgModalShown;
+
     };
 
 
@@ -148,17 +153,6 @@ angular.module('app')
       });
     }
 
-    // function loadAllimages() {
-    //   UploadService.getAll().then(function(res) {
-    //     console.log('load', res);
-    //     $scope.listimages = res.data;
-    //   }, function (err) {
-    //     console.error('error on image load', err);
-    //   });
-    // }
-
-
-
     $scope.uploadImage = function() {
       console.log('image:', $scope.image);
       if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
@@ -167,6 +161,5 @@ angular.module('app')
         //  console.log('res add', $scope.newImage.title);
       }
     };
-
 
   });

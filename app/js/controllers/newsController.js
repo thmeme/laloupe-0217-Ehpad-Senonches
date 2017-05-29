@@ -117,16 +117,23 @@ angular.module('app')
       };
 
 
-      $scope.modalShown = false;
+      $scope.galleryModalShown = false;
 
-      $scope.toggleModal = function() {
-        $scope.modalShown = !$scope.modalShown;
+      $scope.OpenModalgallery = function() {
+        $scope.galleryModalShown = !$scope.galleryModalShown;
         UploadService.getAll().then(function(res) {
           console.log('load', res);
           $scope.listimages = res.data;
         }, function (err) {
           console.error('error on image load', err);
         });
+      };
+
+      $scope.UploadImgModalShown = false;
+
+      $scope.OpenModalUploadImg = function() {
+        $scope.UploadImgModalShown = !$scope.UploadImgModalShown;
+
       };
 
 
