@@ -197,7 +197,7 @@ form .progress {
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
 }
-.btnCopy {
+.btnInsert {
   line-height: 0px !important;
   margin-top: 20px;
   width: 40px;
@@ -207,13 +207,26 @@ form .progress {
 
 .listImages {
   margin-top: 15px;
-  max-height: 58px;
+  max-height: 95px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 .backgroundGalerieImages {
   margin-top: 1.5em;
 }
-.blocBtnGalerie {
+/*.blocBtnGalerie {
   border-top: 1px solid #009688;
+}*/
+.imgGallery {
+  display: inline-block;
+  width: 177px;
+  background-color: rgb(253, 223, 233);
+  margin-right: 3px;
 }
+.btnInsertImg {
+  text-align: center;
+}
+
 
 /*end modal*/

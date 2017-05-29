@@ -23,6 +23,12 @@ angular.module('app')
     }
     loadSubmenu($scope.idSubmenu);
 
+    $scope.newSubmenu = {
+      content : '',
+      title : '',
+       menu : ''
+    };
+
     $scope.addSubmenu = function() {
       SubmenuService.create($scope.newSubmenu).then(function(res) {
         console.log('submenu', $scope.newSubmenu);
@@ -115,14 +121,16 @@ angular.module('app')
 
     $scope.OpenModalUploadImg = function() {
       $scope.UploadImgModalShown = !$scope.UploadImgModalShown;
-
     };
 
+    $scope.insertImg = function(nameImg) {
+      $scope.newSubmenu.content += '<p><img src="uploads/images/' + nameImg +'" width="500"/></p>';
+    };
 
     $scope.currentPage = 0;
-    $scope.pageSize = 5;
+    $scope.pageSize = 12;
     $scope.listimages = [];
-    $scope.numberOfPages=function(){
+    $scope.numberOfPages = function(){
         return Math.ceil($scope.listimages.length/$scope.pageSize);
     };
     for (var i=0; i<$scope.listimages.length -1; i++) {
