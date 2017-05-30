@@ -18,7 +18,8 @@ angular.module('app')
     $scope.newNews = {
       content: '',
       title: '',
-      menu: ''
+      menu: '',
+      image: ''
     };
 
     $scope.addNews = function() {
@@ -27,6 +28,7 @@ angular.module('app')
         $scope.newNews.content = '';
         $scope.newNews.title = '';
         $scope.newNews.menu = '';
+        $scope.newNews.image = '';
         loadAllNews();
       });
     };
@@ -49,8 +51,6 @@ angular.module('app')
     $scope.redirectListNews = function() {
       $state.go('user.news');
     };
-
-
 
     $scope.tinymceOptions = {
       onChange: function(e) {
@@ -90,6 +90,11 @@ angular.module('app')
       });
     };
 
+    $scope.UploadImgModalShown = false;
+    $scope.OpenModalUploadImg = function() {
+      $scope.UploadImgModalShown = !$scope.UploadImgModalShown;
+    };
+
     $scope.image = {
       file: {},
       progress: ''
@@ -122,11 +127,9 @@ angular.module('app')
       }
     };
 
-
-    $scope.galleryModalShown = false;
-
-    $scope.OpenModalgallery = function() {
-      $scope.galleryModalShown = !$scope.galleryModalShown;
+    $scope.galleryInsertModalShown = false;
+    $scope.OpenModalgalleryInsert = function() {
+      $scope.galleryInsertModalShown = !$scope.galleryInsertModalShown;
       UploadService.getAll().then(function(res) {
         console.log('load', res);
         $scope.listimages = res.data;
@@ -135,20 +138,34 @@ angular.module('app')
       });
     };
 
-    $scope.UploadImgModalShown = false;
-
-    $scope.OpenModalUploadImg = function() {
-      $scope.UploadImgModalShown = !$scope.UploadImgModalShown;
-
+    $scope.insertImg = function(nameImg) {
+      $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
+      $scope.galleryInsertModalShown = false;
     };
 
-    $scope.insertImg = function(nameImg) {
-      $scope.newNews.content += '<p><img src="uploads/images/' + nameImg +'" width="500"/></p>';
-      $scope.galleryModalShown = false;
+    $scope.galleryAssociateModalShown = false;
+    $scope.OpenModalgalleryAssociate = function() {
+      if ($scope.newNews.image) {
+        $scope.newNews.image = '';
+      } else {
+        $scope.galleryAssociateModalShown = !$scope.galleryAssociateModalShown;
+        UploadService.getAll().then(function(res) {
+          console.log('load', res);
+          $scope.listimages = res.data;
+        }, function(err) {
+          console.error('error on image load', err);
+        });
+      }
+    };
+
+    $scope.associateImg = function(nameImg) {
+      $scope.newNews.image += 'uploads/images/' + nameImg;
+      console.log('news.image', $scope.newNews.image);
+      $scope.galleryAssociateModalShown = false;
     };
 
     $scope.currentPage = 0;
-    $scope.pageSize =12;
+    $scope.pageSize = 12;
     $scope.listimages = [];
     $scope.numberOfPages = function() {
       return Math.ceil($scope.listimages.length / $scope.pageSize);

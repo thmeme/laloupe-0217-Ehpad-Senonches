@@ -32,7 +32,7 @@
       <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
         <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
         <div class="btnInsertImg">
-          <md-button class="md-fab md-mini btnInsert" ng-click='insertImg(image.fileName)' title="Insérer"><i class="material-icons">input</i></md-button>
+          <md-button class="md-fab md-mini btnInsert" ng-click='insertImg(image.fileName)' title="Insérer"><i class="material-icons">picture_in_picture</i></md-button>
           <md-divider ng-if="!$last"></md-divider>
         </div>
       </div>

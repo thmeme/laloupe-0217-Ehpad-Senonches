@@ -9,6 +9,9 @@ const newsSchema = new mongoose.Schema({
     content: {
         type: String,
     },
+    image: {
+        type: String,
+    },
     date: {
         type: Date,
     },
