@@ -9,18 +9,23 @@
       </div>
       <textarea ui-tinymce="tinymceOptions" ng-model="newNews.content"></textarea>
       <div>
-        <div class="inset">
-          <md-switch ng-model="newNews.isOnline" ng-if='user.isAdmin' aria-label="status">
+        <div layout='row'>
+          <md-switch flex='80' class="switch" ng-model="newNews.isOnline" ng-if='user.isAdmin' aria-label="status">
             <span ng-if='newNews.isOnline'>Publié</span>
             <span ng-if='!newNews.isOnline'>Brouillon</span>
+
           </md-switch>
+          <md-button fex-offset='nogrow' class="md-primary md-raised btnValid" type="submit">Valider</md-button>
         </div>
-        <md-button class="md-primary md-raised" type="submit">Valider</md-button>
-        <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Télécharger une image</md-button>
-        <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer une image</md-button>
-        <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{newNews.image ? 'Dissocier l\'image' : 'Associer une image'}}</md-button>
-        <img ng-show='newNews.image' ng-src="/{{newNews.image}}">
-       </div>
+
+        <div class="blocButtonsImg">
+          <h2>Gestion des images</h2>
+          <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
+          <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
+          <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{newNews.image ? 'Dissocier' : 'Associer'}}</md-button>
+          <img class='imgAssociatePreview' ng-show='newNews.image' ng-src="/{{newNews.image}}">
+        </div>
+      </div>
     </form>
 
     <!-- Modal gallery images insert-->
