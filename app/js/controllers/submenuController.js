@@ -125,6 +125,7 @@ angular.module('app')
 
     $scope.insertImg = function(nameImg) {
       $scope.newSubmenu.content += '<p><img src="uploads/images/' + nameImg +'" width="500"/></p>';
+      $scope.galleryModalShown = false;
     };
 
     $scope.currentPage = 0;
