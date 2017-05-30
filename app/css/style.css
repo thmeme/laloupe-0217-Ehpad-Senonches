@@ -227,6 +227,8 @@ form .progress {
 .btnInsertImg {
   text-align: center;
 }
-
+.md-button.md-ehpad-theme.md-fab:focus {
+  color: black;
+}
 
 /*end modal*/
