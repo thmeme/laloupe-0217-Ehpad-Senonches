@@ -105,26 +105,25 @@ angular.module('app')
       $state.go('user.create-submenu');
     };
 
-    $scope.galleryModalShown = false;
-
-    $scope.OpenModalgallery = function() {
-      $scope.galleryModalShown = !$scope.galleryModalShown;
+    $scope.galleryInsertModalShown = false;
+    $scope.OpenModalgalleryInsert = function() {
+      $scope.galleryInsertModalShown = !$scope.galleryInsertModalShown;
       UploadService.getAll().then(function(res) {
         console.log('load', res);
         $scope.listimages = res.data;
-      }, function (err) {
+      }, function(err) {
         console.error('error on image load', err);
       });
     };
 
     $scope.UploadImgModalShown = false;
-
     $scope.OpenModalUploadImg = function() {
       $scope.UploadImgModalShown = !$scope.UploadImgModalShown;
     };
 
     $scope.insertImg = function(nameImg) {
       $scope.newSubmenu.content += '<p><img src="uploads/images/' + nameImg +'" width="500"/></p>';
+      $scope.galleryInsertModalShown = false;
     };
 
     $scope.currentPage = 0;

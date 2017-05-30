@@ -19,16 +19,18 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 .txtAeraSubmenu {
   width: 80%;
 }
-
+.btnValid {
+  float: right;
+}
 .columnAdmin {
   width: 70%;
   margin-top: 20px;
 }
 
-.SwitchvalidSubmenu {
+/*.SwitchvalidSubmenu {
   vertical-align: middle;
   display: inline-block;
-}
+}*/
 
 .tabsSubmenu md-content {
   background-color: transparent !important;
@@ -118,7 +120,6 @@ md-select:not([disabled]):focus .md-select-value {
 }
 
 /*upload*/
-
 .thumb {
   width: 24px;
   height: 24px;
@@ -131,8 +132,6 @@ form .progress {
   line-height: 15px;
 }
 
-
-}
 .progress {
   display: inline-block;
   width: 100px;
@@ -148,8 +147,6 @@ form .progress {
   background-color: #f6f6f6;
   padding-left: 10px;
   /*display: inline-block;*/
-
-
 }
 
 /*modal galerie images*/
@@ -227,6 +224,16 @@ form .progress {
 .btnInsertImg {
   text-align: center;
 }
-
+.md-button.md-ehpad-theme.md-fab:focus {
+  color: black;
+}
 
 /*end modal*/
+.imgAssociatePreview {
+  width: 150px;
+  vertical-align: middle;
+}
+.blocButtonsImg {
+  margin-top: 10px;
+  border-top: 1px solid #009688;
+  }
