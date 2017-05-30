@@ -12,6 +12,11 @@
                 <div class="md-list-item-text">
                   <h4>{{user.Firstname}} {{user.Name}}</h4>
                 </div>
+                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
+                  <a ng-href="/#!/user/users/{{user._id}}" title="Editer">
+                    <md-icon><i class="material-icons md-18">create</i></md-icon>
+                  </a>
+                </md-button>
                 <md-button class="md-fab md-mini" ng-click="showConfirm($event, user._id)">
                   <md-icon><i class="material-icons md-18" title="Supprimer">delete</i></md-icon>
                 </md-button>

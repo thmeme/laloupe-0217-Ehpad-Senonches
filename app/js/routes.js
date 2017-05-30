@@ -82,15 +82,6 @@ angular.module('app')
                     }
                 }
             })
-            .state('user.create-submenu', {
-                url: '/submenu',
-                views: {
-                    'content@': {
-                        templateUrl: 'user/create-submenu.html',
-                        controller: 'SubmenuController'
-                    }
-                }
-            })
             .state('user.edit-submenu', {
                 url: '/submenu/:id',
                 views: {
@@ -118,15 +109,6 @@ angular.module('app')
                     }
                 }
             })
-            .state('user.create-news', {
-                url: '/news',
-                views: {
-                    'content@': {
-                        templateUrl: 'user/create-news.html',
-                        controller: 'newsController'
-                    }
-                }
-            })
             .state('user.edit-news', {
                 url: '/news/:id',
                 views: {
@@ -145,15 +127,6 @@ angular.module('app')
                     }
                 }
             })
-            .state('user.create-calendar', {
-                url: '/evenements',
-                views: {
-                    'content@': {
-                        templateUrl: 'user/create-calendar.html',
-                        controller: 'CalendarController'
-                    }
-                }
-            })
             .state('user.edit-calendar', {
                 url: '/evenements/:id',
                 views: {
@@ -164,11 +137,20 @@ angular.module('app')
                 }
             })
             .state('user.users', {
-                url: '/list',
+                url: '/users',
                 views: {
                     'content@': {
                         templateUrl: 'user/users.html',
                         controller: 'UsersController'
+                    }
+                }
+            })
+            .state('user.edit-user', {
+                url: '/users/:id',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/edit-user.html',
+                        controller: 'editUserController'
                     }
                 }
             })

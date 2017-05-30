@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('UsersController', function($scope, CurrentUser, UserService, $mdDialog) {
+    .controller('UsersController', function($scope, CurrentUser, UserService, $mdDialog, $state) {
       $scope.user = CurrentUser.user();
       function loadAllUsers() {
         UserService.getAll().then(function(res) {
@@ -30,4 +30,4 @@ angular.module('app')
           });
         });
       };
-});
+    });
