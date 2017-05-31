@@ -145,7 +145,6 @@ angular.module('app')
       UploadService.uploadImage(imageFile).then(function(res) {
         console.log('After upload: ', res);
         if (res.data.success) { //validate success
-
           console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
         } else {
           console.error('An error occured during upload (file:' + res.config.data.name + ')');
@@ -167,6 +166,11 @@ angular.module('app')
          //call upload function
         //  console.log('res add', $scope.newImage.title);
       }
+    };
+
+    $scope.UploadPdfModalShown = false;
+    $scope.OpenModalUploadPdf = function() {
+      $scope.UploadPdfModalShown = !$scope.UploadPdfModalShown;
     };
 
   });

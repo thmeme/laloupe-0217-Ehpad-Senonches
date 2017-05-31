@@ -17,12 +17,18 @@
           <md-button class="md-primary md-raised btnValid" type="submit">Valider</md-button>
         </div>
 
-        <div class="blocButtonsImg">
-          <h2>Gestion des images</h2>
-          <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
-          <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
-          <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{newNews.image ? 'Dissocier' : 'Associer'}}</md-button>
-          <img class='imgAssociatePreview' ng-show='newNews.image' ng-src="/{{newNews.image}}">
+        <div class="row">
+          <div class="blocButtonsImg" flex="50">
+            <h2>Gestion des images</h2>
+            <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
+            <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
+            <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{newNews.image ? 'Dissocier' : 'Associer'}}</md-button>
+            <img class='imgAssociatePreview' ng-show='newNews.image' ng-src="/{{newNews.image}}">
+          </div>
+          <div flex="33">
+            <h2>Gestion des pdf</h2>
+            <md-button class="md-primary md-raised" ng-click='OpenModalUploadPdf()'>Ajouter</md-button>
+          </div>
         </div>
       </div>
     </form>
