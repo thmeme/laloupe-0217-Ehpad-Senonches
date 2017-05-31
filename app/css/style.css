@@ -227,7 +227,16 @@ form .progress {
 .md-button.md-ehpad-theme.md-fab:focus {
   color: black;
 }
-
+.pdfGallery {
+  display: inline-block;
+  width: 177px;
+  min-height: 250px;
+  background-color: rgb(253, 223, 233);
+  margin-right: 3px;
+}
+.namePdf {
+  text-align: center;
+}
 /*end modal*/
 .imgAssociatePreview {
   width: 150px;

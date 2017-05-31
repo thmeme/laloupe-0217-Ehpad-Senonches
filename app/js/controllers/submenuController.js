@@ -222,7 +222,7 @@ angular.module('app')
     };
 
     $scope.currentPagePdf = 0;
-    $scope.pageSizePdf = 4;
+    $scope.pageSizePdf = 8;
     $scope.listPdf = [];
     $scope.numberOfPagesPdf = function() {
       return Math.ceil($scope.listPdf.length / $scope.pageSizePdf);
@@ -230,9 +230,5 @@ angular.module('app')
     for (i = 0; i < $scope.listPdf.length - 1; i++) {
       $scope.listPdf.push("Item " + i);
     }
-
-
-
-
 
   });
