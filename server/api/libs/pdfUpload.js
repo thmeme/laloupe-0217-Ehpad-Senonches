@@ -6,13 +6,16 @@ import dir from 'node-dir';
 
 let pdfDir = path.join(__dirname, '../../public/uploads/pdf/');
 /* Multer storage settings */
+let name = '';
+
 let storage = multer.diskStorage({
   destination: function(req, file, cb) {
     cb(null, pdfDir);
   },
   filename: function(req, file, cb) {
-    let datetimestamp = Date.now();
-    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length - 1]);
+  name = file.originalname.split('.').shift();
+    // let datetimestamp = Date.now();
+    cb(null, encodeURI(name) + '.pdf');
   }
 });
 
