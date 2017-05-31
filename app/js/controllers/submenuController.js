@@ -225,7 +225,7 @@ angular.module('app')
     $scope.numberOfPagesPdf = function() {
       return Math.ceil($scope.listPdf.length / $scope.pageSizePdf);
     };
-    for (var i = 0; i < $scope.listPdf.length - 1; i++) {
+    for (i = 0; i < $scope.listPdf.length - 1; i++) {
       $scope.listPdf.push("Item " + i);
     }
 
