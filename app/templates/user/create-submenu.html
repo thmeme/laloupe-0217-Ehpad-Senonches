@@ -64,9 +64,10 @@
     <!-- Modal gallery pdf-->
     <modal-dialog show='galleryPdfModalShown' width='750px'>
       <div class="imgGallery" ng-repeat="pdf in listpdf | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
-        <img ng-src="logoPdf.png" class="listImages">
+        <img ng-src="logopdf.png" class="listImages">
         <p>{{decodeURI(pdf.fileName)}}</p>
         <div class="btnInsertImg">
+          <md-button class="md-fab md-mini btnInsert" ng-click-copy="/uploads/pdf/{{pdf.fileName}}" title="Insérer"><i class="material-icons">visibility</i></md-button>
           <md-button class="md-fab md-mini btnInsert" ng-click-copy="/uploads/pdf/{{pdf.fileName}}" title="Insérer"><i class="material-icons">content_copy</i></md-button>
           <md-divider ng-if="!$last"></md-divider>
         </div>
