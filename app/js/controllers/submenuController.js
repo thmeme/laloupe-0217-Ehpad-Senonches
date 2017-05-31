@@ -136,8 +136,6 @@ angular.module('app')
       $scope.listimages.push("Item " + i);
     }
 
-
-
     $scope.image = {
       file: {},
       progress: ''
@@ -212,15 +210,19 @@ angular.module('app')
       $scope.galleryPdfModalShown = !$scope.galleryPdfModalShown;
       UploadPdfService.getAll().then(function(res) {
         console.log('loadpdf', res);
-        $scope.listpdf = res.data;
+        $scope.listPdf = res.data;
         console.log('listpdf', res.data);
       }, function(err) {
         console.error('error on image load', err);
       });
     };
 
+    $scope.decodeURI = function(filename) {
+      return decodeURI(filename);
+    };
+
     $scope.currentPagePdf = 0;
-    $scope.pageSizePdf = 2;
+    $scope.pageSizePdf = 4;
     $scope.listPdf = [];
     $scope.numberOfPagesPdf = function() {
       return Math.ceil($scope.listPdf.length / $scope.pageSizePdf);
@@ -229,9 +231,7 @@ angular.module('app')
       $scope.listPdf.push("Item " + i);
     }
 
-    $scope.decodeURI = function(filename) {
-      return decodeURI(filename);
-    };
+
 
 
 
