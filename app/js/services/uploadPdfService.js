@@ -1,17 +1,17 @@
 angular.module('app')
-  .service('UploadService', function(Upload, $http) {
+  .service('UploadPdfService', function(Upload, $http) {
     var URL = 'http://localhost:3000';
     return {
-      uploadImage: function(file) {
+      uploadPdf: function(file) {
         return Upload.upload({
-          url: URL + '/upload/image',
+          url: URL + '/uploadpdf/pdf',
           data: {
-            image: file
+            pdf: file
           }
         });
       },
       getAll: function() {
-        return $http.get('/upload');
+        return $http.get('/uploadpdf');
       }
     };
   });
