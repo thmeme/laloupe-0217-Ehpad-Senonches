@@ -16,7 +16,7 @@ angular.module('app')
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
           console.log('res One', res);
           $scope.submenu = res.data;
-        }, function (err) {
+        }, function(err) {
           console.error('error on getOne', err);
         });
       }
@@ -24,9 +24,9 @@ angular.module('app')
     loadSubmenu($scope.idSubmenu);
 
     $scope.newSubmenu = {
-      content : '',
-      title : '',
-       menu : ''
+      content: '',
+      title: '',
+      menu: ''
     };
 
     $scope.addSubmenu = function() {
@@ -36,7 +36,7 @@ angular.module('app')
         $scope.newSubmenu.title = '';
         $scope.newSubmenu.menu = '';
         loadAllSubmenus();
-      }, function (err) {
+      }, function(err) {
         console.error('error on create', err);
       });
     };
@@ -46,7 +46,7 @@ angular.module('app')
         console.log('listSubmenus', res);
         $scope.listSubmenu = res.data;
         console.log('res.data', res.data);
-      }, function (err) {
+      }, function(err) {
         console.error('error on loadAllSubmenus', err);
       });
     }
@@ -55,7 +55,7 @@ angular.module('app')
     $scope.updateSubmenu = function() {
       SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
         console.log('update', res);
-      }, function (err) {
+      }, function(err) {
         console.error('error on loadAllSubmenus', err);
       });
     };
@@ -76,7 +76,7 @@ angular.module('app')
         SubmenuService.delete(id).then(function(res) {
           console.log('delete', res);
           loadAllSubmenus();
-        }, function (err) {
+        }, function(err) {
           console.error('error on show', err);
         });
       });
@@ -122,19 +122,21 @@ angular.module('app')
     };
 
     $scope.insertImg = function(nameImg) {
-      $scope.newSubmenu.content += '<p><img src="uploads/images/' + nameImg +'" width="500"/></p>';
+      $scope.newSubmenu.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
       $scope.galleryInsertModalShown = false;
     };
 
     $scope.currentPage = 0;
     $scope.pageSize = 12;
     $scope.listimages = [];
-    $scope.numberOfPages = function(){
-        return Math.ceil($scope.listimages.length/$scope.pageSize);
+    $scope.numberOfPages = function() {
+      return Math.ceil($scope.listimages.length / $scope.pageSize);
     };
-    for (var i=0; i<$scope.listimages.length -1; i++) {
-        $scope.listimages.push("Item "+i);
+    for (var i = 0; i < $scope.listimages.length - 1; i++) {
+      $scope.listimages.push("Item " + i);
     }
+
+
 
     $scope.image = {
       file: {},
@@ -163,7 +165,7 @@ angular.module('app')
       console.log('image:', $scope.image);
       if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
         uploadImage($scope.image.file);
-         //call upload function
+        //call upload function
         //  console.log('res add', $scope.newImage.title);
       }
     };
@@ -200,7 +202,7 @@ angular.module('app')
       console.log('pdf:', $scope.pdf);
       if ($scope.upload_form.file.$valid && $scope.pdf.file) { //check if from is valid
         uploadPdf($scope.pdf.file);
-         //call upload function
+        //call upload function
         //  console.log('res add', $scope.newImage.title);
       }
     };
@@ -215,6 +217,20 @@ angular.module('app')
       }, function(err) {
         console.error('error on image load', err);
       });
+    };
+
+    $scope.currentPagePdf = 0;
+    $scope.pageSizePdf = 2;
+    $scope.listPdf = [];
+    $scope.numberOfPagesPdf = function() {
+      return Math.ceil($scope.listPdf.length / $scope.pageSizePdf);
+    };
+    for (var i = 0; i < $scope.listPdf.length - 1; i++) {
+      $scope.listPdf.push("Item " + i);
+    }
+
+    $scope.decodeURI = function(filename) {
+      return decodeURI(filename);
     };
 
 
