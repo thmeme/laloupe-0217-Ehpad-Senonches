@@ -205,6 +205,18 @@ angular.module('app')
       }
     };
 
+    $scope.galleryPdfModalShown = false;
+    $scope.OpenModalUrlPdf = function() {
+      $scope.galleryPdfModalShown = !$scope.galleryPdfModalShown;
+      UploadPdfService.getAll().then(function(res) {
+        console.log('loadpdf', res);
+        $scope.listpdf = res.data;
+        console.log('listpdf', res.data);
+      }, function(err) {
+        console.error('error on image load', err);
+      });
+    };
+
 
 
   });
