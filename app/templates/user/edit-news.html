@@ -14,14 +14,47 @@
 
       <textarea ui-tinymce="tinymceOptions" ng-model="news.content"></textarea>
       <div>
-        <div class="inset SwitchvalidSubmenu">
-          <md-switch ng-model="news.isOnline" ng-if='user.isAdmin' aria-label="status">
-            En ligne
+        <div layout='row'>
+          <md-switch flex='80' ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
+            <span ng-if='newSubmenu.isOnline'>Publié</span>
+            <span ng-if='!newSubmenu.isOnline'>Brouillon</span>
           </md-switch>
+          <md-button class="md-primary md-raised" type="submit">Mettre à jour</md-button>
         </div>
-        <md-button class="md-primary md-raised" type="submit">Mettre à jour</md-button>
-
+        <div layout="row" layout-align="space-around center">
+          <div class="blocButtonsImg">
+            <h2>Gestion des images</h2>
+            <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
+            <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
+          </div>
+          <div class="blocButtonsImg">
+            <h2>Gestion des pdf</h2>
+            <md-button class="md-primary md-raised" ng-click='OpenModalUploadPdf()'>Ajouter</md-button>
+            <md-button class="md-primary md-raised" ng-click='OpenModalUrlPdf()'>Galerie</md-button>
+          </div>
+        </div>
       </div>
     </form>
+    <!-- Modal gallery images-->
+    <modal-dialog show='galleryInsertModalShown' width='750px'>
+      <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
+        <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
+        <div class="btnInsertImg">
+          <md-button class="md-fab md-mini btnInsert" ng-click='insertImgEdit(image.fileName)' title="Insérer"><i class="material-icons">picture_in_picture</i></md-button>
+          <md-divider ng-if="!$last"></md-divider>
+        </div>
+      </div>
+      <section class="blocBtnGalerie" layout="row" layout-align="center center">
+        <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+          <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
+        </md-button>
+
+        <div class="pagingGalerieImages">{{currentPage+1}}/{{numberOfPages()}}</div>
+        <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPage >= listimages.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+          <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+        </md-button>
+      </section>
+    </modal-dialog>
+    <!-- End Modal gallery images-->
   </div>
 </div>
