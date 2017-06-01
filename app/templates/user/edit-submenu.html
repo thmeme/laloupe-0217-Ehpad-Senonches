@@ -37,9 +37,86 @@
             <md-button class="md-primary md-raised" ng-click='OpenModalUrlPdf()'>Galerie</md-button>
           </div>
         </div>
-
-
       </div>
     </form>
+    <!-- Modal gallery images-->
+    <modal-dialog show='galleryInsertModalShown' width='750px'>
+      <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
+        <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
+        <div class="btnInsertImg">
+          <md-button class="md-fab md-mini btnInsert" ng-click='insertImgEdit(image.fileName)' title="Insérer"><i class="material-icons">picture_in_picture</i></md-button>
+          <md-divider ng-if="!$last"></md-divider>
+        </div>
+      </div>
+      <section class="blocBtnGalerie" layout="row" layout-align="center center">
+        <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+          <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
+        </md-button>
+
+        <div class="pagingGalerieImages">{{currentPage+1}}/{{numberOfPages()}}</div>
+        <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPage >= listimages.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+          <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+        </md-button>
+      </section>
+    </modal-dialog>
+    <!-- End Modal gallery images-->
+
+    <!-- Modal gallery pdf-->
+    <modal-dialog show='galleryPdfModalShown' width='750px'>
+      <div class="pdfGallery" ng-repeat="pdf in listPdf | orderBy : 'fileName':true | startFrom:currentPagePdf*pageSizePdf | limitTo:pageSizePdf">
+        <img ng-src="logopdf2.png" class="listImages">
+        <p class="namePdf">{{decodeURI(pdf.fileName)}}</p>
+        <div class="btnInsertImg">
+          <md-button class="md-fab md-mini btnInsert"  target='_blank' title="Visualiser"><i class="material-icons">visibility</i></md-button>
+          <md-button class="md-fab md-mini btnInsert" ng-click-copy="/uploads/pdf/{{pdf.fileName}}" title="Copier"><i class="material-icons">content_copy</i></md-button>
+          <md-divider ng-if="!$last"></md-divider>
+        </div>
+      </div>
+      <section class="blocBtnGalerie" layout="row" layout-align="center center">
+        <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPagePdf == 0" ng-click="currentPagePdf=currentPagePdf-1">
+          <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
+        </md-button>
+
+        <div class="pagingGalerieImages">{{currentPagePdf+1}}/{{numberOfPagesPdf()}}</div>
+        <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPagePdf >= listPdf.length/pageSizePdf - 1" ng-click="currentPagePdf=currentPagePdf+1">
+          <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+        </md-button>
+      </section>
+    </modal-dialog>
+    <!-- End Modal gallery pdf-->
+
+    <!-- Upload img -->
+    <modal-dialog show='UploadImgModalShown' width='750px'>
+      <div class="addImage" ng-controller="SubmenuController">
+        <form name="upload_form">
+          <input type="file" ngf-select ng-model="image.file" name="file" ngf-pattern="'.jpg'" accept="image/*" ngf-max-size="10MB" ngf-resize="{width: 500}" />
+          <img style="width:100px;" ngf-thumbnail="image.file || '/thumb.jpg'" />
+          <i ng-show="upload_form.file.$error.required">*required</i><br>
+          <i ng-show="upload_form.file.$error.maxSize">Image trop large
+              {{image.file.size / 1000000|number:1}}MB: max 10MB</i>
+          <md-button class="md-primary md-raised" type="submit" ng-click="uploadImage()">Envoyer</md-button>
+          <p>{{image.progress}}
+        </form>
+      </div>
+    </modal-dialog>
+    <!-- End Upload img -->
+
+    <!-- Upload pdf -->
+    <modal-dialog show='UploadPdfModalShown' width='750px'>
+      <div class="addImage" ng-controller="SubmenuController">
+        <form name="upload_form">
+          <input type="file" ngf-select ng-model="pdf.file" name="file" ngf-pattern="'.pdf'" />
+          <!-- <img style="width:100px;" ngf-thumbnail="image.file || '/thumb.jpg'" /> -->
+          <i ng-show="upload_form.file.$error.required">*required</i><br>
+          <i ng-show="upload_form.file.$error.maxSize">Image trop large
+              {{pdf.file.size / 1000000|number:1}}MB: max 10MB</i>
+          <md-button class="md-primary md-raised" type="submit" ng-click="uploadPdf()">Envoyer</md-button>
+          <p>{{pdf.progress}}
+        </form>
+      </div>
+    </modal-dialog>
+    <!-- End Upload pdf -->
+
+
   </div>
 </div>

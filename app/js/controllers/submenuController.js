@@ -126,6 +126,12 @@ angular.module('app')
       $scope.galleryInsertModalShown = false;
     };
 
+    $scope.insertImgEdit = function(name) {
+      $scope.submenu.content += '<p><img src="uploads/images/' + name + '" width="500"/></p>';
+      console.log('submenu.content', $scope.submenu.content);
+      $scope.galleryInsertModalShown = false;
+    };
+
     $scope.currentPage = 0;
     $scope.pageSize = 12;
     $scope.listimages = [];
