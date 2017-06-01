@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('newsController', function($scope, $stateParams, $state, UploadService, $mdDialog, CurrentUser, newsService) {
+  .controller('newsController', function($scope, $stateParams, $state, UploadPdfService, UploadService, $mdDialog, CurrentUser, newsService) {
     $scope.user = CurrentUser.user();
 
     $scope.idNews = $stateParams.id;
@@ -173,5 +173,69 @@ angular.module('app')
     for (var i = 0; i < $scope.listimages.length - 1; i++) {
       $scope.listimages.push("Item " + i);
     }
+
+    $scope.UploadPdfModalShown = false;
+    $scope.OpenModalUploadPdf = function() {
+      $scope.UploadPdfModalShown = !$scope.UploadPdfModalShown;
+    };
+
+    $scope.pdf = {
+      file: {},
+      progress: ''
+    };
+
+    function uploadPdf(pdfFile) {
+      UploadPdfService.uploadPdf(pdfFile).then(function(res) {
+        console.log('After upload: ', res);
+        if (res.data.success) { //validate success
+          console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
+        } else {
+          console.error('An error occured during upload (file:' + res.config.data.name + ')');
+        }
+      }, function(err) { //catch error
+        console.log('Error status: ' + err.status);
+      }, function(evt) {
+        console.log('evt during upload: ', evt);
+        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+        console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
+        $scope.pdf.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
+      });
+    }
+
+    $scope.uploadPdf = function() {
+      console.log('pdf:', $scope.pdf);
+      if ($scope.upload_form.file.$valid && $scope.pdf.file) { //check if from is valid
+        uploadPdf($scope.pdf.file);
+        //call upload function
+        //  console.log('res add', $scope.newImage.title);
+      }
+    };
+
+    $scope.galleryPdfModalShown = false;
+    $scope.OpenModalUrlPdf = function() {
+      $scope.galleryPdfModalShown = !$scope.galleryPdfModalShown;
+      UploadPdfService.getAll().then(function(res) {
+        console.log('loadpdf', res);
+        $scope.listPdf = res.data;
+        console.log('listpdf', res.data);
+      }, function(err) {
+        console.error('error on image load', err);
+      });
+    };
+
+    $scope.decodeURI = function(filename) {
+      return decodeURI(filename);
+    };
+
+    $scope.currentPagePdf = 0;
+    $scope.pageSizePdf = 8;
+    $scope.listPdf = [];
+    $scope.numberOfPagesPdf = function() {
+      return Math.ceil($scope.listPdf.length / $scope.pageSizePdf);
+    };
+    for (i = 0; i < $scope.listPdf.length - 1; i++) {
+      $scope.listPdf.push("Item " + i);
+    }
+
 
   });
