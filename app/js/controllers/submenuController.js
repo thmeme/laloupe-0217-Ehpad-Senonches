@@ -17,7 +17,7 @@ angular.module('app')
           console.log('res One', res);
           $scope.submenu = res.data;
         }, function(err) {
-          console.error('error on getOne', err);
+          console.error('error on getOne Submenu', err);
         });
       }
     }

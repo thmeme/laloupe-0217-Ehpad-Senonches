@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('newsController', function($scope, $stateParams, $state, UploadPdfService, UploadService, $mdDialog, CurrentUser, newsService) {
+  .controller('newsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
     $scope.user = CurrentUser.user();
 
     $scope.idNews = $stateParams.id;
@@ -25,10 +25,10 @@ angular.module('app')
     $scope.addNews = function() {
       newsService.create($scope.newNews).then(function(res) {
         console.log('news', $scope.newNews);
-        $scope.newNews.content = '';
-        $scope.newNews.title = '';
-        $scope.newNews.menu = '';
-        $scope.newNews.image = '';
+        // $scope.newNews.content = '';
+        // $scope.newNews.title = '';
+        // $scope.newNews.menu = '';
+        // $scope.newNews.image = '';
         loadAllNews();
       });
     };
@@ -100,8 +100,8 @@ angular.module('app')
       progress: ''
     };
 
-    function uploadImage(imageFile) {
-      UploadService.uploadImage(imageFile).then(function(res) {
+    function uploadImage(imgFile) {
+      UploadService.uploadImage(imgFile).then(function(res) {
         console.log('After upload: ', res);
         if (res.data.success) { //validate success
           console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
@@ -142,6 +142,12 @@ angular.module('app')
       $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
       $scope.galleryInsertModalShown = false;
     };
+
+    $scope.insertImgEditNews = function(nameImg) {
+      $scope.news.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
+      $scope.galleryInsertModalShown = false;
+    };
+
 
     $scope.galleryAssociateModalShown = false;
     $scope.OpenModalgalleryAssociate = function() {
