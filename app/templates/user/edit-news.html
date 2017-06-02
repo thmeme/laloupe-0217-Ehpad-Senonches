@@ -62,7 +62,7 @@
 
       <div class="pdfGallery" ng-repeat="pdf in listPdf | orderBy : 'fileName':true | startFrom:currentPagePdf*pageSizePdf | limitTo:pageSizePdf">
         <img ng-src="logopdf2.png" class="listImages">
-        <p class="namePdf">{{decodeURI(pdf.fileName)}}</p>
+        <p class="namePdf">{{decodeURI(pdf.fileName.split('-').pop())}}</p>
         <div class="btnInsertImg">
           <md-button class="md-fab md-mini btnInsert"  target='_blank' title="Visualiser"><i class="material-icons">visibility</i></md-button>
           <md-button class="md-fab md-mini btnInsert" ng-click-copy="/uploads/pdf/{{pdf.fileName}}" title="Copier"><i class="material-icons">content_copy</i></md-button>
