@@ -13,9 +13,10 @@ let storage = multer.diskStorage({
     cb(null, pdfDir);
   },
   filename: function(req, file, cb) {
+    let datetimestamp = Date.now();
+
   name = file.originalname.split('.').shift();
-    // let datetimestamp = Date.now();
-    cb(null, encodeURI(name) + '.pdf');
+    cb(null, datetimestamp + '-' + encodeURI(name) + '.pdf');
   }
 });
 
