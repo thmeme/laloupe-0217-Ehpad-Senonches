@@ -84,7 +84,7 @@
     <!-- End Modal gallery pdf-->
 
     <!-- Upload img -->
-    <!-- <modal-dialog show='UploadImgModalShown' width='750px'>
+    <modal-dialog show='UploadImgModalShown' width='750px'>
       <div class="addImage">
         <form name="upload_form">
           <input type="file" ngf-select ng-model="image.file" name="file" ngf-pattern="'.jpg'" accept="image/*" ngf-max-size="10MB" ngf-resize="{width: 500}" />
@@ -96,14 +96,15 @@
           <p>{{image.progress}}
         </form>
       </div>
-    </modal-dialog> -->
+    </modal-dialog>
     <!-- End Upload img -->
 
     <!-- Upload pdf -->
-    <!-- <modal-dialog show='UploadPdfModalShown' width='750px'>
+    <modal-dialog show='UploadPdfModalShown' width='750px'>
       <div class="addImage">
         <form name="upload_form">
           <input type="file" ngf-select ng-model="pdf.file" name="file" ngf-pattern="'.pdf'" />
+          <img style="width:100px;" ngf-thumbnail="image.file || '/thumb.jpg'" />
           <i ng-show="upload_form.file.$error.required">*required</i><br>
           <i ng-show="upload_form.file.$error.maxSize">Image trop large
               {{pdf.file.size / 1000000|number:1}}MB: max 10MB</i>
@@ -111,8 +112,9 @@
           <p>{{pdf.progress}}
         </form>
       </div>
-    </modal-dialog> -->
+    </modal-dialog>
     <!-- End Upload pdf -->
+
 
 
 

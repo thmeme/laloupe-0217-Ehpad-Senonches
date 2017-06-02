@@ -119,13 +119,17 @@ angular.module('app')
     }
 
     $scope.uploadImage = function() {
-      console.log('image:', $scope.image);
-      if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
-        uploadImage($scope.image.file);
-        //call upload function
-        //  console.log('res add', $scope.newImage.title);
-      }
+      console.log('image:', $scope.image);uploadImage($scope.image.file);
+
     };
+    // $scope.uploadImage = function() {
+    //   console.log('image:', $scope.image);
+    //   if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
+    //     uploadImage($scope.image.file);
+    //     //call upload function
+    //     //  console.log('res add', $scope.newImage.title);
+    //   }
+    // };
 
     $scope.galleryInsertModalShown = false;
     $scope.OpenModalgalleryInsert = function() {
