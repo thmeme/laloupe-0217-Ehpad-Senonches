@@ -17,7 +17,7 @@ angular.module('app')
           console.log('res One', res);
           $scope.submenu = res.data;
         }, function(err) {
-          console.error('error on getOne', err);
+          console.error('error on getOne Submenu', err);
         });
       }
     }
@@ -123,6 +123,12 @@ angular.module('app')
 
     $scope.insertImg = function(nameImg) {
       $scope.newSubmenu.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
+      $scope.galleryInsertModalShown = false;
+    };
+
+    $scope.insertImgEdit = function(name) {
+      $scope.submenu.content += '<p><img src="uploads/images/' + name + '" width="500"/></p>';
+      console.log('submenu.content', $scope.submenu.content);
       $scope.galleryInsertModalShown = false;
     };
 
