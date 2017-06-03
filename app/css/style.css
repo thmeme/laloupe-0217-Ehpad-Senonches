@@ -237,6 +237,12 @@ form .progress {
 .namePdf {
   text-align: center;
 }
+
+
+.linkPdf {
+    text-decoration: none;
+    color: inherit;
+}
 /*end modal*/
 .imgAssociatePreview {
   width: 150px;
