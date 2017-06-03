@@ -20,7 +20,7 @@ angular.module('app')
                         templateUrl: 'anon/home.html',
                         controller: 'MainController',
                         controller: 'mapController'
-                  
+
                     }
                 }
             })
@@ -89,7 +89,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/create-submenu.html',
-                        controller: 'SubmenuController',
+                        controller: 'SubmenuController'
                     }
                 }
             })

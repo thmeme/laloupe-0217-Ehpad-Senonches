@@ -87,7 +87,7 @@
 
     <!-- Upload img -->
     <modal-dialog show='UploadImgModalShown' width='750px'>
-      <div class="addImage">
+      <div class="addImage" ng-controller="UploadController">
         <form name="upload_form">
           <input type="file" ngf-select ng-model="image.file" name="file" ngf-pattern="'.jpg'" accept="image/*" ngf-max-size="10MB" ngf-resize="{width: 500}" />
           <img style="width:100px;" ngf-thumbnail="image.file || '/thumb.jpg'" />
@@ -103,7 +103,7 @@
 
     <!-- Upload pdf -->
     <modal-dialog show='UploadPdfModalShown' width='750px'>
-      <div class="addImage">
+      <div class="addImage" ng-controller="UploadController">
         <form name="upload_form">
           <input type="file" ngf-select ng-model="pdf.file" name="file" ngf-pattern="'.pdf'" />
           <!-- <img style="width:100px;" ngf-thumbnail="image.file || '/thumb.jpg'" /> -->
