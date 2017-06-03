@@ -72,7 +72,6 @@ angular.module('app')
       $state.go('user.create-news');
     };
 
-
     $scope.showConfirm = function(ev, id) {
       // Appending dialog to document.body to cover sidenav in docs app
       var confirm = $mdDialog.confirm()
@@ -116,7 +115,6 @@ angular.module('app')
       $scope.galleryInsertModalShown = false;
     };
 
-
     $scope.galleryAssociateModalShown = false;
     $scope.OpenModalgalleryAssociate = function() {
       if ($scope.newNews.image) {
@@ -153,7 +151,6 @@ angular.module('app')
       $scope.UploadPdfModalShown = !$scope.UploadPdfModalShown;
     };
 
-
     $scope.galleryPdfModalShown = false;
     $scope.OpenModalUrlPdf = function() {
       $scope.galleryPdfModalShown = !$scope.galleryPdfModalShown;
@@ -179,6 +176,5 @@ angular.module('app')
     for (i = 0; i < $scope.listPdf.length - 1; i++) {
       $scope.listPdf.push("Item " + i);
     }
-
 
   });

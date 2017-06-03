@@ -147,7 +147,6 @@ angular.module('app')
       $scope.UploadPdfModalShown = !$scope.UploadPdfModalShown;
     };
 
-
     $scope.galleryPdfModalShown = false;
     $scope.OpenModalUrlPdf = function() {
       $scope.galleryPdfModalShown = !$scope.galleryPdfModalShown;
