@@ -12,7 +12,7 @@ module.exports = (app) => {
 
     var contactForm = new ContactForm();
 
-    router.get('/', contactForm.sendMail);
+    router.post('/', contactForm.sendMail);
 
 
     app.use('/contactForm', router);

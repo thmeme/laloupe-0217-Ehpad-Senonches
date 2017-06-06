@@ -1,8 +1,8 @@
 angular.module('app')
     .service('FormService', function($http) {
         return {
-            create: function() {
-                return $http.get('/contactForm/');
+            create: function(formContact) {
+                return $http.post('/contactForm/', formContact);
             },
             getAll: function() {
                 return $http.get('/contactForm');

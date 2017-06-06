@@ -5,19 +5,19 @@
     <form ng-submit="sendMail()">
     <md-input-container>
       <label>Votre adresse mail</label>
-      <input ng-model="formContact.mail" type="mail">
+      <input ng-model="mail" type="mail">
     </md-input-container><br>
     <md-input-container>
       <label>Votre nom</label>
-      <input ng-model="formContact.name" type="text">
+      <input ng-model="name" type="text">
     </md-input-container><br>
     <md-input-container>
       <label>Sujet</label>
-      <input ng-model="formContact.subject" type="text">
+      <input ng-model="subject" type="text">
     </md-input-container><br>
     <md-input-container>
       <label>Votre message</label>
-      <textarea ng-model="formContact.message" name="name" rows="8" cols="80"></textarea>
+      <textarea ng-model="message" name="name" rows="8" cols="80"></textarea>
     </md-input-container><br>
     <md-button class="md-primary md-raised" type="submit">Envoyer le mail</md-button>
   </form>

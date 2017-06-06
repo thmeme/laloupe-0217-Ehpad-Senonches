@@ -31,11 +31,15 @@ angular.module('app')
     document.getElementById("heure").innerHTML = jour_semaine + " " + jour + " " + mois + " " + annee + " - " + heure + ":" + minute;
 
     $scope.sendMail = function() {
-      console.log('push send');
-      FormService.create().then(function(res){
-        console.log('youpii');
-        console.log(formContact.name);
+      $scope.formContact = [];
+      console.log($scope.formContact);
+      FormService.create($scope.formContact).then(function(res){
+        $scope.formContact = {
+          mail: formContact.mail,
+          name: formContact.name,
+          subject: formContact.subject,
+          message: formContact.message
+        };
       });
-
-    }
+    };
   });

@@ -3,6 +3,27 @@ import formContact from './formContact.js';
 import nodemailer from 'nodemailer';
 import hbs from 'nodemailer-express-handlebars';
 
+const formSchema = new mongoose.Schema({
+  mail: {
+    type: String,
+    require: true
+  },
+  name: {
+    type: String,
+    require: true
+  },
+  subject: {
+    type: String,
+    require: true
+  },
+  message: {
+    type: String,
+    require: true
+  }
+});
+
+let model = mongoose.model('formContact', formSchema);
+
 
 var mailer = nodemailer.createTransport({
   service: 'gmail',
@@ -23,26 +44,22 @@ var options = {
   extName: '.hbs'
 };
 
-
-
 export default class ContactForm {
 
   sendMail(req, res) {
-
     mailer.use('compile', hbs(options));
-  mailer.sendMail({
-    from: 'test@test.com',
+    mailer.sendMail({
+    from: formContact.mail,
     to: 'jordan.couard@gmail.com',
-    subject: 'form.sujet',
+    subject: formContact.subject,
     template: 'email_body',
     context: {
          variable1 : formContact.name,
          variable2 : formContact.message
     }
   }, function (error, response) {
-    console.log('mail send at');
+    console.log('mail send at' + to);
     mailer.close();
   });
-
   }
 }
