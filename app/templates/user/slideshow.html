@@ -33,11 +33,11 @@
       </md-content>
 
       <!-- Modal gallery images insert-->
-      <modal-dialog show='galleryAssociateModalShown' width='750px'>
+      <modal-dialog show='galleryAssociateModalShow' width='750px'>
         <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
           <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
           <div class="btnInsertImg">
-            <md-button class="md-fab md-mini btnInsert" ng-click='insertImg(image.fileName)' title="Insérer"><i class="material-icons">input</i></md-button>
+            <md-button class="md-fab md-mini btnInsert" ng-click='addImgSlideShow(image.fileName)' title="Associer"><i class="material-icons">add_to_photos</i></md-button>
             <md-divider ng-if="!$last"></md-divider>
           </div>
         </div>
@@ -55,7 +55,7 @@
       <!-- End Modal gallery images insert-->
 
       <!-- Upload img -->
-      <modal-dialog show='UploadImgModalShown' width='750px'>
+      <modal-dialog show='UploadImgModalShow' width='750px'>
         <div class="addImage" ng-controller="UploadController">
           <form name="upload_form">
             <input type="file" ngf-select ng-model="image.file" name="file" ngf-pattern="'.jpg'" accept="image/*" ngf-max-size="10MB" ngf-resize="{width: 500}" />
