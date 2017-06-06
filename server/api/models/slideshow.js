@@ -20,11 +20,11 @@ export default class Slideshow {
 
     findAll(req, res) {
         model.find({},
-            (err, news) => {
-                if (err || !news) {
+            (err, slideshow) => {
+                if (err || !slideshow) {
                     res.sendStatus(403);
                 } else {
-                    res.json(news);
+                    res.json(slideshow);
                 }
             });
     }

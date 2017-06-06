@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('SlideshowController', function($scope, $stateParams, $window, $state, SlideshowService, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
+  .controller('SlideshowController', function($scope, $stateParams, $rootScope ,$window, $state, SlideshowService, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
     $scope.user = CurrentUser.user();
 
     $scope.idImg = $stateParams.id;
@@ -85,6 +85,16 @@ angular.module('app')
       });
     };
 
+    $scope.listImgSlideShow = [];
+
+    loadImgSlideshow = function () {
+      SlideshowService.getAll().then(function(res) {
+        console.log('loadImgSlideshow', res);
+        $scope.listImgSlideShow = res.data;
+      });
+    };
+    loadImgSlideshow();
+
     $scope.currentPage = 0;
     $scope.pageSize = 12;
     $scope.listimages = [];
@@ -108,5 +118,25 @@ angular.module('app')
     for (i = 0; i < $scope.listPdf.length - 1; i++) {
       $scope.listPdf.push("Item " + i);
     }
+
+
+    $rootScope.$on('dropEvent', function(evt, dragged, dropped) {
+        var i, oldIndex1, oldIndex2;
+        for(i=0; i<$scope.listImgSlideShow.length; i++) {
+            var c = $scope.listImgSlideShow[i];
+            if(dragged.name === img.name) {
+                oldIndex1 = i;
+            }
+            if(dropped.name === img.name) {
+                oldIndex2 = i;
+            }
+        }
+        var temp = $scope.listImgSlideShow[oldIndex1];
+        $scope.listImgSlideShow[oldIndex1] = $scope.listImgSlideShow[oldIndex2];
+        $scope.listImgSlideShow[oldIndex2] = temp;
+        $scope.$apply();
+    });
+
+
 
   });
