@@ -105,9 +105,9 @@ angular.module('app')
       $state.go('user.create-submenu');
     };
 
-    $scope.galleryInsertModalShown = false;
+    $scope.galleryInsertModalShow = false;
     $scope.OpenModalgalleryInsert = function() {
-      $scope.galleryInsertModalShown = !$scope.galleryInsertModalShown;
+      $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
       UploadService.getAll().then(function(res) {
         console.log('load', res);
         $scope.listimages = res.data;
@@ -116,20 +116,20 @@ angular.module('app')
       });
     };
 
-    $scope.UploadImgModalShown = false;
+    $scope.UploadImgModalShow = false;
     $scope.OpenModalUploadImg = function() {
-      $scope.UploadImgModalShown = !$scope.UploadImgModalShown;
+      $scope.UploadImgModalShow = !$scope.UploadImgModalShow;
     };
 
     $scope.insertImg = function(nameImg) {
       $scope.newSubmenu.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
-      $scope.galleryInsertModalShown = false;
+      $scope.galleryInsertModalShow = false;
     };
 
     $scope.insertImgEdit = function(name) {
       $scope.submenu.content += '<p><img src="uploads/images/' + name + '" width="500"/></p>';
       console.log('submenu.content', $scope.submenu.content);
-      $scope.galleryInsertModalShown = false;
+      $scope.galleryInsertModalShow = false;
     };
 
     $scope.currentPage = 0;
@@ -142,14 +142,14 @@ angular.module('app')
       $scope.listimages.push("Item " + i);
     }
 
-    $scope.UploadPdfModalShown = false;
+    $scope.UploadPdfModalShow = false;
     $scope.OpenModalUploadPdf = function() {
-      $scope.UploadPdfModalShown = !$scope.UploadPdfModalShown;
+      $scope.UploadPdfModalShow = !$scope.UploadPdfModalShow;
     };
 
-    $scope.galleryPdfModalShown = false;
+    $scope.galleryPdfModalShow = false;
     $scope.OpenModalUrlPdf = function() {
-      $scope.galleryPdfModalShown = !$scope.galleryPdfModalShown;
+      $scope.galleryPdfModalShow = !$scope.galleryPdfModalShow;
       UploadPdfService.getAll().then(function(res) {
         console.log('loadpdf', res);
         $scope.listPdf = res.data;
