@@ -19,13 +19,16 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 .txtAeraSubmenu {
   width: 80%;
 }
+
 .btnValid {
   float: right;
 }
+
 .columnAdmin {
   width: 70%;
   margin-top: 20px;
 }
+
 
 /*.SwitchvalidSubmenu {
   vertical-align: middle;
@@ -114,12 +117,17 @@ md-select:not([disabled]):focus .md-select-value {
   color: #dcf84e;
   float: right;
 }
+
+
 /*nexs*/
+
 .formEditNews {
   margin-top: 7%;
 }
 
+
 /*upload*/
+
 .thumb {
   width: 24px;
   height: 24px;
@@ -137,11 +145,13 @@ form .progress {
   width: 100px;
   border: 3px groove #CCC;
 }
+
 .progress div {
   font-size: smaller;
   background: orange;
   width: 0;
 }
+
 .addImage {
   border: 1px solid #e1e1e1;
   background-color: #f6f6f6;
@@ -149,10 +159,11 @@ form .progress {
   /*display: inline-block;*/
 }
 
+
 /*modal galerie images*/
+
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */
-
   position: absolute;
   z-index: 9999;
   top: 0;
@@ -162,15 +173,14 @@ form .progress {
   background-color: #000000;
   opacity: 0.6;
 }
+
 .ng-modal-dialog {
   /* A centered div above the overlay with a box shadow. */
-
   z-index: 10000;
   position: absolute;
   width: 50%;
   /* Default */
   /* Center the dialog */
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -179,10 +189,12 @@ form .progress {
   background-color: #fff;
   box-shadow: 4px 4px 80px #000;
 }
+
 .ng-modal-dialog-content {
   padding: 10px;
   text-align: left;
 }
+
 .ng-modal-close {
   position: absolute;
   top: 3px;
@@ -194,6 +206,7 @@ form .progress {
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
 }
+
 .btnInsert {
   line-height: 0px !important;
   margin-top: 20px;
@@ -209,24 +222,31 @@ form .progress {
   margin-right: auto;
   display: block;
 }
+
 .backgroundGalerieImages {
   margin-top: 1.5em;
 }
+
+
 /*.blocBtnGalerie {
   border-top: 1px solid #009688;
 }*/
+
 .imgGallery {
   display: inline-block;
   width: 177px;
   background-color: rgb(253, 223, 233);
   margin-right: 3px;
 }
+
 .btnInsertImg {
   text-align: center;
 }
+
 .md-button.md-ehpad-theme.md-fab:focus {
   color: black;
 }
+
 .pdfGallery {
   display: inline-block;
   width: 177px;
@@ -234,15 +254,52 @@ form .progress {
   background-color: rgb(253, 223, 233);
   margin-right: 3px;
 }
+
 .namePdf {
   text-align: center;
 }
+
+.linkPdf {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 /*end modal*/
+
 .imgAssociatePreview {
   width: 150px;
   vertical-align: middle;
 }
+
 .blocButtonsImg {
   margin-top: 30px;
   border-top: 1px solid #009688;
-  }
+}
+
+/*Slider*/
+/*@keyframes slidy {
+0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; }
+}
+
+body { margin: 0; }
+div#slider { overflow: hidden; }
+div#slider figure img { width: 20%; float: left; }
+div#slider figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite;*/
+}
+/*slider end*/
