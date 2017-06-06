@@ -48,15 +48,15 @@ angular.module('app')
       $scope.listNews.push("Item " + i);
     }
 
-    $scope.insertImg = function(nameImg) {
-      $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
-      $scope.galleryInsertModalShow = false;
-    };
-
-    $scope.insertImgEditNews = function(nameImg) {
-      $scope.news.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
-      $scope.galleryInsertModalShow = false;
-    };
+    // $scope.insertImg = function(nameImg) {
+    //   $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
+    //   $scope.galleryInsertModalShow = false;
+    // };
+    //
+    // $scope.insertImgEditNews = function(nameImg) {
+    //   $scope.news.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
+    //   $scope.galleryInsertModalShow = false;
+    // };
 
     $scope.galleryAssociateModalShow = false;
     $scope.OpenModalgalleryAssociate = function() {
@@ -74,11 +74,14 @@ angular.module('app')
       name :'',
     };
 
-
     $scope.addImgSlideShow = function (img) {
-      SlideshowService.create(img).then(function(res){
+      var newImgSlideShow = {
+        name: img
+      };
+      SlideshowService.create(newImgSlideShow).then(function(res){
         console.log('img Slideshow', res);
-        $newImgSlideShow.name = img;
+      }, function(err) {
+        console.error('err slideshow', err);
       });
     };
 

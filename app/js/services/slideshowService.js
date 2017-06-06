@@ -14,7 +14,7 @@ angular.module('app')
             getOne: function(id) {
                 return $http.get('/slideshow/:id');
             },
-            update: function(id, news) {
+            update: function(id, img) {
               if(user.isAdmin) {
                 return $http.put('/slideshow/admin/:id', img);
               }
