@@ -1,7 +1,56 @@
+<md-menu-bar>
+         <md-menu>
+           <md-button class="md-raised" id="pinkButton" ng-click="$mdMenu.open()">Votre </br> Admission </br> <md-icon><i class="material-icons">expand_more</i></md-icon> </md-button>
+             <md-menu-content id="pinkContent">
+               <md-menu-item>
+                  <md-button id="admissionSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'}">{{Submenu.title}}</md-button>
+               </md-menu-item>
+             </md-menu-content>
+         </md-menu>
+         <md-menu>
+           <md-button class="md-raised" id="greenButton" ng-click="$mdMenu.open()">Votre </br> Sejour </br> <md-icon><i class="material-icons">expand_more</i></md-icon> </md-button>
+             <md-menu-content id="greenContent">
+               <md-menu-item>
+                  <md-button id="sejourSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre séjour'}">{{Submenu.title}}</md-button>
+               </md-menu-item>
+             </md-menu-content>
+         </md-menu>
+         <md-menu>
+          <md-button class="md-raised" id="blueButton" ng-click="$mdMenu.open()">Vos </br> Droits </br> <md-icon><i class="material-icons">expand_more</i></md-icon> </md-button>
+             <md-menu-content id="blueContent">
+               <md-menu-item>
+                  <md-button id="droitSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'}">{{Submenu.title}}</md-button>
+               </md-menu-item>
+             </md-menu-content>
+         </md-menu>
+</md-menu-bar>
 
-
-<div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
-  <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
-    <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches"></marker>
-  </ng-map>
+<div layout="row" layout-xs="column">
+  <div flex-gt-sm="66" flex="33" id="actu">
+    <div>
+      <h2>Actualité</h2>
+    </div>
+  </div>
+  <div flex-gt-sm="33" flex='66' id="agenda">
+    <div>
+      <h2>Agenda</h2>
+    </div>
+  </div>
+</div>
+<div layout="row">
+  <div flex-gt-sm="70" flex="30" id="map"><div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
+    <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
+      <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
+    </ng-map>
+  </div>
+</div>
+  <div flex-gt-sm="30" flex="0" id="contact">
+    <div>
+      <h2>Contact</h2>
+    </div>
+  </div>
+</div>
+</div>
+  <div id="footer">
+  </div>
 </div>

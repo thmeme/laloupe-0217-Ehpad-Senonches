@@ -1,5 +1,5 @@
 import express from 'express';
-import News from '../models/news.js';
+import News from '../models/new.js';
 import Auth from '../middlewares/authorization.js';
 
 let router = express.Router();

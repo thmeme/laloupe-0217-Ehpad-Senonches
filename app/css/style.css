@@ -5,7 +5,7 @@
 }
 
 nav {
-  background-color: #be0d55;
+  background-color: #EDEDED;
 }
 
 md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
@@ -246,3 +246,78 @@ form .progress {
   margin-top: 30px;
   border-top: 1px solid #009688;
   }
+
+/*home page*/
+
+#actu {
+  border : 1px solid black;
+}
+
+#agenda {
+  border : 1px solid black;
+}
+
+#map {
+
+}
+
+#contact {
+  border : 1px solid black;
+}
+/*menu*/
+#sejourSubmenu {
+  background-color: #ABE852;
+  color: white;
+  font-size: 20px;
+}
+#admissionSubmenu {
+  background-color: #FF7ED3;
+  color: white;
+  font-size: 20px;
+}
+#droitSubmenu {
+  background-color: #76EAFF;
+  color: white;
+  font-size: 20px;
+}
+#greenContent {
+  background-color: #ABE852;
+}
+#pinkContent {
+  background-color: #FF7ED3;
+}
+#blueContent {
+  background-color: #76EAFF;
+}
+/*button*/
+
+#greenButton {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  background-color: #ABE852;
+  color: white;
+  font-size: 20px;
+}
+
+#pinkButton {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  background-color: #FF7ED3;
+  color: white;
+  font-size: 20px;
+}
+
+#blueButton {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  background-color: #76EAFF;
+  color: white;
+  font-size: 20px;
+}
+
+.material-icons {
+  color: white;
+}
