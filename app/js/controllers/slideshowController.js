@@ -8,7 +8,7 @@ angular.module('app')
     $scope.showConfirm = function(ev, id) {
       // Appending dialog to document.body to cover sidenav in docs app
       var confirm = $mdDialog.confirm()
-        .title('Voulez vous supprimer cet article ?')
+        .title('Voulez vous supprimer cette image ?')
         .textContent('Tous les éléments seront définitivement perdus')
         .ariaLabel('Lucky day')
         .targetEvent(ev)
@@ -16,8 +16,8 @@ angular.module('app')
         .cancel('Annuler');
 
       $mdDialog.show(confirm).then(function() {
-        newsService.delete(id).then(function(res) {
-          loadAllNews();
+        SlideshowService.delete(id).then(function(res) {
+          loadImgSlideshow();
         });
       });
     };
@@ -80,20 +80,16 @@ angular.module('app')
       };
       SlideshowService.create(newImgSlideShow).then(function(res){
         console.log('img Slideshow', res);
+        $scope.galleryAssociateModalShow = false;
+        loadImgSlideshow();
+
+
       }, function(err) {
         console.error('err slideshow', err);
       });
     };
 
-    $scope.listImgSlideShow = [];
 
-    loadImgSlideshow = function () {
-      SlideshowService.getAll().then(function(res) {
-        console.log('loadImgSlideshow', res);
-        $scope.listImgSlideShow = res.data;
-      });
-    };
-    loadImgSlideshow();
 
     $scope.currentPage = 0;
     $scope.pageSize = 12;
@@ -119,23 +115,27 @@ angular.module('app')
       $scope.listPdf.push("Item " + i);
     }
 
+    $scope.listImgSlideShow = [];
 
-    $rootScope.$on('dropEvent', function(evt, dragged, dropped) {
-        var i, oldIndex1, oldIndex2;
-        for(i=0; i<$scope.listImgSlideShow.length; i++) {
-            var c = $scope.listImgSlideShow[i];
-            if(dragged.name === img.name) {
-                oldIndex1 = i;
-            }
-            if(dropped.name === img.name) {
-                oldIndex2 = i;
-            }
-        }
-        var temp = $scope.listImgSlideShow[oldIndex1];
-        $scope.listImgSlideShow[oldIndex1] = $scope.listImgSlideShow[oldIndex2];
-        $scope.listImgSlideShow[oldIndex2] = temp;
-        $scope.$apply();
-    });
+    loadImgSlideshow = function () {
+      SlideshowService.getAll().then(function(res) {
+        console.log('loadImgSlideshow', res);
+        $scope.listImgSlideShow = res.data;
+
+      });
+    };
+    loadImgSlideshow();
+
+    $scope.$watch('llistImgSlideShow', function(listImgSlideShow) {
+        $scope.modelAsJson = angular.toJson(listImgSlideShow, true);
+    }, true);
+    console.log('modelJson', $scope.modelAsJson);
+
+
+
+
+
+
 
 
 

@@ -2,26 +2,24 @@
   <div>
     <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
     <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>Associer</md-button>
-    </div>
+  </div>
   <div class="columnAdmin">
     <div ng-cloak class="tabsSubmenu">
       <md-content>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="Carrousel">
-            <md-list>
-              <md-list-item class="md-3-line " ng-repeat="img in listImgSlideShow" drag="c" dragStyle="columnDrag" drop="c" dropStyle="columnDrop">
+            <md-list dnd-list="listImgSlideShow">
+              <md-list-item class="md-3-line " ng-repeat="img in listImgSlideShow" dnd-draggable="img" dnd-moved="listImgSlideShow.splice($index, 1)" dnd-effect-allowed="move" dnd-selected="models.selected = img" ng-class="{'selected': models.selected === img}">
+                <md-button class="md-fab md-mini">
+                  <md-icon><i class="material-icons">blur_on</i></md-icon>
+                </md-button>
                 <div class="md-list-item-text">
                   <img ng-src="/uploads/images/{{img.name}}" class="imgGallerySlideShow">
                 </div>
                 <md-button class="md-fab md-mini btnList" ng-if="news.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
                   <md-icon><i class="material-icons">done</i></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini" aria-label="Eat cake">
-                  <a ui-sref="user.edit-news({id: news._id})">
-                    <md-icon><i class="material-icons md-18" title="Editer">create</i></md-icon>
-                  </a>
-                </md-button>
-                <md-button class="md-fab md-mini" ng-click="showConfirm($event, news._id)" ng-if="user.isAdmin">
+                <md-button class="md-fab md-mini" ng-click="showConfirm($event, img._id)">
                   <md-icon><i class="material-icons md-18" title="Supprimer">delete</i></md-icon>
                 </md-button>
                 <md-divider ng-if="!$last"></md-divider>
