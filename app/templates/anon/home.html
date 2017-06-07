@@ -1,4 +1,4 @@
-<md-menu-bar>
+<md-menu-bar id="menu">
          <md-menu>
            <md-button class="md-raised" id="pinkButton" ng-click="$mdMenu.open()">Votre </br> Admission </br> <md-icon><i class="material-icons">expand_more</i></md-icon> </md-button>
              <md-menu-content id="pinkContent">
@@ -38,14 +38,15 @@
   </div>
 </div>
 <div layout="row">
-  <div flex-gt-sm="70" flex="30" id="map"><div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
-    <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
-      <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
-    </ng-map>
-  </div>
+  <div flex-gt-sm="70" flex="30">
+    <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
+      <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
+        <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
+      </ng-map>
+    </div>
 </div>
   <div flex-gt-sm="30" flex="0" id="contact">
-    <div>
+    <div id="contactContent">
       <h2>Contact</h2>
     </div>
   </div>
