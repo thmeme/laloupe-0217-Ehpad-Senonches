@@ -2,27 +2,24 @@
   <div>
     <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
     <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>Associer</md-button>
-    </div>
+  </div>
   <div class="columnAdmin">
     <div ng-cloak class="tabsSubmenu">
       <md-content>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="Carrousel">
-            <md-list>
-              <md-list-item class="md-3-line" ng-repeat="news in listNews | orderBy: '-date' | startFrom:currentPageNews*pageSizeNews | limitTo:pageSizeNews">
+            <md-list dnd-list="listImgSlideShow">
+              <md-list-item class="md-3-line " ng-repeat="img in listImgSlideShow" dnd-draggable="img" dnd-moved="listImgSlideShow.splice($index, 1)" dnd-effect-allowed="move" dnd-selected="models.selected = img" ng-class="{'selected': models.selected === img}">
+                <md-button class="md-fab md-mini">
+                  <md-icon><i class="material-icons">blur_on</i></md-icon>
+                </md-button>
                 <div class="md-list-item-text">
-                  <h4>Créé le {{news.date | date : 'medium'}}</h4>
-                  <h4>{{news.title}}</h4>
+                  <img ng-src="/uploads/images/{{img.name}}" class="imgGallerySlideShow">
                 </div>
                 <md-button class="md-fab md-mini btnList" ng-if="news.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
                   <md-icon><i class="material-icons">done</i></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini" aria-label="Eat cake">
-                  <a ui-sref="user.edit-news({id: news._id})">
-                    <md-icon><i class="material-icons md-18" title="Editer">create</i></md-icon>
-                  </a>
-                </md-button>
-                <md-button class="md-fab md-mini" ng-click="showConfirm($event, news._id)" ng-if="user.isAdmin">
+                <md-button class="md-fab md-mini" ng-click="showConfirm($event, img._id)">
                   <md-icon><i class="material-icons md-18" title="Supprimer">delete</i></md-icon>
                 </md-button>
                 <md-divider ng-if="!$last"></md-divider>
@@ -33,11 +30,11 @@
       </md-content>
 
       <!-- Modal gallery images insert-->
-      <modal-dialog show='galleryAssociateModalShown' width='750px'>
+      <modal-dialog show='galleryAssociateModalShow' width='750px'>
         <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
           <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
           <div class="btnInsertImg">
-            <md-button class="md-fab md-mini btnInsert" ng-click='insertImg(image.fileName)' title="Insérer"><i class="material-icons">input</i></md-button>
+            <md-button class="md-fab md-mini btnInsert" ng-click='addImgSlideShow(image.fileName)' title="Associer"><i class="material-icons">add_to_photos</i></md-button>
             <md-divider ng-if="!$last"></md-divider>
           </div>
         </div>
@@ -55,7 +52,7 @@
       <!-- End Modal gallery images insert-->
 
       <!-- Upload img -->
-      <modal-dialog show='UploadImgModalShown' width='750px'>
+      <modal-dialog show='UploadImgModalShow' width='750px'>
         <div class="addImage" ng-controller="UploadController">
           <form name="upload_form">
             <input type="file" ngf-select ng-model="image.file" name="file" ngf-pattern="'.jpg'" accept="image/*" ngf-max-size="10MB" ngf-resize="{width: 500}" />

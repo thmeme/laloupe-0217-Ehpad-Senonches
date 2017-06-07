@@ -1,22 +1,14 @@
 angular.module('app')
-  .controller('SlideshowController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
+  .controller('SlideshowController', function($scope, $stateParams, $rootScope ,$window, $state, SlideshowService, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
     $scope.user = CurrentUser.user();
 
-    $scope.idNews = $stateParams.id;
-    console.log('id', $scope.idNews);
-
-
-    $scope.redirectListNews = function() {
-      $state.go('user.news');
-    };
-
-
-
+    $scope.idImg = $stateParams.id;
+    console.log('id', $scope.idImg);
 
     $scope.showConfirm = function(ev, id) {
       // Appending dialog to document.body to cover sidenav in docs app
       var confirm = $mdDialog.confirm()
-        .title('Voulez vous supprimer cet article ?')
+        .title('Voulez vous supprimer cette image ?')
         .textContent('Tous les éléments seront définitivement perdus')
         .ariaLabel('Lucky day')
         .targetEvent(ev)
@@ -24,20 +16,20 @@ angular.module('app')
         .cancel('Annuler');
 
       $mdDialog.show(confirm).then(function() {
-        newsService.delete(id).then(function(res) {
-          loadAllNews();
+        SlideshowService.delete(id).then(function(res) {
+          loadImgSlideshow();
         });
       });
     };
 
-    $scope.UploadImgModalShown = false;
+    $scope.UploadImgModalShow = false;
     $scope.OpenModalUploadImg = function() {
-      $scope.UploadImgModalShown = !$scope.UploadImgModalShown;
+      $scope.UploadImgModalShow = !$scope.UploadImgModalShow;
     };
 
-    $scope.galleryInsertModalShown = false;
+    $scope.galleryInsertModalShow = false;
     $scope.OpenModalgalleryInsert = function() {
-      $scope.galleryInsertModalShown = !$scope.galleryInsertModalShown;
+      $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
       UploadService.getAll().then(function(res) {
         console.log('load', res);
         $scope.listimages = res.data;
@@ -56,36 +48,48 @@ angular.module('app')
       $scope.listNews.push("Item " + i);
     }
 
-    $scope.insertImg = function(nameImg) {
-      $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
-      $scope.galleryInsertModalShown = false;
-    };
+    // $scope.insertImg = function(nameImg) {
+    //   $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
+    //   $scope.galleryInsertModalShow = false;
+    // };
+    //
+    // $scope.insertImgEditNews = function(nameImg) {
+    //   $scope.news.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
+    //   $scope.galleryInsertModalShow = false;
+    // };
 
-    $scope.insertImgEditNews = function(nameImg) {
-      $scope.news.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
-      $scope.galleryInsertModalShown = false;
-    };
-
-    $scope.galleryAssociateModalShown = false;
+    $scope.galleryAssociateModalShow = false;
     $scope.OpenModalgalleryAssociate = function() {
-      // if ($scope.newNews.image) {
-      //   $scope.newNews.image = '';
-      // } else {
-        $scope.galleryAssociateModalShown = !$scope.galleryAssociateModalShown;
+        $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
         UploadService.getAll().then(function(res) {
           console.log('load', res);
           $scope.listimages = res.data;
         }, function(err) {
           console.error('error on image load', err);
         });
-      // }
     };
 
-    $scope.associateImg = function(nameImg) {
-      $scope.newNews.image += 'uploads/images/' + nameImg;
-      console.log('news.image', $scope.newNews.image);
-      $scope.galleryAssociateModalShown = false;
+    $scope.newImgSlideShow = {
+      id :'',
+      name :'',
     };
+
+    $scope.addImgSlideShow = function (img) {
+      var newImgSlideShow = {
+        name: img
+      };
+      SlideshowService.create(newImgSlideShow).then(function(res){
+        console.log('img Slideshow', res);
+        $scope.galleryAssociateModalShow = false;
+        loadImgSlideshow();
+
+
+      }, function(err) {
+        console.error('err slideshow', err);
+      });
+    };
+
+
 
     $scope.currentPage = 0;
     $scope.pageSize = 12;
@@ -96,23 +100,6 @@ angular.module('app')
     for (var i = 0; i < $scope.listimages.length - 1; i++) {
       $scope.listimages.push("Item " + i);
     }
-
-    $scope.UploadPdfModalShown = false;
-    $scope.OpenModalUploadPdf = function() {
-      $scope.UploadPdfModalShown = !$scope.UploadPdfModalShown;
-    };
-
-    $scope.galleryPdfModalShown = false;
-    $scope.OpenModalUrlPdf = function() {
-      $scope.galleryPdfModalShown = !$scope.galleryPdfModalShown;
-      UploadPdfService.getAll().then(function(res) {
-        console.log('loadpdf', res);
-        $scope.listPdf = res.data;
-        console.log('listpdf', res.data);
-      }, function(err) {
-        console.error('error on image load', err);
-      });
-    };
 
     $scope.decodeURI = function(filename) {
       return decodeURI(filename);
@@ -127,5 +114,29 @@ angular.module('app')
     for (i = 0; i < $scope.listPdf.length - 1; i++) {
       $scope.listPdf.push("Item " + i);
     }
+
+    $scope.listImgSlideShow = [];
+
+    loadImgSlideshow = function () {
+      SlideshowService.getAll().then(function(res) {
+        console.log('loadImgSlideshow', res);
+        $scope.listImgSlideShow = res.data;
+
+      });
+    };
+    loadImgSlideshow();
+
+    $scope.$watch('llistImgSlideShow', function(listImgSlideShow) {
+        $scope.modelAsJson = angular.toJson(listImgSlideShow, true);
+    }, true);
+    console.log('modelJson', $scope.modelAsJson);
+
+
+
+
+
+
+
+
 
   });
