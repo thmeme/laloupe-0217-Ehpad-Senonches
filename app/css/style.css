@@ -352,6 +352,26 @@ border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
 
+#contactContent {
+  text-align: center;
+  font-size: 25px;
+  line-height: 45px;
+  margin-top: 22px;
+}
+
+#contactButton {
+  background-color: #F1F1F1;
+  display: block;
+  margin : auto;
+  width: 140px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#contactButton:hover {
+background-color: #E5E5E5;
+}
+
 /***** Actu *****/
 
 #actu {
