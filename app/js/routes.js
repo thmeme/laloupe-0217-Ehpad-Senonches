@@ -19,11 +19,28 @@ angular.module('app')
                     'content@': {
                         templateUrl: 'anon/home.html',
                         controller: 'MainController',
-                        controller: 'MapController'
 
                     }
+                  },
+
+                views: {
+                    'map@': {
+                        templateUrl: 'anon/home.html',
+                        controller: 'mapController'
+
+                        controller: 'MapController'
+
+
+                    }
+                  },
+                views: {
+                    'menu@': {
+                        templateUrl: 'anon/home.html',
+                        controller: 'SubmenuController'
                 }
+              }
             })
+
             .state('anon.login', {
                 url: '/login',
                 views: {
@@ -32,7 +49,8 @@ angular.module('app')
                         controller: 'LoginController'
                     }
                 }
-            });
+              });
+
 
         $stateProvider
             .state('user', {
@@ -174,6 +192,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('user.edit-user', {
+                url: '/users/:id',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/edit-user.html',
+                        controller: 'editUserController'
+                    }
+                }
+            })
             .state('user.profile', {
                 url: '/profile',
                 views: {
@@ -207,4 +234,4 @@ angular.module('app')
                     }
                 });
         $urlRouterProvider.otherwise('/');
-    });
+      });
