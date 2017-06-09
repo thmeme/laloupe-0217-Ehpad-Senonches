@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('newsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
+  .controller('NewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
     $scope.user = CurrentUser.user();
 
     $scope.idNews = $stateParams.id;
@@ -72,7 +72,6 @@ angular.module('app')
       $state.go('user.create-news');
     };
 
-
     $scope.showConfirm = function(ev, id) {
       // Appending dialog to document.body to cover sidenav in docs app
       var confirm = $mdDialog.confirm()
@@ -90,46 +89,14 @@ angular.module('app')
       });
     };
 
-    $scope.UploadImgModalShown = false;
+    $scope.UploadImgModalShow = false;
     $scope.OpenModalUploadImg = function() {
-      $scope.UploadImgModalShown = !$scope.UploadImgModalShown;
+      $scope.UploadImgModalShow = !$scope.UploadImgModalShow;
     };
 
-    $scope.image = {
-      file: {},
-      progress: ''
-    };
-
-    function uploadImage(imgFile) {
-      UploadService.uploadImage(imgFile).then(function(res) {
-        console.log('After upload: ', res);
-        if (res.data.success) { //validate success
-          console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
-        } else {
-          console.error('An error occured during upload (file:' + res.config.data.name + ')');
-        }
-      }, function(err) { //catch error
-        console.log('Error status: ' + err.status);
-      }, function(evt) {
-        console.log('evt during upload: ', evt);
-        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
-        $scope.image.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
-      });
-    }
-
-    $scope.uploadImage = function() {
-      console.log('image:', $scope.image);
-      if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
-        uploadImage($scope.image.file);
-        //call upload function
-        //  console.log('res add', $scope.newImage.title);
-      }
-    };
-
-    $scope.galleryInsertModalShown = false;
+    $scope.galleryInsertModalShow = false;
     $scope.OpenModalgalleryInsert = function() {
-      $scope.galleryInsertModalShown = !$scope.galleryInsertModalShown;
+      $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
       UploadService.getAll().then(function(res) {
         console.log('load', res);
         $scope.listimages = res.data;
@@ -138,23 +105,32 @@ angular.module('app')
       });
     };
 
+    $scope.currentPageNews = 0;
+    $scope.pageSizeNews = 5;
+    $scope.listNews = [];
+    $scope.numberOfPagesNews = function() {
+      return Math.ceil($scope.listNews.length / $scope.pageSizeNews);
+    };
+    for (var i = 0; i < $scope.listNews.length - 1; i++) {
+      $scope.listNews.push("Item " + i);
+    }
+
     $scope.insertImg = function(nameImg) {
       $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
-      $scope.galleryInsertModalShown = false;
+      $scope.galleryInsertModalShow = false;
     };
 
     $scope.insertImgEditNews = function(nameImg) {
       $scope.news.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
-      $scope.galleryInsertModalShown = false;
+      $scope.galleryInsertModalShow = false;
     };
 
-
-    $scope.galleryAssociateModalShown = false;
+    $scope.galleryAssociateModalShow = false;
     $scope.OpenModalgalleryAssociate = function() {
       if ($scope.newNews.image) {
         $scope.newNews.image = '';
       } else {
-        $scope.galleryAssociateModalShown = !$scope.galleryAssociateModalShown;
+        $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
         UploadService.getAll().then(function(res) {
           console.log('load', res);
           $scope.listimages = res.data;
@@ -167,7 +143,7 @@ angular.module('app')
     $scope.associateImg = function(nameImg) {
       $scope.newNews.image += 'uploads/images/' + nameImg;
       console.log('news.image', $scope.newNews.image);
-      $scope.galleryAssociateModalShown = false;
+      $scope.galleryAssociateModalShow = false;
     };
 
     $scope.currentPage = 0;
@@ -180,46 +156,14 @@ angular.module('app')
       $scope.listimages.push("Item " + i);
     }
 
-    $scope.UploadPdfModalShown = false;
+    $scope.UploadPdfModalShow = false;
     $scope.OpenModalUploadPdf = function() {
-      $scope.UploadPdfModalShown = !$scope.UploadPdfModalShown;
+      $scope.UploadPdfModalShow = !$scope.UploadPdfModalShow;
     };
 
-    $scope.pdf = {
-      file: {},
-      progress: ''
-    };
-
-    function uploadPdf(pdfFile) {
-      UploadPdfService.uploadPdf(pdfFile).then(function(res) {
-        console.log('After upload: ', res);
-        if (res.data.success) { //validate success
-          console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
-        } else {
-          console.error('An error occured during upload (file:' + res.config.data.name + ')');
-        }
-      }, function(err) { //catch error
-        console.log('Error status: ' + err.status);
-      }, function(evt) {
-        console.log('evt during upload: ', evt);
-        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
-        $scope.pdf.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
-      });
-    }
-
-    $scope.uploadPdf = function() {
-      console.log('pdf:', $scope.pdf);
-      if ($scope.upload_form.file.$valid && $scope.pdf.file) { //check if from is valid
-        uploadPdf($scope.pdf.file);
-        //call upload function
-        //  console.log('res add', $scope.newImage.title);
-      }
-    };
-
-    $scope.galleryPdfModalShown = false;
+    $scope.galleryPdfModalShow = false;
     $scope.OpenModalUrlPdf = function() {
-      $scope.galleryPdfModalShown = !$scope.galleryPdfModalShown;
+      $scope.galleryPdfModalShow = !$scope.galleryPdfModalShow;
       UploadPdfService.getAll().then(function(res) {
         console.log('loadpdf', res);
         $scope.listPdf = res.data;
@@ -242,6 +186,5 @@ angular.module('app')
     for (i = 0; i < $scope.listPdf.length - 1; i++) {
       $scope.listPdf.push("Item " + i);
     }
-
 
   });

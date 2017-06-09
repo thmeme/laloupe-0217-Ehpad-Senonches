@@ -19,6 +19,7 @@ angular.module('app')
                     'content@': {
                         templateUrl: 'anon/home.html',
                         controller: 'MainController',
+
                     }
                   },
 
@@ -26,6 +27,10 @@ angular.module('app')
                     'map@': {
                         templateUrl: 'anon/home.html',
                         controller: 'mapController'
+
+                        controller: 'MapController'
+
+
                     }
                   },
                 views: {
@@ -102,7 +107,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/create-submenu.html',
-                        controller: 'SubmenuController',
+                        controller: 'SubmenuController'
                     }
                 }
             })
@@ -115,21 +120,12 @@ angular.module('app')
                     }
                 }
             })
-            // .state('user.galerie-images', {
-            //     url: '/galerie-images',
-            //     views: {
-            //         'content@': {
-            //             templateUrl: 'user/galerie-images.html',
-            //             controller: 'SubmenuController'
-            //         }
-            //     }
-            // })
             .state('user.news', {
                 url: '/news',
                 views: {
                     'content@': {
                         templateUrl: 'user/news.html',
-                        controller: 'newsController'
+                        controller: 'NewsController'
                     }
                 }
             })
@@ -138,7 +134,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/create-news.html',
-                        controller: 'newsController'
+                        controller: 'NewsController'
                     }
                 }
             })
@@ -147,7 +143,16 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/edit-news.html',
-                        controller: 'newsController'
+                        controller: 'NewsController'
+                    }
+                }
+            })
+            .state('user.slideshow', {
+                url: '/slideshow',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/slideshow.html',
+                        controller: 'SlideshowController'
                     }
                 }
             })

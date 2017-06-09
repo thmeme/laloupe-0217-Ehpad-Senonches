@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('mapController',
+.controller('MapController',
 function($scope, NgMap) {
 
 });

@@ -1,7 +1,7 @@
 <div layout="column" layout layout-align="space-around center">
   <div>
-  <md-button class="md-primary md-raised btnRetour" ng-click='redirectCreateSubmenu()'>Créer un sous-menu</md-button>
-</div>
+    <md-button class="md-primary md-raised btnRetour" ng-click='redirectCreateSubmenu()'>Créer un sous-menu</md-button>
+  </div>
   <div class="columnAdmin">
 
     <div ng-cloak="" class="tabsSubmenu">
@@ -20,7 +20,7 @@
                   <md-icon><i class="material-icons">done</i></md-icon>
                 </md-button>
                 <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
-                  <a ng-href="/#!/user/submenu/{{Submenu._id}}" title="Editer">
+                  <a ui-sref="user.edit-submenu({id: submenu._id})">
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
                   </a>
                 </md-button>
