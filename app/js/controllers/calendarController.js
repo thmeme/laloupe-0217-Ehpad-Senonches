@@ -15,7 +15,12 @@ angular.module('app')
       CalendarService.getAll().then(function(res) {
         $scope.evenements = res.data;
       });
-
+      function loadEvenements() {
+        CalendarService.getAll().then(function(res) {
+          $scope.evenements = res.data;
+        });
+      }
+      loadEvenements();
       function loadEvenement(id) {
         if (id !== undefined) {
           CalendarService.getOne($scope.idEvenements).then(function(res) {
@@ -46,12 +51,7 @@ angular.module('app')
       };
 
 
-        function loadEvenements() {
-          CalendarService.getAll().then(function(res) {
-            $scope.evenements = res.data;
-          });
-        }
-        loadEvenements();
+
 
         $scope.customFullscreen = false;
         $scope.showConfirm = function(ev, id) {

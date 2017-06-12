@@ -16,12 +16,12 @@ angular.module('app')
             },
             update: function(id, evenement) {
               if(user.isAdmin) {
-                return $http.put(`/evenements/admin/${id}`, evenement);
+                return $http.put('/evenements/admin/:id', evenement);
               }
-                return $http.put(`/evenements/${id}`, evenement);
+                return $http.put('/evenements/:id', evenement);
             },
             delete: function(id) {
-                return $http.delete(`/evenements/${id}`);
+                return $http.delete('/evenements/:id');
             }
         };
     });

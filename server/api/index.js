@@ -27,7 +27,7 @@ app.use(bodyParser.json({
   type: 'application/vnd.api+json'
 }));
 app.use(methodOverride('X-HTTP-Method-Override'));
-
+app.use(express.static('../dist/'));
 db(() => {
   app.use('/', api(app));
   process.on('SIGINT', () => {
@@ -35,7 +35,7 @@ db(() => {
     process.exit();
   });
   app.server.listen(process.env.PORT || 3000);
-  console.log(`Server started on port ${app.server.address().port}`);
+  console.log(`Server started`);
 });
 
 export default app;

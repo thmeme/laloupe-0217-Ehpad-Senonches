@@ -1,6 +1,6 @@
 angular.module('app')
   .service('UploadPdfService', function(Upload, $http) {
-    var URL = 'http://localhost:3000';
+    var URL = '';
     return {
       uploadPdf: function(file) {
         return Upload.upload({

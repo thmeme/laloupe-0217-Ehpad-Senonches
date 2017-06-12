@@ -1,6 +1,6 @@
 angular.module('app')
   .service('UploadService', function(Upload, $http) {
-    var URL = 'http://localhost:3000';
+    var URL = '';
     return {
       uploadImage: function(file) {
         return Upload.upload({
