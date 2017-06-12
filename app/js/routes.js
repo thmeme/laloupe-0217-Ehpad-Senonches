@@ -22,15 +22,10 @@ angular.module('app')
 
                     }
                   },
-
                 views: {
                     'map@': {
                         templateUrl: 'anon/home.html',
-                        controller: 'mapController'
-
                         controller: 'MapController'
-
-
                     }
                   },
                 views: {

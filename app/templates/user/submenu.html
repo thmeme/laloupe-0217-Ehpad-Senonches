@@ -10,7 +10,6 @@
           <md-tab label="Votre admission">
             <md-list>
               <h2 class="headListSubmenu">Votre admission</h2>
-
               <md-list-item class="md-3-line" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'} | orderBy: '-date'">
                 <div class="md-list-item-text">
                   <h4>Créé le {{Submenu.date | date : 'medium'}}</h4>

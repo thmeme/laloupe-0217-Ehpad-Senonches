@@ -44,8 +44,8 @@ angular.module('app')
     $scope.numberOfPagesNews = function() {
       return Math.ceil($scope.listNews.length / $scope.pageSizeNews);
     };
-    for (var i = 0; i < $scope.listNews.length - 1; i++) {
-      $scope.listNews.push("Item " + i);
+    for (var k = 0; k < $scope.listNews.length - 1; k++) {
+      $scope.listNews.push("Item " + k);
     }
 
     // $scope.insertImg = function(nameImg) {

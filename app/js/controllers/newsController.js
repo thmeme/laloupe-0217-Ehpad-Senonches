@@ -154,8 +154,8 @@ angular.module('app')
     $scope.numberOfPages = function() {
       return Math.ceil($scope.listimages.length / $scope.pageSize);
     };
-    for (var i = 0; i < $scope.listimages.length - 1; i++) {
-      $scope.listimages.push("Item " + i);
+    for (var j = 0; j < $scope.listimages.length - 1; j++) {
+      $scope.listimages.push("Item " + j);
     }
 
     $scope.UploadPdfModalShow = false;
