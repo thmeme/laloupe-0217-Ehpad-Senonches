@@ -1,28 +1,28 @@
-
 <div layout="column" layout-align-gt-sm="space-around center">
-    <div class="columnAdmin">
-      <md-button class="md-primary md-raised btnRetour" ng-click='redirect()'>Retour à la liste des utilisateurs</md-button>
-      <form class="form" name="loginForm" ng-submit="updateUser()">
-          <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input id="Firstname" type="text" class="form-control" ng-model="user.Firstname" required placeholder="Prénom">
-          </div>
-          <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input id="Name" type="text" class="form-control" ng-model="user.Name" required placeholder="Nom">
-          </div>
-          <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Adresse Email">
-          </div>
-          <div>
-      <p>Statut: <span class="radioValue">{{ data.group1 }}</span> </p>
-      <md-radio-group ng-model="user.role">
-        <md-radio-button  value="admin">Administrateur</md-radio-button>
-        <md-radio-button  value="user"> Utilisateur </md-radio-button>
-      </md-radio-group>
+  <div class="columnAdmin">
+    <md-button class="md-primary md-raised btnRetour" ng-click='redirect()'>Retour à la liste des utilisateurs</md-button>
+    <form class="form" name="loginForm" ng-submit="updateUser()">
+      <div ng-repeat="error in errors">{{error.error}}</div>
 
-          <button type="submit" class="btn btn-primary btn-block">Mettre à jour</button>
-      </form>
-    </div>
+      <md-input-container class="md-block" flex-gt-sm>
+        <input id="Firstname" type="text" class="form-control" ng-model="user.Firstname" required placeholder="Prénom">
+      </md-input-container>
+
+      <md-input-container class="md-block" flex-gt-sm>
+        <input id="Name" type="text" class="form-control" ng-model="user.Name" required placeholder="Nom">
+      </md-input-container>
+
+      <md-input-container class="md-block" flex-gt-sm>
+        <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Adresse Email">
+      </md-input-container>
+      <div>
+        <p>Statut:<span class="radioValue"></span></p>
+        <md-radio-group ng-model="user.role">
+          <md-radio-button value="admin">Administrateur</md-radio-button>
+          <md-radio-button value="user"> Utilisateur </md-radio-button>
+        </md-radio-group>
+
+        <button type="submit" class="btn btn-primary btn-block">Mettre à jour</button>
+    </form>
+  </div>
 </div>

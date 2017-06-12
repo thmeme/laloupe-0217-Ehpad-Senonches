@@ -17,7 +17,10 @@
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
                   </a>
                 </md-button>
-                <md-button class="md-fab md-mini" ng-click="showConfirm($event, user._id)">
+                <md-button class="md-fab md-mini btnListSubmenu" ng-if="user.isAdmin" ng-disabled="true" title="Administrateur" aria-label="Eat cake">
+                  <md-icon><i class="material-icons">person</i></md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini btnListSubmenu" ng-click="showConfirm($event, user._id)" ng-if="!user.isAdmin">
                   <md-icon><i class="material-icons md-18" title="Supprimer">delete</i></md-icon>
                 </md-button>
                 <md-divider ng-if="!$last"></md-divider>

@@ -12,6 +12,7 @@
     "createAdmin": "cd server && babel-node ./api/userCreation.js"
   },
   "dependencies": {
+    "angular-drag-and-drop-lists": "^2.1.0",
     "angular-material": "^1.1.3",
     "angular-material-calendar": "^0.2.14",
     "express": "",

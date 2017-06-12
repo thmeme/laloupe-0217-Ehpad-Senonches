@@ -5,8 +5,12 @@
     <title>
         <%= pkg.name %>
     </title>
+<<<<<<< HEAD
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+=======
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+>>>>>>> 5a857d7bdcb50ac396b773a698b141046f93da74
     <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
 </head>
 
@@ -14,6 +18,8 @@
 
     <div ui-view='navbar'></div>
     <div ui-view='content'></div>
+    <div ui-view='menu'></div>
+    <div ui-view='map'></div>
 
     <script type="text/javascript" src="<%= js %>"></script>
 </body>

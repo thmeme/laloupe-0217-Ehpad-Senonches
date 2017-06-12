@@ -5,7 +5,7 @@
 }
 
 nav {
-  background-color: #be0d55;
+  background-color: #EDEDED;
 }
 
 md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
@@ -19,13 +19,16 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 .txtAeraSubmenu {
   width: 80%;
 }
+
 .btnValid {
   float: right;
 }
+
 .columnAdmin {
   width: 70%;
   margin-top: 20px;
 }
+
 
 /*.SwitchvalidSubmenu {
   vertical-align: middle;
@@ -114,12 +117,17 @@ md-select:not([disabled]):focus .md-select-value {
   color: #dcf84e;
   float: right;
 }
+
+
 /*nexs*/
+
 .formEditNews {
   margin-top: 7%;
 }
 
+
 /*upload*/
+
 .thumb {
   width: 24px;
   height: 24px;
@@ -137,11 +145,13 @@ form .progress {
   width: 100px;
   border: 3px groove #CCC;
 }
+
 .progress div {
   font-size: smaller;
   background: orange;
   width: 0;
 }
+
 .addImage {
   border: 1px solid #e1e1e1;
   background-color: #f6f6f6;
@@ -149,10 +159,11 @@ form .progress {
   /*display: inline-block;*/
 }
 
+
 /*modal galerie images*/
+
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */
-
   position: absolute;
   z-index: 9999;
   top: 0;
@@ -162,15 +173,14 @@ form .progress {
   background-color: #000000;
   opacity: 0.6;
 }
+
 .ng-modal-dialog {
   /* A centered div above the overlay with a box shadow. */
-
   z-index: 10000;
   position: absolute;
   width: 50%;
   /* Default */
   /* Center the dialog */
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -179,10 +189,12 @@ form .progress {
   background-color: #fff;
   box-shadow: 4px 4px 80px #000;
 }
+
 .ng-modal-dialog-content {
   padding: 10px;
   text-align: left;
 }
+
 .ng-modal-close {
   position: absolute;
   top: 3px;
@@ -194,6 +206,7 @@ form .progress {
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
 }
+
 .btnInsert {
   line-height: 0px !important;
   margin-top: 20px;
@@ -209,24 +222,31 @@ form .progress {
   margin-right: auto;
   display: block;
 }
+
 .backgroundGalerieImages {
   margin-top: 1.5em;
 }
+
+
 /*.blocBtnGalerie {
   border-top: 1px solid #009688;
 }*/
+
 .imgGallery {
   display: inline-block;
   width: 177px;
   background-color: rgb(253, 223, 233);
   margin-right: 3px;
 }
+
 .btnInsertImg {
   text-align: center;
 }
+
 .md-button.md-ehpad-theme.md-fab:focus {
   color: black;
 }
+
 .pdfGallery {
   display: inline-block;
   width: 177px;
@@ -234,15 +254,185 @@ form .progress {
   background-color: rgb(253, 223, 233);
   margin-right: 3px;
 }
+
 .namePdf {
   text-align: center;
 }
+
+.linkPdf {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 /*end modal*/
+
 .imgAssociatePreview {
   width: 150px;
   vertical-align: middle;
 }
+
 .blocButtonsImg {
   margin-top: 30px;
   border-top: 1px solid #009688;
+
   }
+
+/********* Home Page *********/
+body {
+  margin-right: 20px;
+  margin-left : 20px;
+background-color: #F5F4F4;
+}
+
+/****** menu ******/
+
+#menu {
+  text-align: center;
+}
+
+#greenButton {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  background-color: #ABE852;
+  color: white;
+  font-size: 20px;
+}
+
+#pinkButton {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  background-color: #FF7ED3;
+  color: white;
+  font-size: 20px;
+}
+
+#blueButton {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  background-color: #76EAFF;
+  color: white;
+  font-size: 20px;
+}
+#greenButton:hover {
+  opacity: 0.7;
+}
+#pinkButton:hover {
+  opacity: 0.7;
+}
+#blueButton:hover {
+  opacity: 0.7;
+}
+
+.material-icons {
+  color: white;
+}
+
+#admissionSubmenu {
+  background-color: white;
+  font-size: 20px;
+}
+
+#sejourSubmenu {
+  background-color: white;
+  font-size: 20px;
+}
+
+#droitSubmenu {
+  background-color: white;
+  font-size: 20px;
+}
+#admissionSubmenu:hover {
+  color: #FF7ED3;
+}
+#sejourSubmenu:hover {
+  color: #ABE852;
+}
+#droitSubmenu:hover {
+  color: #76EAFF;
+}
+#pinkContent {
+border: 1px solid #FF7ED3;
+}
+
+#greenContent {
+border: 1px solid #ABE852;
+}
+
+#blueContent {
+border: 1px solid #76EAFF;
+}
+
+/***** Map *****/
+
+#map {
+margin : 10px 10px 10px 10px;
+border-radius: 5px 5px 5px 5px;
+}
+
+/***** Contact *****/
+
+#contact {
+  margin : 10px 10px 10px 10px;
+  height: 300px;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+}
+
+#contactContent {
+  text-align: center;
+  font-size: 25px;
+  line-height: 45px;
+  margin-top: 22px;
+}
+
+#contactButton {
+  background-color: #F1F1F1;
+  display: block;
+  margin : auto;
+  width: 140px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#contactButton:hover {
+background-color: #E5E5E5;
+}
+
+/***** Actu *****/
+
+#actu {
+  margin : 10px 10px 10px 10px;
+  height: 300px;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+}
+
+/***** Agenda *****/
+
+#agenda {
+  margin : 10px 10px 10px 10px;
+  height: 300px;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+}
+
+}
+
+/*Slider*/
+.imgGallerySlideShow {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-height: 95px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+/*slider end*/
+

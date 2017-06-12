@@ -28,7 +28,7 @@ angular.module('app')
           console.log('res One', res);
           $scope.submenu = res.data;
         }, function(err) {
-          console.error('error on getOne', err);
+          console.error('error on getOne Submenu', err);
         });
       }
     }
@@ -107,9 +107,9 @@ angular.module('app')
       $state.go('user.create-submenu');
     };
 
-    $scope.galleryInsertModalShown = false;
+    $scope.galleryInsertModalShow = false;
     $scope.OpenModalgalleryInsert = function() {
-      $scope.galleryInsertModalShown = !$scope.galleryInsertModalShown;
+      $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
       UploadService.getAll().then(function(res) {
         console.log('load', res);
         $scope.listimages = res.data;
@@ -118,14 +118,20 @@ angular.module('app')
       });
     };
 
-    $scope.UploadImgModalShown = false;
+    $scope.UploadImgModalShow = false;
     $scope.OpenModalUploadImg = function() {
-      $scope.UploadImgModalShown = !$scope.UploadImgModalShown;
+      $scope.UploadImgModalShow = !$scope.UploadImgModalShow;
     };
 
     $scope.insertImg = function(nameImg) {
       $scope.newSubmenu.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
-      $scope.galleryInsertModalShown = false;
+      $scope.galleryInsertModalShow = false;
+    };
+
+    $scope.insertImgEdit = function(name) {
+      $scope.submenu.content += '<p><img src="uploads/images/' + name + '" width="500"/></p>';
+      console.log('submenu.content', $scope.submenu.content);
+      $scope.galleryInsertModalShow = false;
     };
 
     $scope.currentPage = 0;
@@ -138,78 +144,14 @@ angular.module('app')
       $scope.listimages.push("Item " + i);
     }
 
-    $scope.image = {
-      file: {},
-      progress: ''
-    };
-
-    function uploadImage(imageFile) {
-      UploadService.uploadImage(imageFile).then(function(res) {
-        console.log('After upload: ', res);
-        if (res.data.success) { //validate success
-          console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
-        } else {
-          console.error('An error occured during upload (file:' + res.config.data.name + ')');
-        }
-      }, function(err) { //catch error
-        console.log('Error status: ' + err.status);
-      }, function(evt) {
-        console.log('evt during upload: ', evt);
-        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
-        $scope.image.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
-      });
-    }
-
-    $scope.uploadImage = function() {
-      console.log('image:', $scope.image);
-      if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
-        uploadImage($scope.image.file);
-        //call upload function
-        //  console.log('res add', $scope.newImage.title);
-      }
-    };
-
-    $scope.UploadPdfModalShown = false;
+    $scope.UploadPdfModalShow = false;
     $scope.OpenModalUploadPdf = function() {
-      $scope.UploadPdfModalShown = !$scope.UploadPdfModalShown;
+      $scope.UploadPdfModalShow = !$scope.UploadPdfModalShow;
     };
 
-    $scope.pdf = {
-      file: {},
-      progress: ''
-    };
-
-    function uploadPdf(pdfFile) {
-      UploadPdfService.uploadPdf(pdfFile).then(function(res) {
-        console.log('After upload: ', res);
-        if (res.data.success) { //validate success
-          console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
-        } else {
-          console.error('An error occured during upload (file:' + res.config.data.name + ')');
-        }
-      }, function(err) { //catch error
-        console.log('Error status: ' + err.status);
-      }, function(evt) {
-        console.log('evt during upload: ', evt);
-        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
-        $scope.pdf.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
-      });
-    }
-
-    $scope.uploadPdf = function() {
-      console.log('pdf:', $scope.pdf);
-      if ($scope.upload_form.file.$valid && $scope.pdf.file) { //check if from is valid
-        uploadPdf($scope.pdf.file);
-        //call upload function
-        //  console.log('res add', $scope.newImage.title);
-      }
-    };
-
-    $scope.galleryPdfModalShown = false;
+    $scope.galleryPdfModalShow = false;
     $scope.OpenModalUrlPdf = function() {
-      $scope.galleryPdfModalShown = !$scope.galleryPdfModalShown;
+      $scope.galleryPdfModalShow = !$scope.galleryPdfModalShow;
       UploadPdfService.getAll().then(function(res) {
         console.log('loadpdf', res);
         $scope.listPdf = res.data;
