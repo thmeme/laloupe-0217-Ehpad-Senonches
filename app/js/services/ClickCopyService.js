@@ -14,11 +14,12 @@ angular.module('app')
 
 		try {
 			var successful = document.execCommand('copy');
-			if (!successful) throw successful;
+			if (!successful) {throw successful;
+			}
 		} catch (err) {
 			window.prompt("Copy to clipboard: Ctrl+C, Enter", toCopy);
 		}
 
 		textarea.remove();
-	}
+	};
 }]);

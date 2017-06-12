@@ -5,6 +5,15 @@ angular.module('app')
     $scope.idNews = $stateParams.id;
     console.log('id', $scope.idNews);
 
+    function loadAllNews() {
+      newsService.getAll().then(function(res) {
+        console.log('listNews', res);
+        $scope.listNews = res.data;
+        console.log('res.data', res.data);
+      });
+    }
+    loadAllNews();
+
     function loadNews(id) {
       if (id !== undefined) {
         newsService.getOne($scope.idNews).then(function(res) {
@@ -33,14 +42,7 @@ angular.module('app')
       });
     };
 
-    function loadAllNews() {
-      newsService.getAll().then(function(res) {
-        console.log('listNews', res);
-        $scope.listNews = res.data;
-        console.log('res.data', res.data);
-      });
-    }
-    loadAllNews();
+
 
     $scope.updateNews = function() {
       newsService.update($scope.idNews, $scope.news).then(function(res) {

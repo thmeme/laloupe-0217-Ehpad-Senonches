@@ -7,5 +7,5 @@ angular.module('app')
 				ngCopy(attrs.ngClickCopy);
 			});
 		}
-	}
+	};
 }]);

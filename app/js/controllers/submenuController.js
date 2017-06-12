@@ -11,6 +11,17 @@ angular.module('app')
     $scope.idSubmenu = $stateParams.id;
     console.log('id', $scope.idSubmenu);
 
+    function loadAllSubmenus() {
+      SubmenuService.getAll().then(function(res) {
+        console.log('listSubmenus', res);
+        $scope.listSubmenu = res.data;
+        console.log('res.data', res.data);
+      }, function(err) {
+        console.error('error on loadAllSubmenus', err);
+      });
+    }
+    loadAllSubmenus();
+
     function loadSubmenu(id) {
       if (id !== undefined) {
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
@@ -41,16 +52,7 @@ angular.module('app')
       });
     };
 
-    function loadAllSubmenus() {
-      SubmenuService.getAll().then(function(res) {
-        console.log('listSubmenus', res);
-        $scope.listSubmenu = res.data;
-        console.log('res.data', res.data);
-      }, function(err) {
-        console.error('error on loadAllSubmenus', err);
-      });
-    }
-    loadAllSubmenus();
+
 
     $scope.updateSubmenu = function() {
       SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
