@@ -46,7 +46,7 @@ export default class Submenu {
         });
     }
     create(req, res) {
-      console.log('route admin')
+      console.log('route admin');
 
         let submenu = req.body;
         console.log('back', req.body);
@@ -65,7 +65,7 @@ export default class Submenu {
         });
     }
     createByUser(req, res) {
-      console.log('route non admin')
+      console.log('route non admin');
         let submenu = req.body;
         console.log('back', req.body);
         submenu.date = new Date().toISOString();
@@ -84,7 +84,7 @@ export default class Submenu {
         });
     }
     update(req, res) {
-      console.log('route non admin')
+      console.log('route non admin');
         model.findByIdAndUpdate(req.params.id,
           req.body, { new: true },function(err, submenu) {
             if (err) {

@@ -3,15 +3,8 @@ import slideshow from './slideshow.js';
 
 const slideshowSchema = new mongoose.Schema({
 
-    id: {
-        type: String,
-    },
     name: {
         type: String,
-    },
-    status: {
-      type: Boolean,
-      default: true,
     }
 });
 let model = mongoose.model('slideshow', slideshowSchema);
@@ -101,6 +94,7 @@ export default class Slideshow {
         });
     }
     delete(req, res) {
+      console.log('delete', req.params.id);
         model.findByIdAndRemove(req.params.id, function(err) {
             if (err) {
                 res.status(500).send(err.message);
