@@ -11,7 +11,7 @@ angular.module('app')
                 return $http.put('/users/:id', user);
             },
             delete: function(id) {
-                return $http.delete('/users/:id');
+                return $http.delete('/users/' + id);
             },
             create: function(user) {
                 return $http.post('/users/', user);

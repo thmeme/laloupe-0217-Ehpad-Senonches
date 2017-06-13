@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('SlideshowController', function($scope, $stateParams, $rootScope ,$window, $state, SlideshowService, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
+  .controller('SlideshowController', function($scope, $stateParams, $rootScope, $window, $state, SlideshowService, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
     $scope.user = CurrentUser.user();
 
     $scope.idImg = $stateParams.id;
@@ -44,8 +44,8 @@ angular.module('app')
     $scope.numberOfPagesNews = function() {
       return Math.ceil($scope.listNews.length / $scope.pageSizeNews);
     };
-    for (var i = 0; i < $scope.listNews.length - 1; i++) {
-      $scope.listNews.push("Item " + i);
+    for (var k = 0; k < $scope.listNews.length - 1; k++) {
+      $scope.listNews.push("Item " + k);
     }
 
     // $scope.insertImg = function(nameImg) {
@@ -60,25 +60,34 @@ angular.module('app')
 
     $scope.galleryAssociateModalShow = false;
     $scope.OpenModalgalleryAssociate = function() {
-        $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
-        UploadService.getAll().then(function(res) {
-          console.log('load', res);
-          $scope.listimages = res.data;
-        }, function(err) {
-          console.error('error on image load', err);
-        });
+      $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
+      UploadService.getAll().then(function(res) {
+        console.log('load', res);
+        $scope.listimages = res.data;
+      }, function(err) {
+        console.error('error on image load', err);
+      });
     };
+
+    loadImgSlideshow = function() {
+      SlideshowService.getAll().then(function(res) {
+        console.log('loadImgSlideshow', res);
+        $scope.listImgSlideShow = res.data;
+
+      });
+    };
+    loadImgSlideshow();
 
     $scope.newImgSlideShow = {
-      id :'',
-      name :'',
+      id: '',
+      name: '',
     };
 
-    $scope.addImgSlideShow = function (img) {
+    $scope.addImgSlideShow = function(img) {
       var newImgSlideShow = {
         name: img
       };
-      SlideshowService.create(newImgSlideShow).then(function(res){
+      SlideshowService.create(newImgSlideShow).then(function(res) {
         console.log('img Slideshow', res);
         $scope.galleryAssociateModalShow = false;
         loadImgSlideshow();
@@ -86,6 +95,29 @@ angular.module('app')
 
       }, function(err) {
         console.error('err slideshow', err);
+      });
+    };
+
+    $scope.customFullscreen = false;
+    $scope.showConfirm = function(ev, id) {
+      console.log('id', id);
+      // Appending dialog to document.body to cover sidenav in docs app
+      var confirm = $mdDialog.confirm()
+        .title('Voulez-vous supprimer ce sous-menus ?')
+        .textContent('Tous les éléments seront définitivement perdus')
+        .ariaLabel('Lucky day')
+        .targetEvent(ev)
+        .ok('Supprimer')
+        .cancel('Annuler');
+
+      $mdDialog.show(confirm).then(function() {
+        SlideshowService.delete(id).then(function(res) {
+          console.log('id2', res);
+          console.log('delete', res);
+          loadImgSlideshow();
+        }, function(err) {
+          console.error('error on show', err);
+        });
       });
     };
 
@@ -117,17 +149,10 @@ angular.module('app')
 
     $scope.listImgSlideShow = [];
 
-    loadImgSlideshow = function () {
-      SlideshowService.getAll().then(function(res) {
-        console.log('loadImgSlideshow', res);
-        $scope.listImgSlideShow = res.data;
 
-      });
-    };
-    loadImgSlideshow();
 
-    $scope.$watch('llistImgSlideShow', function(listImgSlideShow) {
-        $scope.modelAsJson = angular.toJson(listImgSlideShow, true);
+    $scope.$watch('listImgSlideShow', function(listImgSlideShow) {
+      $scope.modelAsJson = angular.toJson(listImgSlideShow, true);
     }, true);
     console.log('modelJson', $scope.modelAsJson);
 

@@ -19,28 +19,17 @@ angular.module('app')
                     'content@': {
                         templateUrl: 'anon/home.html',
                         controller: 'MainController',
-
-                    }
-                  },
-
-                views: {
+                    },
                     'map@': {
                         templateUrl: 'anon/home.html',
-                        controller: 'mapController'
-
                         controller: 'MapController'
-
-
-                    }
-                  },
-                views: {
+                    },
                     'menu@': {
                         templateUrl: 'anon/home.html',
                         controller: 'SubmenuController'
-                }
+                    }
               }
             })
-
             .state('anon.login', {
                 url: '/login',
                 views: {

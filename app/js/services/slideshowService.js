@@ -12,16 +12,16 @@ angular.module('app')
                 return $http.get('/slideshow');
             },
             getOne: function(id) {
-                return $http.get('/slideshow/:id');
+                return $http.get('/slideshow/' + id);
             },
             update: function(id, img) {
               if(user.isAdmin) {
-                return $http.put('/slideshow/admin/:id', img);
+                return $http.put('/slideshow/admin/' + id, img);
               }
-                return $http.put('/slideshow/:id', img);
+                return $http.put('/slideshow/' + id, img);
             },
             delete: function(id) {
-                return $http.delete('/slideshow/:id');
+                return $http.delete('/slideshow/' + id);
             }
         };
     });
