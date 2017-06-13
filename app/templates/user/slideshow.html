@@ -6,17 +6,19 @@
   <div class="columnAdmin">
     <div ng-cloak class="tabsSubmenu">
 
-      <form ng-submit="">
+      <form ng-submit="updateSlideshow()">
       <md-content>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="Carrousel">
             <md-list dnd-list="listImgSlideShow">
-              <md-list-item class="md-3-line " ng-repeat="img in listImgSlideShow" dnd-draggable="img" dnd-moved="listImgSlideShow.splice($index, 1)" dnd-effect-allowed="move" dnd-selected="models.selected = img" ng-class="{'selected': models.selected === img}">
+              <md-list-item class="md-3-line "
+              ng-repeat="img in listImgSlideShow"
+              dnd-draggable="img" dnd-moved="listImgSlideShow.splice($index, 1)" dnd-effect-allowed="move" dnd-selected="models.selected = img" ng-class="{'selected': models.selected === img}">
                 <md-button class="md-fab md-mini">
                   <md-icon><i class="material-icons">blur_on</i></md-icon>
                 </md-button>
                 <div class="md-list-item-text">
-                  <img ng-src="/uploads/images/{{img.name}}" class="imgGallerySlideShow">
+                  <img ng-src="/uploads/images/{{img.name}}" class="imgListSlideShow">
                 </div>
                 <md-button class="md-fab md-mini btnList" ng-if="news.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
                   <md-icon><i class="material-icons">done</i></md-icon>

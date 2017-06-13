@@ -434,5 +434,8 @@ background-color: #E5E5E5;
   margin-right: auto;
   display: block;
 }
+.imgListSlideShow {
+  width: 250px;
+  margin: auto;
+}
 /*slider end*/
-

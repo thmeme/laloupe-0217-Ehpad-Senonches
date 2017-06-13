@@ -71,7 +71,7 @@ angular.module('app')
 
     loadImgSlideshow = function() {
       SlideshowService.getAll().then(function(res) {
-        console.log('loadImgSlideshow', res);
+        console.log('loadImgSlideshow', res.data);
         $scope.listImgSlideShow = res.data;
 
       });
@@ -120,7 +120,13 @@ angular.module('app')
       });
     };
 
-
+    $scope.updateSlideshow = function() {
+      SlideshowService.update($scope.img._id, $scope.listImgSlideShow).then(function(res) {
+        console.log('update', res);
+      }, function(err) {
+        console.error('error on loadAllSubmenus', err);
+      });
+    };
 
     $scope.currentPage = 0;
     $scope.pageSize = 12;
@@ -152,8 +158,13 @@ angular.module('app')
 
     $scope.$watch('listImgSlideShow', function(listImgSlideShow) {
       $scope.modelAsJson = angular.toJson(listImgSlideShow, true);
+      console.log('modelJson', $scope.modelAsJson);
+      $scope.modelAsJson = $scope.listImgSlideShow;
+      SlideshowService.update($scope.listImgSlideShow).then(function(res) {
+        console.log('NewSlideshow', $scope.listImgSlideShow);
+        console.log('update', res);
+      });
     }, true);
-    console.log('modelJson', $scope.modelAsJson);
 
 
 
