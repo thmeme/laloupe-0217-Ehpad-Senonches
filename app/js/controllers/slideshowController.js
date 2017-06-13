@@ -112,7 +112,6 @@ angular.module('app')
 
       $mdDialog.show(confirm).then(function() {
         SlideshowService.delete(id).then(function(res) {
-          console.log('id2', res);
           console.log('delete', res);
           loadImgSlideshow();
         }, function(err) {
