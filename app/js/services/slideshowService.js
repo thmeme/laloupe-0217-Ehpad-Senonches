@@ -14,11 +14,11 @@ angular.module('app')
             getOne: function(id) {
                 return $http.get('/slideshow/' + id);
             },
-            update: function(id, img) {
+            update: function(list) {
               if(user.isAdmin) {
-                return $http.put('/slideshow/admin/' + id, img);
+                return $http.put('/slideshow/admin/', list);
               }
-                return $http.put('/slideshow/' + id, img);
+                return $http.put('/slideshow/', list);
             },
             delete: function(id) {
                 return $http.delete('/slideshow/' + id);
