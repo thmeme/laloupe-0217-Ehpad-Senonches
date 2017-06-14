@@ -3,14 +3,14 @@ angular.module('app')
     function($scope, $state, $stateParams, $mdDialog, CurrentUser, CalendarService) {
       $scope.user = CurrentUser.user();
       // console.log($state.params);
-      $scope.newEvenement = {
-        date: undefined,
-        start: undefined,
-        end: undefined,
-        title: '',
-        // content: '',
-        isOnline: false
-      };
+      // $scope.newEvenement = {
+      //   date: undefined,
+      //   start: undefined,
+      //   end: undefined,
+      //   title: '',
+      //   // content: '',
+      //   isOnline: false
+      // };
 
       CalendarService.getAll().then(function(res) {
         $scope.evenements = res.data;
@@ -21,6 +21,7 @@ angular.module('app')
         });
       }
       loadEvenements();
+
       function loadEvenement(id) {
         if (id !== undefined) {
           CalendarService.getOne($scope.idEvenements).then(function(res) {

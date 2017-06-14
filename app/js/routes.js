@@ -18,17 +18,18 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'anon/home.html',
-                        controller: 'MainController',
-                    },
-                    'map@': {
-                        templateUrl: 'anon/home.html',
-                        controller: 'MapController'
-                    },
-                    'menu@': {
-                        templateUrl: 'anon/home.html',
-                        controller: 'SubmenuController'
+                        controller: 'HomeController',
                     }
               }
+            })
+            .state('anon.formulaire', {
+                url: '/formulaire',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/formulaire.html',
+                        controller: 'MailController'
+                    }
+                }
             })
             .state('anon.login', {
                 url: '/login',

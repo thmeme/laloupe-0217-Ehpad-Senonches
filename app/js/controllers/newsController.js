@@ -1,12 +1,12 @@
 angular.module('app')
-  .controller('NewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
+  .controller('NewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService) {
     $scope.user = CurrentUser.user();
 
     $scope.idNews = $stateParams.id;
     console.log('id', $scope.idNews);
 
     function loadAllNews() {
-      newsService.getAll().then(function(res) {
+      NewsService.getAll().then(function(res) {
         console.log('listNews', res);
         $scope.listNews = res.data;
         console.log('res.data', res.data);
@@ -16,7 +16,7 @@ angular.module('app')
 
     function loadNews(id) {
       if (id !== undefined) {
-        newsService.getOne($scope.idNews).then(function(res) {
+        NewsService.getOne($scope.idNews).then(function(res) {
           console.log('res One', res);
           $scope.news = res.data;
         });
@@ -32,7 +32,7 @@ angular.module('app')
     };
 
     $scope.addNews = function() {
-      newsService.create($scope.newNews).then(function(res) {
+      NewsService.create($scope.newNews).then(function(res) {
         console.log('news', $scope.newNews);
         // $scope.newNews.content = '';
         // $scope.newNews.title = '';
@@ -45,7 +45,7 @@ angular.module('app')
 
 
     $scope.updateNews = function() {
-      newsService.update($scope.idNews, $scope.news).then(function(res) {
+      NewsService.update($scope.idNews, $scope.news).then(function(res) {
         console.log('update', res);
       });
     };
@@ -85,7 +85,7 @@ angular.module('app')
         .cancel('Annuler');
 
       $mdDialog.show(confirm).then(function() {
-        newsService.delete(id).then(function(res) {
+        NewsService.delete(id).then(function(res) {
           loadAllNews();
         });
       });

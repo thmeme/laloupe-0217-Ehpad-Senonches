@@ -8,9 +8,9 @@ module.exports = (app) => {
 
     var news = new News();
 
-    router.get('/:id', Auth.hasAuthorization, news.findById);
+    router.get('/:id', news.findById);
 
-    router.get('/', Auth.hasAuthorization, news.findAll);
+    router.get('/', news.findAll);
 
     router.post('/admin/', Auth.isAdministrator, news.create);
     router.post('/', Auth.hasAuthorization, news.createByUser);

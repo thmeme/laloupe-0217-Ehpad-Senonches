@@ -5,6 +5,9 @@ const slideshowSchema = new mongoose.Schema({
 
     name: {
         type: String,
+    },
+    date: {
+      type: Date
     }
 });
 let model = mongoose.model('slideshow', slideshowSchema);
@@ -23,18 +26,18 @@ export default class Slideshow {
     }
     findById(req, res) {
         console.log('req in back', req.params, req.body, req.query);
-        model.findById(req.params.id, function(err, news) {
-          if (err || !news) {
+        model.findById(req.params.id, function(err, slideshow) {
+          if (err || !slideshow) {
               res.sendStatus(403);
           } else {
-              res.json(news);
+              res.json(slideshow);
           }
         });
     }
     create(req, res) {
         let slideshow = req.body;
         console.log('back', req.body);
-        // news.date = new Date().toISOString();
+        slideshow.date = new Date().toISOString();
         model.create(slideshow, (err, slideshow) => {
             if (err) {
                 res.status(500).send({
@@ -49,11 +52,11 @@ export default class Slideshow {
         });
     }
     createByUser(req, res) {
-        let news = req.body;
+        let slideshow = req.body;
         console.log('back', req.body);
         news.date = new Date().toISOString();
         delete submenu.isOnline;
-        model.create(news, (err, news) => {
+        model.create(slideshow, (err, slideshow) => {
             if (err) {
                 res.status(500).send({
                     error: err
@@ -61,34 +64,44 @@ export default class Slideshow {
             } else {
                 res.json({
                     success: true,
-                    news: news
+                    slideshow: slideshow
                 });
             }
         });
     }
+
+
     update(req, res) {
-        model.findByIdAndUpdate(req.params.id,
-          req.body, { new: true },function(err, news) {
+        console.log('req update', req.body);
+        model.update(req.body,function(err, slideshow) {
             if (err) {
               res.status(500).send(err);
             } else {
               res.json({
                   success: true,
-                  news: news
+                  slideshows: slideshow
               });
             }
         });
     }
+
+
+
+
+
+
+
     updateByUser(req, res) {
-      delete submenu.isOnline;
-        model.findByIdAndUpdate(req.params.id,
-          req.body, { new: true },function(err, news) {
+      console.log('req update', req.body);
+
+        model.update(
+          req.body, { slideshow: true },function(err, slideshow) {
             if (err) {
               res.status(500).send(err);
             } else {
               res.json({
                   success: true,
-                  news: news
+                  slideshow: slideshow
               });
             }
         });

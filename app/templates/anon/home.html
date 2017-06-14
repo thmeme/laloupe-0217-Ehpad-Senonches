@@ -1,29 +1,44 @@
+<div id="slider">
+  <figure  ng-repeat="img in listImgSlideShow | orderBy: '-date'">
+      <img ng-src="/uploads/images/{{img.name}}" alt>
+
+  </figure>
+</div>
+
+
 <md-menu-bar id="menu">
-         <md-menu>
-           <md-button class="md-raised" id="pinkButton" ng-click="$mdMenu.open()">Votre </br> Admission </br> <md-icon><i class="material-icons">expand_more</i></md-icon> </md-button>
-             <md-menu-content id="pinkContent">
-               <md-menu-item>
-                  <md-button id="admissionSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'}">{{Submenu.title}}</md-button>
-               </md-menu-item>
-             </md-menu-content>
-         </md-menu>
-         <md-menu>
-           <md-button class="md-raised" id="greenButton" ng-click="$mdMenu.open()">Votre </br> Sejour </br> <md-icon><i class="material-icons">expand_more</i></md-icon> </md-button>
-             <md-menu-content id="greenContent">
-               <md-menu-item>
-                  <md-button id="sejourSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre séjour'}">{{Submenu.title}}</md-button>
-               </md-menu-item>
-             </md-menu-content>
-         </md-menu>
-         <md-menu>
-          <md-button class="md-raised" id="blueButton" ng-click="$mdMenu.open()">Vos </br> Droits </br> <md-icon><i class="material-icons">expand_more</i></md-icon> </md-button>
-             <md-menu-content id="blueContent">
-               <md-menu-item>
-                  <md-button id="droitSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'}">{{Submenu.title}}</md-button>
-               </md-menu-item>
-             </md-menu-content>
-         </md-menu>
+  <md-menu>
+    <md-button class="md-raised" id="pinkButton" ng-click="$mdMenu.open()">Votre </br> Admission </br>
+      <md-icon><i class="material-icons">expand_more</i></md-icon>
+    </md-button>
+    <md-menu-content id="pinkContent">
+      <md-menu-item>
+        <md-button id="admissionSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'}">{{Submenu.title}}</md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+  <md-menu>
+    <md-button class="md-raised" id="greenButton" ng-click="$mdMenu.open()">Votre </br> Sejour </br>
+      <md-icon><i class="material-icons">expand_more</i></md-icon>
+    </md-button>
+    <md-menu-content id="greenContent">
+      <md-menu-item>
+        <md-button id="sejourSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre séjour'}">{{Submenu.title}}</md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+  <md-menu>
+    <md-button class="md-raised" id="blueButton" ng-click="$mdMenu.open()">Vos </br> Droits </br>
+      <md-icon><i class="material-icons">expand_more</i></md-icon>
+    </md-button>
+    <md-menu-content id="blueContent">
+      <md-menu-item>
+        <md-button id="droitSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'}">{{Submenu.title}}</md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
 </md-menu-bar>
+
 
 
 <div layout="row" layout-xs="column">
@@ -45,7 +60,7 @@
         <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
       </ng-map>
     </div>
-</div>
+  </div>
   <div flex-gt-sm="30" flex="70" id="contact">
     <div>
       <p id="contactContent"> 1 Route de Dreux </br> 28250 </br> SENONCHES </br> 02 37 37 73 27</p>
@@ -54,15 +69,19 @@
   </div>
 </div>
 </div>
-  <div id="footer">
+<div id="footer">
+</div>
+
+
+
+<p>DATE: <span id=heure></span></p>
+
+<div layout="row" class="contactForm">
+  <div flex>
+    <p>Nom</p>
+    <p>Adresse</p>
+    <p>Ville</p>
+    <p>N° de téléphone</p>
+    <md-button class="md-raised"><a ng-href="/#!/formulaire">Nous écrire!</a></md-button>
   </div>
-
-
-
-
-<div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
-  <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
-    <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches"></marker>
-  </ng-map>
-
 </div>

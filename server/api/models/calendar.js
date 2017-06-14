@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import evenement from './evenement.js';
+import evenement from './calendar.js';
 
 
 const evenementSchema = new mongoose.Schema({
