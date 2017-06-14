@@ -79,7 +79,7 @@ angular.module('app')
     loadImgSlideshow();
 
     $scope.newImgSlideShow = {
-      id: '',
+      date: '',
       name: '',
     };
 
@@ -151,27 +151,6 @@ angular.module('app')
     for (i = 0; i < $scope.listPdf.length - 1; i++) {
       $scope.listPdf.push("Item " + i);
     }
-
-    $scope.listImgSlideShow = [];
-
-
-
-    $scope.$watch('listImgSlideShow', function(listImgSlideShow) {
-      $scope.modelAsJson = angular.toJson(listImgSlideShow, true);
-      console.log('modelJson', $scope.modelAsJson);
-      $scope.modelAsJson = $scope.listImgSlideShow;
-      SlideshowService.update($scope.listImgSlideShow).then(function(res) {
-        console.log('NewSlideshow', $scope.listImgSlideShow);
-        console.log('update', res);
-      });
-    }, true);
-
-
-
-
-
-
-
 
 
   });

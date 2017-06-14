@@ -5,6 +5,9 @@ const slideshowSchema = new mongoose.Schema({
 
     name: {
         type: String,
+    },
+    date: {
+      type: Date
     }
 });
 let model = mongoose.model('slideshow', slideshowSchema);
@@ -34,7 +37,7 @@ export default class Slideshow {
     create(req, res) {
         let slideshow = req.body;
         console.log('back', req.body);
-        // news.date = new Date().toISOString();
+        slideshow.date = new Date().toISOString();
         model.create(slideshow, (err, slideshow) => {
             if (err) {
                 res.status(500).send({
@@ -70,11 +73,10 @@ export default class Slideshow {
 
     update(req, res) {
         console.log('req update', req.body);
-        model.update(req.body, {slideshow: true },function(err, slideshow) {
+        model.update(req.body,function(err, slideshow) {
             if (err) {
               res.status(500).send(err);
             } else {
-              console.log('res', res.json);
               res.json({
                   success: true,
                   slideshows: slideshow
