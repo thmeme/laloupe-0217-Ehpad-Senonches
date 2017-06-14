@@ -13,12 +13,18 @@
             <md-list>
               <md-list-item class="md-3-line " ng-repeat="img in listImgSlideShow | orderBy: '-date'">
                 <div class="md-list-item-text">
-                  <h5>Image ajouté le {{img.date | date : 'longDate'}}</h5>
+                  <h5>Image ajoutée le {{img.date | date : 'longDate'}}</h5>
                   <img ng-src="/uploads/images/{{img.name}}" class="imgListSlideShow">
                 </div>
+
+                <md-button class="md-fab md-mini btnListSlideshow" aria-label="Eat cake" ng-click='OpenModalgalleryAssociate()'>
+                  <md-icon><i class="material-icons md-18">create</i></md-icon>
+                </md-button>
+
                 <md-button class="md-fab md-mini btnListSlideshow" ng-click="showConfirm($event, img._id)">
                   <md-icon><i class="material-icons md-18" title="Supprimer">delete</i></md-icon>
                 </md-button>
+
                 <md-divider ng-if="!$last"></md-divider>
               </md-list-item>
             </md-list>

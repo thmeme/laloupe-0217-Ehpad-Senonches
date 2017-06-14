@@ -440,5 +440,6 @@ background-color: #E5E5E5;
 }
 .btnListSlideshow {
   margin: auto;
+  margin-left: 10px;
 }
 /*slider end*/
