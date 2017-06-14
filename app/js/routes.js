@@ -30,6 +30,15 @@ angular.module('app')
                     }
               }
             })
+            .state('anon.formulaire', {
+                url: '/formulaire',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/formulaire.html',
+                        controller: 'FormController'
+                    }
+                }
+            })
             .state('anon.login', {
                 url: '/login',
                 views: {
