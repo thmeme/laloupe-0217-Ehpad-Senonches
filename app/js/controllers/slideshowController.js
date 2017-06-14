@@ -26,27 +26,27 @@ angular.module('app')
     $scope.OpenModalUploadImg = function() {
       $scope.UploadImgModalShow = !$scope.UploadImgModalShow;
     };
-
-    $scope.galleryInsertModalShow = false;
-    $scope.OpenModalgalleryInsert = function() {
-      $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
-      UploadService.getAll().then(function(res) {
-        console.log('load', res);
-        $scope.listimages = res.data;
-      }, function(err) {
-        console.error('error on image load', err);
-      });
-    };
-
-    $scope.currentPageNews = 0;
-    $scope.pageSizeNews = 5;
-    $scope.listNews = [];
-    $scope.numberOfPagesNews = function() {
-      return Math.ceil($scope.listNews.length / $scope.pageSizeNews);
-    };
-    for (var k = 0; k < $scope.listNews.length - 1; k++) {
-      $scope.listNews.push("Item " + k);
-    }
+    //
+    // $scope.galleryInsertModalShow = false;
+    // $scope.OpenModalgalleryInsert = function() {
+    //   $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
+    //   UploadLargeService.getAll().then(function(res) {
+    //     console.log('load large', res);
+    //     $scope.listImagesLarge = res.data;
+    //   }, function(err) {
+    //     console.error('error on image load', err);
+    //   });
+    // };
+    //
+    // $scope.currentPageNews = 0;
+    // $scope.pageSizeNews = 5;
+    // $scope.listNews = [];
+    // $scope.numberOfPagesNews = function() {
+    //   return Math.ceil($scope.listNews.length / $scope.pageSizeNews);
+    // };
+    // for (var k = 0; k < $scope.listNews.length - 1; k++) {
+    //   $scope.listNews.push("Item " + k);
+    // }
 
     // $scope.insertImg = function(nameImg) {
     //   $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
@@ -61,9 +61,9 @@ angular.module('app')
     $scope.galleryAssociateModalShow = false;
     $scope.OpenModalgalleryAssociate = function() {
       $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
-      UploadService.getAll().then(function(res) {
+      UploadLargeService.getAll().then(function(res) {
         console.log('load', res);
-        $scope.listimages = res.data;
+        $scope.listImagesLarges = res.data;
       }, function(err) {
         console.error('error on image load', err);
       });
