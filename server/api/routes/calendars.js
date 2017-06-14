@@ -1,5 +1,5 @@
 import express from 'express';
-import Evenement from '../models/evenement.js';
+import Evenement from '../models/calendar.js';
 import Auth from '../middlewares/authorization.js';
 
 let router = express.Router();
