@@ -4,7 +4,7 @@ angular.module('app')
     return {
       uploadImageLarge: function(file) {
         return Upload.upload({
-          url: URL + '/upload/imglarge',
+          url: URL + '/uploadimglarge/imagel',
           data: {
             image: file
           }

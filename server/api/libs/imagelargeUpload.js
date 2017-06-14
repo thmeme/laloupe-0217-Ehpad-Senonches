@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import fs from 'fs';
 import dir from 'node-dir';
 
-let imageDir = path.join(__dirname, '../../public/uploads/imagesLarges/');
+let imageDir = path.join(__dirname, '../../public/uploads/imageslarges/');
 /* Multer storage settings */
 let storage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -18,9 +18,9 @@ let storage = multer.diskStorage({
 
 let upload = multer({
   storage: storage
-}).single('imglarge');
+}).single('image');
 
-export default class Imagelarge {
+export default class Imgl {
 
   create(req, res) {
     upload(req, res, function(err) {

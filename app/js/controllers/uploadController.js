@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('UploadController', function($scope, $state, $stateParams, $window, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService) {
+  .controller('UploadController', function($scope, $state, $stateParams, $window, UploadPdfService, UploadService, UploadLargeService, $timeout, $mdDialog, CurrentUser) {
 
 
     $scope.image = {
@@ -26,7 +26,7 @@ angular.module('app')
     }
 
     $scope.uploadImage = function() {
-      console.log('imageUC:', $scope.image);
+      console.log('imageNormal:', $scope.image);
       if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
         uploadImage($scope.image.file);
         //call upload function
@@ -39,7 +39,7 @@ angular.module('app')
     };
 
     function uploadImageLarge(imageFile) {
-      UploadService.uploadImageLarge(imageFile).then(function(res) {
+      UploadLargeService.uploadImageLarge(imageFile).then(function(res) {
         console.log('After upload: ', res);
         if (res.data.success) { //validate success
           console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
@@ -57,7 +57,7 @@ angular.module('app')
     }
 
     $scope.uploadImageLarge = function() {
-      console.log('imageUC:', $scope.image);
+      console.log('imageLarge:', $scope.image);
       if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
         uploadImageLarge($scope.image.file);
         //call upload function

@@ -61,8 +61,8 @@
       <modal-dialog show='UploadImgModalShow' width='750px'>
         <div class="addImage" ng-controller="UploadController">
           <form name="upload_form">
-            <input type="file" ngf-select ng-model="image.file" name="file" ngf-pattern="'.jpg'" accept="image/*" ngf-max-size="10MB" ngf-resize="{width: 1800}" />
-            <img style="width:100px;" ngf-thumbnail="image.file || '/thumb.jpg'" />
+            <input type="file" ngf-select ng-model="imageLarge.file" name="file" ngf-pattern="'.jpg'" accept="image/*" ngf-max-size="10MB" ngf-resize="{width: 1800}" />
+            <img style="width:100px;" ngf-thumbnail="imageLarge.file || '/thumb.jpg'" />
             <i ng-show="upload_form.file.$error.required">*required</i><br>
             <i ng-show="upload_form.file.$error.maxSize">Image trop large
                 {{image.file.size / 1000000|number:1}}MB: max 10MB</i>

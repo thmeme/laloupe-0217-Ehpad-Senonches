@@ -1,16 +1,16 @@
 import express from 'express';
 import Auth from '../middlewares/authorization.js';
-import Imglarge from '../libs/imagelargeUpload.js';
+import Imgl from '../libs/imagelargeUpload.js';
 
 let router = express.Router();
 
 module.exports = (app) => {
 
-  let imglarge = new Imglarge();
+  let imgl = new Imgl();
 
-  router.post('/imglarge/', Auth.hasAuthorization, imglarge.create);
+  router.post('/imagel/', Auth.hasAuthorization, imgl.create);
 
-  router.get('/', Auth.hasAuthorization, imglarge.getAll);
+  router.get('/', Auth.hasAuthorization, imgl.getAll);
 
   app.use('/uploadimglarge', router);
 };
