@@ -1,5 +1,6 @@
 angular.module('app')
-  .controller('FormController', function($scope, FormService) {
+  .controller('MailController', function($scope, MailService) {
+
 
     var dateGlobale = new Date();
 
@@ -30,16 +31,10 @@ angular.module('app')
 
     document.getElementById("heure").innerHTML = jour_semaine + " " + jour + " " + mois + " " + annee + " - " + heure + ":" + minute;
 
-    $scope.sendMail = function() {
-      $scope.formContact = [];
-      console.log($scope.formContact);
-      FormService.create($scope.formContact).then(function(res){
-        $scope.formContact = {
-          mail: formContact.mail,
-          name: formContact.name,
-          subject: formContact.subject,
-          message: formContact.message
-        };
-      });
+    $scope.sendMail = function () {
+      console.log('click');
+      MailService.sendMail($scope.mail).then(function(res) {
+        console.log('send');
+      })
     };
   });

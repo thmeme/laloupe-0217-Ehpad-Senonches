@@ -35,7 +35,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'anon/formulaire.html',
-                        controller: 'FormController'
+                        controller: 'MailController'
                     }
                 }
             })
