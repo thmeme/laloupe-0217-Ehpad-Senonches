@@ -15,8 +15,8 @@ module.exports = (app) => {
     router.post('/admin/', Auth.isAdministrator, slideshow.create);
     router.post('/', Auth.hasAuthorization, slideshow.createByUser);
 
-    router.put('/admin/:id', Auth.isAdministrator, slideshow.update);
-    router.put('/:id', Auth.hasAuthorization, slideshow.updateByUser);
+    router.put('/admin/', Auth.isAdministrator, slideshow.update);
+    router.put('/', Auth.hasAuthorization, slideshow.updateByUser);
 
     router.delete('/:id', Auth.isAdministrator, slideshow.delete);
 
