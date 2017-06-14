@@ -444,6 +444,7 @@ background-color: #E5E5E5;
 }
 /*slider end*/
 
+
 /*Slideshow home*/
 @keyframes slidy {
 0% { left: 0%; }
@@ -468,3 +469,4 @@ div#slider figure {
   font-size: 0;
   animation: 30s slidy infinite;
 }
+

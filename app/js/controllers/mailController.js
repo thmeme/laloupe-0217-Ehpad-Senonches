@@ -1,25 +1,6 @@
 angular.module('app')
-  .controller('MainController', function($scope) {
-    $scope.tinymceModel = 'Initial content';
+  .controller('MailController', function($scope, MailService) {
 
-    $scope.getContent = function() {
-      console.log('Editor content:', $scope.tinymceModel);
-    };
-
-    $scope.setContent = function() {
-      $scope.tinymceModel = 'Time: ' + (new Date());
-    };
-
-    $scope.tinymceOptions = {
-      onChange: function(e) {
-        // put logic here for keypress and cut/paste changes
-      },
-      inline: false,
-      skin: 'lightgray',
-      theme: 'modern',
-      plugins: 'link image code',
-      toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
-    };
 
     var dateGlobale = new Date();
 
@@ -49,4 +30,11 @@ angular.module('app')
     jour_semaine = JOUR_SEMAINE[jour_semaine];
 
     document.getElementById("heure").innerHTML = jour_semaine + " " + jour + " " + mois + " " + annee + " - " + heure + ":" + minute;
+
+    $scope.sendMail = function () {
+      console.log('click');
+      MailService.sendMail($scope.mail).then(function(res) {
+        console.log('send');
+      })
+    };
   });
