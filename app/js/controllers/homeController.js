@@ -61,6 +61,7 @@ angular.module('app')
       });
     }loadAllSubmenus();
 
+    $scope.listImgSlideShow = [];
     loadImgSlideshow = function() {
       SlideshowService.getAll().then(function(res) {
         console.log('loadImgSlideshow', res.data);
@@ -70,8 +71,9 @@ angular.module('app')
     };
     loadImgSlideshow();
 
+    $scope.listNews = [];
     function loadAllNews() {
-      newsService.getAll().then(function(res) {
+      NewsService.getAll().then(function(res) {
         console.log('listNews', res);
         $scope.listNews = res.data;
         console.log('res.data', res.data);
@@ -79,9 +81,10 @@ angular.module('app')
     }
     loadAllNews();
 
+    $scope.listEvenements = [];
     function loadEvenements() {
       CalendarService.getAll().then(function(res) {
-        $scope.evenements = res.data;
+        $scope.listEvenements = res.data;
       });
     }
     loadEvenements();
