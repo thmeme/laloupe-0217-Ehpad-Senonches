@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('SlideshowController', function($scope, $stateParams, $rootScope, $window, $state, SlideshowService, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, newsService) {
+  .controller('SlideshowController', function($scope, $stateParams, $rootScope, $window, $state, SlideshowService, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser) {
     $scope.user = CurrentUser.user();
 
     $scope.idImg = $stateParams.id;

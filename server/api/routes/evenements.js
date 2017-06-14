@@ -12,9 +12,9 @@ module.exports = (app) => {
 
     var evenement = new Evenement();
 
-    router.get('/:id', Auth.hasAuthorization, evenement.findById);
+    router.get('/:id', evenement.findById);
 
-    router.get('/', Auth.hasAuthorization, evenement.findAll);
+    router.get('/', evenement.findAll);
 
     router.post('/admin/', Auth.isAdministrator, evenement.create);
     router.post('/', Auth.hasAuthorization, evenement.createByUser);

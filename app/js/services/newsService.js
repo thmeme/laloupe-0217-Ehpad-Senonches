@@ -1,5 +1,5 @@
 angular.module('app')
-    .service('newsService', function($http, CurrentUser) {
+    .service('NewsService', function($http, CurrentUser) {
         var user = CurrentUser.user();
         return {
             create: function(news) {

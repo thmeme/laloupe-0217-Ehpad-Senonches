@@ -21,6 +21,7 @@ angular.module('app')
         });
       }
       loadEvenements();
+
       function loadEvenement(id) {
         if (id !== undefined) {
           CalendarService.getOne($scope.idEvenements).then(function(res) {

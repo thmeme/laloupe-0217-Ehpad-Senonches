@@ -10,7 +10,7 @@ module.exports = (app) => {
 
     router.get('/:id', Auth.hasAuthorization, slideshow.findById);
 
-    router.get('/', Auth.hasAuthorization, slideshow.findAll);
+    router.get('/', slideshow.findAll);
 
     router.post('/admin/', Auth.isAdministrator, slideshow.create);
     router.post('/', Auth.hasAuthorization, slideshow.createByUser);

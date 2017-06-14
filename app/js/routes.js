@@ -18,15 +18,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'anon/home.html',
-                        controller: 'MainController',
-                    },
-                    'map@': {
-                        templateUrl: 'anon/home.html',
-                        controller: 'MapController'
-                    },
-                    'menu@': {
-                        templateUrl: 'anon/home.html',
-                        controller: 'SubmenuController'
+                        controller: 'HomeController',
                     }
               }
             })

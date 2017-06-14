@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('MainController', function($scope) {
+  .controller('HomeController', function($scope, SubmenuService, CalendarService, NewsService, SlideshowService) {
     $scope.tinymceModel = 'Initial content';
 
     $scope.getContent = function() {
@@ -49,4 +49,43 @@ angular.module('app')
     jour_semaine = JOUR_SEMAINE[jour_semaine];
 
     document.getElementById("heure").innerHTML = jour_semaine + " " + jour + " " + mois + " " + annee + " - " + heure + ":" + minute;
+
+    $scope.listSubmenu = [];
+    function loadAllSubmenus() {
+      SubmenuService.getAll().then(function(res) {
+        console.log('listSubmenus', res);
+        $scope.listSubmenu = res.data;
+        console.log('res.data', res.data);
+      }, function(err) {
+        console.error('error on loadAllSubmenus', err);
+      });
+    }loadAllSubmenus();
+
+    loadImgSlideshow = function() {
+      SlideshowService.getAll().then(function(res) {
+        console.log('loadImgSlideshow', res.data);
+        $scope.listImgSlideShow = res.data;
+
+      });
+    };
+    loadImgSlideshow();
+
+    function loadAllNews() {
+      newsService.getAll().then(function(res) {
+        console.log('listNews', res);
+        $scope.listNews = res.data;
+        console.log('res.data', res.data);
+      });
+    }
+    loadAllNews();
+
+    function loadEvenements() {
+      CalendarService.getAll().then(function(res) {
+        $scope.evenements = res.data;
+      });
+    }
+    loadEvenements();
+
+
+
   });
