@@ -41,6 +41,7 @@
     </form>
     <!-- Modal gallery images-->
     <modal-dialog show='galleryInsertModalShow' width='750px'>
+      <p>Sélectionnez une image pour l'insérer dans l'éditeur de texte.</p>
       <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
         <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
         <div class="btnInsertImg">
@@ -49,6 +50,7 @@
         </div>
       </div>
       <section class="blocBtnGalerie" layout="row" layout-align="center center">
+        <p>Copier le lien du pdf avant d'utiliser le bouton "Insérer/modifier un lien".</p>
         <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
           <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
         </md-button>
@@ -63,11 +65,12 @@
 
     <!-- Modal gallery pdf-->
     <modal-dialog show='galleryPdfModalShow' width='750px'>
+      <p>Téléchargez un pdf depuis votre ordinateur.</p>
       <div class="pdfGallery" ng-repeat="pdf in listPdf | orderBy : 'fileName':true | startFrom:currentPagePdf*pageSizePdf | limitTo:pageSizePdf">
         <img ng-src="logopdf2.png" class="listImages">
         <p class="namePdf">{{decodeURI(pdf.fileName.split('-').pop())}}</p>
         <div class="btnInsertImg">
-          <md-button class="md-fab md-mini btnInsert"  target='_blank' title="Visualiser"><i class="material-icons">visibility</i></md-button>
+          <md-button class="md-fab md-mini btnInsert" target='_blank' title="Visualiser"><i class="material-icons">visibility</i></md-button>
           <md-button class="md-fab md-mini btnInsert" ng-click-copy="/uploads/pdf/{{pdf.fileName}}" title="Copier"><i class="material-icons">content_copy</i></md-button>
           <md-divider ng-if="!$last"></md-divider>
         </div>
@@ -87,6 +90,7 @@
 
     <!-- Upload img -->
     <modal-dialog show='UploadImgModalShow' width='750px'>
+      <p>Téléchargez une image depuis votre ordinateur.</p>
       <div class="addImage" ng-controller="UploadController">
         <form name="upload_form">
           <input type="file" ngf-select ng-model="image.file" name="file" ngf-pattern="'.jpg'" accept="image/*" ngf-max-size="10MB" ngf-resize="{width: 500}" />
