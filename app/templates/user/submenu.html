@@ -3,7 +3,6 @@
     <md-button class="md-primary md-raised btnRetour" ng-click='redirectCreateSubmenu()'>Créer un sous-menu</md-button>
   </div>
   <div class="columnAdmin">
-
     <div ng-cloak="" class="tabsSubmenu">
       <md-content>
         <md-tabs md-dynamic-height="" md-border-bottom="">
@@ -19,7 +18,7 @@
                   <md-icon><i class="material-icons">done</i></md-icon>
                 </md-button>
                 <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
-                  <a ui-sref="user.edit-submenu({id: submenu._id})">
+                  <a ui-sref="user.edit-submenu({id: Submenu._id})">
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
                   </a>
                 </md-button>
@@ -44,7 +43,7 @@
                     <md-icon><i class="material-icons">done</i></md-icon>
                   </md-button>
                   <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
-                    <a ng-href="/#!/user/submenu/{{Submenu._id}}">
+                    <a ui-sref="user.edit-submenu({id: Submenu._id})">
                       <md-icon><i class="material-icons md-18">create</i></md-icon>
                     </a>
                   </md-button>
@@ -69,7 +68,7 @@
                     <md-icon><i class="material-icons">done</i></md-icon>
                   </md-button>
                   <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
-                    <a ng-href="/#!/user/submenu/{{Submenu._id}}">
+                    <a ui-sref="user.edit-submenu({id: Submenu._id})">
                       <md-icon><i class="material-icons md-18">create</i></md-icon>
                     </a>
                   </md-button>
