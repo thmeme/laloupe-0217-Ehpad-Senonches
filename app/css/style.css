@@ -285,20 +285,10 @@ body {
 background-color: #F5F4F4;
 }
 
-#titleBox {
-  height: 300px;
-  width: 600px;
-  border: 1px solid black;
-  position: absolute;
-
-}
-
 /****** menu ******/
 
 #menu {
   text-align: center;
-  margin-top: 70px;
-  margin-bottom: 70px;
 }
 
 #greenButton {
@@ -433,27 +423,7 @@ background-color: #E5E5E5;
   box-shadow: 4px 4px 4px #CACACA;
 }
 
- /***** Agenda *****/
-
- #footer {
-   height: 100px;
-   background-color: #265B7E;
-   position: relative;
- }
-
- .log {
-   margin-bottom: 20px;
-   margin-right: 20px;
-   color: white;
-   text-decoration: none;
-   position: absolute;
-   bottom: 0;
-   right : 0;
- }
- .log:hover {
-   font-size: 17px;
-   text-decoration: underline;
- }
+}
 
 /*List Slider*/
 .imgGallerySlideShow {
@@ -500,7 +470,3 @@ div#slider figure {
   animation: 30s slidy infinite;
 }
 
-#slider {
-  height: 600px;
-  vertical-align: middle;
-}

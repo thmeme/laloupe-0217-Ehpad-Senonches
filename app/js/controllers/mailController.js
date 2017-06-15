@@ -35,6 +35,6 @@ angular.module('app')
       console.log('click');
       MailService.sendMail($scope.mail).then(function(res) {
         console.log('send');
-      });
+      })
     };
   });
