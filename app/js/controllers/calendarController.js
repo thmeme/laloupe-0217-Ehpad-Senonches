@@ -47,6 +47,10 @@ angular.module('app')
         });
       };
 
+      $scope.redirectCalendar = function() {
+        $state.go('user.calendar');
+      };
+
       $scope.redirectCreateCalendar = function() {
         $state.go('user.create-calendar');
       };
