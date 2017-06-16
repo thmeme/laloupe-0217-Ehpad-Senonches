@@ -8,7 +8,7 @@ angular.module('app')
         .accentPalette('pink', {
           'default': '500'
         })
-        .warnPalette('red')
+        .warnPalette('green')
         .backgroundPalette('grey');
         $mdThemingProvider.setDefaultTheme('ehpad');
 });

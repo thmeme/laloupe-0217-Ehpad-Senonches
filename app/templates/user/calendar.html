@@ -13,17 +13,15 @@
                   <h4> Date de l'événement  {{evenement.date | date: "dd-MM-yyyy"}}</h4>
                   <h4>{{evenement.title}}</h4>
                   <h4>Début : {{evenement.start | date:'shortTime'}} / Fin : {{evenement.end | date:'shortTime'}}</h4>
-                  <h4></h4>
                 </div>
-                <md-button class="md-fab md-mini btnList" ng-if="evenement.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
-                  <md-icon><i class="material-icons">done</i></md-icon>
-                </md-button>
-                <md-button class="md-fab md-mini" title="Editer">
+                <h5 class='statusPublie' ng-if="evenement.isOnline">Publié</h5>
+                <h5 class='statusBrouillon' ng-if="!evenement.isOnline">Brouillon</h5>
+                <md-button class="md-fab md-mini btnListSubmenu" title="Editer">
                   <a ui-sref="user.edit-calendar({id: evenement._id})">
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
                   </a>
                 </md-button>
-                <md-button class="md-fab md-mini" ng-click="showConfirm($event, evenement._id)" ng-if='user.isAdmin'>
+                <md-button class="md-fab md-mini btnListSubmenu" ng-click="showConfirm($event, evenement._id)" ng-if='user.isAdmin'>
                   <md-icon><i class="material-icons" title="Supprimer">delete</i></md-icon>
                 </md-button>
                 <md-divider ng-if="!$last"></md-divider>

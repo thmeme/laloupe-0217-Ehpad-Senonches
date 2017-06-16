@@ -5,7 +5,7 @@
   <div class="columnAdmin">
     <div ng-cloak="" class="tabsSubmenu">
       <md-content>
-        <md-tabs md-dynamic-height="" md-border-bottom="">
+        <md-tabs md-dynamic-height md-border-bottom="">
           <md-tab label="Votre admission">
             <md-list>
               <h2 class="headListSubmenu">Votre admission</h2>
@@ -14,10 +14,9 @@
                   <h4>Créé le {{Submenu.date | date : 'medium'}}</h4>
                   <h4>{{Submenu.title}}</h4>
                 </div>
-                <md-button class="md-fab md-mini btnListSubmenu" ng-if="Submenu.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
-                  <md-icon><i class="material-icons">done</i></md-icon>
-                </md-button>
-                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
+                <h5 class='statusPublie' ng-if="Submenu.isOnline">Publié</h5>
+                <h5 class='statusBrouillon' ng-if="!Submenu.isOnline">Brouillon</h5>
+                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" title="Editer">
                   <a ui-sref="user.edit-submenu({id: Submenu._id})">
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
                   </a>
@@ -39,7 +38,7 @@
                     <h4>Créé le {{Submenu.date | date : 'medium'}}</h4>
                     <h4>{{Submenu.title}}</h4>
                   </div>
-                  <md-button class="md-fab md-mini btnListSubmenu" ng-if="Submenu.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
+                  <md-button class="md-fab md-mini btnListSubmenu" ng-if="Submenu.isOnline" ng-disabled="true" title="Publié" aria-label="Eat cake">
                     <md-icon><i class="material-icons">done</i></md-icon>
                   </md-button>
                   <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
@@ -64,9 +63,9 @@
                     <h4>Créé le {{Submenu.date | date : 'medium'}}</h4>
                     <h4>{{Submenu.title}}</h4>
                   </div>
-                  <md-button class="md-fab md-mini btnListSubmenu" ng-if="Submenu.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
-                    <md-icon><i class="material-icons">done</i></md-icon>
-                  </md-button>
+                  <div>
+                    <md-icon><i class="material-icons iconIsOnline" style="color: #009688; font-size: 36px" ng-if="Submenu.isOnline" title="Publié" aria-label="Eat cake">done</i></md-icon>
+                  </div>
                   <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
                     <a ui-sref="user.edit-submenu({id: Submenu._id})">
                       <md-icon><i class="material-icons md-18">create</i></md-icon>
