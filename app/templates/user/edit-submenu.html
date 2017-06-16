@@ -19,9 +19,9 @@
       <div>
 
         <div layout='row'>
-          <md-switch class='switch' flex='80' ng-model="submenu.isOnline" ng-if='user.isAdmin' aria-label="status">
-            <span ng-if='submenu.isOnline'>Publié</span>
-            <span ng-if='!submenu.isOnline'>Brouillon</span>
+          <md-switch flex='80' ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
+            <span ng-if='newSubmenu.isOnline'>Publié</span>
+            <span ng-if='!newSubmenu.isOnline'>Brouillon</span>
           </md-switch>
           <md-button class="md-primary md-raised" type="submit">Mettre à jour</md-button>
         </div>
