@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('SubmenuController', function($scope, $state, $stateParams, $window, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService) {
+  .controller('SubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService) {
 
     $scope.theme = 'ehpad';
     $scope.user = CurrentUser.user();
@@ -22,17 +22,28 @@ angular.module('app')
     }
     loadAllSubmenus();
 
+
+    $scope.uCanTrust = function(string) {
+      return $sce.trustAsHtml(string);
+    };
+
     function loadSubmenu(id) {
       if (id !== undefined) {
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
           console.log('res One', res);
           $scope.submenu = res.data;
+          $scope.submenu.content = $sce.trustAsHtml(res.data.content);
+          console.log('content', $scope.submenu.content);
+
         }, function(err) {
           console.error('error on getOne Submenu', err);
         });
       }
     }
     loadSubmenu($scope.idSubmenu);
+
+
+
 
     $scope.newSubmenu = {
       content: '',
