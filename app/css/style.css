@@ -118,6 +118,30 @@ md-select:not([disabled]):focus .md-select-value {
   float: right;
 }
 
+.switch {
+  margin: 0;
+}
+.displayText {
+  vertical-align: middle;
+}
+
+.statusBrouillon {
+  padding: 7px;
+  margin-right: 9px;
+  margin-top: 28px;
+  background-color: #9E9E9E;
+  color: white;
+  border-radius: 6%;
+}
+.statusPublie {
+  padding: 7px 16px;
+  margin-right: 9px;
+  margin-top: 28px;
+  background-color: #009688;
+  color: white;
+  border-radius: 6%;
+}
+
 
 /*nexs*/
 

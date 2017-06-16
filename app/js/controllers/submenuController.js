@@ -46,7 +46,7 @@ angular.module('app')
         $scope.newSubmenu.content = '';
         $scope.newSubmenu.title = '';
         $scope.newSubmenu.menu = '';
-        loadAllSubmenus();
+        $state.go('user.submenu');
       }, function(err) {
         console.error('error on create', err);
       });
@@ -115,6 +115,17 @@ angular.module('app')
         console.error('error on image load', err);
       });
     };
+
+    $scope.textModalShow = false;
+    $scope.OpenModalDisplayText = function() {
+      $scope.textModalShow = !$scope.textModalShow;
+      console.log('id modal', $scope.idSubmenu);
+      SubmenuService.getOne($scope.idSubmenu).then(function(res) {
+        console.log('res modal', res.data);
+        $scope.textModal = res.data;
+      });
+    };
+
 
     $scope.UploadImgModalShow = false;
     $scope.OpenModalUploadImg = function() {
