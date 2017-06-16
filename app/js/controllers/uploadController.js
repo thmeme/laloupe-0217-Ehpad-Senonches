@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('UploadController', function($scope, $state, $stateParams, $window, UploadPdfService, UploadService, UploadLargeService, $timeout, $mdDialog, CurrentUser) {
+  .controller('UploadController', function($scope, $state, $stateParams, $window, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService) {
 
 
     $scope.image = {
@@ -26,40 +26,9 @@ angular.module('app')
     }
 
     $scope.uploadImage = function() {
-      console.log('imageNormal:', $scope.image);
+      console.log('imageUC:', $scope.image);
       if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
         uploadImage($scope.image.file);
-        //call upload function
-        //  console.log('res add', $scope.newImage.title);
-      }
-    };
-    $scope.imageLarge = {
-      file: {},
-      progress: ''
-    };
-
-    function uploadImageLarge(imageFile) {
-      UploadLargeService.uploadImageLarge(imageFile).then(function(res) {
-        console.log('After upload: ', res);
-        if (res.data.success) { //validate success
-          console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
-        } else {
-          console.error('An error occured during upload (file:' + res.config.data.name + ')');
-        }
-      }, function(err) { //catch error
-        console.log('Error status: ' + err.status);
-      }, function(evt) {
-        console.log('evt during upload large: ', evt);
-        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
-        $scope.image.progress = 'progress large: ' + progressPercentage + '% '; // capture upload progress
-      });
-    }
-
-    $scope.uploadImageLarge = function() {
-      console.log('imageLarge:', $scope.imageLarge);
-      if ($scope.upload_form.file.$valid && $scope.imageLarge.file) { //check if from is valid
-        uploadImageLarge($scope.imageLarge.file);
         //call upload function
         //  console.log('res add', $scope.newImage.title);
       }

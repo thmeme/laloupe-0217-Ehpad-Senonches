@@ -310,8 +310,6 @@ color: #265B7E;
 
 #menu {
   text-align: center;
-  margin-top: 70px;
-  margin-bottom: 70px;
 }
 
 #greenButton {
@@ -446,27 +444,7 @@ background-color: #E5E5E5;
   box-shadow: 4px 4px 4px #CACACA;
 }
 
- /***** Agenda *****/
-
- #footer {
-   height: 100px;
-   background-color: #265B7E;
-   position: relative;
- }
-
- .log {
-   margin-bottom: 20px;
-   margin-right: 20px;
-   color: white;
-   text-decoration: none;
-   position: absolute;
-   bottom: 0;
-   right : 0;
- }
- .log:hover {
-   font-size: 17px;
-   text-decoration: underline;
- }
+}
 
 /*List Slider*/
 .imgGallerySlideShow {
@@ -519,9 +497,11 @@ div#slider figure {
   animation: 20s slidy infinite;
 }
 
+
 #slider {
   min-height: 600px;
   max-height: 600px;
   width: 100%;
   vertical-align: middle;
 }
+
