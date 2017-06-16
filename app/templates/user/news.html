@@ -8,19 +8,20 @@
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="Vos Actualités">
             <md-list>
-              <md-list-item class="md-3-line" ng-repeat="news in listNews | orderBy: '-date' | startFrom:currentPageNews*pageSizeNews | limitTo:pageSizeNews">
+              <md-list-item class="md-3-line" ng-repeat="news in listNews | orderBy: '-date' | startFrom:currentPageNews*pageSizeNews | limitTo:pageSizeNews"">
                 <div class="md-list-item-text">
                   <h4>Créé le {{news.date | date : 'medium'}}</h4>
                   <h4>{{news.title}}</h4>
                 </div>
-                <h5 class='statusPublie' ng-if="news.isOnline">Publié</h5>
-                <h5 class='statusBrouillon' ng-if="!news.isOnline">Brouillon</h5>
-                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
+                <md-button class="md-fab md-mini btnList" ng-if="news.isOnline" ng-disabled="true" title="En ligne" aria-label="Eat cake">
+                  <md-icon><i class="material-icons">done</i></md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini" aria-label="Eat cake">
                   <a ui-sref="user.edit-news({id: news._id})">
                     <md-icon><i class="material-icons md-18" title="Editer">create</i></md-icon>
                   </a>
                 </md-button>
-                <md-button class="md-fab md-mini btnListSubmenu" ng-click="showConfirm($event, news._id)" ng-if="user.isAdmin">
+                <md-button class="md-fab md-mini" ng-click="showConfirm($event, news._id)" ng-if="user.isAdmin">
                   <md-icon><i class="material-icons md-18" title="Supprimer">delete</i></md-icon>
                 </md-button>
                 <md-divider ng-if="!$last"></md-divider>

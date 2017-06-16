@@ -1,7 +1,5 @@
 <div layout="column" layout layout-align="space-around center">
   <div class="columnAdmin">
-    <md-button class="md-primary md-raised btnRetour" ng-click='redirect()'>Retour à la liste des sous-menus</md-button>
-
     <form method="post" ng-submit="addSubmenu()">
       <div ng-cloak>
         <md-input-container>
@@ -19,7 +17,7 @@
 
       <div>
         <div layout='row'>
-          <md-switch class='switch' flex='80' ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
+          <md-switch flex='80' ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
             <span ng-if='newSubmenu.isOnline'>Publié</span>
             <span ng-if='!newSubmenu.isOnline'>Brouillon</span>
           </md-switch>
@@ -56,11 +54,10 @@
 
     <!-- Modal gallery images-->
     <modal-dialog show='galleryInsertModalShow' width='750px'>
-      <p>Sélectionnez une image pour l'insérer dans l'éditeur de texte.</p>
       <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
         <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
         <div class="btnInsertImg">
-          <md-button class="md-fab md-mini btnInsert" ng-click='insertImg(image.fileName)' title="Insérer"><i class="material-icons">input</i></md-button>
+          <md-button class="md-fab md-mini btnInsert" ng-click='insertImg(image.fileName)' title="Insérer"><i class="material-icons">picture_in_picture</i></md-button>
           <md-divider ng-if="!$last"></md-divider>
         </div>
       </div>
@@ -79,7 +76,6 @@
 
     <!-- Modal gallery pdf-->
     <modal-dialog show='galleryPdfModalShow' width='750px'>
-      <p>Copier le lien du pdf avant d'utiliser le bouton "Insérer/modifier un lien".</p>
       <div class="pdfGallery" ng-repeat="pdf in listPdf | orderBy : 'fileName':true | startFrom:currentPagePdf*pageSizePdf | limitTo:pageSizePdf">
         <img ng-src="logopdf2.png" class="listImages">
         <p class="namePdf">{{decodeURI(pdf.fileName.split('-').pop())}}</p>
@@ -105,7 +101,6 @@
 
     <!-- Upload img -->
     <modal-dialog show='UploadImgModalShow' width='750px'>
-      <p>Téléchargez une image depuis votre ordinateur.</p>
       <div class="addImage" ng-controller="UploadController">
         <form name="upload_form">
           <input type="file" ngf-select ng-model="image.file" name="file" ngf-pattern="'.jpg'" accept="image/*" ngf-max-size="10MB" ngf-resize="{width: 500}" />
@@ -122,10 +117,10 @@
 
     <!-- Upload pdf -->
     <modal-dialog show='UploadPdfModalShow' width='750px'>
-      <p>Téléchargez un pdf depuis votre ordinateur.</p>
       <div class="addImage" ng-controller="UploadController">
         <form name="upload_form">
           <input type="file" ngf-select ng-model="pdf.file" name="file" ngf-pattern="'.pdf'" />
+          <!-- <img style="width:100px;" ngf-thumbnail="image.file || '/thumb.jpg'" /> -->
           <i ng-show="upload_form.file.$error.required">*required</i><br>
           <i ng-show="upload_form.file.$error.maxSize">Image trop large
               {{pdf.file.size / 1000000|number:1}}MB: max 10MB</i>
