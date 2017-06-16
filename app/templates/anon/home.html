@@ -1,9 +1,14 @@
+
 <div id="slider">
   <figure  ng-repeat="img in listImgSlideShow | orderBy: '-date'">
-      <img ng-src="/uploads/imageslarges/{{img.name}}" alt>
-  </figure>
-</div>
+      <img ng-src="/uploads/images/{{img.name}}" alt>
 
+  </figure>
+  <div id="titleBox">
+    <h3 id="h3">EHPAD SENONCHES</h3>
+    <h1 id="h1">RESIDENCE PERIER</h1>
+  </div>
+</div>
 
 <md-menu-bar id="menu">
   <md-menu>
@@ -63,19 +68,24 @@
   <div flex-gt-sm="30" flex="70" id="contact">
     <div>
       <p id="contactContent"> 1 Route de Dreux </br> 28250 </br> SENONCHES </br> 02 37 37 73 27</p>
-      <md-button class="md-raised md-cornered" id="contactButton" <a ng-href="/#!/formulaire">Contact</a></md-button>
+      <md-button class="md-raised md-cornered" id="contactButton">Contact</md-button>
     </div>
   </div>
 </div>
+</div>
+<div id="footer">
 </div>
 
 
 
 <p>DATE: <span id=heure></span></p>
 
-
-
-<footer id="footer">
-<a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="log">Login</a>
-<a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="log">Logout</a>
-</footer>
+<div layout="row" class="contactForm">
+  <div flex>
+    <p>Nom</p>
+    <p>Adresse</p>
+    <p>Ville</p>
+    <p>N° de téléphone</p>
+    <md-button class="md-raised"><a ng-href="/#!/formulaire">Nous écrire!</a></md-button>
+  </div>
+</div>

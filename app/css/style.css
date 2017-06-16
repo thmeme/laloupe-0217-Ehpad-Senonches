@@ -312,17 +312,28 @@ background-color: #F5F4F4;
 #titleBox {
   height: 300px;
   width: 600px;
-  border: 1px solid black;
   position: absolute;
-
+  z-index: 1;
+  background-color: white;
+  opacity: 0.7;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-70%);
+}
+#h3{
+font-size: 25px;
+color: #265B7E;
+}
+#h1 {
+font-size: 45px;
+color: #265B7E;
 }
 
 /****** menu ******/
 
 #menu {
   text-align: center;
-  margin-top: 70px;
-  margin-bottom: 70px;
 }
 
 #greenButton {
@@ -441,7 +452,7 @@ background-color: #E5E5E5;
 
 #actu {
   margin : 10px 10px 10px 10px;
-  height: 300px;
+  height: 400px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
@@ -451,33 +462,13 @@ background-color: #E5E5E5;
 
 #agenda {
   margin : 10px 10px 10px 10px;
-  height: 300px;
+  height: 400px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
 
- /***** Agenda *****/
-
- #footer {
-   height: 100px;
-   background-color: #265B7E;
-   position: relative;
- }
-
- .log {
-   margin-bottom: 20px;
-   margin-right: 20px;
-   color: white;
-   text-decoration: none;
-   position: absolute;
-   bottom: 0;
-   right : 0;
- }
- .log:hover {
-   font-size: 17px;
-   text-decoration: underline;
- }
+}
 
 /*List Slider*/
 .imgGallerySlideShow {
@@ -512,8 +503,14 @@ background-color: #E5E5E5;
 100% { left: -400%; }
 }
 
-div#slider { overflow: hidden; }
-div#slider figure img { width: 20%; float: left; }
+div#slider {
+  overflow: hidden;
+}
+div#slider figure img {
+  width: 20%;
+  float: left;
+  position : relative;
+}
 div#slider figure {
   position: relative;
   width: 500%;
@@ -521,10 +518,14 @@ div#slider figure {
   left: 0;
   text-align: left;
   font-size: 0;
-  animation: 30s slidy infinite;
+  animation: 20s slidy infinite;
 }
 
+
 #slider {
-  height: 600px;
+  min-height: 600px;
+  max-height: 600px;
+  width: 100%;
   vertical-align: middle;
 }
+
