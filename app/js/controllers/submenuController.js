@@ -115,16 +115,17 @@ angular.module('app')
         console.error('error on image load', err);
       });
     };
-
+    $scope.textmodal = [];
     $scope.textModalShow = false;
     $scope.OpenModalDisplayText = function() {
       $scope.textModalShow = !$scope.textModalShow;
-      console.log('id modal', $scope.idSubmenu);
-      SubmenuService.getOne($scope.idSubmenu).then(function(res) {
-        console.log('res modal', res.data);
-        $scope.textModal = res.data;
-      });
+      // console.log('id modal', $scope.idSubmenu);
+      // SubmenuService.getOne($scope.idSubmenu).then(function(res) {
+      //   console.log('res modal', res.data.content);
+      //   $scope.textmodal = res.data;
+      // });
     };
+    console.log('$scope.textmodal', $scope.textmodal);
 
 
     $scope.UploadImgModalShow = false;

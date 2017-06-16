@@ -43,13 +43,13 @@
 
     <!-- Modal text-->
 
-    <!-- <modal-dialog show='textModalShow' width='750px'> -->
-      <h1>Hello</h1>
-      <div ng-repeat="text in textModal">
-        <p>{{text.menu}}</p>
+    <modal-dialog show='textModalShow' width='750px'>
+      <div>
+        <h3>{{submenu.title}}</h3>
+        <p ng-bind-html='submenu.content'><p>
       </div>
 
-    <!-- </modal-dialog> -->
+    </modal-dialog>
     <!-- End Modal text-->
 
 
