@@ -1,7 +1,5 @@
 <div layout="column" layout layout-align="space-around center">
   <div class="columnAdmin">
-    <md-button class="md-primary md-raised btnRetour" ng-click='redirect()'>Retour à la liste des sous-menus</md-button>
-
     <form method="post" ng-submit="addSubmenu()">
       <div ng-cloak>
         <md-input-container>
@@ -19,7 +17,7 @@
 
       <div>
         <div layout='row'>
-          <md-switch class='switch' flex='80' ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
+          <md-switch flex='80' ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
             <span ng-if='newSubmenu.isOnline'>Publié</span>
             <span ng-if='!newSubmenu.isOnline'>Brouillon</span>
           </md-switch>
@@ -113,6 +111,7 @@
       <div class="addImage" ng-controller="UploadController">
         <form name="upload_form">
           <input type="file" ngf-select ng-model="pdf.file" name="file" ngf-pattern="'.pdf'" />
+          <!-- <img style="width:100px;" ngf-thumbnail="image.file || '/thumb.jpg'" /> -->
           <i ng-show="upload_form.file.$error.required">*required</i><br>
           <i ng-show="upload_form.file.$error.maxSize">Image trop large
               {{pdf.file.size / 1000000|number:1}}MB: max 10MB</i>

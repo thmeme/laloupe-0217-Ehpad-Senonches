@@ -15,7 +15,7 @@
       <textarea ui-tinymce="tinymceOptions" ng-model="news.content"></textarea>
       <div>
         <div layout='row'>
-          <md-switch class='switch' flex='80' ng-model="news.isOnline" ng-if='user.isAdmin' aria-label="status">
+          <md-switch flex='80' ng-model="news.isOnline" ng-if='user.isAdmin' aria-label="status">
             <span ng-if='news.isOnline'>Publié</span>
             <span ng-if='!news.isOnline'>Brouillon</span>
           </md-switch>
