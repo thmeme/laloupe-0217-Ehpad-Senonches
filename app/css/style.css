@@ -118,11 +118,6 @@ md-select:not([disabled]):focus .md-select-value {
   float: right;
 }
 
-.statusPublie {
-  padding-top: 13px;
-  margin-right: 25px;
-}
-
 .switch {
   margin: 0;
 }
@@ -304,15 +299,14 @@ form .progress {
 .blocButtonsImg {
   margin-top: 30px;
   border-top: 1px solid #009688;
-}
 
+  }
 
 /********* Home Page *********/
-
 body {
   margin-right: 20px;
-  margin-left: 20px;
-  background-color: #F5F4F4;
+  margin-left : 20px;
+background-color: #F5F4F4;
 }
 
 #titleBox {
@@ -320,8 +314,8 @@ body {
   width: 600px;
   border: 1px solid black;
   position: absolute;
-}
 
+}
 
 /****** menu ******/
 
@@ -357,15 +351,12 @@ body {
   color: white;
   font-size: 20px;
 }
-
 #greenButton:hover {
   opacity: 0.7;
 }
-
 #pinkButton:hover {
   opacity: 0.7;
 }
-
 #blueButton:hover {
   opacity: 0.7;
 }
@@ -388,44 +379,38 @@ body {
   background-color: white;
   font-size: 20px;
 }
-
 #admissionSubmenu:hover {
   color: #FF7ED3;
 }
-
 #sejourSubmenu:hover {
   color: #ABE852;
 }
-
 #droitSubmenu:hover {
   color: #76EAFF;
 }
-
 #pinkContent {
-  border: 1px solid #FF7ED3;
+border: 1px solid #FF7ED3;
 }
 
 #greenContent {
-  border: 1px solid #ABE852;
+border: 1px solid #ABE852;
 }
 
 #blueContent {
-  border: 1px solid #76EAFF;
+border: 1px solid #76EAFF;
 }
-
 
 /***** Map *****/
 
 #map {
-  margin: 10px 10px 10px 10px;
-  border-radius: 5px 5px 5px 5px;
+margin : 10px 10px 10px 10px;
+border-radius: 5px 5px 5px 5px;
 }
-
 
 /***** Contact *****/
 
 #contact {
-  margin: 10px 10px 10px 10px;
+  margin : 10px 10px 10px 10px;
   height: 300px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
@@ -442,65 +427,59 @@ body {
 #contactButton {
   background-color: #F1F1F1;
   display: block;
-  margin: auto;
+  margin : auto;
   width: 140px;
   height: 40px;
   font-size: 15px;
 }
 
 #contactButton:hover {
-  background-color: #E5E5E5;
+background-color: #E5E5E5;
 }
-
 
 /***** Actu *****/
 
 #actu {
-  margin: 10px 10px 10px 10px;
+  margin : 10px 10px 10px 10px;
   height: 300px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
-
 
 /***** Agenda *****/
 
 #agenda {
-  margin: 10px 10px 10px 10px;
+  margin : 10px 10px 10px 10px;
   height: 300px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
 
+ /***** Agenda *****/
 
-/***** Agenda *****/
+ #footer {
+   height: 100px;
+   background-color: #265B7E;
+   position: relative;
+ }
 
-#footer {
-  height: 100px;
-  background-color: #265B7E;
-  position: relative;
-}
-
-.log {
-  margin-bottom: 20px;
-  margin-right: 20px;
-  color: white;
-  text-decoration: none;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-.log:hover {
-  font-size: 17px;
-  text-decoration: underline;
-}
-
+ .log {
+   margin-bottom: 20px;
+   margin-right: 20px;
+   color: white;
+   text-decoration: none;
+   position: absolute;
+   bottom: 0;
+   right : 0;
+ }
+ .log:hover {
+   font-size: 17px;
+   text-decoration: underline;
+ }
 
 /*List Slider*/
-
 .imgGallerySlideShow {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -509,62 +488,32 @@ body {
   margin-right: auto;
   display: block;
 }
-
 .imgListSlideShow {
   width: 250px;
   margin: auto;
 }
-
 .btnListSlideshow {
   margin: auto;
   margin-left: 10px;
 }
-
-
 /*slider end*/
 
 
 /*Slideshow home*/
-
 @keyframes slidy {
-  0% {
-    left: 0%;
-  }
-  20% {
-    left: 0%;
-  }
-  25% {
-    left: -100%;
-  }
-  45% {
-    left: -100%;
-  }
-  50% {
-    left: -200%;
-  }
-  70% {
-    left: -200%;
-  }
-  75% {
-    left: -300%;
-  }
-  95% {
-    left: -300%;
-  }
-  100% {
-    left: -400%;
-  }
+0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; }
 }
 
-div#slider {
-  overflow: hidden;
-}
-
-div#slider figure img {
-  width: 20%;
-  float: left;
-}
-
+div#slider { overflow: hidden; }
+div#slider figure img { width: 20%; float: left; }
 div#slider figure {
   position: relative;
   width: 500%;
