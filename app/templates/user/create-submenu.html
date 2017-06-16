@@ -24,6 +24,7 @@
             <span ng-if='!newSubmenu.isOnline'>Brouillon</span>
           </md-switch>
           <md-button class="md-primary md-raised" type="submit">Valider</md-button>
+          <md-button class="md-primary md-raised" ng-click='OpenModalDisplayText()'><i class="material-icons displayText">remove_red_eye</i></md-button>
         </div>
 
         <div layout="row" layout-align="space-around center">
@@ -35,11 +36,23 @@
           <div class="blocButtonsImg">
             <h2>Gestion des pdf</h2>
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadPdf()'>Ajouter</md-button>
-            <md-button class="md-primary md-raised" ng-click='OpenModalUrlPdf()'>Galerie</md-button>
+            <md-button class="md-primary md-raised" ng-click='OpenModalUrlPdf(id)'>Galerie</md-button>
           </div>
         </div>
       </div>
     </form>
+
+
+    <!-- Modal text-->
+
+    <modal-dialog show='textModalShow' width='750px'>
+      <div class="" ng-value="newSubmenu.content">{{newSubmenu.content}}
+
+      </div>
+
+    </modal-dialog>
+    <!-- End Modal text-->
+
 
     <!-- Modal gallery images-->
     <modal-dialog show='galleryInsertModalShow' width='750px'>
