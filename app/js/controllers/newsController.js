@@ -27,6 +27,10 @@ angular.module('app')
     }
     loadNews($scope.idNews);
 
+    $scope.uCanTrust = function(string) {
+      return $sce.trustAsHtml(string);
+    };
+
     $scope.newNews = {
       content: '',
       title: '',
@@ -39,12 +43,20 @@ angular.module('app')
     $scope.addNews = function() {
       NewsService.create($scope.newNews).then(function(res) {
         console.log('news', $scope.newNews);
-        // $scope.newNews.content = '';
-        // $scope.newNews.title = '';
-        // $scope.newNews.menu = '';
-        // $scope.newNews.image = '';
+        $scope.newNews.content = '';
+        $scope.newNews.title = '';
+        $scope.newNews.menu = '';
+        $scope.newNews.image = '';
+        $state.go('user.news');
         loadAllNews();
       });
+    };
+
+    $scope.textmodal = [];
+    $scope.textModalShow = false;
+    $scope.OpenModalDisplayText = function() {
+      $scope.textModalShow = !$scope.textModalShow;
+
     };
 
 

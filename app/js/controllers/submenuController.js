@@ -23,7 +23,6 @@ angular.module('app')
     }
     loadAllSubmenus();
 
-
     $scope.uCanTrust = function(string) {
       return $sce.trustAsHtml(string);
     };
@@ -132,11 +131,6 @@ angular.module('app')
     $scope.textModalShow = false;
     $scope.OpenModalDisplayText = function() {
       $scope.textModalShow = !$scope.textModalShow;
-      // console.log('id modal', $scope.idSubmenu);
-      // SubmenuService.getOne($scope.idSubmenu).then(function(res) {
-      //   console.log('res modal', res.data.content);
-      //   $scope.textmodal = res.data;
-      // });
     };
     console.log('$scope.textmodal', $scope.textmodal);
 
