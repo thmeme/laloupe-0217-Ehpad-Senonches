@@ -4,12 +4,15 @@ import submenu from './submenu.js';
 const submenuSchema = new mongoose.Schema({
     menu: {
         type: String,
+        require: true
     },
     title: {
         type: String,
+        require: true
     },
     content: {
         type: String,
+        require: true
     },
     date: {
         type: Date,
