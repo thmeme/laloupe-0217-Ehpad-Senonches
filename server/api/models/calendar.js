@@ -11,6 +11,11 @@ const evenementSchema = new mongoose.Schema({
     type: Date,
     default: Date.default
   },
+  author: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User'
+  },
   end: {
     type: Date,
     default: Date.default
@@ -19,10 +24,6 @@ const evenementSchema = new mongoose.Schema({
     type: String,
     require: true
   },
-  // content: {
-  //   type: String,
-  //   require: true
-  // },
   isOnline: {
     type: Boolean,
     // default: false,
@@ -34,8 +35,9 @@ let model = mongoose.model('Evenement', evenementSchema);
 export default class Evenement {
 
   findAll(req, res) {
-    model.find({},
-      (err, evenement) => {
+    model.find({})
+    .populate('author')
+    .exec((err, evenement) => {
         if (err || !evenement) {
           res.sendStatus(403);
         } else {

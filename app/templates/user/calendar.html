@@ -10,7 +10,8 @@
             <md-list>
               <md-list-item class="md-3-line" ng-repeat="evenement in evenements | orderBy: '-date' | startFrom:currentPageCalendar*pageSizeCalendar | limitTo:pageSizeCalendar">
                 <div class="md-list-item-text listEvents" id="listEvent">
-                  <h4> Date de l'événement  {{evenement.date | date: "dd-MM-yyyy"}}</h4>
+                  <h4>Créé par&nbsp;{{evenement.author.Firstname}}&nbsp;{{evenement.author.Name}}</h4>
+                  <h4> Date de l'événement&nbsp;:&nbsp;{{evenement.date | date: "dd-MM-yyyy"}}</h4>
                   <h4>{{evenement.title}}</h4>
                   <h4>Début : {{evenement.start | date:'shortTime'}} / Fin : {{evenement.end | date:'shortTime'}}</h4>
                 </div>
