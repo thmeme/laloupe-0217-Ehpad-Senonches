@@ -1,6 +1,9 @@
 angular.module('app')
-  .controller('NewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService) {
+  .controller('NewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
+
     $scope.user = CurrentUser.user();
+
+    $scope.auth = Auth;
 
     $scope.idNews = $stateParams.id;
     console.log('id', $scope.idNews);
@@ -27,9 +30,11 @@ angular.module('app')
     $scope.newNews = {
       content: '',
       title: '',
-      menu: '',
-      image: ''
+      image: '',
+      author: ''
     };
+
+    $scope.newNews.author = CurrentUser.user()._id;
 
     $scope.addNews = function() {
       NewsService.create($scope.newNews).then(function(res) {

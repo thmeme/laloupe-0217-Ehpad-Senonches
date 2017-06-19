@@ -11,6 +11,7 @@
               <md-list-item class="md-3-line" ng-repeat="news in listNews | orderBy: '-date' | startFrom:currentPageNews*pageSizeNews | limitTo:pageSizeNews">
                 <div class="md-list-item-text">
                   <h4>Créé le {{news.date | date : 'medium'}}</h4>
+                  <h4>Par&nbsp;{{news.author.Firstname}}&nbsp;{{news.author.Name}}</h4>
                   <h4>{{news.title}}</h4>
                 </div>
                 <h5 class='statusPublie' ng-if="news.isOnline">Publié</h5>

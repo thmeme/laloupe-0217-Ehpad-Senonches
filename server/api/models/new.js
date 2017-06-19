@@ -1,11 +1,18 @@
 import mongoose from 'mongoose';
 import submenu from './submenu.js';
+import User from './user.js';
+
 
 const newsSchema = new mongoose.Schema({
 
     title: {
         type: String,
         required: true
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     },
     content: {
         type: String,
@@ -28,8 +35,9 @@ let model = mongoose.model('news', newsSchema);
 export default class News {
 
     findAll(req, res) {
-        model.find({},
-            (err, news) => {
+        model.find({})
+        .populate('author')
+        .exec((err, news) => {
                 if (err || !news) {
                     res.sendStatus(403);
                 } else {
