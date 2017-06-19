@@ -161,6 +161,7 @@ angular.module('app')
 
     $scope.associateImg = function(nameImg) {
       $scope.newNews.image += 'uploads/images/' + nameImg;
+      $scope.news.image = 'uploads/images/' + nameImg;
       console.log('news.image', $scope.newNews.image);
       $scope.galleryAssociateModalShow = false;
     };
