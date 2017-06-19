@@ -45,11 +45,29 @@ describe('API USER', function() {
       });
   });
 
+  it('admin should get all user', function(done) {
+    request(app)
+      .get('/users/')
+      .set('Authorization', admin_token)
+      .expect(200, done);
+  });
+
   it('admin should delete user', function(done) {
     request(app)
       .delete('/users/' + user._id)
       .set('Authorization', admin_token)
       .expect(200, done);
   });
+
+  it('admin should update user', function(done) {
+    request(app)
+      .put('/users/' + user._id)
+      .set('Authorization', admin_token)
+      .expect(200, done);
+  });
+
+
+
+
 
 });
