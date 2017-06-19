@@ -13,11 +13,11 @@ var mailer = nodemailer.createTransport({
   var options = {
     viewEngine: {
       extname: '.hbs',
-      layoutsDir: './api/views/email',
-      defaultLayout: 'template',
-      partialsDir: './api/views/partials/'
+        layoutsDir: '../server/api/views/email/',
+        defaultLayout: 'template',
+        partialsDir: '../server/api/views/partials/'
     },
-    viewPath: './api/views/email',
+    viewPath: '../server/api/views/email/',
     extName: '.hbs'
   };
 
@@ -26,7 +26,7 @@ var mailer = nodemailer.createTransport({
   export default class Mail {
 
   sendMail(req, res) {
-    console.log('ici');
+    console.log(req.body);
     mailer.use('compile', hbs(options));
     mailer.sendMail({
       from: 'test.node.wcs@gmail.com',
@@ -34,7 +34,8 @@ var mailer = nodemailer.createTransport({
       subject: req.body.subject,
       template: 'email_body',
       context: {
-        variable1: req.body.message
+        variable1: 'ici le texte doit être :' + req.body.message,
+        variable2: 'ici le texte doit être :' + req.body
       }
     }, function(error, response) {
       if (error) {
