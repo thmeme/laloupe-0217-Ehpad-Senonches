@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('SubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService) {
+  .controller('SubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService, Auth) {
 
     $scope.theme = 'ehpad';
     $scope.user = CurrentUser.user();
@@ -8,6 +8,7 @@ angular.module('app')
       "Votre séjour",
       "Vos droits"
     ];
+    $scope.auth = Auth;
     $scope.idSubmenu = $stateParams.id;
     console.log('id', $scope.idSubmenu);
 
@@ -42,18 +43,19 @@ angular.module('app')
     }
     loadSubmenu($scope.idSubmenu);
 
-
-
-
     $scope.newSubmenu = {
       content: '',
       title: '',
-      menu: ''
+      menu: '',
+      author: ''
     };
+    $scope.newSubmenu.author = CurrentUser.user()._id;
 
     $scope.addSubmenu = function() {
       SubmenuService.create($scope.newSubmenu).then(function(res) {
         console.log('submenu', $scope.newSubmenu);
+
+        console.log('auteur', $scope.newSubmenu.author);
         $scope.newSubmenu.content = '';
         $scope.newSubmenu.title = '';
         $scope.newSubmenu.menu = '';
