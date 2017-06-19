@@ -1,10 +1,16 @@
 import mongoose from 'mongoose';
 import submenu from './submenu.js';
+import User from './user.js';
 
 const submenuSchema = new mongoose.Schema({
     menu: {
         type: String,
         required: true
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     },
     title: {
         type: String,
@@ -28,8 +34,9 @@ let model = mongoose.model('Submenu', submenuSchema);
 export default class Submenu {
 
     findAll(req, res) {
-        model.find({},
-            (err, submenu) => {
+        model.find({})
+        .populate('author')
+        .exec((err, submenu) => {
                 if (err || !submenu) {
                     res.sendStatus(403);
                 } else {
@@ -40,7 +47,7 @@ export default class Submenu {
 
     findById(req, res) {
         console.log('req in back', req.params, req.body, req.query);
-        model.findById(req.params.id, function(err, submenu) {
+        model.findById(req.params.id, (err, submenu) => {
           if (err || !submenu) {
               res.sendStatus(403);
           } else {
@@ -50,7 +57,6 @@ export default class Submenu {
     }
     create(req, res) {
       console.log('route admin');
-
         let submenu = req.body;
         console.log('back', req.body);
         submenu.date = new Date().toISOString();
