@@ -5,12 +5,15 @@ const newsSchema = new mongoose.Schema({
 
     title: {
         type: String,
+        required: true
     },
     content: {
         type: String,
+        required: true
     },
     image: {
         type: String,
+        required: true
     },
     date: {
         type: Date,
@@ -65,7 +68,7 @@ export default class News {
         let news = req.body;
         console.log('back', req.body);
         news.date = new Date().toISOString();
-        delete submenu.isOnline;
+        delete news.isOnline;
         model.create(news, (err, news) => {
             if (err) {
                 res.status(500).send({
@@ -93,7 +96,7 @@ export default class News {
         });
     }
     updateByUser(req, res) {
-      delete submenu.isOnline;
+      delete news.isOnline;
         model.findByIdAndUpdate(req.params.id,
           req.body, { new: true },function(err, news) {
             if (err) {

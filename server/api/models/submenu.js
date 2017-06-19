@@ -4,12 +4,15 @@ import submenu from './submenu.js';
 const submenuSchema = new mongoose.Schema({
     menu: {
         type: String,
+        required: true
     },
     title: {
         type: String,
+        required: true
     },
     content: {
         type: String,
+        required: true
     },
     date: {
         type: Date,
@@ -98,7 +101,7 @@ export default class Submenu {
         });
     }
     updateByUser(req, res) {
-      delete submenu.isOnline,
+      delete submenu.isOnline;
         model.findByIdAndUpdate(req.params.id,
           req.body, { new: true },function(err, submenu) {
             if (err) {
