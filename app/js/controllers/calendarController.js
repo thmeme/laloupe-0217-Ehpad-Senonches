@@ -15,6 +15,7 @@ angular.module('app')
       CalendarService.getAll().then(function(res) {
         $scope.evenements = res.data;
       });
+
       function loadEvenements() {
         CalendarService.getAll().then(function(res) {
           $scope.evenements = res.data;
@@ -42,17 +43,19 @@ angular.module('app')
       }
       loadEvenement($scope.idEvenements);
 
+
+      $scope.newEvenement = {
+        date: '',
+        start: '',
+        end: '',
+        author: '',
+        title: ''
+      };
+
+      $scope.newEvenement.author = CurrentUser.user()._id;
       $scope.addEvenement = function() {
-        $scope.evenements = [];
         CalendarService.create($scope.newEvenement).then(function(res) {
-          $scope.newEvenement = {
-            date: undefined,
-            start: undefined,
-            end: undefined,
-            title: '',
-            // content: '',
-            isOnline: false
-          };
+          console.log('newEvenement', $scope.newEvenement);
           loadEvenements();
         });
       };
@@ -68,22 +71,22 @@ angular.module('app')
 
 
 
-        $scope.customFullscreen = false;
-        $scope.showConfirm = function(ev, id) {
-          console.log('ev', ev);
-          // Appending dialog to document.body to cover sidenav in docs app
-          var confirm = $mdDialog.confirm()
-            .title('Voulez-vous supprimer cet évènement ?')
-            .textContent('Tous les éléments seront définitivement perdus')
-            .ariaLabel('Lucky day')
-            .targetEvent(ev)
-            .ok('Supprimer')
-            .cancel('Annuler');
+      $scope.customFullscreen = false;
+      $scope.showConfirm = function(ev, id) {
+        console.log('ev', ev);
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+          .title('Voulez-vous supprimer cet évènement ?')
+          .textContent('Tous les éléments seront définitivement perdus')
+          .ariaLabel('Lucky day')
+          .targetEvent(ev)
+          .ok('Supprimer')
+          .cancel('Annuler');
 
-          $mdDialog.show(confirm).then(function() {
-            CalendarService.delete(id).then(function(res) {
-              loadEvenements();
-            });
+        $mdDialog.show(confirm).then(function() {
+          CalendarService.delete(id).then(function(res) {
+            loadEvenements();
           });
-        };
+        });
+      };
     });
