@@ -19,14 +19,16 @@
             <span ng-if='news.isOnline'>Publié</span>
             <span ng-if='!news.isOnline'>Brouillon</span>
           </md-switch>
-          <md-button class="md-primary md-raised" type="submit">Mettre à jour</md-button>
+          <md-button class="md-primary md-raised" type="submit">VAlider</md-button>
+          <md-button class="md-primary md-raised" ng-click='OpenModalDisplayText()'><i class="material-icons displayText">remove_red_eye</i></md-button>
+
         </div>
         <div layout="row" layout-align="space-around center">
           <div class="blocButtonsImg">
             <h2>Gestion des images</h2>
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
             <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
-            <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{news.image ? 'Associer' : 'Dissocier'}}</md-button>
+            <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{news.image ? 'Dissocier' : 'Associer'}}</md-button>
             <img class='imgAssociatePreview' ng-show='news.image' ng-src="/{{news.image}}">
           </div>
           <div class="blocButtonsImg">
@@ -37,6 +39,17 @@
         </div>
       </div>
     </form>
+
+    <!-- Modal text-->
+    <modal-dialog show='textModalShow' width='550px' height='50%'>
+      <div style="height: 400px; overflow: scroll">
+        <h3>{{news.menu}}</h3>
+        <h3>{{news.title}}</h3>
+        <p ng-bind-html="news.content"></p>
+      </div>
+
+    </modal-dialog>
+    <!-- End Modal text-->
 
     <!-- Modal gallery images insert-->
     <modal-dialog show='galleryInsertModalShow' width='750px'>
