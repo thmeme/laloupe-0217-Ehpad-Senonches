@@ -53,12 +53,8 @@ angular.module('app')
     $scope.addSubmenu = function() {
       SubmenuService.create($scope.newSubmenu).then(function(res) {
         console.log('submenu', $scope.newSubmenu);
-
         console.log('auteur', $scope.newSubmenu.author);
-        $scope.newSubmenu.content = '';
-        $scope.newSubmenu.title = '';
-        $scope.newSubmenu.menu = '';
-        $state.go('user.submenu');
+      $state.go('user.edit-submenu', {id: res.data.submenu._id});
       }, function(err) {
         console.error('error on create', err);
       });
