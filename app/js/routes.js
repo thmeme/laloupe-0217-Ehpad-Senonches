@@ -169,7 +169,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/edit-calendar.html',
-                        controller: 'EditAgendaController'
+                        controller: 'CalendarController'
                     }
                 }
             })
