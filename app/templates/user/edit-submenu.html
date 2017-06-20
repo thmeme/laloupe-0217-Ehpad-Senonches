@@ -19,7 +19,7 @@
       <div>
 
         <div layout='row'>
-          <md-switch flex='80' ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
+          <md-switch flex='80' class="switch" ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
             <span ng-if='newSubmenu.isOnline'>Publié</span>
             <span ng-if='!newSubmenu.isOnline'>Brouillon</span>
           </md-switch>
