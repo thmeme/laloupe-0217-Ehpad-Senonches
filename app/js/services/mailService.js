@@ -1,8 +1,8 @@
 angular.module('app')
     .service('MailService', function($http) {
       return {
-      sendMail: function(sendMail) {
-          return $http.post('/mailer', sendMail);
+      sendMail: function(mail) {
+          return $http.post('/mailer/sendall', mail);
         }
-      };
+      }
     });
