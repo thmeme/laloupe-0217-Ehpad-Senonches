@@ -4,5 +4,5 @@ angular.module('app')
       sendMail: function(mail) {
           return $http.post('/mailer/sendall', mail);
         }
-      };
+      }
     });

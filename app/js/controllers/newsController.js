@@ -1,6 +1,9 @@
 angular.module('app')
-  .controller('NewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService) {
+  .controller('NewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
+
     $scope.user = CurrentUser.user();
+
+    $scope.auth = Auth;
 
     $scope.idNews = $stateParams.id;
     console.log('id', $scope.idNews);
@@ -24,22 +27,34 @@ angular.module('app')
     }
     loadNews($scope.idNews);
 
+    $scope.uCanTrust = function(string) {
+      return $sce.trustAsHtml(string);
+    };
+
     $scope.newNews = {
       content: '',
       title: '',
-      menu: '',
-      image: ''
+      image: '',
+      author: ''
     };
+
+    $scope.newNews.author = CurrentUser.user()._id;
 
     $scope.addNews = function() {
       NewsService.create($scope.newNews).then(function(res) {
         console.log('news', $scope.newNews);
-        // $scope.newNews.content = '';
-        // $scope.newNews.title = '';
-        // $scope.newNews.menu = '';
-        // $scope.newNews.image = '';
-        loadAllNews();
+        console.log(res.data);
+        $state.go('user.edit-news', {id: res.data.news._id});
       });
+    };
+
+
+
+    $scope.textmodal = [];
+    $scope.textModalShow = false;
+    $scope.OpenModalDisplayText = function() {
+      $scope.textModalShow = !$scope.textModalShow;
+
     };
 
 
@@ -144,6 +159,7 @@ angular.module('app')
 
     $scope.associateImg = function(nameImg) {
       $scope.newNews.image += 'uploads/images/' + nameImg;
+      // $scope.news.image = 'uploads/images/' + nameImg;
       console.log('news.image', $scope.newNews.image);
       $scope.galleryAssociateModalShow = false;
     };

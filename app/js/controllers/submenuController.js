@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('SubmenuController', function($scope, $state, $stateParams, $window, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService) {
+  .controller('SubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService, Auth) {
 
     $scope.theme = 'ehpad';
     $scope.user = CurrentUser.user();
@@ -8,6 +8,7 @@ angular.module('app')
       "Votre séjour",
       "Vos droits"
     ];
+    $scope.auth = Auth;
     $scope.idSubmenu = $stateParams.id;
     console.log('id', $scope.idSubmenu);
 
@@ -22,11 +23,18 @@ angular.module('app')
     }
     loadAllSubmenus();
 
+    $scope.uCanTrust = function(string) {
+      return $sce.trustAsHtml(string);
+    };
+
     function loadSubmenu(id) {
       if (id !== undefined) {
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
           console.log('res One', res);
           $scope.submenu = res.data;
+          $scope.submenu.content = $sce.trustAsHtml(res.data.content);
+          console.log('content', $scope.submenu.content);
+
         }, function(err) {
           console.error('error on getOne Submenu', err);
         });
@@ -37,16 +45,16 @@ angular.module('app')
     $scope.newSubmenu = {
       content: '',
       title: '',
-      menu: ''
+      menu: '',
+      author: ''
     };
+    $scope.newSubmenu.author = CurrentUser.user()._id;
 
     $scope.addSubmenu = function() {
       SubmenuService.create($scope.newSubmenu).then(function(res) {
         console.log('submenu', $scope.newSubmenu);
-        $scope.newSubmenu.content = '';
-        $scope.newSubmenu.title = '';
-        $scope.newSubmenu.menu = '';
-        loadAllSubmenus();
+        console.log('auteur', $scope.newSubmenu.author);
+      $state.go('user.edit-submenu', {id: res.data.submenu._id});
       }, function(err) {
         console.error('error on create', err);
       });
@@ -115,6 +123,13 @@ angular.module('app')
         console.error('error on image load', err);
       });
     };
+    $scope.textmodal = [];
+    $scope.textModalShow = false;
+    $scope.OpenModalDisplayText = function() {
+      $scope.textModalShow = !$scope.textModalShow;
+    };
+    console.log('$scope.textmodal', $scope.textmodal);
+
 
     $scope.UploadImgModalShow = false;
     $scope.OpenModalUploadImg = function() {

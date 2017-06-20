@@ -15,12 +15,23 @@ angular.module('app')
       CalendarService.getAll().then(function(res) {
         $scope.evenements = res.data;
       });
+
       function loadEvenements() {
         CalendarService.getAll().then(function(res) {
           $scope.evenements = res.data;
         });
       }
       loadEvenements();
+
+      $scope.currentPageCalendar = 0;
+      $scope.pageSizeCalendar = 5;
+      $scope.listCalendar = [];
+      $scope.numberOfPagesCalendar = function() {
+        return Math.ceil($scope.listCalendar.length / $scope.pageSizeCalendar);
+      };
+      for (var i = 0; i < $scope.listCalendar.length - 1; i++) {
+        $scope.listCalendar.push("Item " + i);
+      }
 
       function loadEvenement(id) {
         if (id !== undefined) {
@@ -32,19 +43,27 @@ angular.module('app')
       }
       loadEvenement($scope.idEvenements);
 
+
+      $scope.newEvenement = {
+        date: '',
+        start: '',
+        end: '',
+        author: '',
+        title: ''
+      };
+
+      $scope.newEvenement.author = CurrentUser.user()._id;
       $scope.addEvenement = function() {
-        $scope.evenements = [];
         CalendarService.create($scope.newEvenement).then(function(res) {
-          $scope.newEvenement = {
-            date: undefined,
-            start: undefined,
-            end: undefined,
-            title: '',
-            // content: '',
-            isOnline: false
-          };
-          loadEvenements();
+          console.log('newEvenement', res.data);
+          $state.go('user.edit-calendar', {id: res.data.evenement._id});
+
+
         });
+      };
+
+      $scope.redirectCalendar = function() {
+        $state.go('user.calendar');
       };
 
       $scope.redirectCreateCalendar = function() {
@@ -54,22 +73,22 @@ angular.module('app')
 
 
 
-        $scope.customFullscreen = false;
-        $scope.showConfirm = function(ev, id) {
-          console.log('ev', ev);
-          // Appending dialog to document.body to cover sidenav in docs app
-          var confirm = $mdDialog.confirm()
-            .title('Voulez-vous supprimer cet évènement ?')
-            .textContent('Tous les éléments seront définitivement perdus')
-            .ariaLabel('Lucky day')
-            .targetEvent(ev)
-            .ok('Supprimer')
-            .cancel('Annuler');
+      $scope.customFullscreen = false;
+      $scope.showConfirm = function(ev, id) {
+        console.log('ev', ev);
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+          .title('Voulez-vous supprimer cet évènement ?')
+          .textContent('Tous les éléments seront définitivement perdus')
+          .ariaLabel('Lucky day')
+          .targetEvent(ev)
+          .ok('Supprimer')
+          .cancel('Annuler');
 
-          $mdDialog.show(confirm).then(function() {
-            CalendarService.delete(id).then(function(res) {
-              loadEvenements();
-            });
+        $mdDialog.show(confirm).then(function() {
+          CalendarService.delete(id).then(function(res) {
+            loadEvenements();
           });
-        };
+        });
+      };
     });

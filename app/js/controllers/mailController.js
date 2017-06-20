@@ -42,6 +42,8 @@ angular.module('app')
     $scope.sendMail = function () {
       console.log($scope.mail);
       MailService.sendMail($scope.mail).then(function(res) {
+
       });
+
     };
   });
