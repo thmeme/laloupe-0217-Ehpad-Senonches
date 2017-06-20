@@ -22,6 +22,15 @@ angular.module('app')
                     }
               }
             })
+            .state('anon.submenu', {
+                url: '/',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/submenu.html',
+                        controller: 'EditSubmenuController',
+                    }
+              }
+            })
             .state('anon.formulaire', {
                 url: '/formulaire',
                 views: {
