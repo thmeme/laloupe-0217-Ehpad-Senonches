@@ -103,8 +103,8 @@ angular.module('app')
       console.log('id', id);
       // Appending dialog to document.body to cover sidenav in docs app
       var confirm = $mdDialog.confirm()
-        .title('Voulez-vous supprimer ce sous-menus ?')
-        .textContent('Tous les éléments seront définitivement perdus')
+        .title('Voulez-vous supprimer cette image du carrousel ?')
+        .textContent('')
         .ariaLabel('Lucky day')
         .targetEvent(ev)
         .ok('Supprimer')
