@@ -55,8 +55,10 @@ angular.module('app')
       $scope.newEvenement.author = CurrentUser.user()._id;
       $scope.addEvenement = function() {
         CalendarService.create($scope.newEvenement).then(function(res) {
-          console.log('newEvenement', $scope.newEvenement);
-          loadEvenements();
+          console.log('newEvenement', res.data);
+          $state.go('user.edit-calendar', {id: res.data.evenement._id});
+
+
         });
       };
 
