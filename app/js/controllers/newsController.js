@@ -78,7 +78,8 @@ angular.module('app')
       height: 300,
       theme: 'modern',
       plugins: 'advlist autolink lists colorpicker link textcolor image charmap code table',
-      toolbar1: 'undo redo | insert | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | preview media | forecolor backcolor | link image',
+      toolbar1: 'fontsizeselect | undo redo | bold italic underline | alignleft aligncenter alignjustify alignright | bullist numlist outdent indent | preview media | forecolor backcolor | link',
+      fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
       content_css: [
         '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
         // '//www.tinymce.com/css/codepen.min.css'
