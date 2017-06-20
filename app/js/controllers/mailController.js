@@ -31,9 +31,17 @@ angular.module('app')
 
     document.getElementById("heure").innerHTML = jour_semaine + " " + jour + " " + mois + " " + annee + " - " + heure + ":" + minute;
 
+    $scope.mail = {
+      email:'',
+      name:'',
+      subject:'',
+      message:''
+    };
+
+
     $scope.sendMail = function () {
+      console.log($scope.mail);
       MailService.sendMail($scope.mail).then(function(res) {
-        console.log('test', $scope.mail);
       });
     };
   });
