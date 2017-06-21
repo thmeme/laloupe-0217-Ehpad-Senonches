@@ -29,12 +29,12 @@ angular.module('app')
 
       $scope.currentPageCalendar = 0;
       $scope.pageSizeCalendar = 5;
-      $scope.listCalendar = [];
+      $scope.evenements = [];
       $scope.numberOfPagesCalendar = function() {
-        return Math.ceil($scope.listCalendar.length / $scope.pageSizeCalendar);
+        return Math.ceil($scope.evenements.length / $scope.pageSizeCalendar);
       };
-      for (var i = 0; i < $scope.listCalendar.length - 1; i++) {
-        $scope.listCalendar.push("Item " + i);
+      for (var i = 0; i < $scope.evenements.length - 1; i++) {
+        $scope.evenements.push("Item " + i);
       }
 
       function loadEvenement(id) {
@@ -47,7 +47,6 @@ angular.module('app')
         }
       }
       loadEvenement($scope.idEvenement);
-
 
       $scope.newEvenement = {
         date: '',

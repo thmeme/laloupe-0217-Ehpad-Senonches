@@ -29,7 +29,7 @@
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
             <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
             <md-button ng-if='!news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>Associer</md-button>
-            <md-button ng-if='news.image' class="md-primary md-raised" ng-click='deleteImg(news.image)'>Dissocier</md-button>
+            <md-button ng-if='news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociateEdit()'>Changer</md-button>
             <!-- <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{news.image ? 'Dissocier' : 'Associer'}}</md-button> -->
             <img class='imgAssociatePreview' ng-show='news.image' ng-src="/{{news.image}}">
             <!-- <md-button class="md-primary md-raised" ng-click='deleteImg(news.image)'>Supprimer</md-button> -->
@@ -47,7 +47,6 @@
     <!-- Modal text-->
     <modal-dialog show='textModalShow' width='550px' height='50%'>
       <div style="height: 400px; overflow: scroll">
-        <h3>{{news.menu}}</h3>
         <h3>{{news.title}}</h3>
         <p ng-bind-html="news.content"></p>
       </div>
