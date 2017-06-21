@@ -76,7 +76,7 @@ angular.module('app')
       NewsService.getAll().then(function(res) {
         console.log('listNews', res);
         $scope.listNews = res.data;
-        console.log('res.data', res.data);
+        console.log('res.data.news', res.data);
       });
     }
     loadAllNews();
