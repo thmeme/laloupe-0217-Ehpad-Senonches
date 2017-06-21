@@ -2,26 +2,30 @@ angular.module('app')
   .controller('CalendarController',
     function($scope, $state, $stateParams, $mdDialog, CurrentUser, CalendarService) {
       $scope.user = CurrentUser.user();
-      // console.log($state.params);
-      // $scope.newEvenement = {
-      //   date: undefined,
-      //   start: undefined,
-      //   end: undefined,
-      //   title: '',
-      //   // content: '',
-      //   isOnline: false
-      // };
+      console.log('params', $state.params);
+      $scope.newEvenement = {
+        date: undefined,
+        start: undefined,
+        end: undefined,
+        title: '',
+        // content: '',
+        isOnline: false
+      };
+
+      $scope.idEvenement = $stateParams.id;
+      console.log('id', $scope.idEvenement);
 
       CalendarService.getAll().then(function(res) {
         $scope.evenements = res.data;
       });
 
-      function loadEvenements() {
+      function loadAllEvenements() {
         CalendarService.getAll().then(function(res) {
           $scope.evenements = res.data;
+          console.log('loadAllEvenements', res.data);
         });
       }
-      loadEvenements();
+      loadAllEvenements();
 
       $scope.currentPageCalendar = 0;
       $scope.pageSizeCalendar = 5;
@@ -35,13 +39,14 @@ angular.module('app')
 
       function loadEvenement(id) {
         if (id !== undefined) {
-          CalendarService.getOne($scope.idEvenements).then(function(res) {
+          CalendarService.getOne($scope.idEvenement).then(function(res) {
             console.log('res One', res);
             $scope.evenement = res.data;
+            console.log('res.data.strat', res.data.start);
           });
         }
       }
-      loadEvenement($scope.idEvenements);
+      loadEvenement($scope.idEvenement);
 
 
       $scope.newEvenement = {
@@ -56,9 +61,8 @@ angular.module('app')
       $scope.addEvenement = function() {
         CalendarService.create($scope.newEvenement).then(function(res) {
           console.log('newEvenement', res.data);
+
           $state.go('user.edit-calendar', {id: res.data.evenement._id});
-
-
         });
       };
 
@@ -69,9 +73,6 @@ angular.module('app')
       $scope.redirectCreateCalendar = function() {
         $state.go('user.create-calendar');
       };
-
-
-
 
       $scope.customFullscreen = false;
       $scope.showConfirm = function(ev, id) {
@@ -87,8 +88,14 @@ angular.module('app')
 
         $mdDialog.show(confirm).then(function() {
           CalendarService.delete(id).then(function(res) {
-            loadEvenements();
+          loadAllEvenements();
           });
+        });
+      };
+
+      $scope.updateEvenement = function() {
+        CalendarService.update($scope.idEvenement, $scope.evenement).then(function(res) {
+          console.log('update', res);
         });
       };
     });
