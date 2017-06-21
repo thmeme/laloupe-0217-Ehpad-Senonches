@@ -55,16 +55,12 @@ angular.module('app')
       });
     };
 
-
-
     $scope.textmodal = [];
     $scope.textModalShow = false;
     $scope.OpenModalDisplayText = function() {
       $scope.textModalShow = !$scope.textModalShow;
 
     };
-
-
 
     $scope.updateNews = function() {
       NewsService.update($scope.idNews, $scope.news).then(function(res) {
@@ -216,13 +212,6 @@ angular.module('app')
       $scope.listPdf.push("Item " + i);
     }
 
-    // $scope.deleteImg = function () {
-    //   $scope.news.image = '';
-    //   NewsService.update($scope.idNews, $scope.news).then(function(res) {
-    //     console.log('delete img', res);
-    //   });
-    // };
-
     $scope.OpenModalgalleryAssociateEdit = function() {
         $scope.news.image = '';
         $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
@@ -235,9 +224,5 @@ angular.module('app')
         NewsService.update($scope.idNews, $scope.news).then(function(res) {
           console.log('delete img', res);
         });
-
     };
-
-
-
   });
