@@ -17,6 +17,15 @@ angular.module('app')
     }
     loadAllNews();
 
+    function loadAllNewsAnon() {
+      NewsService.getAllAnon().then(function(res) {
+        console.log('listNewsAnon', res);
+        $scope.listNewsAnon = res.data;
+        console.log('res.data Anon', res.data);
+      });
+    }
+    loadAllNewsAnon();
+
     function loadNews(id) {
       if (id !== undefined) {
         NewsService.getOne($scope.idNews).then(function(res) {

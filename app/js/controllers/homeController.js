@@ -81,6 +81,8 @@ angular.module('app')
     }
     loadAllNews();
 
+    
+
     $scope.listEvenements = [];
     function loadEvenements() {
       CalendarService.getAll().then(function(res) {

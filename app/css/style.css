@@ -457,6 +457,19 @@ background-color: #E5E5E5;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
+#newsDisplay {
+  margin : 10px 10px 10px 10px;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+}
+
+#listNewsDisplay {
+  margin : 10px 10px 10px 10px;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+}
 
 /***** Agenda *****/
 
@@ -528,4 +541,3 @@ div#slider figure {
   width: 100%;
   vertical-align: middle;
 }
-

@@ -6,19 +6,22 @@ let router = express.Router();
 
 module.exports = (app) => {
 
-    var news = new News();
+  var news = new News();
 
-    router.get('/:id', news.findById);
+  router.get('/:id', news.findById);
 
-    router.get('/', news.findAll);
+  router.get('/', news.findAllAnon);
 
-    router.post('/admin/', Auth.isAdministrator, news.create);
-    router.post('/', Auth.hasAuthorization, news.createByUser);
+  router.get('/admin', Auth.isAdministrator, news.findAll);
+  router.get('/', Auth.hasAuthorization, news.findAllByUser);
 
-    router.put('/admin/:id', Auth.isAdministrator, news.update);
-    router.put('/:id', Auth.hasAuthorization, news.updateByUser);
+  router.post('/admin/', Auth.isAdministrator, news.create);
+  router.post('/', Auth.hasAuthorization, news.createByUser);
 
-    router.delete('/:id', Auth.isAdministrator, news.delete);
+  router.put('/admin/:id', Auth.isAdministrator, news.update);
+  router.put('/:id', Auth.hasAuthorization, news.updateByUser);
 
-    app.use('/news', router);
+  router.delete('/:id', Auth.isAdministrator, news.delete);
+
+  app.use('/news', router);
 };
