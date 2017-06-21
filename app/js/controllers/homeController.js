@@ -89,6 +89,26 @@ angular.module('app')
     }
     loadEvenements();
 
+//*****slider*****//
+var params = {
+    slidesPerView: $scope.slidesPerView || 1,
+    slidesPerColumn: $scope.slidesPerColumn || 1,
+    spaceBetween: $scope.spaceBetween || 0,
+    direction: $scope.direction || 'horizontal',
+    loop: $scope.loop || true,
+    initialSlide: $scope.initialSlide || 0,
+    showNavButtons: false
+};
 
+            $scope.swiper = {};
+            $scope.next = function() {
+                $scope.swiper.slideNext();
+            };
+            $scope.onReadySwiper = function(swiper) {
+
+                swiper.on('slideChangeStart', function() {
+
+                });
+            };
 
   });

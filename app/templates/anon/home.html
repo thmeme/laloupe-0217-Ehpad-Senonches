@@ -1,5 +1,5 @@
 
-<div id="slider">
+<!-- <div id="slider">
   <figure  ng-repeat="img in listImgSlideShow | orderBy: '-date'">
       <img ng-src="/uploads/imageslarges/{{img.name}}" alt>
   </figure>
@@ -8,7 +8,13 @@
     <h3 id="h3">EHPAD SENONCHES</h3>
     <h1 id="h1">RESIDENCE PERIER</h1>
   </div>
-</div>
+</div> -->
+
+<ks-swiper-container initial-slide="4" loop="true" show-nav-buttons="false"  space-between="5" pagination-clickable="false" autoplay: "2500">
+    <ks-swiper-slide class="swiper-slide" ng-repeat="img in listImgSlideShow | orderBy: '-date'">
+        <img ng-src="/uploads/imageslarges/{{img.name}}" alt>
+    </ks-swiper-slide>
+</ks-swiper-container>
 
 <md-menu-bar id="menu">
   <md-menu>
@@ -58,17 +64,17 @@
   </div>
 </div>
 <div layout="row">
-  <div flex-gt-sm="70" flex="30">
+  <div flex-gt-sm="80" flex="20">
     <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
       <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
         <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
       </ng-map>
     </div>
   </div>
-  <div flex-gt-sm="30" flex="70" id="contact">
+  <div flex-gt-sm="20" flex="80" id="contact">
     <div>
       <p id="contactContent"> 1 Route de Dreux </br> 28250 </br> SENONCHES </br> 02 37 37 73 27</p>
-      <md-button class="md-raised md-cornered" id="contactButton"><a ng-href="/#!/formulaire">Contact</a></md-button>
+      <md-button class="md-raised md-cornered" id="contactButton"><a ng-href="/#!/formulaire" id="contactLink">Contact</a></md-button>
     </div>
   </div>
 </div>
