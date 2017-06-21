@@ -170,6 +170,9 @@ angular.module('app')
       $scope.news.image = 'uploads/images/' + nameImg;
       console.log('news.image', $scope.newNews.image);
       $scope.galleryAssociateModalShow = false;
+      NewsService.update($scope.idNews, $scope.news).then(function(res) {
+        console.log('update ass img', res);
+      });
     };
 
     $scope.currentPage = 0;
@@ -213,11 +216,28 @@ angular.module('app')
       $scope.listPdf.push("Item " + i);
     }
 
-    $scope.deleteImg = function () {
-      $scope.news.image = '';
-      NewsService.update($scope.idNews, $scope.news).then(function(res) {
-        console.log('delete img', res);
-      });
+    // $scope.deleteImg = function () {
+    //   $scope.news.image = '';
+    //   NewsService.update($scope.idNews, $scope.news).then(function(res) {
+    //     console.log('delete img', res);
+    //   });
+    // };
+
+    $scope.OpenModalgalleryAssociateEdit = function() {
+        $scope.news.image = '';
+        $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
+        UploadService.getAll().then(function(res) {
+          console.log('load', res);
+          $scope.listimages = res.data;
+        }, function(err) {
+          console.error('error on image load', err);
+        });
+        NewsService.update($scope.idNews, $scope.news).then(function(res) {
+          console.log('delete img', res);
+        });
+
     };
+
+
 
   });
