@@ -17,6 +17,13 @@ angular.module('app')
     }
     loadAllNews();
 
+    // $scope.news = {
+    //   content: '',
+    //   title: '',
+    //   image: '',
+    //   author: ''
+    // };
+
     function loadNews(id) {
       if (id !== undefined) {
         NewsService.getOne($scope.idNews).then(function(res) {
@@ -160,7 +167,7 @@ angular.module('app')
 
     $scope.associateImg = function(nameImg) {
       $scope.newNews.image += 'uploads/images/' + nameImg;
-      // $scope.news.image = 'uploads/images/' + nameImg;
+      $scope.news.image = 'uploads/images/' + nameImg;
       console.log('news.image', $scope.newNews.image);
       $scope.galleryAssociateModalShow = false;
     };
@@ -205,5 +212,12 @@ angular.module('app')
     for (i = 0; i < $scope.listPdf.length - 1; i++) {
       $scope.listPdf.push("Item " + i);
     }
+
+    $scope.deleteImg = function () {
+      $scope.news.image = '';
+      NewsService.update($scope.idNews, $scope.news).then(function(res) {
+        console.log('delete img', res);
+      });
+    };
 
   });
