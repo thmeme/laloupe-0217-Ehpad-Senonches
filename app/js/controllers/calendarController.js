@@ -88,8 +88,14 @@ angular.module('app')
 
         $mdDialog.show(confirm).then(function() {
           CalendarService.delete(id).then(function(res) {
-            loadEvenements();
+          loadAllEvenements();
           });
+        });
+      };
+
+      $scope.updateEvenement = function() {
+        CalendarService.update($scope.idEvenement, $scope.evenement).then(function(res) {
+          console.log('update', res);
         });
       };
     });

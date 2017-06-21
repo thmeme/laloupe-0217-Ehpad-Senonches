@@ -22,12 +22,21 @@ angular.module('app')
                     }
               }
             })
-            .state('anon.submenu', {
-                url: '/',
+            .state('anon.displaysubmenu', {
+                url: '/displaysubmenu/:id',
                 views: {
                     'content@': {
-                        templateUrl: 'anon/submenu.html',
+                        templateUrl: 'anon/displaysubmenu.html',
                         controller: 'EditSubmenuController',
+                    }
+              }
+            })
+            .state('anon.displaynews', {
+                url: '/displaynews/:id',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/displaynews.html',
+                        controller: 'EditNewsController',
                     }
               }
             })

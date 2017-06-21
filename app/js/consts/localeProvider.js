@@ -3,7 +3,7 @@ angular.module('app')
 
     // Example of a French localization.
     $mdDateLocaleProvider.months = ['janvier', 'février', 'mars', 'avril', 'mai','juin', 'juillet', 'août', 'septembre', 'octobre', 'novembtre', 'décembre'];
-    myShortMonths = ['ja', 'fé', 'ma', 'av', 'mai','ju', 'jui', 'ao', 'sep', 'oct', 'nov', 'déc'];
+    myShortMonths = ['jan', 'fév', 'mar', 'avr', 'mai','ju', 'jui', 'août', 'sept', 'oct', 'nov', 'déc'];
     $mdDateLocaleProvider.shortMonths = myShortMonths;
     $mdDateLocaleProvider.days = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
     $mdDateLocaleProvider.shortDays = ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'];
