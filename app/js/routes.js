@@ -22,6 +22,24 @@ angular.module('app')
                     }
               }
             })
+            .state('anon.displaysubmenu', {
+                url: '/displaysubmenu/:id',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/displaysubmenu.html',
+                        controller: 'EditSubmenuController',
+                    }
+              }
+            })
+            .state('anon.displaynews', {
+                url: '/displaynews/:id',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/displaynews.html',
+                        controller: 'EditNewsController',
+                    }
+              }
+            })
             .state('anon.formulaire', {
                 url: '/formulaire',
                 views: {
