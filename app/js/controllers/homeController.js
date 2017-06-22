@@ -89,6 +89,17 @@ angular.module('app')
     }
     loadEvenements();
 
+//*****slider*****//
 
+            $scope.swiper = {};
+            $scope.next = function() {
+                $scope.swiper.slideNext();
+            };
+            $scope.onReadySwiper = function(swiper) {
+
+                swiper.on('slideChangeStart', function() {
+
+                });
+            };
 
   });
