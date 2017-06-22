@@ -179,7 +179,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/create-calendar.html',
-                        controller: 'CalendarController'
+                        controller: 'CreateCalendarController'
                     }
                 }
             })
@@ -188,7 +188,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/edit-calendar.html',
-                        controller: 'CalendarController'
+                        controller: 'EditCalendarController'
                     }
                 }
             })
