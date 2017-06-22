@@ -10,7 +10,11 @@ module.exports = (app) => {
 
     router.get('/:id', submenu.findById);
 
-    router.get('/', submenu.findAll);
+        router.get('/', submenu.findAllAnon);
+
+    router.get('/admin', Auth.isAdministrator, submenu.findAll);
+    router.get('/', Auth.hasAuthorization, submenu.findAllByUser);
+
 
     router.post('/admin/', Auth.isAdministrator, submenu.create);
     router.post('/', Auth.hasAuthorization, submenu.createByUser);

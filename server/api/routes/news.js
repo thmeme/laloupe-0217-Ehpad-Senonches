@@ -12,8 +12,10 @@ module.exports = (app) => {
 
   router.get('/', news.findAllAnon);
 
+
   router.get('/admin', Auth.isAdministrator, news.findAll);
   router.get('/', Auth.hasAuthorization, news.findAllByUser);
+
 
   router.post('/admin/', Auth.isAdministrator, news.create);
   router.post('/', Auth.hasAuthorization, news.createByUser);
