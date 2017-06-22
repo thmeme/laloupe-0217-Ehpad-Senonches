@@ -126,7 +126,7 @@ export default class News {
         });
     }
     updateByUser(req, res) {
-      delete news.isOnline;
+      delete req.body.isOnline;
         model.findByIdAndUpdate(req.params.id,
           req.body, { new: true },function(err, news) {
             if (err) {
