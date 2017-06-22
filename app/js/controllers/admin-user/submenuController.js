@@ -1,13 +1,16 @@
 angular.module('app')
-  .controller('EditSubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService, Auth) {
+  .controller('SubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService, Auth) {
 
     $scope.theme = 'ehpad';
     $scope.user = CurrentUser.user();
+    $scope.auth = Auth;
+
     $scope.menus = [
       "Votre admission",
       "Votre séjour",
       "Vos droits"
     ];
+
     $scope.auth = Auth;
     $scope.idSubmenu = $stateParams.id;
     console.log('id', $scope.idSubmenu);

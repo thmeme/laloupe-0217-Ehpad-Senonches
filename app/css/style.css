@@ -334,6 +334,8 @@ color: #265B7E;
 
 #menu {
   text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 #greenButton {
@@ -352,6 +354,7 @@ color: #265B7E;
   background-color: #FF7ED3;
   color: white;
   font-size: 20px;
+  margin-right: 60px;
 }
 
 #blueButton {
@@ -361,6 +364,7 @@ color: #265B7E;
   background-color: #76EAFF;
   color: white;
   font-size: 20px;
+  margin-left: 60px;
 }
 #greenButton:hover {
   opacity: 0.7;
@@ -400,15 +404,15 @@ color: #265B7E;
   color: #76EAFF;
 }
 #pinkContent {
-border: 1px solid #FF7ED3;
+
 }
 
 #greenContent {
-border: 1px solid #ABE852;
+
 }
 
 #blueContent {
-border: 1px solid #76EAFF;
+background-color: white .5;
 }
 
 /***** Map *****/
@@ -430,7 +434,7 @@ border-radius: 5px 5px 5px 5px;
 
 #contactContent {
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 45px;
   margin-top: 22px;
 }
@@ -442,10 +446,16 @@ border-radius: 5px 5px 5px 5px;
   width: 140px;
   height: 40px;
   font-size: 15px;
+
 }
 
 #contactButton:hover {
 background-color: #E5E5E5;
+}
+
+#contactLink {
+  text-decoration: none;
+  color: black;
 }
 
 /***** Actu *****/
@@ -453,6 +463,19 @@ background-color: #E5E5E5;
 #actu {
   margin : 10px 10px 10px 10px;
   height: 400px;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+}
+#newsDisplay {
+  margin : 10px 10px 10px 10px;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+}
+
+#listNewsDisplay {
+  margin : 10px 10px 10px 10px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
@@ -527,5 +550,30 @@ div#slider figure {
   max-height: 600px;
   width: 100%;
   vertical-align: middle;
+}
+
+
+
+/***** Footer *****/
+
+#footer {
+  height:  100px;
+  background-color: #265B7E;
+  position: relative;
+}
+
+.footerLink {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color : white;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-right: 15px;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+  font-size: 17px;
 }
 
