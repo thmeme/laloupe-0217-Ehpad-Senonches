@@ -10,7 +10,17 @@
   </div>
 </div> -->
 
-<ks-swiper-container initial-slide="4" loop="true" show-nav-buttons="false"  space-between="5" pagination-clickable="false" autoplay: "2500">
+<ks-swiper-container
+    slides-per-view="1"
+    slides-per-column="1"
+    space-between="0"
+    pagination-is-active="true"
+    pagination-clickable="false"
+    show-nav-buttons="false"
+    loop="true"
+    data-swiper-autoplay="2000"
+    initial-slide="0"
+    direction="horizontal">
     <ks-swiper-slide class="swiper-slide" ng-repeat="img in listImgSlideShow | orderBy: '-date'">
         <img ng-src="/uploads/imageslarges/{{img.name}}" alt>
     </ks-swiper-slide>
