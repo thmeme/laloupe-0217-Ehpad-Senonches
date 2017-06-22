@@ -6,9 +6,7 @@
   "author": "Jean-Baptiste Pasquier",
   "scripts": {
     "start": "lineman run",
-
     "test": "./node_modules/.bin/mocha spec",
-
     "production": "lineman clean build && cd server && babel-node index.js",
     "server": "cd server && babel-node index.js",
     "createAdmin": "cd server && babel-node ./api/userCreation.js"
@@ -38,7 +36,8 @@
     "node-dir": "^0.1.16",
     "nodemailer": "^4.0.1",
     "nodemailer-express-handlebars": "^2.0.0",
-    "save": "^2.3.0"
+    "save": "^2.3.0",
+    "sweetalert2": "^6.6.5"
   },
   "devDependencies": {
     "mocha": "^3.4.2",

@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('MailController', function($scope, MailService) {
+  .controller('MailController', function($scope, $mdDialog, MailService) {
 
 
     var dateGlobale = new Date();
@@ -29,14 +29,8 @@ angular.module('app')
     mois = MOIS[mois];
     jour_semaine = JOUR_SEMAINE[jour_semaine];
 
-    document.getElementById("heure").innerHTML = jour_semaine + " " + jour + " " + mois + " " + annee + " - " + heure + ":" + minute;
-
-    // $scope.mail = {
-    //   email:'',
-    //   name:'',
-    //   subject:'',
-    //   message:''
-    // };
+    document.getElementById("heure").innerHTML = jour_semaine + " " + jour + " " + mois + " " + annee;
+    document.getElementById("heure2").innerHTML = heure + ":" + minute;
 
 
     $scope.sendMail = function () {
@@ -49,6 +43,13 @@ angular.module('app')
         subject:'',
         message:''
       };
-      alert("Message bien envoyé");
-    };
+      swal(
+         'Succès !',
+        'Votre email a bien été envoyé!',
+        'success'
+      );
+     };
+
+
+
   });

@@ -529,3 +529,56 @@ div#slider figure {
 }
 
 /*page formulary*/
+.formTitle{
+  text-align: center;
+}
+
+.formInput{
+  width: 75%;
+  text-align: center;
+  margin-left: 10%;
+  font-size: 19px;
+}
+.formMessage{
+  width: 75%;
+  text-align: center;
+  margin-left: 10%;
+  font-size: 19px;
+}
+.obligation{
+  font-style: oblique;
+  font-weight: bold;
+}
+.boxForm{
+  margin: 20px;
+  box-shadow: 10px 10px 5px #888888;
+  border-radius: 60px;
+}
+.formBtn{
+  float: right;
+  margin-top: 25px;
+}
+.timer{
+  float: right;
+  margin: 20px;
+  width: 250px;
+  height: 100px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  font-style: italic;
+  box-shadow: 10px 10px 5px #888888;
+  background-color: #fafafa;
+}
+
+.imgTimer{
+  width: 100%;
+  height: 100%;
+
+}
+
+.timerDate{
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 30px;
+}
