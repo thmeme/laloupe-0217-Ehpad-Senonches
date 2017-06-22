@@ -29,7 +29,7 @@
     </md-button>
     <md-menu-content id="pinkContent">
       <md-menu-item>
-        <md-button id="admissionSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
+        <md-button id="admissionSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre admission'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
@@ -39,7 +39,7 @@
     </md-button>
     <md-menu-content id="greenContent">
       <md-menu-item>
-        <md-button id="sejourSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre séjour'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
+        <md-button id="sejourSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre séjour'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
@@ -49,7 +49,7 @@
     </md-button>
     <md-menu-content id="blueContent">
       <md-menu-item>
-        <md-button id="droitSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
+        <md-button id="droitSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Vos droits'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
@@ -61,7 +61,7 @@
   <div flex-gt-sm="66" flex="33" id="actu">
     <h2>Actualité</h2>
 
-    <div ng-repeat='news in listNews track by $index'>
+    <div ng-repeat='news in listNewsAnon track by $index'>
       <h3 ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
       <a ui-sref="anon.displaynews({id: news._id})"><img style="width: 150px; float: right" ng-show="$last" ng-src="/{{news.image}}"></a>
       <p ng-show="$last" ng-bind-html="news.content"></p>
