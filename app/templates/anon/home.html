@@ -1,10 +1,10 @@
 
-
+<!--
   <div id="titleBox">
     <h3 id="h3">EHPAD SENONCHES</h3>
     <h1 id="h1">RESIDENCE PERIER</h1>
-  </div>
-</div> -->
+  </div> -->
+
 
 <ks-swiper-container
     slides-per-view="1"
@@ -14,7 +14,8 @@
     pagination-clickable="false"
     show-nav-buttons="false"
     loop="true"
-    data-swiper-autoplay="2000"
+    autoplay="2500"
+    autoplayDisableOnInteraction="false"
     initial-slide="0"
     direction="horizontal">
     <ks-swiper-slide class="swiper-slide" ng-repeat="img in listImgSlideShow | orderBy: '-date'">
@@ -67,13 +68,11 @@
       <p ng-show="$last" ng-bind-html="news.content"></p>
     </div>
   </div>
-</div>
-<div flex-gt-sm="33" flex='66' id="agenda">
-  <div>
-    <h2>Agenda</h2>
-
+  <div flex-gt-sm="33" flex='66' id="agenda">
+    <div>
+      <h2>Agenda</h2>
+    </div>
   </div>
-</div>
 </div>
 <div layout="row">
   <div flex-gt-sm="80" flex="20">

@@ -462,7 +462,7 @@ background-color: #E5E5E5;
 
 #actu {
   margin : 10px 10px 10px 10px;
-  height: 400px;
+  height: 500px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
@@ -485,7 +485,7 @@ background-color: #E5E5E5;
 
 #agenda {
   margin : 10px 10px 10px 10px;
-  height: 400px;
+  height: 500px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
@@ -514,44 +514,13 @@ background-color: #E5E5E5;
 
 
 /*Slideshow home*/
-@keyframes slidy {
-0% { left: 0%; }
-20% { left: 0%; }
-25% { left: -100%; }
-45% { left: -100%; }
-50% { left: -200%; }
-70% { left: -200%; }
-75% { left: -300%; }
-95% { left: -300%; }
-100% { left: -400%; }
-}
 
-div#slider {
-  overflow: hidden;
-}
-div#slider figure img {
-  width: 20%;
-  float: left;
-  position : relative;
-}
-div#slider figure {
-  position: relative;
-  width: 500%;
-  margin: 0;
-  left: 0;
-  text-align: left;
-  font-size: 0;
-  animation: 20s slidy infinite;
-}
+ks-swiper-container{
 
-
-#slider {
-  min-height: 600px;
-  max-height: 600px;
-  width: 100%;
-  vertical-align: middle;
 }
+ks-swiper-slide {
 
+}
 
 
 /***** Footer *****/
@@ -576,4 +545,3 @@ div#slider figure {
   text-decoration: underline;
   font-size: 17px;
 }
-
