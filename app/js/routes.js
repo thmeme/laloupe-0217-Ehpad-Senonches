@@ -13,6 +13,7 @@ angular.module('app')
                     }
                 }
             })
+          
             .state('anon.home', {
                 url: '/',
                 views: {
