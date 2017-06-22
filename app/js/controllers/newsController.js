@@ -17,12 +17,12 @@ angular.module('app')
     }
     loadAllNews();
 
-    // $scope.news = {
-    //   content: '',
-    //   title: '',
-    //   image: '',
-    //   author: ''
-    // };
+    $scope.news = {
+      content: '',
+      title: '',
+      image: '',
+      author: ''
+    };
 
     function loadNews(id) {
       if (id !== undefined) {
