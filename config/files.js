@@ -12,9 +12,12 @@ module.exports = function(lineman) {
             vendor: [
                 "vendor/js/jquery.js",
                 "vendor/js/bootstrap.js",
+                "vendor/js/swiper.js",
                 "vendor/js/angular.js",
                 "vendor/js/angular-ui-router.js",
                 "vendor/js/tinymce.js",
+                "vendor/js/moment.js",
+                "vendor/js/moment-fr.js",
                 "vendor/js/tinymce.angular.js",
                 "vendor/js/tinymce.angular.js",
                 "vendor/js/ng-file-upload-shim.js",
@@ -28,7 +31,7 @@ module.exports = function(lineman) {
                 "app/js/filters/*.js",
                 "app/js/factories/*.js",
                 "app/js/services/*.js",
-                "app/js/controllers/*.js",
+                "app/js/controllers/**/*.js",
                 "app/js/routes.js"
             ]
         },

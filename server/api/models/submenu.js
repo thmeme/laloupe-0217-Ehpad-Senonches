@@ -45,6 +45,30 @@ export default class Submenu {
             });
     }
 
+    findAllByUser(req, res) {
+        model.find({})
+        .populate('author')
+        .exec((err, submenu) => {
+                if (err || !submenu) {
+                    res.sendStatus(403);
+                } else {
+                    res.json(submenu);
+                }
+            });
+    }
+
+    findAllAnon(req, res) {
+        model.find({isOnline: true})
+        .populate('author')
+        .exec((err, submenu) => {
+                if (err || !submenu) {
+                    res.sendStatus(403);
+                } else {
+                    res.json(submenu);
+                }
+            });
+    }
+
     findById(req, res) {
         console.log('req in back', req.params, req.body, req.query);
         model.findById(req.params.id, (err, submenu) => {
@@ -107,7 +131,7 @@ export default class Submenu {
         });
     }
     updateByUser(req, res) {
-      delete submenu.isOnline;
+      delete req.body.isOnline;
         model.findByIdAndUpdate(req.params.id,
           req.body, { new: true },function(err, submenu) {
             if (err) {

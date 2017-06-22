@@ -11,6 +11,9 @@ angular.module('app')
             getAll: function() {
                 return $http.get('/news');
             },
+            getAllAnon: function() {
+                return $http.get('/news/anon');
+            },
             getOne: function(id) {
                 return $http.get('/news/' + id);
             },

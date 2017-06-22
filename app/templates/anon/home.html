@@ -1,14 +1,27 @@
 
-<div id="slider">
-  <figure  ng-repeat="img in listImgSlideShow | orderBy: '-date'">
-      <img ng-src="/uploads/images/{{img.name}}" alt>
-
-  </figure>
+<!--
   <div id="titleBox">
     <h3 id="h3">EHPAD SENONCHES</h3>
     <h1 id="h1">RESIDENCE PERIER</h1>
-  </div>
-</div>
+  </div> -->
+
+
+<ks-swiper-container
+    slides-per-view="1"
+    slides-per-column="1"
+    space-between="0"
+    pagination-is-active="true"
+    pagination-clickable="false"
+    show-nav-buttons="false"
+    loop="true"
+    autoplay="2500"
+    autoplayDisableOnInteraction="false"
+    initial-slide="0"
+    direction="horizontal">
+    <ks-swiper-slide class="swiper-slide" ng-repeat="img in listImgSlideShow | orderBy: '-date'">
+        <img ng-src="/uploads/imageslarges/{{img.name}}" alt>
+    </ks-swiper-slide>
+</ks-swiper-container>
 
 <md-menu-bar id="menu">
   <md-menu>
@@ -17,7 +30,7 @@
     </md-button>
     <md-menu-content id="pinkContent">
       <md-menu-item>
-        <md-button id="admissionSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'}">{{Submenu.title}}</md-button>
+        <md-button id="admissionSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre admission'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
@@ -27,7 +40,7 @@
     </md-button>
     <md-menu-content id="greenContent">
       <md-menu-item>
-        <md-button id="sejourSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre séjour'}">{{Submenu.title}}</md-button>
+        <md-button id="sejourSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre séjour'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
@@ -37,7 +50,7 @@
     </md-button>
     <md-menu-content id="blueContent">
       <md-menu-item>
-        <md-button id="droitSubmenu" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'}">{{Submenu.title}}</md-button>
+        <md-button id="droitSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Vos droits'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
@@ -47,8 +60,12 @@
 
 <div layout="row" layout-xs="column">
   <div flex-gt-sm="66" flex="33" id="actu">
-    <div>
-      <h2>Actualité</h2>
+    <h2>Actualité</h2>
+
+    <div ng-repeat='news in listNewsAnon track by $index'>
+      <h3 ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
+      <a ui-sref="anon.displaynews({id: news._id})"><img style="width: 150px; float: right" ng-show="$last" ng-src="/{{news.image}}"></a>
+      <p ng-show="$last" ng-bind-html="news.content"></p>
     </div>
   </div>
   <div flex-gt-sm="33" flex='66' id="agenda">
@@ -58,34 +75,29 @@
   </div>
 </div>
 <div layout="row">
-  <div flex-gt-sm="70" flex="30">
+  <div flex-gt-sm="80" flex="20">
     <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
       <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
         <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
       </ng-map>
     </div>
   </div>
-  <div flex-gt-sm="30" flex="70" id="contact">
+  <div flex-gt-sm="20" flex="80" id="contact">
     <div>
-      <p id="contactContent"> 1 Route de Dreux </br> 28250 </br> SENONCHES </br> 02 37 37 73 27</p>
-      <md-button class="md-raised md-cornered" ng-href="/#!/formulaire" id="contactButton">Contact</md-button>
+      <p id="contactContent"> 1, route de Dreux </br> 28250 </br> Senonches </br> 02.37.37.73.27</p>
+      <md-button class="md-raised md-cornered" id="contactButton">Contact</md-button>
     </div>
   </div>
 </div>
 </div>
-<div id="footer">
-</div>
 
 
+<p><span id=heure></span></p>
 
-<p>DATE: <span id=heure></span></p>
 
-<!-- <div layout="row" class="contactForm">
-  <div flex>
-    <p>Nom</p>
-    <p>Adresse</p>
-    <p>Ville</p>
-    <p>N° de téléphone</p>
-    <md-button class="md-raised"><a ng-href="/#!/formulaire">Nous écrire!</a></md-button>
-  </div>
-</div> -->
+<footer id=footer>
+  <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login</a>
+  <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
+  <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
+</footer>
+

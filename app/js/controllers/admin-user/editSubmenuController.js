@@ -1,39 +1,45 @@
 angular.module('app')
-  .controller('SubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService, Auth) {
+  .controller('EditSubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService, Auth) {
 
     $scope.theme = 'ehpad';
     $scope.user = CurrentUser.user();
+    $scope.auth = Auth;
+
+    $scope.idSubmenu = $stateParams.id;
+    console.log('id', $scope.idSubmenu);
+
     $scope.menus = [
       "Votre admission",
       "Votre séjour",
       "Vos droits"
     ];
-    $scope.auth = Auth;
-    $scope.idSubmenu = $stateParams.id;
-    console.log('id', $scope.idSubmenu);
 
-    function loadAllSubmenus() {
-      SubmenuService.getAll().then(function(res) {
-        console.log('listSubmenus', res);
-        $scope.listSubmenu = res.data;
-        console.log('res.data', res.data);
-      }, function(err) {
-        console.error('error on loadAllSubmenus', err);
-      });
-    }
-    loadAllSubmenus();
+    // $scope.submenu = {
+    //   content: '',
+    //   title: '',
+    //   author: ''
+    // };
 
-    $scope.uCanTrust = function(string) {
-      return $sce.trustAsHtml(string);
-    };
+    // function loadAllSubmenus() {
+    //   SubmenuService.getAll().then(function(res) {
+    //     console.log('listSubmenus', res);
+    //     $scope.listSubmenu = res.data;
+    //     console.log('res.data', res.data);
+    //   }, function(err) {
+    //     console.error('error on loadAllSubmenus', err);
+    //   });
+    // }
+    // loadAllSubmenus();
+
+    // $scope.uCanTrust = function(string) {
+    //   return $sce.trustAsHtml(string);
+    // };
 
     function loadSubmenu(id) {
       if (id !== undefined) {
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
           console.log('res One', res);
           $scope.submenu = res.data;
-          $scope.submenu.content = $sce.trustAsHtml(res.data.content);
-          console.log('content', $scope.submenu.content);
 
         }, function(err) {
           console.error('error on getOne Submenu', err);
@@ -42,53 +48,57 @@ angular.module('app')
     }
     loadSubmenu($scope.idSubmenu);
 
-    $scope.newSubmenu = {
-      content: '',
-      title: '',
-      menu: '',
-      author: ''
+    $scope.uCanTrust = function(string) {
+      return $sce.trustAsHtml(string);
     };
-    $scope.newSubmenu.author = CurrentUser.user()._id;
 
-    $scope.addSubmenu = function() {
-      SubmenuService.create($scope.newSubmenu).then(function(res) {
-        console.log('submenu', $scope.newSubmenu);
-        console.log('auteur', $scope.newSubmenu.author);
-      $state.go('user.edit-submenu', {id: res.data.submenu._id});
-      }, function(err) {
-        console.error('error on create', err);
-      });
-    };
+    // $scope.newSubmenu = {
+    //   content: '',
+    //   title: '',
+    //   menu: '',
+    //   author: ''
+    // };
+    // $scope.newSubmenu.author = CurrentUser.user()._id;
+
+    // $scope.addSubmenu = function() {
+    //   SubmenuService.create($scope.newSubmenu).then(function(res) {
+    //     console.log('submenu', $scope.newSubmenu);
+    //     console.log('auteur', $scope.newSubmenu.author);
+    //   $state.go('user.edit-submenu', {id: res.data.submenu._id});
+    //   }, function(err) {
+    //     console.error('error on create', err);
+    //   });
+    // };
 
     $scope.updateSubmenu = function() {
       SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
         console.log('update', res);
       }, function(err) {
-        console.error('error on loadAllSubmenus', err);
+        console.error('error on update Submenus', err);
       });
     };
 
-    $scope.customFullscreen = false;
-    $scope.showConfirm = function(ev, id) {
-      console.log('ev', ev);
-      // Appending dialog to document.body to cover sidenav in docs app
-      var confirm = $mdDialog.confirm()
-        .title('Voulez-vous supprimer ce sous-menus ?')
-        .textContent('Tous les éléments seront définitivement perdus')
-        .ariaLabel('Lucky day')
-        .targetEvent(ev)
-        .ok('Supprimer')
-        .cancel('Annuler');
-
-      $mdDialog.show(confirm).then(function() {
-        SubmenuService.delete(id).then(function(res) {
-          console.log('delete', res);
-          loadAllSubmenus();
-        }, function(err) {
-          console.error('error on show', err);
-        });
-      });
-    };
+    // $scope.customFullscreen = false;
+    // $scope.showConfirm = function(ev, id) {
+    //   console.log('ev', ev);
+    //   // Appending dialog to document.body to cover sidenav in docs app
+    //   var confirm = $mdDialog.confirm()
+    //     .title('Voulez-vous supprimer ce sous-menus ?')
+    //     .textContent('Tous les éléments seront définitivement perdus')
+    //     .ariaLabel('Lucky day')
+    //     .targetEvent(ev)
+    //     .ok('Supprimer')
+    //     .cancel('Annuler');
+    //
+    //   $mdDialog.show(confirm).then(function() {
+    //     SubmenuService.delete(id).then(function(res) {
+    //       console.log('delete', res);
+    //       loadAllSubmenus();
+    //     }, function(err) {
+    //       console.error('error on show', err);
+    //     });
+    //   });
+    // };
 
     $scope.tinymceOptions = {
       onChange: function(e) {
@@ -99,12 +109,14 @@ angular.module('app')
       height: 300,
       theme: 'modern',
       plugins: 'advlist autolink lists colorpicker link textcolor image charmap code table',
-      toolbar1: 'undo redo | insert | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | preview media | forecolor backcolor | link image',
+      toolbar1: 'fontsizeselect | undo redo | bold italic underline | alignleft aligncenter alignjustify alignright | bullist numlist outdent indent | preview media | forecolor backcolor | link',
+      fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
       content_css: [
         '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
         // '//www.tinymce.com/css/codepen.min.css'
       ]
     };
+
     $scope.redirect = function() {
       $state.go('user.submenu');
     };

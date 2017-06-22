@@ -50,16 +50,29 @@ angular.module('app')
 
     document.getElementById("heure").innerHTML = jour_semaine + " " + jour + " " + mois + " " + annee + " - " + heure + ":" + minute;
 
-    $scope.listSubmenu = [];
-    function loadAllSubmenus() {
-      SubmenuService.getAll().then(function(res) {
-        console.log('listSubmenus', res);
-        $scope.listSubmenu = res.data;
-        console.log('res.data', res.data);
-      }, function(err) {
-        console.error('error on loadAllSubmenus', err);
+    // $scope.listSubmenu = [];
+    // function loadAllSubmenus() {
+    //   SubmenuService.getAll().then(function(res) {
+    //     console.log('listSubmenus', res);
+    //     $scope.listSubmenu = res.data;
+    //     console.log('res.data', res.data);
+    //   }, function(err) {
+    //     console.error('error on loadAllSubmenus', err);
+    //   });
+    // }loadAllSubmenus();
+
+    $scope.listSubmenusAnon = [];
+
+    function loadAllSubmenusAnon() {
+      SubmenuService.getAllAnon().then(function(res) {
+        console.log('listSubmenusAnon', res);
+        $scope.listSubmenusAnon = res.data;
+        console.log('res.data Anon', res.data);
       });
-    }loadAllSubmenus();
+    }
+    loadAllSubmenusAnon();
+
+
 
     $scope.listImgSlideShow = [];
     loadImgSlideshow = function() {
@@ -71,17 +84,21 @@ angular.module('app')
     };
     loadImgSlideshow();
 
-    $scope.listNews = [];
-    function loadAllNews() {
-      NewsService.getAll().then(function(res) {
-        console.log('listNews', res);
-        $scope.listNews = res.data;
-        console.log('res.data', res.data);
+    $scope.listNewsAnon = [];
+
+    function loadAllNewsAnon() {
+      NewsService.getAllAnon().then(function(res) {
+        console.log('listNewsAnon', res);
+        $scope.listNewsAnon = res.data;
+        console.log('res.data Anon', res.data);
       });
     }
-    loadAllNews();
+    loadAllNewsAnon();
+
+
 
     $scope.listEvenements = [];
+
     function loadEvenements() {
       CalendarService.getAll().then(function(res) {
         $scope.listEvenements = res.data;
@@ -89,6 +106,17 @@ angular.module('app')
     }
     loadEvenements();
 
+//*****slider*****//
 
+            $scope.swiper = {};
+            $scope.next = function() {
+                $scope.swiper.slideNext();
+            };
+            $scope.onReadySwiper = function(swiper) {
+
+                swiper.on('slideChangeStart', function() {
+
+                });
+            };
 
   });

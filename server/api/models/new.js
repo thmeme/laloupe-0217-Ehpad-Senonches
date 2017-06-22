@@ -45,6 +45,28 @@ export default class News {
                 }
             });
     }
+    findAllByUser(req, res) {
+        model.find({})
+        .populate('author')
+        .exec((err, news) => {
+                if (err || !news) {
+                    res.sendStatus(403);
+                } else {
+                    res.json(news);
+                }
+            });
+    }
+    findAllAnon(req, res) {
+        model.find({isOnline: true})
+        .populate('author')
+        .exec((err, news) => {
+                if (err || !news) {
+                    res.sendStatus(403);
+                } else {
+                    res.json(news);
+                }
+            });
+    }
     findById(req, res) {
         console.log('req in back', req.params, req.body, req.query);
         model.findById(req.params.id, function(err, news) {
@@ -104,7 +126,7 @@ export default class News {
         });
     }
     updateByUser(req, res) {
-      delete news.isOnline;
+      delete req.body.isOnline;
         model.findByIdAndUpdate(req.params.id,
           req.body, { new: true },function(err, news) {
             if (err) {
