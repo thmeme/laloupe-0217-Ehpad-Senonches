@@ -49,5 +49,6 @@ angular.module('app')
         subject:'',
         message:''
       };
+      alert("Message bien envoyé");
     };
   });
