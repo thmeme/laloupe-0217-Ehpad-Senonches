@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('EditNewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
+  .controller('DisplayNewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
 
     $scope.user = CurrentUser.user();
 

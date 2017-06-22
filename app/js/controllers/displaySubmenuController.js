@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('EditSubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService, Auth) {
+  .controller('DisplaySubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService, Auth) {
 
     $scope.theme = 'ehpad';
     $scope.user = CurrentUser.user();
