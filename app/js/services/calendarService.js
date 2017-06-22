@@ -12,7 +12,12 @@ angular.module('app')
                 return $http.get('/evenements');
             },
             getOne: function(id) {
-                return $http.get('/evenements/'+ id);
+                return $http.get('/evenements/'+ id).then(function(res) {
+                  res.data.date = new Date(res.data.date);
+                  res.data.end = new Date(res.data.end);
+                  res.data.start = new Date(res.data.start);
+                  return res;
+                });
             },
             update: function(id, evenement) {
               if(user.isAdmin) {

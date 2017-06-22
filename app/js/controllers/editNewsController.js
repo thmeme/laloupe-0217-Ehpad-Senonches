@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('NewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
+  .controller('EditNewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
 
     $scope.user = CurrentUser.user();
 
@@ -16,13 +16,6 @@ angular.module('app')
       });
     }
     loadAllNews();
-
-    // $scope.news = {
-    //   content: '',
-    //   title: '',
-    //   image: '',
-    //   author: ''
-    // };
 
     function loadNews(id) {
       if (id !== undefined) {
@@ -55,12 +48,16 @@ angular.module('app')
       });
     };
 
+
+
     $scope.textmodal = [];
     $scope.textModalShow = false;
     $scope.OpenModalDisplayText = function() {
       $scope.textModalShow = !$scope.textModalShow;
 
     };
+
+
 
     $scope.updateNews = function() {
       NewsService.update($scope.idNews, $scope.news).then(function(res) {
@@ -163,12 +160,9 @@ angular.module('app')
 
     $scope.associateImg = function(nameImg) {
       $scope.newNews.image += 'uploads/images/' + nameImg;
-      $scope.news.image = 'uploads/images/' + nameImg;
+      // $scope.news.image = 'uploads/images/' + nameImg;
       console.log('news.image', $scope.newNews.image);
       $scope.galleryAssociateModalShow = false;
-      NewsService.update($scope.idNews, $scope.news).then(function(res) {
-        console.log('update ass img', res);
-      });
     };
 
     $scope.currentPage = 0;
@@ -212,17 +206,4 @@ angular.module('app')
       $scope.listPdf.push("Item " + i);
     }
 
-    $scope.OpenModalgalleryAssociateEdit = function() {
-        $scope.news.image = '';
-        $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
-        UploadService.getAll().then(function(res) {
-          console.log('load', res);
-          $scope.listimages = res.data;
-        }, function(err) {
-          console.error('error on image load', err);
-        });
-        NewsService.update($scope.idNews, $scope.news).then(function(res) {
-          console.log('delete img', res);
-        });
-    };
   });
