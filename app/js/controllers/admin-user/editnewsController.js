@@ -1,30 +1,27 @@
 angular.module('app')
-  .controller('EditNewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
+  .controller('EditNewsController', function($scope, $stateParams, $window, $state, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
 
     $scope.user = CurrentUser.user();
-
     $scope.auth = Auth;
 
     $scope.idNews = $stateParams.id;
     console.log('id', $scope.idNews);
 
-    function loadAllNews() {
-      NewsService.getAll().then(function(res) {
-        console.log('listNews', res);
-        $scope.listNews = res.data;
-        console.log('res.data', res.data);
-      });
-    }
-    loadAllNews();
+    // function loadAllNews() {
+    //   NewsService.getAll().then(function(res) {
+    //     console.log('listNews', res);
+    //     $scope.listNews = res.data;
+    //     console.log('res.data', res.data);
+    //   });
+    // }
+    // loadAllNews();
 
-    function loadAllNewsAnon() {
-      NewsService.getAllAnon().then(function(res) {
-        console.log('listNewsAnon', res);
-        $scope.listNewsAnon = res.data;
-        console.log('res.data Anon', res.data);
-      });
-    }
-    loadAllNewsAnon();
+    $scope.news = {
+      content: '',
+      title: '',
+      image: '',
+      author: ''
+    };
 
     function loadNews(id) {
       if (id !== undefined) {
@@ -40,33 +37,28 @@ angular.module('app')
       return $sce.trustAsHtml(string);
     };
 
-    $scope.newNews = {
-      content: '',
-      title: '',
-      image: '',
-      author: ''
-    };
+    // $scope.newNews = {
+    //   content: '',
+    //   title: '',
+    //   image: '',
+    //   author: ''
+    // };
 
-    $scope.newNews.author = CurrentUser.user()._id;
-
-    $scope.addNews = function() {
-      NewsService.create($scope.newNews).then(function(res) {
-        console.log('news', $scope.newNews);
-        console.log(res.data);
-        $state.go('user.edit-news', {id: res.data.news._id});
-      });
-    };
-
-
+    // $scope.newNews.author = CurrentUser.user()._id;
+    //
+    // $scope.addNews = function() {
+    //   NewsService.create($scope.newNews).then(function(res) {
+    //     console.log('news', $scope.newNews);
+    //     console.log(res.data);
+    //     $state.go('user.edit-news', {id: res.data.news._id});
+    //   });
+    // };
 
     $scope.textmodal = [];
     $scope.textModalShow = false;
     $scope.OpenModalDisplayText = function() {
       $scope.textModalShow = !$scope.textModalShow;
-
     };
-
-
 
     $scope.updateNews = function() {
       NewsService.update($scope.idNews, $scope.news).then(function(res) {
@@ -99,22 +91,22 @@ angular.module('app')
       $state.go('user.create-news');
     };
 
-    $scope.showConfirm = function(ev, id) {
-      // Appending dialog to document.body to cover sidenav in docs app
-      var confirm = $mdDialog.confirm()
-        .title('Voulez vous supprimer cet article ?')
-        .textContent('Tous les éléments seront définitivement perdus')
-        .ariaLabel('Lucky day')
-        .targetEvent(ev)
-        .ok('Supprimer')
-        .cancel('Annuler');
-
-      $mdDialog.show(confirm).then(function() {
-        NewsService.delete(id).then(function(res) {
-          loadAllNews();
-        });
-      });
-    };
+    // $scope.showConfirm = function(ev, id) {
+    //   // Appending dialog to document.body to cover sidenav in docs app
+    //   var confirm = $mdDialog.confirm()
+    //     .title('Voulez vous supprimer cet article ?')
+    //     .textContent('Tous les éléments seront définitivement perdus')
+    //     .ariaLabel('Lucky day')
+    //     .targetEvent(ev)
+    //     .ok('Supprimer')
+    //     .cancel('Annuler');
+    //
+    //   $mdDialog.show(confirm).then(function() {
+    //     NewsService.delete(id).then(function(res) {
+    //       loadAllNews();
+    //     });
+    //   });
+    // };
 
     $scope.UploadImgModalShow = false;
     $scope.OpenModalUploadImg = function() {
@@ -169,9 +161,12 @@ angular.module('app')
 
     $scope.associateImg = function(nameImg) {
       $scope.newNews.image += 'uploads/images/' + nameImg;
-      // $scope.news.image = 'uploads/images/' + nameImg;
+      $scope.news.image = 'uploads/images/' + nameImg;
       console.log('news.image', $scope.newNews.image);
       $scope.galleryAssociateModalShow = false;
+      NewsService.update($scope.idNews, $scope.news).then(function(res) {
+        console.log('update ass img', res);
+      });
     };
 
     $scope.currentPage = 0;
@@ -215,4 +210,17 @@ angular.module('app')
       $scope.listPdf.push("Item " + i);
     }
 
+    $scope.OpenModalgalleryAssociateEdit = function() {
+        $scope.news.image = '';
+        $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
+        UploadService.getAll().then(function(res) {
+          console.log('load', res);
+          $scope.listimages = res.data;
+        }, function(err) {
+          console.error('error on image load', err);
+        });
+        NewsService.update($scope.idNews, $scope.news).then(function(res) {
+          console.log('delete img', res);
+        });
+    };
   });

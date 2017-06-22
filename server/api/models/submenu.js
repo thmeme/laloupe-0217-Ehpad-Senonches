@@ -131,7 +131,7 @@ export default class Submenu {
         });
     }
     updateByUser(req, res) {
-      delete submenu.isOnline;
+      delete req.body.isOnline;
         model.findByIdAndUpdate(req.params.id,
           req.body, { new: true },function(err, submenu) {
             if (err) {

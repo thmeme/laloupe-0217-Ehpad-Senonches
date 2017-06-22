@@ -84,8 +84,8 @@
   </div>
   <div flex-gt-sm="20" flex="80" id="contact">
     <div>
-
       <p id="contactContent"> 1, route de Dreux </br> 28250 </br> Senonches </br> 02.37.37.73.27</p>
+
       <md-button class="md-raised md-cornered" id="contactButton" ui-sref="anon.formulaire">Contact</md-button>
 
     </div>
@@ -96,8 +96,10 @@
 
 <p><span id=heure></span></p>
 
+
 <footer id=footer>
   <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login</a>
   <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
   <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
 </footer>
+

@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('EditAgendaController',
+  .controller('DisplayAgendaController',
     function($scope, $state, $stateParams, $window, $mdDialog, CurrentUser, CalendarService) {
       $scope.user = CurrentUser.user();
       $scope.evenement = [];

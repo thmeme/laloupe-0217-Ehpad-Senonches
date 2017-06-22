@@ -1,8 +1,7 @@
 angular.module('app')
-  .controller('NewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
+  .controller('CreateNewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
 
     $scope.user = CurrentUser.user();
-
     $scope.auth = Auth;
 
     $scope.idNews = $stateParams.id;
@@ -17,12 +16,12 @@ angular.module('app')
     }
     loadAllNews();
 
-    // $scope.news = {
-    //   content: '',
-    //   title: '',
-    //   image: '',
-    //   author: ''
-    // };
+    $scope.news = {
+      content: '',
+      title: '',
+      image: '',
+      author: ''
+    };
 
     function loadNews(id) {
       if (id !== undefined) {
