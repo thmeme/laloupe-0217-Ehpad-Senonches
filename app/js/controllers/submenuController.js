@@ -3,11 +3,14 @@ angular.module('app')
 
     $scope.theme = 'ehpad';
     $scope.user = CurrentUser.user();
+    $scope.auth = Auth;
+
     $scope.menus = [
       "Votre admission",
       "Votre séjour",
       "Vos droits"
     ];
+
     $scope.auth = Auth;
     $scope.idSubmenu = $stateParams.id;
     console.log('id', $scope.idSubmenu);

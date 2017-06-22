@@ -2,7 +2,6 @@ angular.module('app')
   .controller('NewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
 
     $scope.user = CurrentUser.user();
-
     $scope.auth = Auth;
 
     $scope.idNews = $stateParams.id;
