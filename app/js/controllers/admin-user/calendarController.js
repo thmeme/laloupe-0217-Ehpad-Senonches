@@ -48,22 +48,22 @@ angular.module('app')
       }
       loadEvenement($scope.idEvenement);
 
-      $scope.newEvenement = {
-        date: '',
-        start: '',
-        end: '',
-        author: '',
-        title: ''
-      };
-
-      $scope.newEvenement.author = CurrentUser.user()._id;
-      $scope.addEvenement = function() {
-        CalendarService.create($scope.newEvenement).then(function(res) {
-          console.log('newEvenement', res.data);
-
-          $state.go('user.edit-calendar', {id: res.data.evenement._id});
-        });
-      };
+      // $scope.newEvenement = {
+      //   date: '',
+      //   start: '',
+      //   end: '',
+      //   author: '',
+      //   title: ''
+      // };
+      //
+      // $scope.newEvenement.author = CurrentUser.user()._id;
+      // $scope.addEvenement = function() {
+      //   CalendarService.create($scope.newEvenement).then(function(res) {
+      //     console.log('newEvenement', res.data);
+      //
+      //     $state.go('user.edit-calendar', {id: res.data.evenement._id});
+      //   });
+      // };
 
       $scope.redirectCalendar = function() {
         $state.go('user.calendar');
@@ -92,9 +92,9 @@ angular.module('app')
         });
       };
 
-      $scope.updateEvenement = function() {
-        CalendarService.update($scope.idEvenement, $scope.evenement).then(function(res) {
-          console.log('update', res);
-        });
-      };
+      // $scope.updateEvenement = function() {
+      //   CalendarService.update($scope.idEvenement, $scope.evenement).then(function(res) {
+      //     console.log('update', res);
+      //   });
+      // };
     });
