@@ -3,7 +3,7 @@
   "description": "Just another MEAN Stack",
   "version": "1.0.0",
   "engines": {
-  "node": "8.0.0"
+  "node": "6.11.0"
   },
   "private": true,
   "author": "Jean-Baptiste Pasquier",
