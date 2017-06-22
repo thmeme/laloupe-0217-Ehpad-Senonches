@@ -28,7 +28,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'anon/displaysubmenu.html',
-                        controller: 'EditSubmenuController',
+                        controller: 'DisplaySubmenuController',
                     }
               }
             })
@@ -116,7 +116,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/create-submenu.html',
-                        controller: 'SubmenuController'
+                        controller: 'CreateSubmenuController'
                     }
                 }
             })
@@ -125,7 +125,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/edit-submenu.html',
-                        controller: 'SubmenuController'
+                        controller: 'EditSubmenuController'
                     }
                 }
             })
@@ -143,7 +143,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/create-news.html',
-                        controller: 'NewsController'
+                        controller: 'CreateNewsController'
                     }
                 }
             })
@@ -152,7 +152,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'user/edit-news.html',
-                        controller: 'NewsController'
+                        controller: 'EditNewsController'
                     }
                 }
             })

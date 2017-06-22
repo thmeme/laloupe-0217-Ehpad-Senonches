@@ -31,7 +31,7 @@ module.exports = function(lineman) {
                 "app/js/filters/*.js",
                 "app/js/factories/*.js",
                 "app/js/services/*.js",
-                "app/js/controllers/*.js",
+                "app/js/controllers/**/*.js",
                 "app/js/routes.js"
             ]
         },
