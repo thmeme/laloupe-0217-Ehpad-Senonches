@@ -8,14 +8,10 @@ module.exports = (app) => {
 
   var news = new News();
 
+  router.get('/anon', news.findAllAnon);
   router.get('/:id', news.findById);
-
-  router.get('/', news.findAllAnon);
-
-
   router.get('/admin', Auth.isAdministrator, news.findAll);
   router.get('/', Auth.hasAuthorization, news.findAllByUser);
-
 
   router.post('/admin/', Auth.isAdministrator, news.create);
   router.post('/', Auth.hasAuthorization, news.createByUser);

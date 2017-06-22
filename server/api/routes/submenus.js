@@ -8,10 +8,8 @@ module.exports = (app) => {
 
     var submenu = new Submenu();
 
+    router.get('/anon', submenu.findAllAnon);
     router.get('/:id', submenu.findById);
-
-        router.get('/', submenu.findAllAnon);
-
     router.get('/admin', Auth.isAdministrator, submenu.findAll);
     router.get('/', Auth.hasAuthorization, submenu.findAllByUser);
 

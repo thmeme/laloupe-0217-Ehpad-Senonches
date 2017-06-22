@@ -12,7 +12,7 @@ angular.module('app')
                 return $http.get('/submenus');
             },
             getAllAnon: function() {
-                return $http.get('/submenus');
+                return $http.get('/submenus/anon');
             },
             getOne: function(id) {
                 return $http.get('/submenus/' + id);
@@ -25,6 +25,6 @@ angular.module('app')
             },
             delete: function(id) {
                 return $http.delete('/submenus/' + id);
-            }
+             }
         };
     });

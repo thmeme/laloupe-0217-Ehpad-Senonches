@@ -12,7 +12,7 @@ angular.module('app')
                 return $http.get('/news');
             },
             getAllAnon: function() {
-                return $http.get('/news');
+                return $http.get('/news/anon');
             },
             getOne: function(id) {
                 return $http.get('/news/' + id);
