@@ -1,7 +1,5 @@
-/*Body*/
-
 body {
-  background-color: #A4A4A4;
+  background-color: #ededed;
 }
 
 
@@ -313,12 +311,12 @@ form .progress {
 
 /********* Home Page *********/
 
-body {
-  background-color: #F5F4F4;
+.cardWelcome {
+  padding: 0px;
 }
 
 md-content.md-ehpad-theme {
-  background-color: #F5F4F4;
+  background-color: #ededed;
 }
 
 .cardTitle {
@@ -333,8 +331,8 @@ md-content.md-ehpad-theme {
 }
 
 #titleBox {
-  height: 300px;
-  width: 600px;
+  height: 50%;
+  width: 40%;
   position: absolute;
   z-index: 1;
   background-color: white;
@@ -362,14 +360,19 @@ md-content.md-ehpad-theme {
 
 #menu {
   text-align: center;
-  margin-bottom: -15px;
+  margin-bottom: 0px;
 }
 
-.displaySubmenu :link{
+.md-padding {
+  padding: 0;
+}
+
+.displaySubmenu :link {
   text-decoration: none;
   color: black;
 }
-.displaySubmenu :visited{
+
+.displaySubmenu :visited {
   text-decoration: none;
   color: black;
 }
@@ -660,4 +663,8 @@ md-content.md-ehpad-theme {
   position: absolute;
   margin-top: 15px;
   margin-left: 10px;
+}
+
+@media (min-width: 960px) angular-material.css:173 .md-padding {
+  padding: 0;
 }
