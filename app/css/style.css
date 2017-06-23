@@ -1,3 +1,11 @@
+
+/*Body*/
+
+body {
+  background-color: #A4A4A4;
+}
+
+
 /*Navbar*/
 
 #sidenav-overlay {
@@ -121,6 +129,7 @@ md-select:not([disabled]):focus .md-select-value {
 .switch {
   margin: 0;
 }
+
 .displayText {
   vertical-align: middle;
 }
@@ -133,6 +142,7 @@ md-select:not([disabled]):focus .md-select-value {
   color: white;
   border-radius: 6%;
 }
+
 .statusPublie {
   padding: 7px 16px;
   margin-right: 9px;
@@ -299,14 +309,24 @@ form .progress {
 .blocButtonsImg {
   margin-top: 30px;
   border-top: 1px solid #009688;
+}
 
-  }
 
 /********* Home Page *********/
-body {
-  margin-right: 20px;
-  margin-left : 20px;
-background-color: #F5F4F4;
+ 
+
+md-content.md-ehpad-theme {
+  background-color: #F5F4F4;
+}
+.cardTitle {
+    /*border-bottom: 1px solid;*/
+    margin-left: 15px;
+    /*border-color: #ff7ed3;*/
+}
+
+.cardLink :link {
+  text-decoration:none;
+  color: black;
 }
 
 #titleBox {
@@ -321,13 +341,19 @@ background-color: #F5F4F4;
   top: 50%;
   transform: translateX(-50%) translateY(-70%);
 }
-#h3{
-font-size: 25px;
-color: #265B7E;
+
+#h3 {
+  font-size: 25px;
+  color: #265B7E;
 }
+
 #h1 {
-font-size: 45px;
-color: #265B7E;
+  font-size: 45px;
+  color: #265B7E;
+}
+
+.cardTitle {
+
 }
 
 /****** menu ******/
@@ -366,12 +392,15 @@ color: #265B7E;
   font-size: 20px;
   margin-left: 60px;
 }
+
 #greenButton:hover {
   opacity: 0.7;
 }
+
 #pinkButton:hover {
   opacity: 0.7;
 }
+
 #blueButton:hover {
   opacity: 0.7;
 }
@@ -394,38 +423,40 @@ color: #265B7E;
   background-color: white;
   font-size: 20px;
 }
+
 #admissionSubmenu:hover {
   color: #FF7ED3;
 }
+
 #sejourSubmenu:hover {
   color: #ABE852;
 }
+
 #droitSubmenu:hover {
   color: #76EAFF;
 }
-#pinkContent {
 
-}
+#pinkContent {}
 
-#greenContent {
-
-}
+#greenContent {}
 
 #blueContent {
-background-color: white .5;
+  background-color: white .5;
 }
+
 
 /***** Map *****/
 
 #map {
-margin : 10px 10px 10px 10px;
-border-radius: 5px 5px 5px 5px;
+  margin: 10px 10px 10px 10px;
+  border-radius: 5px 5px 5px 5px;
 }
+
 
 /***** Contact *****/
 
 #contact {
-  margin : 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   height: 300px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
@@ -442,15 +473,14 @@ border-radius: 5px 5px 5px 5px;
 #contactButton {
   background-color: #F1F1F1;
   display: block;
-  margin : auto;
+  margin: auto;
   width: 140px;
   height: 40px;
   font-size: 15px;
-
 }
 
 #contactButton:hover {
-background-color: #E5E5E5;
+  background-color: #E5E5E5;
 }
 
 #contactLink {
@@ -458,34 +488,41 @@ background-color: #E5E5E5;
   color: black;
 }
 
+
 /***** Actu *****/
 
 #actu {
-  margin : 10px 10px 10px 10px;
-  height: 400px;
+
+  margin: 10px 10px 10px 10px;
+  height: 500px;
+
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
+
 #newsDisplay {
-  margin : 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
 
 #listNewsDisplay {
-  margin : 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
 
+
 /***** Agenda *****/
 
 #agenda {
-  margin : 10px 10px 10px 10px;
-  height: 400px;
+
+  margin: 10px 10px 10px 10px;
+  height: 500px;
+
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
@@ -494,6 +531,7 @@ background-color: #E5E5E5;
 }
 
 /*List Slider*/
+
 .imgGallerySlideShow {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -502,54 +540,36 @@ background-color: #E5E5E5;
   margin-right: auto;
   display: block;
 }
+
 .imgListSlideShow {
   width: 250px;
   margin: auto;
 }
+
 .btnListSlideshow {
   margin: auto;
   margin-left: 10px;
 }
+
+
 /*slider end*/
 
 
 /*Slideshow home*/
-@keyframes slidy {
-0% { left: 0%; }
-20% { left: 0%; }
-25% { left: -100%; }
-45% { left: -100%; }
-50% { left: -200%; }
-70% { left: -200%; }
-75% { left: -300%; }
-95% { left: -300%; }
-100% { left: -400%; }
-}
-
-div#slider {
-  overflow: hidden;
-}
-div#slider figure img {
-  width: 20%;
-  float: left;
-  position : relative;
-}
-div#slider figure {
-  position: relative;
-  width: 500%;
-  margin: 0;
-  left: 0;
-  text-align: left;
-  font-size: 0;
-  animation: 20s slidy infinite;
-}
 
 
-#slider {
-  min-height: 600px;
-  max-height: 600px;
+.swiper-container {
   width: 100%;
-  vertical-align: middle;
+  height: 650px;
+  position: relative;
+}
+
+.swiper-slide {
+  max-width: 100%;
+}
+
+.swiper-image {
+  width: 100%;
 }
 
 
@@ -557,7 +577,7 @@ div#slider figure {
 /***** Footer *****/
 
 #footer {
-  height:  100px;
+  height: 100px;
   background-color: #265B7E;
   position: relative;
 }
@@ -566,7 +586,7 @@ div#slider figure {
   position: absolute;
   bottom: 0;
   right: 0;
-  color : white;
+  color: white;
   text-decoration: none;
   margin-bottom: 10px;
   margin-right: 15px;
@@ -576,4 +596,67 @@ div#slider figure {
   text-decoration: underline;
   font-size: 17px;
 }
+
+
+/*page formulary*/
+
+.formTitle {
+  text-align: center;
+}
+
+.formInput {
+  width: 75%;
+  text-align: center;
+  margin-left: 10%;
+  font-size: 19px;
+}
+
+.formMessage {
+  width: 75%;
+  text-align: center;
+  margin-left: 10%;
+  font-size: 19px;
+}
+
+.obligation {
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.boxForm {
+  margin: 20px;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+}
+
+.formBtn {
+  float: right;
+  margin-top: 25px;
+}
+
+.timer {
+  float: right;
+  margin: 20px;
+  width: 250px;
+  height: 100px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  font-style: italic;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+  background-color: #fafafa;
+}
+
+.imgTimer {
+  width: 100%;
+  height: 100%;
+}
+
+.timerDate {
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
 
