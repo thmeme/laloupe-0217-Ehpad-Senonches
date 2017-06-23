@@ -37,12 +37,12 @@ angular.module('app')
       return $sce.trustAsHtml(string);
     };
 
-    // $scope.newNews = {
-    //   content: '',
-    //   title: '',
-    //   image: '',
-    //   author: ''
-    // };
+    $scope.newNews = {
+      content: '',
+      title: '',
+      image: '',
+      author: ''
+    };
 
     // $scope.newNews.author = CurrentUser.user()._id;
     //
