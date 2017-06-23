@@ -1,3 +1,8 @@
+/*Body*/
+body {
+  background-color: #A4A4A4;
+}
+
 /*Navbar*/
 
 #sidenav-overlay {
@@ -304,11 +309,12 @@ form .progress {
 
 /********* Home Page *********/
 body {
-  margin-right: 20px;
-  margin-left : 20px;
-background-color: #F5F4F4;
+background-color: #E4E4E4;
 }
+md-content.md-ehpad-theme {
+  background-color: #E4E4E4;
 
+}
 #titleBox {
   height: 300px;
   width: 600px;
@@ -335,7 +341,7 @@ color: #265B7E;
 #menu {
   text-align: center;
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 25px;
 }
 
 #greenButton {
