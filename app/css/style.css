@@ -1,4 +1,3 @@
-
 /*Body*/
 
 body {
@@ -313,7 +312,11 @@ form .progress {
 
 
 /********* Home Page *********/
- 
+
+body {
+  background-color: #F5F4F4;
+
+}
 
 md-content.md-ehpad-theme {
   background-color: #F5F4F4;
@@ -361,7 +364,7 @@ md-content.md-ehpad-theme {
 #menu {
   text-align: center;
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 25px;
 }
 
 #greenButton {
@@ -492,10 +495,8 @@ md-content.md-ehpad-theme {
 /***** Actu *****/
 
 #actu {
-
   margin: 10px 10px 10px 10px;
   height: 500px;
-
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
@@ -519,16 +520,13 @@ md-content.md-ehpad-theme {
 /***** Agenda *****/
 
 #agenda {
-
   margin: 10px 10px 10px 10px;
   height: 500px;
-
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
 
-}
 
 /*List Slider*/
 
@@ -557,7 +555,6 @@ md-content.md-ehpad-theme {
 
 /*Slideshow home*/
 
-
 .swiper-container {
   width: 100%;
   height: 650px;
@@ -571,7 +568,6 @@ md-content.md-ehpad-theme {
 .swiper-image {
   width: 100%;
 }
-
 
 
 /***** Footer *****/
@@ -658,5 +654,3 @@ md-content.md-ehpad-theme {
   margin-top: 15px;
   margin-left: 10px;
 }
-
-
