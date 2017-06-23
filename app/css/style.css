@@ -554,8 +554,8 @@ ks-swiper-slide {
 }
 .boxForm{
   margin: 20px;
-  box-shadow: 10px 10px 5px #888888;
-  border-radius: 60px;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
 }
 .formBtn{
   float: right;
@@ -570,7 +570,8 @@ ks-swiper-slide {
   font-size: 22px;
   font-weight: bold;
   font-style: italic;
-  box-shadow: 10px 10px 5px #888888;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
   background-color: #fafafa;
 }
 
@@ -583,7 +584,10 @@ ks-swiper-slide {
 .timerDate{
   position: absolute;
   margin-top: 15px;
-  margin-left: 30px;
+  margin-left: 10px;
+}
+
+/*Footer*/
 
 .footerLink {
   position: absolute;
