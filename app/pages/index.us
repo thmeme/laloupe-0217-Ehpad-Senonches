@@ -8,7 +8,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
 
 
 
@@ -18,8 +18,8 @@
 <body>
     <div ui-view='navbar'></div>
     <div ui-view='slider'></div>
-    <div ui-view='content'></div>
     <div ui-view='menu'></div>
+    <div ui-view='content'></div>
     <div ui-view='map'></div>
 
     <script type="text/javascript" src="<%= js %>"></script>

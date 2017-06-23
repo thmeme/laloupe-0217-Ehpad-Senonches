@@ -12,16 +12,14 @@ angular.module('app')
     $scope.idSubmenu = $stateParams.id;
     console.log('id', $scope.idSubmenu);
 
-    function loadAllSubmenus() {
-      SubmenuService.getAll().then(function(res) {
-        console.log('listSubmenus', res);
-        $scope.listSubmenu = res.data;
-        console.log('res.data', res.data);
-      }, function(err) {
-        console.error('error on loadAllSubmenus', err);
+    function loadAllSubmenusAnon() {
+      SubmenuService.getAllAnon().then(function(res) {
+        console.log('listSubmenusAnon', res);
+        $scope.listSubmenusAnon = res.data;
+        console.log('res.data Anon', res.data);
       });
     }
-    loadAllSubmenus();
+    loadAllSubmenusAnon();
 
     $scope.uCanTrust = function(string) {
       return $sce.trustAsHtml(string);

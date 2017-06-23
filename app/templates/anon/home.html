@@ -1,39 +1,4 @@
-
 <!-- <p id="heure"></p> -->
-
-<md-menu-bar id="menu">
-  <md-menu>
-    <md-button class="md-raised" id="pinkButton" ng-click="$mdMenu.open()">Votre </br> Admission </br>
-      <md-icon md-menu-origin><i class="material-icons">expand_more</i></md-icon>
-    </md-button>
-    <md-menu-content width="4" id="pinkContent">
-      <md-menu-item ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre admission'}">
-        <md-button md-menu-align-target class="displaySubmenu"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
-      </md-menu-item>
-    </md-menu-content>
-  </md-menu>
-
-  <md-menu>
-    <md-button class="md-raised" id="greenButton" ng-click="$mdMenu.open()">Votre </br> Sejour </br>
-      <md-icon><i class="material-icons">expand_more</i></md-icon>
-    </md-button>
-    <md-menu-content id="greenContent">
-      <md-menu-item>
-        <md-button id="sejourSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre séjour'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
-      </md-menu-item>
-    </md-menu-content>
-  </md-menu>
-  <md-menu>
-    <md-button class="md-raised" id="blueButton" ng-click="$mdMenu.open()">Vos </br> Droits </br>
-      <md-icon><i class="material-icons">expand_more</i></md-icon>
-    </md-button>
-    <md-menu-content id="blueContent">
-      <md-menu-item>
-        <md-button id="droitSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Vos droits'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
-      </md-menu-item>
-    </md-menu-content>
-  </md-menu>
-</md-menu-bar>
 
 <div class="cards">
   <md-content class="md-padding">

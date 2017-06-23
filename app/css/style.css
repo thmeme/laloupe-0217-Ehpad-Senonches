@@ -362,13 +362,16 @@ md-content.md-ehpad-theme {
 
 #menu {
   text-align: center;
-  margin-top: -70px;
   margin-bottom: -15px;
 }
 
-.displaySubmenu {
-  display: table-column-group;
-  font-size: 12px;
+.displaySubmenu :link{
+  text-decoration: none;
+  color: black;
+}
+.displaySubmenu :visited{
+  text-decoration: none;
+  color: black;
 }
 
 #greenButton {
