@@ -1,8 +1,5 @@
 
 
-
-
-
 <ks-swiper-container
     class="swiper-container"
     ng-if='listImgSlideShow.length>0'
@@ -21,6 +18,12 @@
     <ks-swiper-slide class="swiper-slide" ng-repeat="img in listImgSlideShow | orderBy: '-date'">
         <img class="swiper-image" ng-src="/uploads/imageslarges/{{img.name}}" alt>
     </ks-swiper-slide>
+
+<p><span id=heure></span></p>
+
+
+
+
 </ks-swiper-container>
 <div id="titleBox">
   <h3 id="h3">EHPAD SENONCHES</h3>
@@ -60,46 +63,63 @@
   </md-menu>
 </md-menu-bar>
 
-
-
-<div layout="row" layout-xs="column">
-  <div flex-gt-sm="66" flex="33" id="actu">
-    <h2>Actualité</h2>
-
-    <div ng-repeat='news in listNewsAnon track by $index'>
-      <h3 ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
-      <a ui-sref="anon.displaynews({id: news._id})"><img style="width: 150px; float: right" ng-show="$last" ng-src="/{{news.image}}"></a>
-      <p ng-show="$last" ng-bind-html="news.content"></p>
+<div class="cards">
+  <md-content class="md-padding">
+    <div layout="column" layout-gt-xs="row">
+      <md-card flex flex-gt-xs="100">
+        <h2>Bienvenue !</h2>
+        <md-card-content>
+          <p>La Résidence Périer, établissement d’hébergement pour personnes âgées, située au centre de Senonches, dispose de 128 logements habilités à l’Aide Sociale. Votre prise en charge est assurée au quotidien par une équipe pluriprofessionnelle soucieuse
+            de maintenir votre autonomie et répondre à vos besoins ? L’environnement géographique, proche des commerces et au sein d’un espace boisé et sécurisé, favorise le maintien du lien social et familial. Ce site vous permettra de mieux connaître
+            la Résidence. Bonne visite.</p>
+        </md-card-content>
+      </md-card>
     </div>
-  </div>
-  <div flex-gt-sm="33" flex='66' id="agenda">
-    <div>
-      <h2>Agenda</h2>
+  </md-content>
+
+  <md-content class="md-padding">
+    <div layout="column" layout-gt-xs="row">
+
+      <md-card flex flex-gt-xs="60">
+        <h2>Actualité</h2>
+        <md-card-content>
+          <div ng-repeat='news in listNewsAnon track by $index'>
+            <h3 ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
+            <a ui-sref="anon.displaynews({id: news._id})"><img style="width: 150px; float: right" ng-show="$last" ng-src="/{{news.image}}"></a>
+            <p ng-show="$last" ng-bind-html="news.content"></p>
+          </div>
+        </md-card-content>
+      </md-card>
+      <md-card flex>
+        <h2>Agenda</h2>
+        <md-card-content>
+          <p>Some content</p>
+        </md-card-content>
+      </md-card>
     </div>
-  </div>
+
+  </md-content>
+
+  <md-content class="md-padding">
+    <div layout="column" layout-gt-xs="row">
+      <md-card flex flex-gt-xs="80">
+        <md-card-content>
+          <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
+            <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
+              <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
+            </ng-map>
+          </div>
+        </md-card-content>
+      </md-card>
+      <md-card flex>
+        <md-card-content>
+          <p id="contactContent"> 1, route de Dreux </br> 28250 </br> Senonches </br> 02.37.37.73.27</p>
+          <md-button class="md-raised md-cornered" id="contactButton" ui-sref="anon.formulaire">Contact</md-button>
+          <md-card-content>
+      </md-card>
+    </div>
+  </md-content>
 </div>
-<div layout="row">
-  <div flex-gt-sm="80" flex="20">
-    <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
-      <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
-        <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
-      </ng-map>
-    </div>
-  </div>
-  <div flex-gt-sm="20" flex="80" id="contact">
-    <div>
-      <p id="contactContent"> 1, route de Dreux </br> 28250 </br> Senonches </br> 02.37.37.73.27</p>
-
-      <md-button class="md-raised md-cornered" id="contactButton" ui-sref="anon.formulaire">Contact</md-button>
-
-    </div>
-  </div>
-</div>
-</div>
-
-
-<p><span id=heure></span></p>
-
 
 <footer id=footer>
   <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login</a>

@@ -1,3 +1,8 @@
+/*Body*/
+body {
+  background-color: #A4A4A4;
+}
+
 /*Navbar*/
 
 #sidenav-overlay {
@@ -304,10 +309,13 @@ form .progress {
 
 /********* Home Page *********/
 body {
-
-  background-color: #F5F4F4;
+background-color: #E4E4E4;
 }
 
+md-content.md-ehpad-theme {
+  background-color: #E4E4E4;
+
+}
 #titleBox {
   height: 300px;
   width: 600px;
@@ -334,7 +342,7 @@ color: #265B7E;
 #menu {
   text-align: center;
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 25px;
 }
 
 #greenButton {
@@ -573,8 +581,8 @@ max-width: 100%;
 }
 .boxForm{
   margin: 20px;
-  box-shadow: 10px 10px 5px #888888;
-  border-radius: 60px;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
 }
 .formBtn{
   float: right;
@@ -589,7 +597,8 @@ max-width: 100%;
   font-size: 22px;
   font-weight: bold;
   font-style: italic;
-  box-shadow: 10px 10px 5px #888888;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
   background-color: #fafafa;
 }
 
@@ -602,5 +611,6 @@ max-width: 100%;
 .timerDate{
   position: absolute;
   margin-top: 15px;
-  margin-left: 30px;
+  margin-left: 10px;
 }
+
