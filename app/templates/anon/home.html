@@ -38,7 +38,8 @@
   <md-content class="md-padding">
     <div layout="column" layout-gt-xs="row">
       <md-card flex flex-gt-xs="100">
-        <h2>Bienvenue !</h2>
+
+        <h2 class="cardTitle">Bienvenue !</h2>
         <md-card-content>
           <p>La Résidence Périer, établissement d’hébergement pour personnes âgées, située au centre de Senonches, dispose de 128 logements habilités à l’Aide Sociale. Votre prise en charge est assurée au quotidien par une équipe pluriprofessionnelle soucieuse
             de maintenir votre autonomie et répondre à vos besoins ? L’environnement géographique, proche des commerces et au sein d’un espace boisé et sécurisé, favorise le maintien du lien social et familial. Ce site vous permettra de mieux connaître
@@ -50,19 +51,19 @@
 
   <md-content class="md-padding">
     <div layout="column" layout-gt-xs="row">
-
       <md-card flex flex-gt-xs="60">
-        <h2>Actualité</h2>
+        <h2 class="cardTitle">Actualité</h2>
         <md-card-content>
           <div ng-repeat='news in listNewsAnon track by $index'>
-            <h3 ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
-            <a ui-sref="anon.displaynews({id: news._id})"><img style="width: 150px; float: right" ng-show="$last" ng-src="/{{news.image}}"></a>
-            <p ng-show="$last" ng-bind-html="news.content"></p>
+            <h3 class="cardLink" ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
+            <a ui-sref="anon.displaynews({id: news._id})"><img style="width: 400px;" ng-show="$last" ng-src="/{{news.image}}"></a>
+            <!-- <p ng-show="$last" ng-bind-html="news.content"></p> -->
+            <p ng-show="$last" class="cardLink"><a ui-sref="anon.displaynews({id: news._id})">A lire par ici >></a></p>
           </div>
         </md-card-content>
       </md-card>
       <md-card flex>
-        <h2>Agenda</h2>
+        <h2 class="cardTitle">Agenda</h2>
         <md-card-content>
           <p>Some content</p>
         </md-card-content>
@@ -83,7 +84,7 @@
       </md-card>
       <md-card flex>
         <md-card-content>
-          <p id="contactContent"> 1, route de Dreux </br> 28250 </br> Senonches </br> 02.37.37.73.27</p>
+          <p id="contactContent"> 1, route de Dreux </br> 28250 </br> Senonches </br>02.37.37.73.27</p>
           <md-button class="md-raised md-cornered" id="contactButton" ui-sref="anon.formulaire">Contact</md-button>
           <md-card-content>
       </md-card>

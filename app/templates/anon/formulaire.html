@@ -1,39 +1,50 @@
-<div class="timer">
+
+<!-- <div class="timer">
   <p class="timerDate">
     <span id=heure></span><br><br>
     <span id=heure2></span>
   </p>
-</div>
+</div> -->
 
 
-<md-content class="boxForm" flex layout-padding>
+<!-- <md-content class="boxForm" flex layout-padding>
 <div layout="row" class="contactForm">
-  <div flex>
-    <h2 class="formTitle">Formulaire à remplir pour nous contacter:</h2>
-    <form ng-submit="sendMail()">
-    <md-input-container class="formInput">
-      <label>Votre adresse mail</label>
-      <input required ng-model="mail.email" type="email" name="user_email">
-    </md-input-container><br>
-    <md-input-container class="formInput">
-      <label>Votre nom</label>
-      <input required ng-model="mail.name" type="text">
-    </md-input-container><br>
-    <md-input-container class="formInput">
-      <label>Sujet</label>
-      <input required ng-model="mail.subject" type="text">
-    </md-input-container><br>
-    <md-input-container class="formMessage">
-      <label>Votre message</label>
-      <textarea required ng-model="mail.message" name="name" rows="8" cols="80"></textarea>
-    </md-input-container><br>
-    <div layout="row" class="formBtn">
-    <md-button class="md-primary md-raised" type="submit">Envoyer le mail</md-button>
+  <div flex> -->
+<md-content class="md-padding">
+  <div layout="column" layout-gt-xs="row" layout-align="center center">
+    <md-card flex flex-gt-xs="80">
+      <md-card-content>
+
+        <h2 class="formTitle">Formulaire à remplir pour nous contacter:</h2>
+        <form ng-submit="sendMail()">
+          <md-input-container class="formInput">
+            <label>Votre adresse mail</label>
+            <input required ng-model="mail.email" type="email" name="user_email">
+          </md-input-container><br>
+          <md-input-container class="formInput">
+            <label>Votre nom</label>
+            <input required ng-model="mail.name" type="text">
+          </md-input-container><br>
+          <md-input-container class="formInput">
+            <label>Sujet</label>
+            <input required ng-model="mail.subject" type="text">
+          </md-input-container><br>
+          <md-input-container class="formMessage">
+            <label>Votre message</label>
+            <textarea required ng-model="mail.message" name="name" rows="8" cols="80"></textarea>
+          </md-input-container><br>
+          <div layout="row" class="formBtn">
+            <md-button class="md-primary md-raised" type="submit">Envoyer le mail</md-button>
+          </div>
+        </form>
+
+        <p class="obligation">* Champ obligatoire</p>
+
+
+      </md-card-content>
+    </md-card>
   </div>
-  </form>
-  </div>
-</div>
-<p class="obligation">* Champ obligatoire</p>
+
 </md-content>
 
 <footer id=footer>
@@ -41,3 +52,4 @@
   <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
   <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
 </footer>
+
