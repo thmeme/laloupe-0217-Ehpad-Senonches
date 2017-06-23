@@ -304,7 +304,10 @@ form .progress {
 
 /********* Home Page *********/
 body {
+  background-color: #F5F4F4;
+}
 
+md-content.md-ehpad-theme {
   background-color: #F5F4F4;
 }
 
