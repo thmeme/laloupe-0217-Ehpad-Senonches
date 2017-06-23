@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <div ui-view='navbar'></div>
     <div ui-view='slider'></div>
     <div ui-view='content'></div>
