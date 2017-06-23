@@ -10,12 +10,8 @@ angular.module('app')
                     'navbar@': {
                         templateUrl: 'anon/navbar.html',
                         controller: 'NavbarController'
-                    },
-                    'slider@': {
-                        templateUrl: 'anon/slider.html',
-                        controller: 'DisplaySlideShowController'
+                    }
                 }
-              }
             })
 
             .state('anon.home', {
@@ -26,7 +22,6 @@ angular.module('app')
                         controller: 'HomeController',
                     }
               }
-
             })
             .state('anon.displaysubmenu', {
                 url: '/displaysubmenu/:id',
