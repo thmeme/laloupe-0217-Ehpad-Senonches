@@ -315,20 +315,20 @@ form .progress {
 
 body {
   background-color: #F5F4F4;
-
 }
 
 md-content.md-ehpad-theme {
   background-color: #F5F4F4;
 }
+
 .cardTitle {
-    /*border-bottom: 1px solid;*/
-    margin-left: 15px;
-    /*border-color: #ff7ed3;*/
+  /*border-bottom: 1px solid;*/
+  margin-left: 15px;
+  /*border-color: #ff7ed3;*/
 }
 
 .cardLink :link {
-  text-decoration:none;
+  text-decoration: none;
   color: black;
 }
 
@@ -355,16 +355,20 @@ md-content.md-ehpad-theme {
   color: #265B7E;
 }
 
-.cardTitle {
+.cardTitle {}
 
-}
 
 /****** menu ******/
 
 #menu {
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 25px;
+  margin-top: -70px;
+  margin-bottom: -15px;
+}
+
+.displaySubmenu {
+  display: table-column-group;
+  font-size: 12px;
 }
 
 #greenButton {

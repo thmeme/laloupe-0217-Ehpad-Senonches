@@ -4,14 +4,15 @@
 <md-menu-bar id="menu">
   <md-menu>
     <md-button class="md-raised" id="pinkButton" ng-click="$mdMenu.open()">Votre </br> Admission </br>
-      <md-icon><i class="material-icons">expand_more</i></md-icon>
+      <md-icon md-menu-origin><i class="material-icons">expand_more</i></md-icon>
     </md-button>
-    <md-menu-content id="pinkContent">
-      <md-menu-item>
-        <md-button id="admissionSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre admission'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
+    <md-menu-content width="4" id="pinkContent">
+      <md-menu-item ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre admission'}">
+        <md-button md-menu-align-target class="displaySubmenu"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
+
   <md-menu>
     <md-button class="md-raised" id="greenButton" ng-click="$mdMenu.open()">Votre </br> Sejour </br>
       <md-icon><i class="material-icons">expand_more</i></md-icon>

@@ -10,5 +10,14 @@ angular.module('app')
         })
         .warnPalette('red')
         .backgroundPalette('grey');
-        $mdThemingProvider.setDefaultTheme('ehpad');
+    $mdThemingProvider.setDefaultTheme('ehpad');
+    $mdThemingProvider.theme('anon')
+        .primaryPalette('teal', {
+        'default': '500'
+        })
+        .accentPalette('pink', {
+          'default': '500'
+        })
+        .warnPalette('red')
+        .backgroundPalette('grey');
 });
