@@ -36,7 +36,8 @@ var mailer = nodemailer.createTransport({
       context: {
         variable1: req.body.email,
         variable2: req.body.name,
-        variable3: req.body.message
+        variable3: req.body.message,
+        variable4: req.body.subject
       }
     }, function(error, response) {
       if (error) {

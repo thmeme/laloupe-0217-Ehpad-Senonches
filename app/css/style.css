@@ -1,3 +1,8 @@
+/*Body*/
+body {
+  background-color: #A4A4A4;
+}
+
 /*Navbar*/
 
 #sidenav-overlay {
@@ -304,9 +309,14 @@ form .progress {
 
 /********* Home Page *********/
 body {
-  margin-right: 20px;
-  margin-left : 20px;
-background-color: #F5F4F4;
+
+  background-color: #F5F4F4;
+}
+
+md-content.md-ehpad-theme {
+  background-color: #F5F4F4;
+
+
 }
 
 #titleBox {
@@ -335,7 +345,7 @@ color: #265B7E;
 #menu {
   text-align: center;
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 25px;
 }
 
 #greenButton {
@@ -462,7 +472,7 @@ background-color: #E5E5E5;
 
 #actu {
   margin : 10px 10px 10px 10px;
-  height: 400px;
+  height: 500px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
@@ -485,13 +495,12 @@ background-color: #E5E5E5;
 
 #agenda {
   margin : 10px 10px 10px 10px;
-  height: 400px;
+  height: 500px;
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
 
-}
 
 /*List Slider*/
 .imgGallerySlideShow {
@@ -514,45 +523,19 @@ background-color: #E5E5E5;
 
 
 /*Slideshow home*/
-@keyframes slidy {
-0% { left: 0%; }
-20% { left: 0%; }
-25% { left: -100%; }
-45% { left: -100%; }
-50% { left: -200%; }
-70% { left: -200%; }
-75% { left: -300%; }
-95% { left: -300%; }
-100% { left: -400%; }
+.swiper-container {
+width: 100%;
+height: 650px;
+position: relative;
 }
 
-div#slider {
-  overflow: hidden;
-}
-div#slider figure img {
-  width: 20%;
-  float: left;
-  position : relative;
-}
-div#slider figure {
-  position: relative;
-  width: 500%;
-  margin: 0;
-  left: 0;
-  text-align: left;
-  font-size: 0;
-  animation: 20s slidy infinite;
+.swiper-slide {
+max-width: 100%;
 }
 
-
-#slider {
-  min-height: 600px;
-  max-height: 600px;
-  width: 100%;
-  vertical-align: middle;
+.swiper-image{
+  width:100%;
 }
-
-
 
 /***** Footer *****/
 
@@ -561,7 +544,6 @@ div#slider figure {
   background-color: #265B7E;
   position: relative;
 }
-
 .footerLink {
   position: absolute;
   bottom: 0;
@@ -575,5 +557,62 @@ div#slider figure {
 .footerLink:hover {
   text-decoration: underline;
   font-size: 17px;
+
 }
 
+
+/*page formulary*/
+.formTitle{
+  text-align: center;
+}
+
+.formInput{
+  width: 75%;
+  text-align: center;
+  margin-left: 10%;
+  font-size: 19px;
+}
+.formMessage{
+  width: 75%;
+  text-align: center;
+  margin-left: 10%;
+  font-size: 19px;
+}
+.obligation{
+  font-style: oblique;
+  font-weight: bold;
+}
+.boxForm{
+  margin: 20px;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+}
+.formBtn{
+  float: right;
+  margin-top: 25px;
+}
+.timer{
+  float: right;
+  margin: 20px;
+  width: 250px;
+  height: 100px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  font-style: italic;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 4px 4px 4px #CACACA;
+  background-color: #fafafa;
+}
+
+.imgTimer{
+  width: 100%;
+  height: 100%;
+
+}
+
+.timerDate{
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 10px;
+}
