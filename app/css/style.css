@@ -309,13 +309,16 @@ form .progress {
 
 /********* Home Page *********/
 body {
-background-color: #E4E4E4;
+
+  background-color: #F5F4F4;
 }
 
 md-content.md-ehpad-theme {
-  background-color: #E4E4E4;
+  background-color: #F5F4F4;
+
 
 }
+
 #titleBox {
   height: 300px;
   width: 600px;
@@ -613,4 +616,3 @@ max-width: 100%;
   margin-top: 15px;
   margin-left: 10px;
 }
-
