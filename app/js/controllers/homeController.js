@@ -73,14 +73,14 @@ angular.module('app')
     loadAllSubmenusAnon();
 
 
+    SlideshowService.getAll().then(function(res) {
+      console.log('loadImgSlideshow', res.data);
+      $scope.listImgSlideShow = res.data;
+
+    });
 
     $scope.listImgSlideShow = [];
     loadImgSlideshow = function() {
-      SlideshowService.getAll().then(function(res) {
-        console.log('loadImgSlideshow', res.data);
-        $scope.listImgSlideShow = res.data;
-
-      });
     };
     loadImgSlideshow();
 
@@ -108,15 +108,15 @@ angular.module('app')
 
 //*****slider*****//
 
-            $scope.swiper = {};
-            $scope.next = function() {
-                $scope.swiper.slideNext();
-            };
+
             $scope.onReadySwiper = function(swiper) {
+              console.log(swiper);
+              swiper.on('init', function () {
 
-                swiper.on('slideChangeStart', function() {
+       console.log('slideChangeStart');
+     });
 
-                });
+
             };
 
   });
