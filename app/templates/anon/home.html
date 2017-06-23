@@ -1,27 +1,31 @@
 
-<!--
-  <div id="titleBox">
-    <h3 id="h3">EHPAD SENONCHES</h3>
-    <h1 id="h1">RESIDENCE PERIER</h1>
-  </div> -->
+
+
 
 
 <ks-swiper-container
+    class="swiper-container"
+    ng-if='listImgSlideShow.length>0'
+    on-ready="onReadySwiper(swiper)"
+    swiper = "swiper"
+    override-parameters="{'autoplayPaused':'false'}"
     slides-per-view="1"
     slides-per-column="1"
     space-between="0"
-    pagination-is-active="true"
-    pagination-clickable="false"
     show-nav-buttons="false"
     loop="true"
-    autoplay="2500"
-    autoplayDisableOnInteraction="false"
-    initial-slide="0"
-    direction="horizontal">
+    speed= 2000
+    autoplay= 3500
+    initial-slide="0">
+
     <ks-swiper-slide class="swiper-slide" ng-repeat="img in listImgSlideShow | orderBy: '-date'">
-        <img ng-src="/uploads/imageslarges/{{img.name}}" alt>
+        <img class="swiper-image" ng-src="/uploads/imageslarges/{{img.name}}" alt>
     </ks-swiper-slide>
 </ks-swiper-container>
+<div id="titleBox">
+  <h3 id="h3">EHPAD SENONCHES</h3>
+  <h1 id="h1">RESIDENCE PERIER</h1>
+</div>
 
 <md-menu-bar id="menu">
   <md-menu>
@@ -102,4 +106,3 @@
   <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
   <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
 </footer>
-
