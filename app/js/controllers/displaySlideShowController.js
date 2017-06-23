@@ -15,7 +15,7 @@ angular.module('app')
 
 
 
-  
+
 //*****slider*****//
 
 
