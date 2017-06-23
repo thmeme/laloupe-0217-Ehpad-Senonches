@@ -315,10 +315,21 @@ form .progress {
 
 body {
   background-color: #F5F4F4;
+
 }
 
 md-content.md-ehpad-theme {
   background-color: #F5F4F4;
+}
+.cardTitle {
+    /*border-bottom: 1px solid;*/
+    margin-left: 15px;
+    /*border-color: #ff7ed3;*/
+}
+
+.cardLink :link {
+  text-decoration:none;
+  color: black;
 }
 
 #titleBox {
@@ -344,6 +355,9 @@ md-content.md-ehpad-theme {
   color: #265B7E;
 }
 
+.cardTitle {
+
+}
 
 /****** menu ******/
 
