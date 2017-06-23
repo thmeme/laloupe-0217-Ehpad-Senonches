@@ -311,6 +311,7 @@ form .progress {
 body {
 background-color: #E4E4E4;
 }
+
 md-content.md-ehpad-theme {
   background-color: #E4E4E4;
 
@@ -519,14 +520,19 @@ background-color: #E5E5E5;
 
 
 /*Slideshow home*/
-
-ks-swiper-container{
-
-}
-ks-swiper-slide {
-
+.swiper-container {
+width: 100%;
+height: 650px;
+position: relative;
 }
 
+.swiper-slide {
+max-width: 100%;
+}
+
+.swiper-image{
+  width:100%;
+}
 
 /***** Footer *****/
 
@@ -534,6 +540,21 @@ ks-swiper-slide {
   height:  100px;
   background-color: #265B7E;
   position: relative;
+}
+.footerLink {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color : white;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-right: 15px;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+  font-size: 17px;
+
 }
 
 
@@ -593,20 +614,3 @@ ks-swiper-slide {
   margin-left: 10px;
 }
 
-/*Footer*/
-
-.footerLink {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  color : white;
-  text-decoration: none;
-  margin-bottom: 10px;
-  margin-right: 15px;
-}
-
-.footerLink:hover {
-  text-decoration: underline;
-  font-size: 17px;
-
-}
