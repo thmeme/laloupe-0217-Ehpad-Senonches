@@ -65,58 +65,55 @@ angular.module('app')
 
     function loadAllSubmenusAnon() {
       SubmenuService.getAllAnon().then(function(res) {
-        console.log('listSubmenusAnon', res);
         $scope.listSubmenusAnon = res.data;
-        console.log('res.data Anon', res.data);
+        console.log('listSubmenusAno', res.data);
       });
     }
     loadAllSubmenusAnon();
 
 
-    SlideshowService.getAll().then(function(res) {
-      console.log('loadImgSlideshow', res.data);
-      $scope.listImgSlideShow = res.data;
+    // SlideshowService.getAll().then(function(res) {
+    //   console.log('loadImgSlideshow', res.data);
+    //   $scope.listImgSlideShow = res.data;
+    //
+    // });
 
-    });
-
-    $scope.listImgSlideShow = [];
-    loadImgSlideshow = function() {
-    };
-    loadImgSlideshow();
-
-    $scope.listNewsAnon = [];
-
-    function loadAllNewsAnon() {
-      NewsService.getAllAnon().then(function(res) {
-        console.log('listNewsAnon', res);
-        $scope.listNewsAnon = res.data;
-        console.log('res.data Anon', res.data);
-      });
-    }
-    loadAllNewsAnon();
-
-
-
-    $scope.listEvenements = [];
-
-    function loadEvenements() {
-      CalendarService.getAll().then(function(res) {
-        $scope.listEvenements = res.data;
-      });
-    }
-    loadEvenements();
-
-//*****slider*****//
+    // $scope.listImgSlideShow = [];
+    // loadImgSlideshow = function() {
+    // };
+    // loadImgSlideshow();
+    //
+    // $scope.listNewsAnon = [];
+    //
+    // function loadAllNewsAnon() {
+    //   NewsService.getAllAnon().then(function(res) {
+    //     console.log('listNewsAnon', res);
+    //     $scope.listNewsAnon = res.data;
+    //     console.log('res.data Anon', res.data);
+    //   });
+    // }
+    // loadAllNewsAnon();
 
 
-            $scope.onReadySwiper = function(swiper) {
-              console.log(swiper);
-              swiper.on('init', function () {
 
-       console.log('slideChangeStart');
-     });
+    // $scope.listEvenements = [];
+
+    // function loadEvenements() {
+    //   CalendarService.getAll().then(function(res) {
+    //     $scope.listEvenements = res.data;
+    //   });
+    // }
+    // loadEvenements();
+
+    //*****slider*****//
 
 
-            };
+    // $scope.onReadySwiper = function(swiper) {
+    //   console.log(swiper);
+    //   swiper.on('init', function() {
+    //
+    //     console.log('slideChangeStart');
+    //   });
+    // };
 
   });

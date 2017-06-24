@@ -322,7 +322,17 @@ md-content.md-ehpad-theme {
 .cardTitle {
   /*border-bottom: 1px solid;*/
   margin-left: 15px;
+  margin-bottom: 0;
   /*border-color: #ff7ed3;*/
+}
+
+.cardDateEvenement {
+  margin-bottom: 0;
+}
+
+.cardTitleEvenement {
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .cardLink :link {
@@ -330,8 +340,13 @@ md-content.md-ehpad-theme {
   color: black;
 }
 
+.cardLink :visited {
+  text-decoration: none;
+  color: black;
+}
+
 #titleBox {
-  height: 50%;
+  height: 35%;
   width: 40%;
   position: absolute;
   z-index: 1;
@@ -352,8 +367,6 @@ md-content.md-ehpad-theme {
   font-size: 45px;
   color: #265B7E;
 }
-
-.cardTitle {}
 
 
 /****** menu ******/

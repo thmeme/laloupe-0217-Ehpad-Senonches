@@ -26,7 +26,7 @@ const evenementSchema = new mongoose.Schema({
   },
   isOnline: {
     type: Boolean,
-    // default: false,
+    default: false,
   }
 });
 
@@ -36,6 +36,19 @@ export default class Evenement {
 
   findAll(req, res) {
     model.find({})
+    .populate('author')
+    .exec((err, evenement) => {
+        if (err || !evenement) {
+          res.sendStatus(403);
+        } else {
+          res.json(evenement);
+          console.log('getAll');
+        }
+      });
+  }
+
+  findAllAnon(req, res) {
+    model.find({isOnline: true})
     .populate('author')
     .exec((err, evenement) => {
         if (err || !evenement) {
