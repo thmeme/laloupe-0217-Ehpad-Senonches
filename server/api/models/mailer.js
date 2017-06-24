@@ -45,7 +45,7 @@ var mailer = nodemailer.createTransport({
         // res.sendStatus(500).send(error.message);
       } else {
         console.log('mail send');
-        // res.sendStatus(200);
+        res.sendStatus(200);
       }
     });
     mailer.close();
