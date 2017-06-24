@@ -46,7 +46,7 @@ angular.module('app')
         views: {
           'content@': {
             templateUrl: 'anon/displaynews.html',
-            controller: 'EditNewsController',
+            controller: 'DisplayNewsController',
           }
         }
       })

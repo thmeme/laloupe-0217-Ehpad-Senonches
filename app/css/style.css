@@ -1,7 +1,12 @@
 body {
   background-color: #ededed;
 }
-
+.md-button.md-anon-theme.md-primary.md-raised  {
+  color: white;
+}
+.md-button.md-anon-theme.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-anon-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-anon-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-anon-theme.md-primary.md-raised:not([disabled]):hover {
+  color: white;
+}
 
 /*Navbar*/
 
@@ -345,6 +350,10 @@ md-content.md-ehpad-theme {
   color: black;
 }
 
+.pagingCalendarHome {
+      margin-top: 15px;
+}
+
 #titleBox {
   height: 35%;
   width: 40%;
@@ -497,17 +506,12 @@ md-content.md-ehpad-theme {
 }
 
 #contactButton {
-  background-color: #F1F1F1;
   display: block;
-  margin: auto;
-  width: 140px;
-  height: 40px;
-  font-size: 15px;
 }
 
-#contactButton:hover {
+/*#contactButton:hover {
   background-color: #E5E5E5;
-}
+}*/
 
 #contactLink {
   text-decoration: none;
@@ -599,6 +603,7 @@ md-content.md-ehpad-theme {
   height: 100px;
   background-color: #265B7E;
   position: relative;
+  margin-top: 7px;
 }
 
 .footerLink {
