@@ -17,13 +17,13 @@ angular.module('app')
 
 
 
-      // function loadAllEvenements() {
-      //   CalendarService.getAll().then(function(res) {
-      //     $scope.evenements = res.data;
-      //     console.log('loadAllEvenements', res.data);
-      //   });
-      // }
-      // loadAllEvenements();
+      function loadAllEvenements() {
+        CalendarService.getAll().then(function(res) {
+          $scope.evenements = res.data;
+          console.log('loadAllEvenements', res.data);
+        });
+      }
+      loadAllEvenements();
 
       // $scope.currentPageCalendar = 0;
       // $scope.pageSizeCalendar = 5;
