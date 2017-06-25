@@ -49,7 +49,7 @@ angular.module('app')
     loadAllEvenementsAnon();
 
     $scope.currentPageCalendar = 0;
-    $scope.pageSizeCalendar = 3;
+    $scope.pageSizeCalendar = 4;
     $scope.listEvenementsAnon = [];
     $scope.numberOfPagesCalendar = function() {
       return Math.ceil($scope.listEvenementsAnon.length / $scope.pageSizeCalendar);
