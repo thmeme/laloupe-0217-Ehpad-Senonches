@@ -3,7 +3,7 @@
   "description": "Just another MEAN Stack",
   "version": "1.0.0",
   "engines": {
-  "node": "8.1.0"
+  "node": "8.1.2"
   },
   "private": true,
   "author": "Jean-Baptiste Pasquier",
@@ -23,7 +23,7 @@
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
-    "bcryptjs": "",
+    "bcrypt": "",
     "body-parser": "",
     "cors": "",
     "express": "",
