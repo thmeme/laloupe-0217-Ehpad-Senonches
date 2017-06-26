@@ -1,48 +1,14 @@
-
 <!-- <p id="heure"></p> -->
 
-<md-menu-bar id="menu">
-  <md-menu>
-    <md-button class="md-raised" id="pinkButton" ng-click="$mdMenu.open()">Votre </br> Admission </br>
-      <md-icon><i class="material-icons">expand_more</i></md-icon>
-    </md-button>
-    <md-menu-content id="pinkContent">
-      <md-menu-item>
-        <md-button id="admissionSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre admission'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
-      </md-menu-item>
-    </md-menu-content>
-  </md-menu>
-  <md-menu>
-    <md-button class="md-raised" id="greenButton" ng-click="$mdMenu.open()">Votre </br> Sejour </br>
-      <md-icon><i class="material-icons">expand_more</i></md-icon>
-    </md-button>
-    <md-menu-content id="greenContent">
-      <md-menu-item>
-        <md-button id="sejourSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre séjour'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
-      </md-menu-item>
-    </md-menu-content>
-  </md-menu>
-  <md-menu>
-    <md-button class="md-raised" id="blueButton" ng-click="$mdMenu.open()">Vos </br> Droits </br>
-      <md-icon><i class="material-icons">expand_more</i></md-icon>
-    </md-button>
-    <md-menu-content id="blueContent">
-      <md-menu-item>
-        <md-button id="droitSubmenu" ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Vos droits'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
-      </md-menu-item>
-    </md-menu-content>
-  </md-menu>
-</md-menu-bar>
-
 <div class="cards">
-  <md-content class="md-padding">
+  <md-content class="md-padding cardWelcome">
     <div layout="column" layout-gt-xs="row">
-      <md-card flex flex-gt-xs="100">
+      <md-card class="" flex flex-gt-xs="100">
 
         <h2 class="cardTitle">Bienvenue !</h2>
         <md-card-content>
           <p>La Résidence Périer, établissement d’hébergement pour personnes âgées, située au centre de Senonches, dispose de 128 logements habilités à l’Aide Sociale. Votre prise en charge est assurée au quotidien par une équipe pluriprofessionnelle soucieuse
-            de maintenir votre autonomie et répondre à vos besoins ? L’environnement géographique, proche des commerces et au sein d’un espace boisé et sécurisé, favorise le maintien du lien social et familial. Ce site vous permettra de mieux connaître
+            de maintenir votre autonomie et répondre à vos besoins. L’environnement géographique, proche des commerces et au sein d’un espace boisé et sécurisé, favorise le maintien du lien social et familial. Ce site vous permettra de mieux connaître
             la Résidence. Bonne visite.</p>
         </md-card-content>
       </md-card>
@@ -65,7 +31,24 @@
       <md-card flex>
         <h2 class="cardTitle">Agenda</h2>
         <md-card-content>
-          <p>Some content</p>
+          <div class="" ng-repeat="evenement in listEvenementsAnon | startFrom:currentPageCalendar*pageSizeCalendar | limitTo:pageSizeCalendar">
+              <h4 class="cardDateEvenement">Le {{evenement.date | date: "dd-MM-yyyy"}}</h4>
+              <p class="cardTitleEvenement">{{evenement.title}}</p>
+              <p class="cardTitleEvenement">De {{evenement.start | date:'shortTime'}} à {{evenement.end | date:'shortTime'}}</p>
+              <md-divider ng-if="!$last"></md-divider>
+          </div>
+
+          <section class="blocBtnGalerie" layout="row" layout-align="center center" md-theme="anon">
+            <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar == 0" ng-click="currentPageCalendar=currentPageCalendar-1">
+              <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
+            </md-button>
+
+            <div class="pagingCalendarHome">{{currentPageCalendar+1}}/{{numberOfPagesCalendar()}}</div>
+            <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar >= listEvenementsAnon.length/pageSizeCalendar - 1" ng-click="currentPageCalendar = currentPageCalendar+1">
+              <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+            </md-button>
+          </section>
+
         </md-card-content>
       </md-card>
     </div>
@@ -83,9 +66,11 @@
         </md-card-content>
       </md-card>
       <md-card flex>
-        <md-card-content>
-          <p id="contactContent"> 1, route de Dreux </br> 28250 </br> Senonches </br>02.37.37.73.27</p>
-          <md-button class="md-raised md-cornered" id="contactButton" ui-sref="anon.formulaire">Contact</md-button>
+
+        <md-card-content md-theme="anon" layout-align="center center">
+          <p id="contactContent">Résidence Périer </br> 1, route de Dreux </br> 28250 </br> Senonches </br>02.37.37.73.27</p>
+          <md-button class="md-raised md-primary" id="contactButton" ui-sref="anon.formulaire">Contact</md-button>
+
           <md-card-content>
       </md-card>
     </div>

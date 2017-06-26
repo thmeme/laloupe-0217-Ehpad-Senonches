@@ -11,9 +11,9 @@ module.exports = (app) => {
   });
 
     var evenement = new Evenement();
-
+    
+    router.get('/anon', evenement.findAllAnon);
     router.get('/:id', evenement.findById);
-
     router.get('/', evenement.findAll);
 
     router.post('/admin/', Auth.isAdministrator, evenement.create);

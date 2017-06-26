@@ -11,6 +11,9 @@ angular.module('app')
             getAll: function() {
                 return $http.get('/evenements');
             },
+            getAllAnon: function() {
+                return $http.get('/evenements/anon');
+            },
             getOne: function(id) {
                 return $http.get('/evenements/'+ id).then(function(res) {
                   res.data.date = new Date(res.data.date);

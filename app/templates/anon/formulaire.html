@@ -11,11 +11,11 @@
 <div layout="row" class="contactForm">
   <div flex> -->
 <md-content class="md-padding">
-  <div layout="column" layout-gt-xs="row" layout-align="center center">
+  <div layout="column" layout-gt-xs="row" layout-align="center center" md-theme="anon">
     <md-card flex flex-gt-xs="80">
       <md-card-content>
 
-        <h2 class="formTitle">Formulaire à remplir pour nous contacter:</h2>
+        <h2 class="formTitle" id="formTitle">Formulaire à remplir pour nous contacter:</h2>
         <form ng-submit="sendMail()">
           <md-input-container class="formInput">
             <label>Votre adresse mail</label>
@@ -52,4 +52,3 @@
   <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
   <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
 </footer>
-
