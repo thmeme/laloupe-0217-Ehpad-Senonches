@@ -183,6 +183,15 @@ angular.module('app')
           }
         }
       })
+      .state('user.welcome', {
+        url: '/welcome',
+        views: {
+          'content@': {
+            templateUrl: 'user/welcome.html',
+            controller: 'WelcomeController'
+          }
+        }
+      })
       .state('user.create-calendar', {
         url: '/evenements',
         views: {
