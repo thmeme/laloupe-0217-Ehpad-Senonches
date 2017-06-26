@@ -364,14 +364,16 @@ md-content.md-ehpad-theme {
   left: 50vw;
   top: 22vw;
   transform: translateX(-50%) translateY(-50%);
+
 }
 #titleText {
   margin-top: 80px;
 }
 
 #h3 {
-  font-size: 3vw;
+  font-size: 2vw;
   color: #265B7E;
+  margin-top: 6vw;
 }
 
 #h3link {
@@ -380,7 +382,7 @@ md-content.md-ehpad-theme {
 
 
 #h1 {
-  font-size: 4vw;
+  font-size: 3vw;
   color: #265B7E;
 }
 
