@@ -9,11 +9,11 @@
   "private": true,
   "author": "Jean-Baptiste Pasquier",
   "scripts": {
-    "createAdmin": "lineman run",
+    "start": "lineman run",
     "test": "./node_modules/.bin/mocha spec",
     "production": "lineman clean build && cd server && babel-node index.js",
     "server": "cd server && babel-node index.js",
-    "start": "cd server && babel-node ./api/userCreation.js"
+    "createAdmin": "cd server && babel-node ./api/userCreation.js"
   },
   "dependencies": {
       "angular-drag-and-drop-lists": "^2.1.0",
