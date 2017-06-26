@@ -15,7 +15,6 @@
     "createAdmin": "cd server && babel-node ./api/userCreation.js"
   },
   "dependencies": {
-    "node-pre-gyp": "0.6.32",
     "angular-drag-and-drop-lists": "^2.1.0",
     "angular-jk-carousel": "^0.5.0",
     "angular-material": "^1.1.3",
