@@ -15,9 +15,9 @@ angular.module('app')
       $scope.idEvenement = $stateParams.id;
       console.log('id', $scope.idEvenement);
 
-      // CalendarService.getAll().then(function(res) {
-      //   $scope.evenements = res.data;
-      // });
+      CalendarService.getAll().then(function(res) {
+        $scope.evenements = res.data;
+      });
 
       function loadAllEvenements() {
         CalendarService.getAll().then(function(res) {

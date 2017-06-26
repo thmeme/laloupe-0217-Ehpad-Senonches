@@ -18,7 +18,7 @@
           color: beige;
         }
         .linkMail{
-          /*color: beige;*/
+          color: beige;
         }
         h1{
           font-style: italic;
@@ -37,7 +37,7 @@
           padding: 10px;
         }
         .mailMessage{
-          font-size: 20px;
+          font-size: 18px;
           padding: 40px;
           text-align: justify;
           color: brown;
@@ -50,10 +50,9 @@
       <table>
         	<tr>
           <td class="mailEmail">
-          Message envoyé par : {{variable2}}<br>
+          Message envoyé par {{variable2}}<br>
           <br>
-           via l'adresse : <span style="font-style: italic;">{{variable1}}</span><br>
-           Sujet du message : {{variable4}}
+           via l'adresse <span class="linkMail" style="color: beige;font-style: italic;">{{variable1}}</span>
           </td>
         </tr>
           <td class="mailMessage"><br>
