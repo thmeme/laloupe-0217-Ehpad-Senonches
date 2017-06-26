@@ -67,10 +67,27 @@ angular.module('app')
       SubmenuService.getAllAnon().then(function(res) {
         console.log('listSubmenusAnon', res);
         $scope.listSubmenusAnon = res.data;
-        console.log('res.data Anon', res.data);
       });
     }
     loadAllSubmenusAnon();
+
+    function loadAllEvenementsAnon() {
+      CalendarService.getAllAnon().then(function(res) {
+        $scope.listEvenementsAnon = res.data;
+        console.log('listEvenementsAnon', res.data);
+      });
+    }
+    loadAllEvenementsAnon();
+
+    $scope.currentPageCalendar = 0;
+    $scope.pageSizeCalendar = 3;
+    $scope.listEvenementsAnon = [];
+    $scope.numberOfPagesCalendar = function() {
+      return Math.ceil($scope.listEvenementsAnon.length / $scope.pageSizeCalendar);
+    };
+    for (var i = 0; i < $scope.listEvenementsAnon.length - 1; i++) {
+      $scope.listEvenementsAnon.push("Item " + i);
+    }
 
 
     SlideshowService.getAll().then(function(res) {
@@ -80,8 +97,7 @@ angular.module('app')
     });
 
     $scope.listImgSlideShow = [];
-    loadImgSlideshow = function() {
-    };
+    loadImgSlideshow = function() {};
     loadImgSlideshow();
 
     $scope.listNewsAnon = [];
@@ -90,33 +106,32 @@ angular.module('app')
       NewsService.getAllAnon().then(function(res) {
         console.log('listNewsAnon', res);
         $scope.listNewsAnon = res.data;
-        console.log('res.data Anon', res.data);
       });
     }
     loadAllNewsAnon();
 
 
 
-    $scope.listEvenements = [];
+    // $scope.listEvenements = [];
+    //
+    // function loadEvenements() {
+    //   CalendarService.getAll().then(function(res) {
+    //     $scope.listEvenements = res.data;
+    //   });
+    // }
+    // loadEvenements();
 
-    function loadEvenements() {
-      CalendarService.getAll().then(function(res) {
-        $scope.listEvenements = res.data;
+    //*****slider*****//
+
+
+    $scope.onReadySwiper = function(swiper) {
+      console.log(swiper);
+      swiper.on('init', function() {
+
+        console.log('slideChangeStart');
       });
-    }
-    loadEvenements();
-
-//*****slider*****//
 
 
-            $scope.onReadySwiper = function(swiper) {
-              console.log(swiper);
-              swiper.on('init', function () {
-
-       console.log('slideChangeStart');
-     });
-
-
-            };
+    };
 
   });

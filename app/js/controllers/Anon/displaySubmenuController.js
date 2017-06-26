@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('DisplaySubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService, Auth) {
+  .controller('DisplaySubmenuController', function($scope, $state, $stateParams, $window, $sce, UploadPdfService, CalendarService, UploadService, $timeout, $mdDialog, CurrentUser, SubmenuService, Auth) {
 
     $scope.theme = 'ehpad';
     $scope.user = CurrentUser.user();
@@ -12,16 +12,14 @@ angular.module('app')
     $scope.idSubmenu = $stateParams.id;
     console.log('id', $scope.idSubmenu);
 
-    function loadAllSubmenus() {
-      SubmenuService.getAll().then(function(res) {
-        console.log('listSubmenus', res);
-        $scope.listSubmenu = res.data;
-        console.log('res.data', res.data);
-      }, function(err) {
-        console.error('error on loadAllSubmenus', err);
+    function loadAllSubmenusAnon() {
+      SubmenuService.getAllAnon().then(function(res) {
+        console.log('listSubmenusAnon', res);
+        $scope.listSubmenusAnon = res.data;
+        console.log('res.data Anon', res.data);
       });
     }
-    loadAllSubmenus();
+    loadAllSubmenusAnon();
 
     $scope.uCanTrust = function(string) {
       return $sce.trustAsHtml(string);
@@ -41,6 +39,24 @@ angular.module('app')
       }
     }
     loadSubmenu($scope.idSubmenu);
+
+    function loadAllEvenementsAnon() {
+      CalendarService.getAllAnon().then(function(res) {
+        $scope.listEvenementsAnon = res.data;
+        console.log('listEvenementsAnon', res.data);
+      });
+    }
+    loadAllEvenementsAnon();
+
+    $scope.currentPageCalendar = 0;
+    $scope.pageSizeCalendar = 4;
+    $scope.listEvenementsAnon = [];
+    $scope.numberOfPagesCalendar = function() {
+      return Math.ceil($scope.listEvenementsAnon.length / $scope.pageSizeCalendar);
+    };
+    for (var i = 0; i < $scope.listEvenementsAnon.length - 1; i++) {
+      $scope.listEvenementsAnon.push("Item " + i);
+    }
 
     // $scope.newSubmenu = {
     //   content: '',

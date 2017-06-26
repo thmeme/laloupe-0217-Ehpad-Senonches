@@ -1,30 +1,44 @@
-<div layout="row" layout-xs="column">
-  <div flex-gt-sm="66" flex="33" id="newsDisplay">
-
-    <h1>{{news.title}}</h1>
-    <img ng-src="/{{news.image}}" alt="">
-    <p ng-bind-html="news.content"></p>
-  </div>
-  <div flex-gt-sm="30" flex="70" id="listNewsDisplay">
-
-    <md-list class="md-3-line" ng-repeat="news in listNewsAnon | orderBy: '-date' | startFrom:currentPageNews*pageSizeNews | limitTo:pageSizeNews" ng-show="!$first">
-      <h5>Postée le {{news.date | date : 'longDate'}}</h5>
-      <h3><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
-      <img style="width: 150px" ng-src="/{{news.image}}">
+<div class="cards">
 
 
-      <md-divider ng-if="!$last"></md-divider>
-    </md-list>
-    <section class="blocBtnGalerie" layout="row" layout-align="center center">
-      <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageNews == 0" ng-click="currentPageNews=currentPageNews-1">
-        <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
-      </md-button>
+  <md-content class="md-padding">
+    <div layout="column" layout-gt-xs="row">
 
-      <div class="pagingGalerieImages">{{currentPageNews+1}}/{{numberOfPagesNews()}}</div>
-      <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageNews >= listNews.length/pageSizeNews - 1" ng-click="currentPageNews = currentPageNews+1">
-        <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
-      </md-button>
-    </section>
-  </div>
-</div>
+      <md-card flex flex-gt-xs="70">
+        <md-card-content>
+
+          <h1>{{news.title}}</h1>
+          <img ng-src="/{{news.image}}" alt="">
+          <p ng-bind-html="news.content"></p>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex>
+        <h2 class="cardTitle">Toutes les actualités</h2>
+        <md-card-content>
+          <md-list class="md-3-line" ng-repeat="news in listNewsAnon | orderBy: '-date' | startFrom:currentPageNews*pageSizeNews | limitTo:pageSizeNews">
+            <h5>Postée le {{news.date | date : 'longDate'}}</h5>
+            <h3><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
+            <img style="width: 150px" ng-src="/{{news.image}}">
+
+
+            <md-divider ng-if="!$last"></md-divider>
+          </md-list>
+          <section class="blocBtnGalerie" layout="row" layout-align="center center">
+            <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageNews == 0" ng-click="currentPageNews=currentPageNews-1">
+              <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
+            </md-button>
+
+            <div class="pagingGalerieImages">{{currentPageNews+1}}/{{numberOfPagesNews()}}</div>
+            <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageNews >= listNewsAnon.length/pageSizeNews - 1" ng-click="currentPageNews = currentPageNews+1">
+              <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+            </md-button>
+          </section>
+        </md-card-content>
+      </md-card>
+    </div>
+
+  </md-content>
+
+
 </div>
