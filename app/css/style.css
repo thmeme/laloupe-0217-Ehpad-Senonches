@@ -1,9 +1,12 @@
-/*Body*/
-
 body {
-  background-color: #A4A4A4;
+  background-color: #ededed;
 }
-
+.md-button.md-anon-theme.md-primary.md-raised  {
+  color: white;
+}
+.md-button.md-anon-theme.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-anon-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-anon-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-anon-theme.md-primary.md-raised:not([disabled]):hover {
+  color: white;
+}
 
 /*Navbar*/
 
@@ -313,29 +316,48 @@ form .progress {
 
 /********* Home Page *********/
 
-body {
-  background-color: #F5F4F4;
-
+.cardWelcome {
+  padding: 0px;
 }
 
 md-content.md-ehpad-theme {
-  background-color: #F5F4F4;
+  background-color: #ededed;
 }
+
 .cardTitle {
-    /*border-bottom: 1px solid;*/
-    margin-left: 15px;
-    /*border-color: #ff7ed3;*/
+  /*border-bottom: 1px solid;*/
+  margin-left: 15px;
+  margin-bottom: 0;
+  /*border-color: #ff7ed3;*/
+}
+
+.cardDateEvenement {
+  margin-bottom: 0;
+}
+
+.cardTitleEvenement {
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .cardLink :link {
-  text-decoration:none;
+  text-decoration: none;
   color: black;
+}
+
+.cardLink :visited {
+  text-decoration: none;
+  color: black;
+}
+
+.pagingCalendarHome {
+      margin-top: 15px;
 }
 
 #titleBox {
   background-color: rgba(255, 255, 255, .75);
-  height: 300px;
-  width: 600px;
+  height: 35%;
+  width: 40%;
   position: absolute;
   z-index: 1;
   text-align: center;
@@ -352,21 +374,45 @@ md-content.md-ehpad-theme {
   color: #265B7E;
 }
 
+#h3 :link {
+  text-decoration: none;
+}
+#h3 :visited {
+  text-decoration: none;
+}
+
 #h1 {
   font-size: 45px;
   color: #265B7E;
 }
 
-.cardTitle {
-
+#h1 :link {
+  text-decoration: none;
 }
+#h1 :visited {
+  text-decoration: none;
+}
+
 
 /****** menu ******/
 
 #menu {
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 25px;
+  margin-bottom: 0px;
+}
+
+.md-padding {
+  padding: 0;
+}
+
+.displaySubmenu :link {
+  text-decoration: none;
+  color: black;
+}
+
+.displaySubmenu :visited {
+  text-decoration: none;
+  color: black;
 }
 
 #greenButton {
@@ -476,17 +522,12 @@ md-content.md-ehpad-theme {
 }
 
 #contactButton {
-  background-color: #F1F1F1;
   display: block;
-  margin: auto;
-  width: 140px;
-  height: 40px;
-  font-size: 15px;
 }
 
-#contactButton:hover {
+/*#contactButton:hover {
   background-color: #E5E5E5;
-}
+}*/
 
 #contactLink {
   text-decoration: none;
@@ -578,6 +619,7 @@ md-content.md-ehpad-theme {
   height: 100px;
   background-color: #265B7E;
   position: relative;
+  margin-top: 7px;
 }
 
 .footerLink {
@@ -630,6 +672,7 @@ md-content.md-ehpad-theme {
 .formBtn {
   float: right;
   margin-top: 25px;
+  color: white;
 }
 
 .timer {
@@ -655,4 +698,8 @@ md-content.md-ehpad-theme {
   position: absolute;
   margin-top: 15px;
   margin-left: 10px;
+}
+
+@media (min-width: 960px) angular-material.css:173 .md-padding {
+  padding: 0;
 }

@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('DisplayNewsController', function($scope, $stateParams, $window, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
+  .controller('DisplayNewsController', function($scope, $stateParams, $window, $sce, $state, UploadPdfService, UploadService, $timeout, $mdDialog, CurrentUser, NewsService, Auth) {
 
     $scope.user = CurrentUser.user();
 
@@ -21,6 +21,7 @@ angular.module('app')
       NewsService.getAllAnon().then(function(res) {
         console.log('listNewsAnon', res);
         $scope.listNewsAnon = res.data;
+
         console.log('res.data Anon', res.data);
       });
     }
@@ -31,6 +32,8 @@ angular.module('app')
         NewsService.getOne($scope.idNews).then(function(res) {
           console.log('res One', res);
           $scope.news = res.data;
+          $scope.news.content = $sce.trustAsHtml(res.data.content);
+
         });
       }
     }
@@ -134,12 +137,12 @@ angular.module('app')
 
     $scope.currentPageNews = 0;
     $scope.pageSizeNews = 5;
-    $scope.listNews = [];
+    $scope.listNewsAnon = [];
     $scope.numberOfPagesNews = function() {
-      return Math.ceil($scope.listNews.length / $scope.pageSizeNews);
+      return Math.ceil($scope.listNewsAnon.length / $scope.pageSizeNews);
     };
-    for (var i = 0; i < $scope.listNews.length - 1; i++) {
-      $scope.listNews.push("Item " + i);
+    for (var i = 0; i < $scope.listNewsAnon.length - 1; i++) {
+      $scope.listNewsAnon.push("Item " + i);
     }
 
     // $scope.insertImg = function(nameImg) {
