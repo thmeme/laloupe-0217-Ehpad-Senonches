@@ -356,40 +356,35 @@ md-content.md-ehpad-theme {
 
 #titleBox {
   background-color: rgba(255, 255, 255, .75);
-  height: 35%;
+  height: 20vw;
   width: 40%;
   position: absolute;
   z-index: 1;
   text-align: center;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-70%);
+  left: 50vw;
+  top: 22vw;
+  transform: translateX(-50%) translateY(-50%);
 }
 #titleText {
   margin-top: 80px;
 }
 
 #h3 {
-  font-size: 25px;
+  font-size: 3vw;
   color: #265B7E;
 }
 
-#h3 :link {
+#h3link {
   text-decoration: none;
 }
-#h3 :visited {
-  text-decoration: none;
-}
+
 
 #h1 {
-  font-size: 45px;
+  font-size: 4vw;
   color: #265B7E;
 }
 
-#h1 :link {
-  text-decoration: none;
-}
-#h1 :visited {
+#h1link {
   text-decoration: none;
 }
 
