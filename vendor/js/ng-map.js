@@ -1,29 +1,29 @@
 (function(root, factory) {
 if (typeof exports === "object") {
-module.exports = factory(require('angular'));
+module.exports = factory();
 } else if (typeof define === "function" && define.amd) {
-define(['angular'], factory);
+define([], factory);
 } else{
-factory(root.angular);
+factory();
 }
-}(this, function(angular) {
+}(this, function() {
 /**
- * AngularJS Google Maps Ver. 1.18.3
+ * AngularJS Google Maps Ver. 1.18.4
  *
  * The MIT License (MIT)
- * 
+ *
  * Copyright (c) 2014, 2015, 1016 Allen Kim
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
  * the Software without restriction, including without limitation the rights to
  * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
  * the Software, and to permit persons to whom the Software is furnished to do so,
  * subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
  * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
@@ -205,7 +205,7 @@ angular.module('ngMap', []);
       }
 
       // set options
-      mapOptions.zoom = mapOptions.zoom || 15;
+      mapOptions.zoom = (mapOptions.zoom && !isNaN(mapOptions.zoom)) ? +mapOptions.zoom : 15;
       var center = mapOptions.center;
       var exprRegExp = new RegExp(escapeRegExp(exprStartSymbol) + '.*' + escapeRegExp(exprEndSymbol));
 
@@ -420,13 +420,20 @@ angular.module('ngMap', []);
     var filtered = parser.filter(attrs);
     var options = parser.getOptions(filtered, {scope: scope});
     var events = parser.getEvents(scope, filtered);
+    var innerScope = scope.$new();
 
     /**
      * build a custom control element
      */
     var customControlEl = element[0].parentElement.removeChild(element[0]);
-    var content = $transclude();
-    angular.element(customControlEl).append(content);
+    var content = $transclude( innerScope, function( clone ) {
+      element.empty();
+      element.append( clone );
+      element.on( '$destroy', function() {
+        innerScope.$destroy();
+      });
+    });
+
 
     /**
      * set events
@@ -744,7 +751,7 @@ angular.module('ngMap', []);
     request.travelMode = request.travelMode || 'DRIVING';
     var validKeys = [
       'origin', 'destination', 'travelMode', 'transitOptions', 'unitSystem',
-      'durationInTraffic', 'waypoints', 'optimizeWaypoints', 
+      'durationInTraffic', 'waypoints', 'optimizeWaypoints',
       'provideRouteAlternatives', 'avoidHighways', 'avoidTolls', 'region'
     ];
     for(var key in request){
@@ -1315,7 +1322,7 @@ angular.module('ngMap', []);
  *
  * @attr {Url} url url of the kml layer
  * @attr {KmlLayerOptions} KmlLayerOptions
- *   (https://developers.google.com/maps/documentation/javascript/reference#KmlLayerOptions) 
+ *   (https://developers.google.com/maps/documentation/javascript/reference#KmlLayerOptions)
  * @attr {String} &lt;KmlLayerEvent> Any KmlLayer events,
  *   https://developers.google.com/maps/documentation/javascript/reference
  * @example
@@ -1536,7 +1543,7 @@ angular.module('ngMap', []);
 /**
  * @ngdoc directive
  * @name map-type
- * @param Attr2MapOptions {service} 
+ * @param Attr2MapOptions {service}
  *   convert html attribute to Google map api options
  * @description
  *   Requires:  map directive
@@ -1887,6 +1894,7 @@ angular.module('ngMap', []);
  * Example:
  *   <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
  *   <input places-auto-complete types="['geocode']" on-place-changed="myCallback(place)" component-restrictions="{country:'au'}"/>
+ *
  */
 /* global google */
 (function() {
@@ -1903,6 +1911,7 @@ angular.module('ngMap', []);
       var options = parser.getOptions(filtered, {scope: scope});
       var events = parser.getEvents(scope, filtered);
       var autocomplete = new google.maps.places.Autocomplete(element[0], options);
+      autocomplete.setOptions({strictBounds: options.strictBounds === true});
       for (var eventName in events) {
         google.maps.event.addListener(autocomplete, eventName, events[eventName]);
       }
@@ -1915,20 +1924,37 @@ angular.module('ngMap', []);
       google.maps.event.addListener(autocomplete, 'place_changed', updateModel);
       element[0].addEventListener('change', updateModel);
 
+      attrs.$observe('rectBounds', function(val) {
+        if (val) {
+          var bounds = parser.toOptionValue(val, {key: 'rectBounds'});
+          autocomplete.setBounds(new google.maps.LatLngBounds(
+            new google.maps.LatLng(bounds.south_west.lat, bounds.south_west.lng),
+            new google.maps.LatLng(bounds.north_east.lat, bounds.north_east.lng)));
+          }
+      });
+
+      attrs.$observe('circleBounds', function(val) {
+        if (val) {
+          var bounds = parser.toOptionValue(val, {key: 'circleBounds'});
+          var circle = new google.maps.Circle(bounds);
+          autocomplete.setBounds(circle.getBounds());
+        }
+      });
+
       attrs.$observe('types', function(val) {
         if (val) {
           var optionValue = parser.toOptionValue(val, {key: 'types'});
           autocomplete.setTypes(optionValue);
         }
       });
-	  
-	  attrs.$observe('componentRestrictions', function (val) {
-		 if (val) {
-		   autocomplete.setComponentRestrictions(scope.$eval(val));
-		 }
-	   });
+
+      attrs.$observe('componentRestrictions', function (val) {
+        if (val) {
+          autocomplete.setComponentRestrictions(scope.$eval(val));
+        }
+      });
     };
-	
+
     return {
       restrict: 'A',
       require: '?ngModel',
@@ -2033,7 +2059,7 @@ angular.module('ngMap', []);
       case "circle":
         if (!(options.center instanceof google.maps.LatLng)) {
           options.center = new google.maps.LatLng(0,0);
-        } 
+        }
         shape = new google.maps.Circle(options);
         break;
       case "polygon":
@@ -2443,10 +2469,10 @@ angular.module('ngMap', []);
       }
       return JSON.parse(jsonizeFilter(input));
     };
-    
+
     var getLatLng = function(input) {
       var output = input;
-      if (input[0].constructor == Array) { 
+      if (input[0].constructor == Array) {
         if ((input[0][0].constructor == Array && input[0][0].length == 2) || input[0][0].constructor == Object) {
             var preoutput;
             var outputArray = [];
@@ -2923,7 +2949,7 @@ angular.module('ngMap', []);
    * @memberof NavigatorGeolocation
    * @param {Object} geoLocationOptions the navigator geolocations options.
    *  i.e. { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }.
-   *  If none specified, { timeout: 5000 }. 
+   *  If none specified, { timeout: 5000 }.
    *  If timeout not specified, timeout: 5000 added
    * @param {function} success success callback function
    * @param {function} failure failure callback function
@@ -3055,13 +3081,13 @@ angular.module('ngMap', []);
    * @memberof NgMapPool
    * @function returnMapInstance
    * @param {Map} an instance of google.maps.Map
-   * @desc sets the flag inUse of the given map instance to false, so that it 
+   * @desc sets the flag inUse of the given map instance to false, so that it
    * can be reused later
    */
   var returnMapInstance = function(map) {
     map.inUse = false;
   };
-  
+
   /**
    * @memberof NgMapPool
    * @function resetMapInstances
@@ -3073,7 +3099,7 @@ angular.module('ngMap', []);
     }
     mapInstances = [];
   };
-  
+
   /**
    * @memberof NgMapPool
    * @function deleteMapInstance
