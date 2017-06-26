@@ -372,9 +372,23 @@ md-content.md-ehpad-theme {
   color: #265B7E;
 }
 
+#h3 :link {
+  text-decoration: none;
+}
+#h3 :visited {
+  text-decoration: none;
+}
+
 #h1 {
   font-size: 45px;
   color: #265B7E;
+}
+
+#h1 :link {
+  text-decoration: none;
+}
+#h1 :visited {
+  text-decoration: none;
 }
 
 
