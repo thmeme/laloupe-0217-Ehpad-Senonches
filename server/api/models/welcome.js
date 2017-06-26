@@ -19,6 +19,9 @@ const welcomeSchema = new mongoose.Schema({
     date: {
         type: Date,
     },
+    id : {
+      type: String,
+    },
     isOnline: {
       type: Boolean,
       default: false,
@@ -98,7 +101,6 @@ export default class Welcome {
         let welcome = req.body;
         console.log('back', req.body);
         welcome.date = new Date().toISOString();
-        // delete submenu.isOnline;
         model.create(welcome, (err, welcome) => {
             if (err) {
                 res.status(500).send({
@@ -113,9 +115,11 @@ export default class Welcome {
         });
     }
     update(req, res) {
-      console.log('route non admin');
-        model.findByIdAndUpdate(req.params.id,
-          req.body, { new: true },function(err, welcome) {
+      console.log('route admin');
+      console.log('rep update', req.body);
+
+        model.findOneAndUpdate(req.params.id,
+          req.body, { upsert: true },function(err, welcome) {
             if (err) {
               res.status(500).send(err);
             } else {
@@ -127,9 +131,9 @@ export default class Welcome {
         });
     }
     updateByUser(req, res) {
-      delete req.body.isOnline;
-        model.findByIdAndUpdate(req.params.id,
-          req.body, { new: true },function(err, welcome) {
+      console.log('req update user', req.body);
+        model.findOneAndUpdate(req.params.id,
+          req.body, { upsert: true },function(err, welcome) {
             if (err) {
               res.status(500).send(err);
             } else {

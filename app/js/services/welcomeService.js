@@ -18,10 +18,11 @@ angular.module('app')
                 return $http.get('/welcome/' + id);
             },
             update: function(id, welcome) {
+              console.log(id);
               if(user.isAdmin) {
-                return $http.put('/welcome/admin/' + id, welcome);
+                return $http.put('/welcome/admin/' + (id._id || ''), welcome);
               }
-                return $http.put('/welcome/' + id, welcome);
+                return $http.put('/welcome/' + (id._id || ''), welcome);
             },
             delete: function(id) {
                 return $http.delete('/welcome/' + id);

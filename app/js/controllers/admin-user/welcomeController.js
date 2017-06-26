@@ -12,16 +12,14 @@ angular.module('app')
       title: '',
       content: '',
       author: '',
-      _id:'banane'
     };
 
     $scope.welcome.author = CurrentUser.user()._id;
 
     $scope.addWelcome = function() {
-      WelcomeService.create($scope.welcome).then(function(res) {
+      WelcomeService.update('', $scope.welcome).then(function(res) {
         console.log('welcome', $scope.welcome);
         console.log('auteur', $scope.welcome.author);
-
       // $state.go('user.edit-submenu', {id: res.data.welcome._id});
       });
     };
@@ -38,17 +36,17 @@ angular.module('app')
     // }
     // loadAllWelcomes();
 
-    function loadWelcome() {
-        WelcomeService.getOne('banane').then(function(res) {
-          console.log('res One', res);
-          $scope.welcome = res.data;
-
-        }, function(err) {
-          console.error('error on getOne Welcome', err);
-        });
-
-    }
-    loadWelcome($scope.idWelcome);
+    // function loadWelcome() {
+    //     WelcomeService.getOne($scope.welcome.id).then(function(res) {
+    //       console.log('res One', res);
+    //       $scope.welcome = res.data;
+    //
+    //     }, function(err) {
+    //       console.error('error on getOne Welcome', err);
+    //     });
+    //
+    // }
+    // loadWelcome($scope.idWelcome);
 
 
 
