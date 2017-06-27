@@ -747,7 +747,18 @@ md-content.md-ehpad-theme {
   margin-left: 10px;
 }
 
-@media (min-width: 960px)  
+/*@media (min-width: 960px)
 .md-padding {
   padding: 0;
+
+}*/
+@media (max-width: 500px) {
+  .md-card-content.Une.flex-55 {
+    width: 100%;
+  }
+ .imgNewsHome {
+   max-width: 100%;
+ }
+
+
 }

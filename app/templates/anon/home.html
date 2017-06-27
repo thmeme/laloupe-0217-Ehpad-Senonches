@@ -24,7 +24,7 @@
           <h2 class="cardTitle">Actualité</h2>
 
           <div layout='row'>
-            <md-card-content flex="55">
+            <md-card-content class="Une" flex-gt-sm="55" flex="100">
               <h3 class="titleColListNews">A la Une</h3>
               <div ng-repeat='news in listNewsAnon track by $index'>
                 <h4 class="cardLink" ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
