@@ -91,18 +91,15 @@
         </md-card>
         </div>
     </md-content>
-
-    <md-content class="md-padding">
-      <div layout="column" layout-gt-xs="row">
-        <md-card flex flex-gt-xs="70">
-          <md-card-content>
-            <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
-              <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
-                <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
-              </ng-map>
-            </div>
-          </md-card-content>
-        </md-card>
+  <md-content class="md-padding">
+    <div layout="column" layout-gt-xs="row">
+      <md-card flex flex-gt-xs="80">
+        <md-card-content>
+            <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
+              <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
+            </ng-map>
+        </md-card-content>
+     
         <md-card flex class="colHomeLeft">
 
           <md-card-content md-theme="anon" layout-align="center center">

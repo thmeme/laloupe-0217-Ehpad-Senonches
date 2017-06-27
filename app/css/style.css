@@ -423,16 +423,18 @@ md-content.md-ehpad-theme {
 }
 
 #titleBox {
+  background-color: rgba(255, 255, 255, .75);
   height: 35%;
   width: 40%;
   position: absolute;
   z-index: 1;
-  background-color: white;
-  opacity: 0.7;
   text-align: center;
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-70%);
+}
+#titleText {
+  margin-top: 80px;
 }
 
 #h3 {
