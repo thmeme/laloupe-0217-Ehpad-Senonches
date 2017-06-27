@@ -323,6 +323,13 @@ form .progress {
   padding: 0px;
 }
 
+.colAllNewsHome {
+  position: relative;
+}
+.colAgendaHome {
+  position: relative;
+}
+
 .colFront {
   width: 80%;
   margin: auto;
@@ -333,9 +340,21 @@ md-content.md-ehpad-theme {
   background-color: #ededed;
 }
 
-.imgNewsHome {
-  max-width: 208px;
+.btnListNewsHome {
+  position: absolute;
+  bottom: 2%;
+  left: 21%;
 }
+.btnListAgendaHome {
+  position: absolute;
+  bottom: 2%;
+  left: 28%;
+}
+
+.imgNewsHome {
+  max-width: 100%;
+}
+
 .textColListNews {
   overflow: hidden;
   height: 70px;
@@ -343,17 +362,19 @@ md-content.md-ehpad-theme {
   text-align: justify;
   margin-top: 0;
 }
+
 .linkTextListNews {
   font-size: 0.7em;
   margin-top: 0;
   text-align: right;
   text-decoration: none;
 }
-.linkTextListNews :link {
 
+.linkTextListNews :link {
   text-decoration: none;
   color: black;
 }
+
 .colHomeLeft {
   min-width: 200px !important;
 }
@@ -366,6 +387,7 @@ md-content.md-ehpad-theme {
   margin-left: -15px;
   margin-top: 7px;
 }
+
 .titleColListNews {
   margin-top: 7px;
 }
@@ -747,18 +769,18 @@ md-content.md-ehpad-theme {
   margin-left: 10px;
 }
 
+
 /*@media (min-width: 960px)
 .md-padding {
   padding: 0;
 
 }*/
-@media (max-width: 500px) {
+
+@media (max-width: 960px) {
   .md-card-content.Une.flex-55 {
     width: 100%;
   }
- .imgNewsHome {
-   max-width: 100%;
- }
-
-
+  .imgNewsHome {
+    max-width: 100%;
+  }
 }

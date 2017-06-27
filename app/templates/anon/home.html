@@ -34,7 +34,7 @@
               <p class="linkTextListNews cardLink"><a ui-sref="anon.displaynews({id: news._id})">Lire la suite...</a></p>
 
             </md-card-content>
-            <md-card-content flex="45" hide show-md>
+            <md-card-content flex="45" hide show-md class="colAllNewsHome">
               <h3 class="titleColListNews">Toutes les actualités</h3>
               <div class="colListNews">
                 <div ng-repeat="newsList in listNewsAnon | orderBy : '-date' | startFrom:currentPageListNews*pageSizeListNews | limitTo:pageSizeListNews">
@@ -46,16 +46,18 @@
                   <md-divider ng-hide="$first" ng-if="!$last"></md-divider>
                 </div>
               </div>
-              <section class="blocBtnGalerie" layout="row" layout-align="center center" md-theme="anon">
+
+              <section class="blocBtnGalerie btnListNewsHome" layout="row" layout-align="center center" md-theme="anon">
                 <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageListNews == 0" ng-click="currentPageListNews=currentPageListNews-1">
                   <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
                 </md-button>
 
-                <div class="pagingCalendarHome">{{currentPageCalendar+1}}/{{numberOfPagesCalendar()}}</div>
+                <div class="pagingCalendarHome">{{currentPageListNews+1}}/{{numberOfPagesListNews()}}</div>
                 <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageListNews >= listNewsAnon.length/pageSizeListNews - 1" ng-click="currentPageListNews = currentPageListNews+1">
                   <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
                 </md-button>
               </section>
+
             </md-card-content>
 
 
@@ -64,7 +66,7 @@
 
 
 
-        <md-card flex class="colHomeLeft">
+        <md-card flex class="colHomeLeft colAgendaHome">
           <h2 class="cardTitle">Agenda</h2>
           <md-card-content>
             <div class="" ng-repeat="evenement in listEvenementsAnon | orderBy : '-date' | startFrom:currentPageCalendar*pageSizeCalendar | limitTo:pageSizeCalendar">
@@ -74,7 +76,7 @@
                 <md-divider ng-if="!$last"></md-divider>
               </div>
 
-              <section class="blocBtnGalerie" layout="row" layout-align="center center" md-theme="anon">
+              <section class="blocBtnGalerie btnListAgendaHome" layout="row" layout-align="center center" md-theme="anon">
                 <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar == 0" ng-click="currentPageCalendar=currentPageCalendar-1">
                   <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
                 </md-button>

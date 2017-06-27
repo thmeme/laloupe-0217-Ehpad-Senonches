@@ -108,7 +108,7 @@ angular.module('app')
     $scope.currentPageListNews = 0;
     $scope.pageSizeListNews = 3;
     $scope.listNewsAnon = [];
-    $scope.numberOfPagesCalendar = function() {
+    $scope.numberOfPagesListNews = function() {
       return Math.ceil($scope.listNewsAnon.length / $scope.pageSizeListNews);
     };
     for (var a = 0; a < $scope.listNewsAnon.length - 1; a++) {
