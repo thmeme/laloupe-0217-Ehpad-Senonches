@@ -1,12 +1,15 @@
 body {
   background-color: #ededed;
 }
-.md-button.md-anon-theme.md-primary.md-raised  {
+
+.md-button.md-anon-theme.md-primary.md-raised {
   color: white;
 }
+
 .md-button.md-anon-theme.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-anon-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-anon-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-anon-theme.md-primary.md-raised:not([disabled]):hover {
   color: white;
 }
+
 
 /*Navbar*/
 
@@ -320,8 +323,73 @@ form .progress {
   padding: 0px;
 }
 
+.colAllNewsHome {
+  position: relative;
+}
+.colAgendaHome {
+  position: relative;
+}
+
+.colFront {
+  width: 80%;
+  margin: auto;
+  background-color: #ededed;
+}
+
 md-content.md-ehpad-theme {
   background-color: #ededed;
+}
+
+.btnListNewsHome {
+  position: absolute;
+  bottom: 2%;
+  left: 21%;
+}
+.btnListAgendaHome {
+  position: absolute;
+  bottom: 2%;
+  left: 28%;
+}
+
+.imgNewsHome {
+  max-width: 100%;
+}
+
+.textColListNews {
+  overflow: hidden;
+  height: 70px;
+  font-size: 0.7em;
+  text-align: justify;
+  margin-top: 0;
+}
+
+.linkTextListNews {
+  font-size: 0.7em;
+  margin-top: 0;
+  text-align: right;
+  text-decoration: none;
+}
+
+.linkTextListNews :link {
+  text-decoration: none;
+  color: black;
+}
+
+.colHomeLeft {
+  min-width: 200px !important;
+}
+
+.colListNews {
+  border-left: #e0e0e0;
+  border-left-style: solid;
+  border-width: 1px;
+  padding-left: 15px;
+  margin-left: -15px;
+  margin-top: 7px;
+}
+
+.titleColListNews {
+  margin-top: 7px;
 }
 
 .cardTitle {
@@ -351,7 +419,7 @@ md-content.md-ehpad-theme {
 }
 
 .pagingCalendarHome {
-      margin-top: 15px;
+  margin-top: 15px;
 }
 
 #titleBox {
@@ -377,6 +445,7 @@ md-content.md-ehpad-theme {
 #h3 :link {
   text-decoration: none;
 }
+
 #h3 :visited {
   text-decoration: none;
 }
@@ -389,6 +458,7 @@ md-content.md-ehpad-theme {
 #h1 :link {
   text-decoration: none;
 }
+
 #h1 :visited {
   text-decoration: none;
 }
@@ -524,6 +594,7 @@ md-content.md-ehpad-theme {
 #contactButton {
   display: block;
 }
+
 
 /*#contactButton:hover {
   background-color: #E5E5E5;
@@ -700,6 +771,18 @@ md-content.md-ehpad-theme {
   margin-left: 10px;
 }
 
-@media (min-width: 960px) angular-material.css:173 .md-padding {
+
+/*@media (min-width: 960px)
+.md-padding {
   padding: 0;
+
+}*/
+
+@media (max-width: 960px) {
+  .md-card-content.Une.flex-55 {
+    width: 100%;
+  }
+  .imgNewsHome {
+    max-width: 100%;
+  }
 }

@@ -1,0 +1,18 @@
+<div layout="column" layout layout-align="space-around center">
+  <div class="columnAdmin">
+
+    <form ng-submit="addWelcome()">
+      <md-input-container>
+        <p><label>Title</label>
+          <input required ng-model="welcome.title"></p>
+      </md-input-container>
+      <md-input-container class="">
+        <label>Votre texte</label>
+        <textarea required ng-model="welcome.content" rows="4" cols="80"></textarea>
+      </md-input-container>
+      <div layout='row'>
+        <md-button class="md-primary md-raised" type="submit">Valider</md-button>
+      </div>
+    </form>
+  </div>
+</div>
