@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('HomeController', function($scope, SubmenuService, CalendarService, NewsService, SlideshowService) {
+  .controller('HomeController', function($scope, SubmenuService, CalendarService, $sce, NewsService, SlideshowService) {
     $scope.tinymceModel = 'Initial content';
 
     $scope.getContent = function() {
@@ -88,6 +88,32 @@ angular.module('app')
     for (var i = 0; i < $scope.listEvenementsAnon.length - 1; i++) {
       $scope.listEvenementsAnon.push("Item " + i);
     }
+    $scope.uCanTrust = function(string) {
+      return $sce.trustAsHtml(string);
+    };
+    function loadAllNewsAnon() {
+      NewsService.getAllAnon().then(function(res) {
+        console.log('listNewsAnon', res);
+        $scope.listNewsAnon = res.data;
+        $scope.listNewsAnon.content = $sce.trustAsHtml(res.data.content);
+        console.log('$scope.listNewsAnon.content', $scope.listNewsAnon.content);
+
+
+      });
+    }
+    loadAllNewsAnon();
+
+
+
+    $scope.currentPageListNews = 0;
+    $scope.pageSizeListNews = 3;
+    $scope.listNewsAnon = [];
+    $scope.numberOfPagesCalendar = function() {
+      return Math.ceil($scope.listNewsAnon.length / $scope.pageSizeListNews);
+    };
+    for (var a = 0; a < $scope.listNewsAnon.length - 1; a++) {
+      $scope.listNewsAnon.push("Item " + a);
+    }
 
 
     SlideshowService.getAll().then(function(res) {
@@ -102,13 +128,7 @@ angular.module('app')
 
     $scope.listNewsAnon = [];
 
-    function loadAllNewsAnon() {
-      NewsService.getAllAnon().then(function(res) {
-        console.log('listNewsAnon', res);
-        $scope.listNewsAnon = res.data;
-      });
-    }
-    loadAllNewsAnon();
+
 
 
 

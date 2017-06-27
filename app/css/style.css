@@ -1,12 +1,15 @@
 body {
   background-color: #ededed;
 }
-.md-button.md-anon-theme.md-primary.md-raised  {
+
+.md-button.md-anon-theme.md-primary.md-raised {
   color: white;
 }
+
 .md-button.md-anon-theme.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-anon-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-anon-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-anon-theme.md-primary.md-raised:not([disabled]):hover {
   color: white;
 }
+
 
 /*Navbar*/
 
@@ -320,8 +323,42 @@ form .progress {
   padding: 0px;
 }
 
+.colFront {
+  width: 80%;
+  margin: auto;
+  background-color: #ededed;
+}
+
 md-content.md-ehpad-theme {
   background-color: #ededed;
+}
+
+.imgNewsHome {
+  max-width: 208px;
+}
+.textColListNews {
+  overflow: hidden;
+  height: 100px;
+  font-size: 0.6em;
+  text-align: justify;
+  background-image: linear-gradient(to top, rgba(216,216,216,0), rgba(216,216,216,1));
+
+}
+
+.colHomeLeft {
+  min-width: 200px !important;
+}
+
+.colListNews {
+  border-left: #e0e0e0;
+  border-left-style: solid;
+  border-width: 1px;
+  padding-left: 15px;
+  margin-left: -15px;
+  margin-top: 7px;
+}
+.titleColListNews {
+  margin-top: 7px;
 }
 
 .cardTitle {
@@ -351,7 +388,7 @@ md-content.md-ehpad-theme {
 }
 
 .pagingCalendarHome {
-      margin-top: 15px;
+  margin-top: 15px;
 }
 
 #titleBox {
@@ -375,6 +412,7 @@ md-content.md-ehpad-theme {
 #h3 :link {
   text-decoration: none;
 }
+
 #h3 :visited {
   text-decoration: none;
 }
@@ -387,6 +425,7 @@ md-content.md-ehpad-theme {
 #h1 :link {
   text-decoration: none;
 }
+
 #h1 :visited {
   text-decoration: none;
 }
@@ -522,6 +561,7 @@ md-content.md-ehpad-theme {
 #contactButton {
   display: block;
 }
+
 
 /*#contactButton:hover {
   background-color: #E5E5E5;
