@@ -783,4 +783,7 @@ md-content.md-ehpad-theme {
   .imgNewsHome {
     max-width: 100%;
   }
+  .colFront {
+    width: 100%;
+    margin: auto;
 }
