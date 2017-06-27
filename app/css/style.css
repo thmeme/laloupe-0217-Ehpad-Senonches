@@ -747,6 +747,7 @@ md-content.md-ehpad-theme {
   margin-left: 10px;
 }
 
-@media (min-width: 960px) angular-material.css:173 .md-padding {
+@media (min-width: 960px)  
+.md-padding {
   padding: 0;
 }

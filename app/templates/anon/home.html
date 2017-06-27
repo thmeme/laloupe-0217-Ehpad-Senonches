@@ -34,7 +34,7 @@
               <p class="linkTextListNews cardLink"><a ui-sref="anon.displaynews({id: news._id})">Lire la suite...</a></p>
 
             </md-card-content>
-            <md-card-content flex="45">
+            <md-card-content flex="45" hide show-md>
               <h3 class="titleColListNews">Toutes les actualités</h3>
               <div class="colListNews">
                 <div ng-repeat="newsList in listNewsAnon | orderBy : '-date' | startFrom:currentPageListNews*pageSizeListNews | limitTo:pageSizeListNews">
