@@ -30,18 +30,18 @@
                 <h4 class="cardLink" ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
                 <a ui-sref="anon.displaynews({id: news._id})"><img class="imgNewsHome" ng-show="$last" ng-src="/{{news.image}}"></a>
                 <p ng-show="$last" class="textColListNews" ng-bind-html='news.content'></p>
-                <!-- <p ng-show="$last" ng-bind-html="news.content"></p> -->
-
               </div>
+              <p class="linkTextListNews cardLink"><a ui-sref="anon.displaynews({id: news._id})">Lire la suite...</a></p>
+
             </md-card-content>
             <md-card-content flex="45">
               <h3 class="titleColListNews">Toutes les actualités</h3>
               <div class="colListNews">
                 <div ng-repeat="newsList in listNewsAnon | orderBy : '-date' | startFrom:currentPageListNews*pageSizeListNews | limitTo:pageSizeListNews">
                   <h5 ng-hide="$first" class="cardDateEvenement">Postée le {{newsList.date | date: "dd-MM-yyyy"}}</h5>
-                  <a ui-sref="anon.displaynews({id: newsList._id})">
-                    <p ng-hide="$first" class="cardTitleEvenement">{{newsList.title}}</p>
-                  </a>
+                  <p ng-hide="$first" class="cardLink cardTitleEvenement">
+                    <a ui-sref="anon.displaynews({id: newsList._id})">{{newsList.title}}</a></p>
+
                   <a ui-sref="anon.displaynews({id: newsList._id})"><img class="imgNewsHome" style="width: 50px;" ng-hide="$first" ng-src="/{{newsList.image}}"></a>
                   <md-divider ng-hide="$first" ng-if="!$last"></md-divider>
                 </div>
@@ -69,25 +69,25 @@
           <md-card-content>
             <div class="" ng-repeat="evenement in listEvenementsAnon | orderBy : '-date' | startFrom:currentPageCalendar*pageSizeCalendar | limitTo:pageSizeCalendar">
               <h4 class="cardDateEvenement">Le {{evenement.date | date: "dd-MM-yyyy"}}</h4>
-              <p class="cardTitleEvenement">{{evenement.title}}</p>
-              <p class="cardTitleEvenement">De {{evenement.start | date:'shortTime'}} à {{evenement.end | date:'shortTime'}}</p>
-              <md-divider ng-if="!$last"></md-divider>
-            </div>
+                <p class="cardTitleEvenement">{{evenement.title}}</p>
+                <p class="cardTitleEvenement">De {{evenement.start | date:'shortTime'}} à {{evenement.end | date:'shortTime'}}</p>
+                <md-divider ng-if="!$last"></md-divider>
+              </div>
 
-            <section class="blocBtnGalerie" layout="row" layout-align="center center" md-theme="anon">
-              <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar == 0" ng-click="currentPageCalendar=currentPageCalendar-1">
-                <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
-              </md-button>
+              <section class="blocBtnGalerie" layout="row" layout-align="center center" md-theme="anon">
+                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar == 0" ng-click="currentPageCalendar=currentPageCalendar-1">
+                  <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
+                </md-button>
 
-              <div class="pagingCalendarHome">{{currentPageCalendar+1}}/{{numberOfPagesCalendar()}}</div>
-              <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar >= listEvenementsAnon.length/pageSizeCalendar - 1" ng-click="currentPageCalendar = currentPageCalendar+1">
-                <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
-              </md-button>
-            </section>
+                <div class="pagingCalendarHome">{{currentPageCalendar+1}}/{{numberOfPagesCalendar()}}</div>
+                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar >= listEvenementsAnon.length/pageSizeCalendar - 1" ng-click="currentPageCalendar = currentPageCalendar+1">
+                  <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                </md-button>
+              </section>
 
-          </md-card-content>
+            </md-card-content>
         </md-card>
-      </div>
+        </div>
     </md-content>
 
     <md-content class="md-padding">
@@ -111,11 +111,11 @@
         </md-card>
       </div>
     </md-content>
+    </div>
   </div>
-</div>
 
-<footer id=footer>
-  <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login</a>
-  <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
-  <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
-</footer>
+  <footer id=footer>
+    <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login</a>
+    <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
+    <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
+  </footer>
