@@ -27,7 +27,24 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
   color: rgba(255, 255, 255, 0.87);
 }
 
-
+/*Login*/
+.formLogin{
+  background: #f6f6f6;
+  border-radius: 2px;
+  padding-left: 15vw;
+  padding-top: 5vw;
+  padding-right: 15vw;
+  padding-bottom: 5vw;
+  margin-bottom: 5vw;
+}
+.btnContainerLogin{
+  text-align: center;
+}
+.btnLogin {
+  color: #ffffff;
+  background-color: #265B7E;
+  border: 3px solid #265B7E;
+}
 /*Submenu*/
 
 .txtAeraSubmenu {
