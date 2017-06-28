@@ -141,12 +141,12 @@ angular.module('app')
     };
 
     $scope.insertImg = function(nameImg) {
-      $scope.newSubmenu.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
+      $scope.newSubmenu.content += '<p><img src="uploads/images/' + nameImg + '" width="100%"/></p>';
       $scope.galleryInsertModalShow = false;
     };
 
     $scope.insertImgEdit = function(name) {
-      $scope.submenu.content += '<p><img src="uploads/images/' + name + '" width="500"/></p>';
+      $scope.submenu.content += '<p><img src="uploads/images/' + name + '" width="100%"/></p>';
       console.log('submenu.content', $scope.submenu.content);
       $scope.galleryInsertModalShow = false;
     };
