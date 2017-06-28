@@ -8,7 +8,7 @@ module.exports = (app) => {
 
   var welcome = new Welcome();
 
-  router.get('/', Auth.hasAuthorization, welcome.findAllByUser);
+  router.get('/', welcome.findAllByUser);
   // router.get('/anon', welcome.findAllAnon);
   // router.get('/admin', Auth.isAdministrator, welcome.findAll);
   router.get('/:id', welcome.findById);

@@ -1,7 +1,7 @@
 <div layout="column" layout layout-align="space-around center">
   <div class="columnAdmin">
 
-    <form ng-submit="addWelcome()">
+    <form ng-submit="addWelcome()" layout="column">
       <md-input-container>
         <p><label>Title</label>
           <input required ng-model="welcome.title"></p>
@@ -14,7 +14,7 @@
         <p><label>Signature</label>
           <input required ng-model="welcome.signature"></p>
       </md-input-container>
-      
+
       <div layout='row'>
         <md-button class="md-primary md-raised" type="submit">Valider</md-button>
       </div>
