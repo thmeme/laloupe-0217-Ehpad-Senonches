@@ -26,7 +26,7 @@ angular.module('app')
     function loadNews(id) {
       if (id !== undefined) {
         NewsService.getOne($scope.idNews).then(function(res) {
-          console.log('res One', res);
+          console.log('res One', res.data);
           $scope.news = res.data;
         });
       }
