@@ -45,8 +45,3 @@
 
   </div>
 </div>
-<footer id=footer>
-  <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login</a>
-  <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
-  <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
-</footer>
