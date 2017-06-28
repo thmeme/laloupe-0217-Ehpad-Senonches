@@ -1,6 +1,6 @@
 body {
   background-color: #ededed;
-  
+
 }
 
 .md-button.md-anon-theme.md-primary.md-raised {
@@ -431,8 +431,10 @@ md-content.md-ehpad-theme {
   z-index: 1;
   text-align: center;
   left: 50vw;
-  top: 22vw;
+  top: 20vw;
   transform: translateX(-50%) translateY(-50%);
+  font-family: 'Oxygen', sans-serif;
+
 
 }
 #titleText {
@@ -443,6 +445,7 @@ md-content.md-ehpad-theme {
   font-size: 2vw;
   color: #265B7E;
   margin-top: 6vw;
+  font-weight: bold;
 }
 
 
@@ -454,6 +457,7 @@ md-content.md-ehpad-theme {
 #h1 {
   font-size: 3vw;
   color: #265B7E;
+  font-weight: bold;
 }
 
 
@@ -471,6 +475,8 @@ md-content.md-ehpad-theme {
   margin-bottom: 5vw;
   margin-top: 5vw;
   display: list-item;
+  font-weight: bold;
+
 }
 
 .md-padding {
@@ -688,7 +694,7 @@ md-content.md-ehpad-theme {
 
 .swiper-container {
   width: 100%;
-  height: 55vw;
+  height: 40vw;
   position: relative;
 }
 
