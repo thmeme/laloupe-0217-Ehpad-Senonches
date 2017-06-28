@@ -18,6 +18,10 @@ angular.module('app')
           'menu@': {
             templateUrl: 'anon/menu.html',
             controller: 'DisplayMenuController'
+          },
+          'footer@': {
+            templateUrl: 'anon/footer.html',
+            controller: 'FooterController'
           }
         }
       })
