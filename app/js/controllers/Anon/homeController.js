@@ -101,8 +101,17 @@ angular.module('app')
     }
     loadAllNewsAnon();
 
-    
+
     var idWel = '';
+    function loadWelcome(id) {
+        WelcomeService.getOne(idWel).then(function(res) {
+          console.log('res One', res.data);
+          $scope.welcome = res.data;
+          console.log('$scope.Welcome', $scope.welcome);
+        }, function(err) {
+          console.error('error on getOne Welcome', err);
+        });
+    }
     function loadAllWelcomes() {
       WelcomeService.getAll().then(function(res) {
         console.log('listWelcomes', res);
@@ -116,15 +125,7 @@ angular.module('app')
       });
     }
     loadAllWelcomes();
-    function loadWelcome(id) {
-        WelcomeService.getOne(idWel).then(function(res) {
-          console.log('res One', res.data);
-          $scope.welcome = res.data;
-          console.log('$scope.Welcome', $scope.welcome);
-        }, function(err) {
-          console.error('error on getOne Welcome', err);
-        });
-    }
+
 
 
     $scope.currentPageListNews = 0;

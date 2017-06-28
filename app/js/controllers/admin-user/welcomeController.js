@@ -27,6 +27,18 @@ angular.module('app')
     };
 
     var idWel = '';
+
+    function loadWelcome(id) {
+        WelcomeService.getOne(idWel).then(function(res) {
+          console.log('res One', res.data);
+          $scope.welcome = res.data;
+          console.log('$scope.Welcome', $scope.welcome);
+        }, function(err) {
+          console.error('error on getOne Welcome', err);
+        });
+    }
+
+
     function loadAllWelcomes() {
       WelcomeService.getAll().then(function(res) {
         console.log('listWelcomes', res);
@@ -40,62 +52,4 @@ angular.module('app')
       });
     }
     loadAllWelcomes();
-
-
-
-    console.log('idWel', idWel);
-
-    function loadWelcome(id) {
-        WelcomeService.getOne(idWel).then(function(res) {
-          console.log('res One', res.data);
-          $scope.welcome = res.data;
-          console.log('$scope.Welcome', $scope.welcome);
-        }, function(err) {
-          console.error('error on getOne Welcome', err);
-        });
-    }
-
-
-
-
-    // $scope.updateWelcome = function() {
-    //   WelcomeService.update($scope.idWelcome, $scope.welcome).then(function(res) {
-    //     console.log('update', res);
-    //   }, function(err) {
-    //     console.error('error on loadAllWelcomes', err);
-    //   });
-    // };
-    //
-    // $scope.customFullscreen = false;
-    // $scope.showConfirm = function(ev, id) {
-    //   console.log('ev', ev);
-    //   // Appending dialog to document.body to cover sidenav in docs app
-    //   var confirm = $mdDialog.confirm()
-    //     .title('Voulez-vous supprimer ce sous-menus ?')
-    //     .textContent('Tous les éléments seront définitivement perdus')
-    //     .ariaLabel('Lucky day')
-    //     .targetEvent(ev)
-    //     .ok('Supprimer')
-    //     .cancel('Annuler');
-    //
-    //   $mdDialog.show(confirm).then(function() {
-    //     SubmenuService.delete(id).then(function(res) {
-    //       console.log('delete', res);
-    //       loadAllSubmenus();
-    //     }, function(err) {
-    //       console.error('error on show', err);
-    //     });
-    //   });
-    // };
-
-    // $scope.redirect = function() {
-    //   $state.go('user.submenu');
-    // };
-    //
-    // $scope.redirectCreateSubmenu = function() {
-    //   $state.go('user.create-submenu');
-    // };
-
-
-
   });
