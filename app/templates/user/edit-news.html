@@ -6,13 +6,13 @@
 
     <form class="formEditNews" method="post" ng-submit="updateNews()">
       <div ng-cloak>
-        <md-input-container class="md-block" flex-gt-sm>
+        <md-input-container class="md-block" flex-gt-sm >
           <label>Titre</label>
-          <input ng-model="news.title">
+          <input ng-model="news.title" required>
         </md-input-container>
       </div>
 
-      <textarea ui-tinymce="tinymceOptions" ng-model="news.content"></textarea>
+      <textarea ui-tinymce="tinymceOptions" ng-model="news.content" required></textarea>
       <div>
         <div layout='row'>
           <md-switch flex='80' class="switch" ng-model="news.isOnline" ng-if='user.isAdmin' aria-label="status">
@@ -28,7 +28,7 @@
             <h2>Gestion des images</h2>
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
             <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
-            <md-button ng-if='!news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>Associer</md-button>
+            <md-button ng-if='!news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()' required>Associer</md-button>
             <md-button ng-if='news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociateEdit()'>Changer</md-button>
             <!-- <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{news.image ? 'Dissocier' : 'Associer'}}</md-button> -->
             <img class='imgAssociatePreview' ng-show='news.image' ng-src="/{{news.image}}">
