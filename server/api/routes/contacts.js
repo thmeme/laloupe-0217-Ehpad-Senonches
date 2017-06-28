@@ -8,7 +8,7 @@ module.exports = (app) => {
 
   var contact = new Contact();
 
-  router.get('/', Auth.hasAuthorization, contact.findAllByUser);
+  router.get('/', contact.findAllByUser);
 
   router.get('/:id', contact.findById);
 
