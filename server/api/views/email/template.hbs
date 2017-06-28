@@ -8,29 +8,31 @@
           margin: 0;
           padding: 0;
           min-width: 100%!important;
-          background-color: brown;
         }
+
         .content {
           width: 100%;
           max-width: 600px
         }
-        a {
-          color: beige;
-        }
+
         .linkMail{
-          color: beige;
+          font-style: italic;
+
         }
+        a {
+          text-decoration: none;
+          color: green;
+        }
+
         h1{
           font-style: italic;
           word-spacing: 10px;
           padding: 10px;
-          color: brown;
           text-decoration: underline;
         }
         table{
           width:100%;
           text-align: center;
-          color: brown;
         }
         .mailEmail{
           font-size: 25px;
@@ -40,7 +42,7 @@
           font-size: 18px;
           padding: 40px;
           text-align: justify;
-          color: brown;
+          border: 1px solid;
         }
         </style>
     </head>
@@ -52,9 +54,12 @@
           <td class="mailEmail">
           Message envoyé par {{variable2}}<br>
           <br>
-           via l'adresse <span class="linkMail" style="color: beige;font-style: italic;">{{variable1}}</span>
+           via l'adresse <span class="linkMail">{{variable1}}</span>
           </td>
         </tr>
+          <tr>
+            <h2>Message:</h2>
+          </tr>
           <td class="mailMessage"><br>
           {{variable3}}
           </td>
