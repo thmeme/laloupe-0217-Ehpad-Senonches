@@ -34,7 +34,7 @@
               <p class="linkTextListNews cardLink"><a ui-sref="anon.displaynews({id: news._id})">Lire la suite...</a></p>
 
             </md-card-content>
-            <md-card-content flex="45" hide show-md class="colAllNewsHome">
+            <md-card-content flex="45" hide show-gt-sm class="colAllNewsHome">
               <h3 class="titleColListNews">Toutes les actualités</h3>
               <div class="colListNews">
                 <div ng-repeat="newsList in listNewsAnon | orderBy : '-date' | startFrom:currentPageListNews*pageSizeListNews | limitTo:pageSizeListNews">
@@ -69,7 +69,7 @@
                 <p class="cardTitleEvenement">De {{evenement.start | date:'shortTime'}} à {{evenement.end | date:'shortTime'}}</p>
                 <md-divider ng-if="!$last"></md-divider>
               </div>
-              <section class="blocBtnGalerie btnListAgendaHome" layout="row" layout-align="center center" md-theme="anon">
+              <section class="blocBtnGalerie btnListAgendaHome" layout="row" layout-align="center end" md-theme="anon">
                 <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar == 0" ng-click="currentPageCalendar=currentPageCalendar-1">
                   <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
                 </md-button>

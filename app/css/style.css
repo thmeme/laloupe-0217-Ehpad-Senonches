@@ -789,3 +789,9 @@ md-content.md-ehpad-theme {
     width: 100%;
     margin: auto;
 }
+
+@media (max-width: 600px) {
+  .colAgendaHome {
+    height: 390px;
+  }
+}
