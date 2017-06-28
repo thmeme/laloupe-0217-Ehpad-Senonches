@@ -1,0 +1,6 @@
+<footer id=footer>
+  <p class="copyright">© EHPAD SENONCHES Tous droits reservés</p>
+  <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login Admin</a>
+  <a ui-sref="user.submenu" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
+  <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
+</footer>
