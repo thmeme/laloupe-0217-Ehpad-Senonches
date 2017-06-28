@@ -40,7 +40,7 @@ angular.module('app')
       ContactService.getAll().then(function(res) {
         console.log('listContacts', res);
         $scope.contact = res.data[0];
-        console.log('id Welcome', $scope.contact._id);
+        console.log('id contact', $scope.contact._id);
         idCont = $scope.contact._id;
         console.log('idCont', idCont);
         loadContact(idCont);

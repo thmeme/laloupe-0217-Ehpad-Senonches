@@ -15,5 +15,5 @@ module.exports = (app) => {
   router.put('/admin/:id', Auth.isAdministrator, contact.update);
   router.put('/:id', Auth.hasAuthorization, contact.updateByUser);
 
-  app.use('/contcat', router);
+  app.use('/contact', router);
 };

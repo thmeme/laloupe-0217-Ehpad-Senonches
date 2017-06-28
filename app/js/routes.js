@@ -21,7 +21,6 @@ angular.module('app')
           }
         }
       })
-
       .state('anon.home', {
         url: '/',
         views: {
@@ -30,7 +29,6 @@ angular.module('app')
             controller: 'HomeController',
           }
         }
-
       })
       .state('anon.displaysubmenu', {
         url: '/displaysubmenu/:id',
@@ -68,8 +66,6 @@ angular.module('app')
           }
         }
       });
-
-
     $stateProvider
       .state('user', {
         abstract: true,
