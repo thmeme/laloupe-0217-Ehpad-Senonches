@@ -397,11 +397,13 @@ md-content.md-ehpad-theme {
   /*border-bottom: 1px solid;*/
   margin-left: 15px;
   margin-bottom: 0;
+  color:  #265B7E;
   /*border-color: #ff7ed3;*/
 }
 
 .cardDateEvenement {
   margin-bottom: 0;
+  color : #FF7ED3;
 }
 
 .cardTitleEvenement {
@@ -431,7 +433,7 @@ md-content.md-ehpad-theme {
   z-index: 1;
   text-align: center;
   left: 50vw;
-  top: 20vw;
+  top: 19vw;
   transform: translateX(-50%) translateY(-50%);
   font-family: 'Oxygen', sans-serif;
 
@@ -639,6 +641,7 @@ md-content.md-ehpad-theme {
   box-shadow: 4px 4px 4px #CACACA;
 }
 
+
 #newsDisplay {
   margin: 10px 10px 10px 10px;
   background-color: white;
@@ -710,10 +713,18 @@ md-content.md-ehpad-theme {
 /***** Footer *****/
 
 #footer {
-  height: 100px;
+  height: 80px;
   background-color: #265B7E;
   position: relative;
   margin-top: 7px;
+  color: white;
+}
+
+#copyright{
+position: absolute;
+bottom:  0;
+margin-bottom: 10px;
+margin-left: 15px;
 }
 
 .footerLink {
