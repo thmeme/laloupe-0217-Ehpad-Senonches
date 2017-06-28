@@ -9,8 +9,7 @@
 
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
-
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
 </head>
@@ -21,6 +20,7 @@
     <div ui-view='menu'></div>
     <div ui-view='content'></div>
     <div ui-view='map'></div>
+    <div ui-view='footer'></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY" charset="utf-8"></script>
 
 

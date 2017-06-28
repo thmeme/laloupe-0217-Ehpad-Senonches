@@ -1,12 +1,16 @@
 body {
   background-color: #ededed;
+
 }
-.md-button.md-anon-theme.md-primary.md-raised  {
+
+.md-button.md-anon-theme.md-primary.md-raised {
   color: white;
 }
+
 .md-button.md-anon-theme.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-anon-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-anon-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-anon-theme.md-primary.md-raised:not([disabled]):hover {
   color: white;
 }
+
 
 /*Navbar*/
 
@@ -23,7 +27,24 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
   color: rgba(255, 255, 255, 0.87);
 }
 
-
+/*Login*/
+.formLogin{
+  background: #f6f6f6;
+  border-radius: 2px;
+  padding-left: 15vw;
+  padding-top: 5vw;
+  padding-right: 15vw;
+  padding-bottom: 5vw;
+  margin-bottom: 5vw;
+}
+.btnContainerLogin{
+  text-align: center;
+}
+.btnLogin {
+  color: #ffffff;
+  background-color: #265B7E;
+  border: 3px solid #265B7E;
+}
 /*Submenu*/
 
 .txtAeraSubmenu {
@@ -101,6 +122,9 @@ md-select:not([disabled]):focus .md-select-value {
 .md-button.md-raised {
   color: #dcf84e;
   background-color: #4c959e;
+}
+#logoutNav {
+  float : right;
 }
 
 .md-button.md-default-theme.md-primary, .md-button.md-primary {
@@ -193,6 +217,11 @@ form .progress {
   background-color: #f6f6f6;
   padding-left: 10px;
   /*display: inline-block;*/
+}
+/*Display News*/
+
+.imgAssociateDisplayNews {
+  width: 80%;
 }
 
 
@@ -320,19 +349,96 @@ form .progress {
   padding: 0px;
 }
 
+.colAllNewsHome {
+  position: relative;
+}
+.colAgendaHome {
+  position: relative;
+}
+.signatureWelcome {
+  text-align: right;
+}
+
+.colFront {
+  width: 80%;
+  margin: auto;
+  background-color: #ededed;
+}
+
 md-content.md-ehpad-theme {
   background-color: #ededed;
+}
+
+.btnListNewsHome {
+  position: absolute;
+  bottom: 2%;
+  left: 21%;
+}
+
+li {
+  list-style: none;
+  display: inline;
+}
+
+.btnListAgendaHome {
+  position: absolute;
+  bottom: 2%;
+  left: 28%;
+}
+
+.imgNewsHome {
+  max-width: 100%;
+}
+
+.textColListNews {
+  overflow: hidden;
+  height: 70px;
+  font-size: 0.7em;
+  text-align: justify;
+  margin-top: 0;
+}
+
+.linkTextListNews {
+  font-size: 0.7em;
+  margin-top: 0;
+  text-align: right;
+  text-decoration: none;
+}
+
+.linkTextListNews :link {
+  text-decoration: none;
+  color: black;
+}
+
+.colHomeLeft {
+  min-width: 200px !important;
+}
+
+.colListNews {
+  border-left: #e0e0e0;
+  border-left-style: solid;
+  border-width: 1px;
+  padding-left: 15px;
+  margin-left: -15px;
+  margin-top: 7px;
+}
+
+.titleColListNews {
+  margin-top: 7px;
 }
 
 .cardTitle {
   /*border-bottom: 1px solid;*/
   margin-left: 15px;
   margin-bottom: 0;
+  color:  #265B7E;
+  font-family: 'Oxygen', sans-serif;
   /*border-color: #ff7ed3;*/
 }
 
 .cardDateEvenement {
   margin-bottom: 0;
+  color : #FF7ED3;
 }
 
 .cardTitleEvenement {
@@ -351,54 +457,63 @@ md-content.md-ehpad-theme {
 }
 
 .pagingCalendarHome {
-      margin-top: 15px;
+  margin-top: 15px;
 }
 
 #titleBox {
   background-color: rgba(255, 255, 255, .75);
-  height: 35%;
+  height: 20vw;
   width: 40%;
   position: absolute;
   z-index: 1;
   text-align: center;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-70%);
+  left: 50vw;
+  top: 19vw;
+  transform: translateX(-50%) translateY(-50%);
+  font-family: 'Oxygen', sans-serif;
+
+
 }
 #titleText {
   margin-top: 80px;
 }
 
 #h3 {
-  font-size: 25px;
+  font-size: 2vw;
   color: #265B7E;
+  margin-top: 6vw;
+  font-weight: bold;
 }
 
-#h3 :link {
+
+#h3link {
   text-decoration: none;
 }
-#h3 :visited {
-  text-decoration: none;
-}
+
 
 #h1 {
-  font-size: 45px;
+  font-size: 3vw;
   color: #265B7E;
+  font-weight: bold;
 }
 
-#h1 :link {
+
+#h1link {
   text-decoration: none;
 }
-#h1 :visited {
-  text-decoration: none;
-}
+
+
 
 
 /****** menu ******/
 
 #menu {
   text-align: center;
-  margin-bottom: 0px;
+  margin-bottom: 5vw;
+  margin-top: 5vw;
+  display: list-item;
+  font-weight: bold;
+
 }
 
 .md-padding {
@@ -414,34 +529,68 @@ md-content.md-ehpad-theme {
   text-decoration: none;
   color: black;
 }
+@media screen and (max-width: 700px)
+{
+  #greenButton {
+  margin-left: -20px;
+  margin-right: -20px;
+  font-size: 11px !important;
+  line-height: 1.6em !important;
+  }
+  #pinkButton {
+    font-size: 11px !important;
+    line-height: 1.6em !important;
+  }
+  #blueButton {
+  font-size: 11px !important;
+  line-height: 1.6em !important;
+  }
+  #expendPink {
+    display: none;
+  }
+  #expendGreen {
+    display: none;
+  }
+  #expendBlue {
+    display: none;
+  }
+}
+
+
 
 #greenButton {
-  height: 150px;
-  width: 150px;
+  height: 12vw;
+  width: 12vw;
   border-radius: 100px;
   background-color: #ABE852;
   color: white;
-  font-size: 20px;
+  font-size: 1.5vw;
+  line-height: 2em;
+  padding-top: 1vw;
 }
 
 #pinkButton {
-  height: 150px;
-  width: 150px;
+  height: 12vw;
+  width: 12vw;
   border-radius: 100px;
   background-color: #FF7ED3;
   color: white;
-  font-size: 20px;
-  margin-right: 60px;
+  font-size: 1.5vw;
+  margin-right: 5vw;
+  line-height: 2em;
+  padding-top: 1vw;
 }
 
 #blueButton {
-  height: 150px;
-  width: 150px;
+  height: 12vw;
+  width: 12vw;
   border-radius: 100px;
   background-color: #76EAFF;
   color: white;
-  font-size: 20px;
-  margin-left: 60px;
+  font-size: 1.5vw;
+  margin-left: 5vw;
+  line-height: 2em;
+  padding-top: 1vw;
 }
 
 #greenButton:hover {
@@ -525,6 +674,7 @@ md-content.md-ehpad-theme {
   display: block;
 }
 
+
 /*#contactButton:hover {
   background-color: #E5E5E5;
 }*/
@@ -544,6 +694,7 @@ md-content.md-ehpad-theme {
   border-radius: 5px 5px 5px 5px;
   box-shadow: 4px 4px 4px #CACACA;
 }
+
 
 #newsDisplay {
   margin: 10px 10px 10px 10px;
@@ -600,7 +751,7 @@ md-content.md-ehpad-theme {
 
 .swiper-container {
   width: 100%;
-  height: 650px;
+  height: 40vw;
   position: relative;
 }
 
@@ -616,10 +767,18 @@ md-content.md-ehpad-theme {
 /***** Footer *****/
 
 #footer {
-  height: 100px;
+  height: 80px;
   background-color: #265B7E;
   position: relative;
-  margin-top: 7px;
+  margin-top: 20px;
+  color: white;
+}
+
+.copyright{
+position: absolute;
+bottom:  0;
+margin-bottom: 10px;
+margin-left: 15px;
 }
 
 .footerLink {
@@ -700,6 +859,27 @@ md-content.md-ehpad-theme {
   margin-left: 10px;
 }
 
-@media (min-width: 960px) angular-material.css:173 .md-padding {
+
+/*@media (min-width: 960px)
+.md-padding {
   padding: 0;
+
+}*/
+
+@media (max-width: 960px) {
+  .md-card-content.Une.flex-55 {
+    width: 100%;
+  }
+  .imgNewsHome {
+    max-width: 100%;
+  }
+  .colFront {
+    width: 100%;
+    margin: auto;
+}
+
+@media (max-width: 600px) {
+  .colAgendaHome {
+    height: 390px;
+  }
 }

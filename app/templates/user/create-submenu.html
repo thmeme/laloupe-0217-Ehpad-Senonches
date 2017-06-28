@@ -4,18 +4,18 @@
 
     <form method="post" ng-submit="addSubmenu()">
       <div ng-cloak>
-        <md-input-container>
+        <md-input-container >
           <label>Menu</label>
-          <md-select ng-model="newSubmenu.menu">
+          <md-select ng-model="newSubmenu.menu" >
             <md-option ng-repeat="menu in menus" value="{{menu}}">{{menu}}</md-option>
           </md-select>
         </md-input-container>
       </div>
       <md-input-container class="md-block" flex-gt-sm>
         <label>Nouveau sous-menu</label>
-        <input ng-model="newSubmenu.title">
+        <input ng-model="newSubmenu.title" >
       </md-input-container>
-      <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content"></textarea>
+      <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content" ></textarea>
 
       <div>
         <div layout='row'>

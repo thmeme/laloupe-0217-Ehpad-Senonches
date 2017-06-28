@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('HomeController', function($scope, SubmenuService, CalendarService, NewsService, SlideshowService) {
+  .controller('HomeController', function($scope, SubmenuService, ContactService, WelcomeService, CalendarService, $sce, NewsService, SlideshowService) {
     $scope.tinymceModel = 'Initial content';
 
     $scope.getContent = function() {
@@ -88,6 +88,81 @@ angular.module('app')
     for (var i = 0; i < $scope.listEvenementsAnon.length - 1; i++) {
       $scope.listEvenementsAnon.push("Item " + i);
     }
+    $scope.uCanTrust = function(string) {
+      return $sce.trustAsHtml(string);
+    };
+    function loadAllNewsAnon() {
+      NewsService.getAllAnon().then(function(res) {
+        console.log('listNewsAnon', res);
+        $scope.listNewsAnon = res.data;
+        $scope.listNewsAnon.content = $sce.trustAsHtml(res.data.content);
+        console.log('$scope.listNewsAnon.content', $scope.listNewsAnon.content);
+      });
+    }
+    loadAllNewsAnon();
+
+
+    var idWel = '';
+    function loadWelcome(id) {
+        WelcomeService.getOne(idWel).then(function(res) {
+          console.log('res One', res.data);
+          $scope.welcome = res.data;
+          console.log('$scope.Welcome', $scope.welcome);
+        }, function(err) {
+          console.error('error on getOne Welcome', err);
+        });
+    }
+    function loadAllWelcomes() {
+      WelcomeService.getAll().then(function(res) {
+        console.log('listWelcomes', res);
+        $scope.welcome = res.data[0];
+        console.log('id Welcome', $scope.welcome._id);
+        idWel = $scope.welcome._id;
+        console.log('idWel', idWel);
+        loadWelcome(idWel);
+      }, function(err) {
+        console.error('error on loadAllWelcomes', err);
+      });
+    }
+    loadAllWelcomes();
+
+    var idCont = '';
+
+    function loadContact(id) {
+        ContactService.getOne(idCont).then(function(res) {
+          console.log('res One', res.data);
+          $scope.contact = res.data;
+          console.log('$scope.contact', $scope.contact);
+        }, function(err) {
+          console.error('error on getOne contact', err);
+        });
+    }
+
+    function loadAllContacts() {
+      ContactService.getAll().then(function(res) {
+        console.log('listContacts', res);
+        $scope.contact = res.data[0];
+        console.log('id contact', $scope.contact._id);
+        idCont = $scope.contact._id;
+        console.log('idCont', idCont);
+        loadContact(idCont);
+      }, function(err) {
+        console.error('error on loadAllContacts', err);
+      });
+    }
+    loadAllContacts();
+
+
+
+    $scope.currentPageListNews = 0;
+    $scope.pageSizeListNews = 3;
+    $scope.listNewsAnon = [];
+    $scope.numberOfPagesListNews = function() {
+      return Math.ceil($scope.listNewsAnon.length / $scope.pageSizeListNews);
+    };
+    for (var a = 0; a < $scope.listNewsAnon.length - 1; a++) {
+      $scope.listNewsAnon.push("Item " + a);
+    }
 
 
     SlideshowService.getAll().then(function(res) {
@@ -99,27 +174,9 @@ angular.module('app')
     $scope.listImgSlideShow = [];
     loadImgSlideshow = function() {};
     loadImgSlideshow();
-
     $scope.listNewsAnon = [];
 
-    function loadAllNewsAnon() {
-      NewsService.getAllAnon().then(function(res) {
-        console.log('listNewsAnon', res);
-        $scope.listNewsAnon = res.data;
-      });
-    }
-    loadAllNewsAnon();
 
-
-
-    // $scope.listEvenements = [];
-    //
-    // function loadEvenements() {
-    //   CalendarService.getAll().then(function(res) {
-    //     $scope.listEvenements = res.data;
-    //   });
-    // }
-    // loadEvenements();
 
     //*****slider*****//
 
@@ -130,8 +187,6 @@ angular.module('app')
 
         console.log('slideChangeStart');
       });
-
-
     };
 
   });

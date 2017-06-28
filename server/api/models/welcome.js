@@ -16,12 +16,15 @@ const welcomeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    signature: {
+      type: String,
+      required: true
+    },
     date: {
         type: Date,
     },
-    isOnline: {
-      type: Boolean,
-      default: false,
+    id : {
+      type: String,
     }
 });
 
@@ -29,19 +32,21 @@ let model = mongoose.model('Welcome', welcomeSchema);
 
 export default class Welcome {
 
-    findAll(req, res) {
-        model.find({})
-        .populate('author')
-        .exec((err, welcome) => {
-                if (err || !welcome) {
-                    res.sendStatus(403);
-                } else {
-                    res.json(welcome);
-                }
-            });
-    }
+    // findAll(req, res) {
+    //   console.log('find1');
+    //     model.find({})
+    //     .populate('author')
+    //     .exec((err, welcome) => {
+    //             if (err || !welcome) {
+    //                 res.sendStatus(403);
+    //             } else {
+    //                 res.json(welcome);
+    //             }
+    //         });
+    // }
 
     findAllByUser(req, res) {
+      console.log('find2');
         model.find({})
         .populate('author')
         .exec((err, welcome) => {
@@ -53,19 +58,21 @@ export default class Welcome {
             });
     }
 
-    findAllAnon(req, res) {
-        model.find({isOnline: true})
-        .populate('author')
-        .exec((err, welcome) => {
-                if (err || !welcome) {
-                    res.sendStatus(403);
-                } else {
-                    res.json(welcome);
-                }
-            });
-    }
+    // findAllAnon(req, res) {
+    //   console.log('find3');
+    //     model.find({isOnline: true})
+    //     .populate('author')
+    //     .exec((err, welcome) => {
+    //             if (err || !welcome) {
+    //                 res.sendStatus(403);
+    //             } else {
+    //                 res.json(welcome);
+    //             }
+    //         });
+    // }
 
     findById(req, res) {
+      console.log('find4');
         console.log('req in back', req.params, req.body, req.query);
         model.findById(req.params.id, (err, welcome) => {
           if (err || !welcome) {
@@ -75,47 +82,48 @@ export default class Welcome {
           }
         });
     }
-    create(req, res) {
-      console.log('route admin');
-        let welcome = req.body;
-        console.log('back', req.body);
-        welcome.date = new Date().toISOString();
-        model.create(welcome, (err, welcome) => {
-            if (err) {
-                res.status(500).send({
-                    error: err
-                });
-            } else {
-                res.json({
-                    success: true,
-                    welcome: welcome
-                });
-            }
-        });
-    }
-    createByUser(req, res) {
-      console.log('route non admin');
-        let welcome = req.body;
-        console.log('back', req.body);
-        welcome.date = new Date().toISOString();
-        // delete submenu.isOnline;
-        model.create(welcome, (err, welcome) => {
-            if (err) {
-                res.status(500).send({
-                    error: err
-                });
-            } else {
-                res.json({
-                    success: true,
-                    welcome: welcome
-                });
-            }
-        });
-    }
+    // create(req, res) {
+    //   console.log('route admin');
+    //     let welcome = req.body;
+    //     console.log('back', req.body);
+    //     welcome.date = new Date().toISOString();
+    //     model.create(welcome, (err, welcome) => {
+    //         if (err) {
+    //             res.status(500).send({
+    //                 error: err
+    //             });
+    //         } else {
+    //             res.json({
+    //                 success: true,
+    //                 welcome: welcome
+    //             });
+    //         }
+    //     });
+    // }
+    // createByUser(req, res) {
+    //   console.log('route non admin');
+    //     let welcome = req.body;
+    //     console.log('back', req.body);
+    //     welcome.date = new Date().toISOString();
+    //     model.create(welcome, (err, welcome) => {
+    //         if (err) {
+    //             res.status(500).send({
+    //                 error: err
+    //             });
+    //         } else {
+    //             res.json({
+    //                 success: true,
+    //                 welcome: welcome
+    //             });
+    //         }
+    //     });
+    // }
     update(req, res) {
-      console.log('route non admin');
-        model.findByIdAndUpdate(req.params.id,
-          req.body, { new: true },function(err, welcome) {
+      console.log('route admin');
+      console.log('rep update', req.body);
+
+        model.findOneAndUpdate(req.params.id,
+          req.body, { upsert: true },function(err, welcome) {
             if (err) {
               res.status(500).send(err);
             } else {
@@ -127,9 +135,9 @@ export default class Welcome {
         });
     }
     updateByUser(req, res) {
-      delete req.body.isOnline;
-        model.findByIdAndUpdate(req.params.id,
-          req.body, { new: true },function(err, welcome) {
+      console.log('req update user', req.body);
+        model.findOneAndUpdate(req.params.id,
+          req.body, { upsert: true, new:true },function(err, welcome) {
             if (err) {
               res.status(500).send(err);
             } else {
@@ -141,14 +149,14 @@ export default class Welcome {
         });
     }
 
-    delete(req, res) {
-      console.log('req remove', req.params);
-        model.findByIdAndRemove(req.params.id, function(err) {
-            if (err) {
-                res.status(500).send(err.message);
-            } else {
-                res.sendStatus(200);
-            }
-        });
-    }
+    // delete(req, res) {
+    //   console.log('req remove', req.params);
+    //     model.findByIdAndRemove(req.params.id, function(err) {
+    //         if (err) {
+    //             res.status(500).send(err.message);
+    //         } else {
+    //             res.sendStatus(200);
+    //         }
+    //     });
+    // }
 }

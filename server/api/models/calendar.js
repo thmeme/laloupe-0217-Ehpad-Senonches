@@ -5,11 +5,13 @@ import evenement from './calendar.js';
 const evenementSchema = new mongoose.Schema({
   date: {
     type: Date,
-    default: Date.default
+    default: Date.default,
+    required: true
   },
   start: {
     type: Date,
-    default: Date.default
+    default: Date.default,
+    required: true
   },
   author: {
       type: mongoose.Schema.Types.ObjectId,
@@ -18,11 +20,12 @@ const evenementSchema = new mongoose.Schema({
   },
   end: {
     type: Date,
-    default: Date.default
+    default: Date.default,
+    required: true
   },
   title: {
     type: String,
-    require: true
+    required: true
   },
   isOnline: {
     type: Boolean,

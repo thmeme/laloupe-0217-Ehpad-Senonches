@@ -18,10 +18,13 @@ angular.module('app')
           'menu@': {
             templateUrl: 'anon/menu.html',
             controller: 'DisplayMenuController'
+          },
+          'footer@': {
+            templateUrl: 'anon/footer.html',
+            controller: 'FooterController'
           }
         }
       })
-
       .state('anon.home', {
         url: '/',
         views: {
@@ -30,7 +33,6 @@ angular.module('app')
             controller: 'HomeController',
           }
         }
-
       })
       .state('anon.displaysubmenu', {
         url: '/displaysubmenu/:id',
@@ -68,8 +70,6 @@ angular.module('app')
           }
         }
       });
-
-
     $stateProvider
       .state('user', {
         abstract: true,
@@ -180,6 +180,24 @@ angular.module('app')
           'content@': {
             templateUrl: 'user/calendar.html',
             controller: 'CalendarController'
+          }
+        }
+      })
+      .state('user.welcome', {
+        url: '/welcome',
+        views: {
+          'content@': {
+            templateUrl: 'user/welcome.html',
+            controller: 'WelcomeController'
+          }
+        }
+      })
+      .state('user.contact', {
+        url: '/contact',
+        views: {
+          'content@': {
+            templateUrl: 'user/contact.html',
+            controller: 'ContactController'
           }
         }
       })

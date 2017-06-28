@@ -20,7 +20,6 @@ const newsSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        required: true
     },
     date: {
         type: Date,

@@ -26,7 +26,7 @@ angular.module('app')
     function loadNews(id) {
       if (id !== undefined) {
         NewsService.getOne($scope.idNews).then(function(res) {
-          console.log('res One', res);
+          console.log('res One', res.data);
           $scope.news = res.data;
         });
       }
@@ -135,12 +135,12 @@ angular.module('app')
     }
 
     $scope.insertImg = function(nameImg) {
-      $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
+      $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="100%"/></p>';
       $scope.galleryInsertModalShow = false;
     };
 
     $scope.insertImgEditNews = function(nameImg) {
-      $scope.news.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
+      $scope.news.content += '<p><img src="uploads/images/' + nameImg + '" width="100%"/></p>';
       $scope.galleryInsertModalShow = false;
     };
 

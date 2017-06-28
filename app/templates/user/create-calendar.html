@@ -5,11 +5,11 @@
     <form ng-submit="addEvenement()">
       <md-input-container>
         <p><label>Title</label>
-          <input ng-model="newEvenement.title"></p>
+          <input ng-model="newEvenement.title" required></p>
       </md-input-container>
       <p>L'évènement aura lieu le
-        <md-datepicker ng-model="newEvenement.date" md-placeholder="Enter date" md-open-on-focus></md-datepicker> .</p>
-      <p>L'évènement débute à <input ng-model="newEvenement.start" type="time" name="myTime2" class="time-mm-hh" /> et se termine à <input ng-model="newEvenement.end" type="time" name="myTime2" class="time-mm-hh" />.</p>
+        <md-datepicker ng-model="newEvenement.date" md-placeholder="Enter date" md-open-on-focus required></md-datepicker> .</p>
+      <p>L'évènement débute à <input ng-model="newEvenement.start" type="time" name="myTime2" class="time-mm-hh" required /> et se termine à <input ng-model="newEvenement.end" type="time" name="myTime2" class="time-mm-hh" required />.</p>
       <div class="inset">
         <md-switch ng-model="newEvenement.isOnline" ng-if='user.isAdmin' aria-label="status">
           <span ng-if='newEvenement.isOnline'>Publié</span>

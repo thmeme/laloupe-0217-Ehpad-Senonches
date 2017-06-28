@@ -6,13 +6,13 @@
 
     <form class="formEditNews" method="post" ng-submit="updateNews()">
       <div ng-cloak>
-        <md-input-container class="md-block" flex-gt-sm>
+        <md-input-container class="md-block" flex-gt-sm >
           <label>Titre</label>
-          <input ng-model="news.title">
+          <input ng-model="news.title" >
         </md-input-container>
       </div>
 
-      <textarea ui-tinymce="tinymceOptions" ng-model="news.content"></textarea>
+      <textarea ui-tinymce="tinymceOptions" ng-model="news.content" ></textarea>
       <div>
         <div layout='row'>
           <md-switch flex='80' class="switch" ng-model="news.isOnline" ng-if='user.isAdmin' aria-label="status">
