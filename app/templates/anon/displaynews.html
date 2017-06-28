@@ -7,7 +7,7 @@
           <md-card-content>
 
             <h1>{{news.title}}</h1>
-            <img ng-src="/{{news.image}}" alt="">
+            <img class="imgAssociateDisplayNews" ng-src="/{{news.image}}" alt="">
             <p ng-bind-html="news.content"></p>
           </md-card-content>
         </md-card>
@@ -16,14 +16,14 @@
           <h2 class="cardTitle">Toutes les actualités</h2>
           <md-card-content>
             <md-list class="md-3-line" ng-repeat="news in listNewsAnon | orderBy: '-date' | startFrom:currentPageNews*pageSizeNews | limitTo:pageSizeNews">
-              <h5>Postée le {{news.date | date : 'longDate'}}</h5>
-              <h3><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
+              <h5 class="cardDateEvenement">Postée le {{news.date | date : 'longDate'}}</h5>
+              <h3 class="cardLink cardTitleEvenement"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
               <img style="width: 150px" ng-src="/{{news.image}}">
 
 
               <md-divider ng-if="!$last"></md-divider>
             </md-list>
-            <section class="blocBtnGalerie" layout="row" layout-align="center center">
+            <section class="blocBtnGalerie" layout="row" layout-align="center center" md-theme="anon">
               <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageNews == 0" ng-click="currentPageNews=currentPageNews-1">
                 <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
               </md-button>

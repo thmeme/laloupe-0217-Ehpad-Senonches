@@ -218,6 +218,11 @@ form .progress {
   padding-left: 10px;
   /*display: inline-block;*/
 }
+/*Display News*/
+
+.imgAssociateDisplayNews {
+  width: 80%;
+}
 
 
 /*modal galerie images*/
