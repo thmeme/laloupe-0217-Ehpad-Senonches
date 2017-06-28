@@ -22,13 +22,13 @@ angular.module('app')
       .backgroundPalette('grey');
 
     $mdThemingProvider.definePalette('front', {
-      '50': '568dbc',
+      '50': '265B7E',
       '100': 'ffcdd2',
       '200': 'ef9a9a',
       '300': 'e57373',
       '400': 'ef5350',
       '500': 'f44336',
-      '600': '15426A',
+      '600': '387EBB',
       '700': 'd32f2f',
       '800': 'c62828',
       '900': 'b71c1c',
