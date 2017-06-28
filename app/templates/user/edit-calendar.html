@@ -9,15 +9,15 @@
 
           <md-input-container>
             <p><label>Nouveau titre</label>
-              <input ng-model="evenement.title"></p>
+              <input ng-model="evenement.title" required></p>
           </md-input-container>
 
           <p>L'évènement aura lieu le
-            <md-datepicker ng-model="evenement.date" md-placeholder="Enter date" md-open-on-focus></md-datepicker></p>
+            <md-datepicker ng-model="evenement.date" md-placeholder="Enter date" md-open-on-focus required></md-datepicker></p>
           <p>L'évènement débute à
-            <input ng-model="evenement.start" type="time" name="myTime2" class="time-mm-hh" />
+            <input ng-model="evenement.start" type="time" name="myTime2" class="time-mm-hh" required />
              et se termine à
-             <input ng-model="evenement.end" type="time" name="myTime2" class="time-mm-hh" />.</p>
+             <input ng-model="evenement.end" type="time" name="myTime2" class="time-mm-hh" required />.</p>
 
           <!-- <md-content layout-gt-sm="row" layout-padding>
             <md-input-container class="md-block" id="content">
