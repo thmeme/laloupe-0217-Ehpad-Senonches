@@ -104,7 +104,7 @@
 
           <md-card-content md-theme="anon" layout-align="center center">
             <p id="contactContent">Résidence Périer </br> 1, route de Dreux </br> 28250 </br> Senonches </br>02.37.37.73.27</p>
-            <md-button class="md-raised md-primary" id="contactButton" ui-sref="anon.formulaire">Contact</md-button>
+            <md-button class="md-raised md-primary" id="contactButton" ui-sref="anon.formulaire({'#': 'menu'})">Contact</md-button>
 
             <md-card-content>
         </md-card>
@@ -114,7 +114,8 @@
   </div>
 
   <footer id=footer>
-    <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login</a>
+    <p id="copyright">© EHPAD SENONCHES Tous droits reservés</p>
+    <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login Admin</a>
     <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
     <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
   </footer>
