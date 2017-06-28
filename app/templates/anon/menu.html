@@ -2,7 +2,7 @@
 
   <md-menu>
     <md-button class="md-raised" id="pinkButton" ng-click="$mdMenu.open()">Votre </br> Admission </br>
-      <md-icon md-menu-origin><i class="material-icons">expand_more</i></md-icon>
+      <md-icon md-menu-origin><i class="material-icons" id="expendPink">expand_more</i></md-icon>
     </md-button>
     <md-menu-content width="4" id="pinkContent">
       <md-menu-item ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre admission'}">
@@ -13,7 +13,7 @@
 
   <md-menu>
     <md-button class="md-raised" id="greenButton" ng-click="$mdMenu.open()">Votre </br> Sejour </br>
-      <md-icon><i class="material-icons">expand_more</i></md-icon>
+      <md-icon><i class="material-icons" id="expendGreen">expand_more</i></md-icon>
     </md-button>
     <md-menu-content width="4" id="greenContent">
       <md-menu-item  ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre séjour'}">
@@ -24,7 +24,7 @@
 
   <md-menu>
     <md-button class="md-raised" id="blueButton" ng-click="$mdMenu.open()">Vos </br> Droits </br>
-      <md-icon><i class="material-icons">expand_more</i></md-icon>
+      <md-icon><i class="material-icons" id="expendBlue">expand_more</i></md-icon>
     </md-button>
     <md-menu-content width="4" id="blueContent">
       <md-menu-item ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Vos droits'}">
@@ -32,5 +32,5 @@
       </md-menu-item>
     </md-menu-content>
   </md-menu>
-  
+
 </md-menu-bar>

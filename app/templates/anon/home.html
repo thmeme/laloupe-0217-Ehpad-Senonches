@@ -6,7 +6,9 @@
       <div layout="column" layout-gt-xs="row">
         <md-card class="" flex flex-gt-xs="100">
 
+
           <h2 class="cardTitle">{{welcome.title}}</h2>
+
           <md-card-content>
             <p>{{welcome.content}}</p>
             <p class="signatureWelcome">{{welcome.signature}}</p>
@@ -107,7 +109,7 @@
   </div>
 
   <footer id=footer>
-    <p id="copyright">© EHPAD SENONCHES Tous droits reservés</p>
+    <p class="copyright">© EHPAD SENONCHES Tous droits reservés</p>
     <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login Admin</a>
     <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
     <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>

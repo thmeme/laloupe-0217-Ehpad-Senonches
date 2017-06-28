@@ -15,6 +15,8 @@
     <md-button aria-label="Go Back" ng-if="user.isAdmin">
       <a ui-sref="user.users">Utilisateurs</a></md-button>
 
+
+
     <!-- <md-truncate style="position: absolute; left: 90px; right: 170px; top: 13px; bottom: 13px;">Toolbar with Standard Buttons</md-truncate> -->
 
     <span flex></span>
@@ -25,6 +27,8 @@
 
             <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
         </md-button> -->
+        <md-button aria-label="Go Back" ng-if="user.isAdmin">
+          <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' id="logoutNav">Logout</a></md-button>
   </div>
 
 </md-toolbar>
