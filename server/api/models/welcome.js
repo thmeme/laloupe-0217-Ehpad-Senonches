@@ -1,12 +1,8 @@
 import mongoose from 'mongoose';
-import submenu from './submenu.js';
+import welcome from './welcome.js';
 import User from './user.js';
 
-const submenuSchema = new mongoose.Schema({
-    menu: {
-        type: String,
-        required: true
-    },
+const welcomeSchema = new mongoose.Schema({
     author: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -23,24 +19,27 @@ const submenuSchema = new mongoose.Schema({
     date: {
         type: Date,
     },
+    id : {
+      type: String,
+    },
     isOnline: {
       type: Boolean,
       default: false,
     }
 });
 
-let model = mongoose.model('Submenu', submenuSchema);
+let model = mongoose.model('Welcome', welcomeSchema);
 
-export default class Submenu {
+export default class Welcome {
 
     findAll(req, res) {
         model.find({})
         .populate('author')
-        .exec((err, submenu) => {
-                if (err || !submenu) {
+        .exec((err, welcome) => {
+                if (err || !welcome) {
                     res.sendStatus(403);
                 } else {
-                    res.json(submenu);
+                    res.json(welcome);
                 }
             });
     }
@@ -48,11 +47,11 @@ export default class Submenu {
     findAllByUser(req, res) {
         model.find({})
         .populate('author')
-        .exec((err, submenu) => {
-                if (err || !submenu) {
+        .exec((err, welcome) => {
+                if (err || !welcome) {
                     res.sendStatus(403);
                 } else {
-                    res.json(submenu);
+                    res.json(welcome);
                 }
             });
     }
@@ -60,31 +59,31 @@ export default class Submenu {
     findAllAnon(req, res) {
         model.find({isOnline: true})
         .populate('author')
-        .exec((err, submenu) => {
-                if (err || !submenu) {
+        .exec((err, welcome) => {
+                if (err || !welcome) {
                     res.sendStatus(403);
                 } else {
-                    res.json(submenu);
+                    res.json(welcome);
                 }
             });
     }
 
     findById(req, res) {
         console.log('req in back', req.params, req.body, req.query);
-        model.findById(req.params.id, (err, submenu) => {
-          if (err || !submenu) {
+        model.findById(req.params.id, (err, welcome) => {
+          if (err || !welcome) {
               res.sendStatus(403);
           } else {
-              res.json(submenu);
+              res.json(welcome);
           }
         });
     }
     create(req, res) {
       console.log('route admin');
-        let submenu = req.body;
+        let welcome = req.body;
         console.log('back', req.body);
-        submenu.date = new Date().toISOString();
-        model.create(submenu, (err, submenu) => {
+        welcome.date = new Date().toISOString();
+        model.create(welcome, (err, welcome) => {
             if (err) {
                 res.status(500).send({
                     error: err
@@ -92,18 +91,17 @@ export default class Submenu {
             } else {
                 res.json({
                     success: true,
-                    submenu: submenu
+                    welcome: welcome
                 });
             }
         });
     }
     createByUser(req, res) {
       console.log('route non admin');
-        let submenu = req.body;
+        let welcome = req.body;
         console.log('back', req.body);
-        submenu.date = new Date().toISOString();
-        delete submenu.isOnline;
-        model.create(submenu, (err, submenu) => {
+        welcome.date = new Date().toISOString();
+        model.create(welcome, (err, welcome) => {
             if (err) {
                 res.status(500).send({
                     error: err
@@ -111,36 +109,37 @@ export default class Submenu {
             } else {
                 res.json({
                     success: true,
-                    submenu: submenu
+                    welcome: welcome
                 });
             }
         });
     }
     update(req, res) {
       console.log('route admin');
-        model.findByIdAndUpdate(req.params.id,
-          req.body, { new: true },function(err, submenu) {
+      console.log('rep update', req.body);
+
+        model.findOneAndUpdate(req.params.id,
+          req.body, { upsert: true },function(err, welcome) {
             if (err) {
               res.status(500).send(err);
             } else {
               res.json({
                   success: true,
-                  submenu: submenu
+                  welcome: welcome
               });
             }
         });
     }
     updateByUser(req, res) {
-      console.log('upfate User');
-      delete req.body.isOnline;
-        model.findByIdAndUpdate(req.params.id,
-          req.body, { new: true },function(err, submenu) {
+      console.log('req update user', req.body);
+        model.findOneAndUpdate(req.params.id,
+          req.body, { upsert: true },function(err, welcome) {
             if (err) {
               res.status(500).send(err);
             } else {
               res.json({
                   success: true,
-                  submenu: submenu
+                  welcome: welcome
               });
             }
         });
