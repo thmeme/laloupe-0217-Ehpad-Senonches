@@ -18,7 +18,7 @@
         <h2 class="formTitle" id="formTitle">Formulaire à remplir pour nous contacter:</h2>
         <form ng-submit="sendMail()">
           <md-input-container class="formInput">
-            <label>Votre adresse mail</label>
+            <label>Votre adresse email</label>
             <input required ng-model="mail.email" type="email" name="user_email">
           </md-input-container><br>
           <md-input-container class="formInput">
@@ -34,7 +34,7 @@
             <textarea required ng-model="mail.message" name="name" rows="8" cols="80"></textarea>
           </md-input-container><br>
           <div layout="row" class="formBtn">
-            <md-button class="md-primary md-raised" type="submit">Envoyer le mail</md-button>
+            <md-button class="md-primary md-raised" id="send" type="submit">Envoyer le mail</md-button>
           </div>
         </form>
 
