@@ -2,85 +2,122 @@
 
 
 
-<div class="cards">
-  <md-content class="md-padding cardWelcome">
-    <div layout="column" layout-gt-xs="row">
-      <md-card class="" flex flex-gt-xs="100">
 
-        <h2 class="cardTitle">Bienvenue !</h2>
-        <md-card-content>
-          <p>La Résidence Périer, établissement d’hébergement pour personnes âgées, située au centre de Senonches, dispose de 128 logements habilités à l’Aide Sociale. Votre prise en charge est assurée au quotidien par une équipe pluriprofessionnelle soucieuse
-            de maintenir votre autonomie et répondre à vos besoins. L’environnement géographique, proche des commerces et au sein d’un espace boisé et sécurisé, favorise le maintien du lien social et familial. Ce site vous permettra de mieux connaître
-            la Résidence. Bonne visite.</p>
-        </md-card-content>
-      </md-card>
-    </div>
-  </md-content>
+<div layout-sm="column" layout-align="center center" class="colFront">
+  <div class="cards">
+    <md-content class="md-padding cardWelcome">
+      <div layout="column" layout-gt-xs="row">
+        <md-card class="" flex flex-gt-xs="100">
 
-  <md-content class="md-padding">
-    <div layout="column" layout-gt-xs="row">
-      <md-card flex flex-gt-xs="60">
-        <h2 class="cardTitle">Actualité</h2>
-        <md-card-content>
-          <div ng-repeat='news in listNewsAnon track by $index'>
-            <h3 class="cardLink" ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
-            <a ui-sref="anon.displaynews({id: news._id})"><img style="width: 400px;" ng-show="$last" ng-src="/{{news.image}}"></a>
-            <!-- <p ng-show="$last" ng-bind-html="news.content"></p> -->
-            <p ng-show="$last" class="cardLink"><a ui-sref="anon.displaynews({id: news._id})">A lire par ici >></a></p>
+          <h2 class="cardTitle">Bienvenue !</h2>
+          <md-card-content>
+            <p>La Résidence Périer, établissement d’hébergement pour personnes âgées, située au centre de Senonches, dispose de 128 logements habilités à l’Aide Sociale. Votre prise en charge est assurée au quotidien par une équipe pluriprofessionnelle soucieuse
+              de maintenir votre autonomie et répondre à vos besoins. L’environnement géographique, proche des commerces et au sein d’un espace boisé et sécurisé, favorise le maintien du lien social et familial. Ce site vous permettra de mieux connaître
+              la Résidence. Bonne visite.</p>
+          </md-card-content>
+        </md-card>
+      </div>
+    </md-content>
+
+    <md-content class="md-padding">
+      <div layout="column" layout-gt-xs="row">
+
+        <md-card flex flex-gt-xs="60">
+          <h2 class="cardTitle">Actualité</h2>
+
+          <div layout='row'>
+            <md-card-content class="Une" flex-gt-sm="55" flex="100">
+              <h3 class="titleColListNews">A la Une</h3>
+              <div ng-repeat='news in listNewsAnon track by $index'>
+                <h4 class="cardLink" ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
+                <a ui-sref="anon.displaynews({id: news._id})"><img class="imgNewsHome" ng-show="$last" ng-src="/{{news.image}}"></a>
+                <p ng-show="$last" class="textColListNews" ng-bind-html='news.content'></p>
+              </div>
+              <p class="linkTextListNews cardLink"><a ui-sref="anon.displaynews({id: news._id})">Lire la suite...</a></p>
+
+            </md-card-content>
+            <md-card-content flex="45" hide show-md class="colAllNewsHome">
+              <h3 class="titleColListNews">Toutes les actualités</h3>
+              <div class="colListNews">
+                <div ng-repeat="newsList in listNewsAnon | orderBy : '-date' | startFrom:currentPageListNews*pageSizeListNews | limitTo:pageSizeListNews">
+                  <h5 ng-hide="$first" class="cardDateEvenement">Postée le {{newsList.date | date: "dd-MM-yyyy"}}</h5>
+                  <p ng-hide="$first" class="cardLink cardTitleEvenement">
+                    <a ui-sref="anon.displaynews({id: newsList._id})">{{newsList.title}}</a></p>
+
+                  <a ui-sref="anon.displaynews({id: newsList._id})"><img class="imgNewsHome" style="width: 50px;" ng-hide="$first" ng-src="/{{newsList.image}}"></a>
+                  <md-divider ng-hide="$first" ng-if="!$last"></md-divider>
+                </div>
+              </div>
+
+              <section class="blocBtnGalerie btnListNewsHome" layout="row" layout-align="center center" md-theme="anon">
+                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageListNews == 0" ng-click="currentPageListNews=currentPageListNews-1">
+                  <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
+                </md-button>
+
+                <div class="pagingCalendarHome">{{currentPageListNews+1}}/{{numberOfPagesListNews()}}</div>
+                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageListNews >= listNewsAnon.length/pageSizeListNews - 1" ng-click="currentPageListNews = currentPageListNews+1">
+                  <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                </md-button>
+              </section>
+
+            </md-card-content>
+
+
           </div>
-        </md-card-content>
-      </md-card>
-      <md-card flex>
-        <h2 class="cardTitle">Agenda</h2>
-        <md-card-content>
-          <div class="" ng-repeat="evenement in listEvenementsAnon | startFrom:currentPageCalendar*pageSizeCalendar | limitTo:pageSizeCalendar">
+        </md-card>
+
+
+
+        <md-card flex class="colHomeLeft colAgendaHome">
+          <h2 class="cardTitle">Agenda</h2>
+          <md-card-content>
+            <div class="" ng-repeat="evenement in listEvenementsAnon | orderBy : '-date' | startFrom:currentPageCalendar*pageSizeCalendar | limitTo:pageSizeCalendar">
               <h4 class="cardDateEvenement">Le {{evenement.date | date: "dd-MM-yyyy"}}</h4>
-              <p class="cardTitleEvenement">{{evenement.title}}</p>
-              <p class="cardTitleEvenement">De {{evenement.start | date:'shortTime'}} à {{evenement.end | date:'shortTime'}}</p>
-              <md-divider ng-if="!$last"></md-divider>
-          </div>
+                <p class="cardTitleEvenement">{{evenement.title}}</p>
+                <p class="cardTitleEvenement">De {{evenement.start | date:'shortTime'}} à {{evenement.end | date:'shortTime'}}</p>
+                <md-divider ng-if="!$last"></md-divider>
+              </div>
 
-          <section class="blocBtnGalerie" layout="row" layout-align="center center" md-theme="anon">
-            <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar == 0" ng-click="currentPageCalendar=currentPageCalendar-1">
-              <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
-            </md-button>
+              <section class="blocBtnGalerie btnListAgendaHome" layout="row" layout-align="center center" md-theme="anon">
+                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar == 0" ng-click="currentPageCalendar=currentPageCalendar-1">
+                  <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
+                </md-button>
 
-            <div class="pagingCalendarHome">{{currentPageCalendar+1}}/{{numberOfPagesCalendar()}}</div>
-            <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar >= listEvenementsAnon.length/pageSizeCalendar - 1" ng-click="currentPageCalendar = currentPageCalendar+1">
-              <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
-            </md-button>
-          </section>
+                <div class="pagingCalendarHome">{{currentPageCalendar+1}}/{{numberOfPagesCalendar()}}</div>
+                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar >= listEvenementsAnon.length/pageSizeCalendar - 1" ng-click="currentPageCalendar = currentPageCalendar+1">
+                  <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                </md-button>
+              </section>
 
-        </md-card-content>
-      </md-card>
-    </div>
-  </md-content>
-
+            </md-card-content>
+        </md-card>
+        </div>
+    </md-content>
   <md-content class="md-padding">
     <div layout="column" layout-gt-xs="row">
       <md-card flex flex-gt-xs="80">
         <md-card-content>
-          <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSvjGoZxXRQtxtGbsjlA8zV5vsp_kCFQY">
             <ng-map id='map' center='[48.563, 1.041]' zoom='14'>
               <marker position="[48.5622532, 1.0383461000000125]" title="Ehpad de Senonches" label=""></marker>
             </ng-map>
-          </div>
         </md-card-content>
       </md-card>
-      <md-card flex>
 
-        <md-card-content md-theme="anon" layout-align="center center">
-          <p id="contactContent">Résidence Périer </br> 1, route de Dreux </br> 28250 </br> Senonches </br>02.37.37.73.27</p>
-          <md-button class="md-raised md-primary" id="contactButton" ui-sref="anon.formulaire">Contact</md-button>
+        <md-card flex class="colHomeLeft">
 
-          <md-card-content>
-      </md-card>
+          <md-card-content md-theme="anon" layout-align="center center">
+            <p id="contactContent">Résidence Périer </br> 1, route de Dreux </br> 28250 </br> Senonches </br>02.37.37.73.27</p>
+            <md-button class="md-raised md-primary" id="contactButton" ui-sref="anon.formulaire">Contact</md-button>
+
+            <md-card-content>
+        </md-card>
+      </div>
+    </md-content>
     </div>
-  </md-content>
-</div>
+  </div>
 
-<footer id=footer>
-  <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login</a>
-  <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
-  <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
-</footer>
+  <footer id=footer>
+    <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login</a>
+    <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
+    <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
+  </footer>
