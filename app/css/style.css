@@ -330,6 +330,9 @@ form .progress {
 .colAgendaHome {
   position: relative;
 }
+.signatureWelcome {
+  text-align: right;
+}
 
 .colFront {
   width: 80%;
@@ -346,6 +349,12 @@ md-content.md-ehpad-theme {
   bottom: 2%;
   left: 21%;
 }
+
+li {
+  list-style: none;
+  display: inline;
+}
+
 .btnListAgendaHome {
   position: absolute;
   bottom: 2%;

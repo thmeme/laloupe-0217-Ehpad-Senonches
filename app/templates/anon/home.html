@@ -6,11 +6,10 @@
       <div layout="column" layout-gt-xs="row">
         <md-card class="" flex flex-gt-xs="100">
 
-          <h2 class="cardTitle">Bienvenue !</h2>
+          <h2 class="cardTitle">{{welcome.title}}</h2>
           <md-card-content>
-            <p>La Résidence Périer, établissement d’hébergement pour personnes âgées, située au centre de Senonches, dispose de 128 logements habilités à l’Aide Sociale. Votre prise en charge est assurée au quotidien par une équipe pluriprofessionnelle soucieuse
-              de maintenir votre autonomie et répondre à vos besoins. L’environnement géographique, proche des commerces et au sein d’un espace boisé et sécurisé, favorise le maintien du lien social et familial. Ce site vous permettra de mieux connaître
-              la Résidence. Bonne visite.</p>
+            <p>{{welcome.content}}</p>
+            <p class="signatureWelcome">{{welcome.signature}}</p>
           </md-card-content>
         </md-card>
       </div>
@@ -47,6 +46,7 @@
               </div>
 
               <section class="blocBtnGalerie btnListNewsHome" layout="row" layout-align="center center" md-theme="anon">
+
                 <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageListNews == 0" ng-click="currentPageListNews=currentPageListNews-1">
                   <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
                 </md-button>
@@ -54,6 +54,7 @@
                 <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageListNews >= listNewsAnon.length/pageSizeListNews - 1" ng-click="currentPageListNews = currentPageListNews+1">
                   <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
                 </md-button>
+          
               </section>
             </md-card-content>
           </div>
@@ -94,7 +95,8 @@
         <md-card flex class="colHomeLeft">
 
           <md-card-content md-theme="anon" layout-align="center center">
-            <p id="contactContent">Résidence Périer </br> 1, route de Dreux </br> 28250 </br> Senonches </br>02.37.37.73.27</p>
+
+            <p id="contactContent"> {{contact.name}} </br> {{contact.street}} </br> {{contact.zipcode}} </br> {{contact.city}} </br>{{contact.phone}}</p>
             <md-button class="md-raised md-primary" id="contactButton" ui-sref="anon.formulaire({'#': 'menu'})">Contact</md-button>
 
             <md-card-content>
