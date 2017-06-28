@@ -21,10 +21,6 @@ const welcomeSchema = new mongoose.Schema({
     },
     id : {
       type: String,
-    },
-    isOnline: {
-      type: Boolean,
-      default: false,
     }
 });
 
@@ -33,6 +29,7 @@ let model = mongoose.model('Welcome', welcomeSchema);
 export default class Welcome {
 
     findAll(req, res) {
+      console.log('find1');
         model.find({})
         .populate('author')
         .exec((err, welcome) => {
@@ -45,6 +42,7 @@ export default class Welcome {
     }
 
     findAllByUser(req, res) {
+      console.log('find2');
         model.find({})
         .populate('author')
         .exec((err, welcome) => {
@@ -57,6 +55,7 @@ export default class Welcome {
     }
 
     findAllAnon(req, res) {
+      console.log('find3');
         model.find({isOnline: true})
         .populate('author')
         .exec((err, welcome) => {
@@ -69,6 +68,7 @@ export default class Welcome {
     }
 
     findById(req, res) {
+      console.log('find4');
         console.log('req in back', req.params, req.body, req.query);
         model.findById(req.params.id, (err, welcome) => {
           if (err || !welcome) {
@@ -132,8 +132,8 @@ export default class Welcome {
     }
     updateByUser(req, res) {
       console.log('req update user', req.body);
-        model.findOneAndUpdate(req.params.id,
-          req.body, { upsert: true },function(err, welcome) {
+        model.findOneAndUpdate({_id: req.params.id},
+          req.body, { upsert: true, new:true },function(err, welcome) {
             if (err) {
               res.status(500).send(err);
             } else {
