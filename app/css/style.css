@@ -330,6 +330,9 @@ form .progress {
 .colAgendaHome {
   position: relative;
 }
+.signatureWelcome {
+  text-align: right;
+}
 
 .colFront {
   width: 80%;

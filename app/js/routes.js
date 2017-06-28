@@ -192,6 +192,15 @@ angular.module('app')
           }
         }
       })
+      .state('user.contact', {
+        url: '/contact',
+        views: {
+          'content@': {
+            templateUrl: 'user/contact.html',
+            controller: 'ContactController'
+          }
+        }
+      })
       .state('user.create-calendar', {
         url: '/evenements',
         views: {

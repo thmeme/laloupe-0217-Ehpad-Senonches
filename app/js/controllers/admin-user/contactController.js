@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('WelcomeController', function($scope, $state, $stateParams, $window, $sce, $timeout, $mdDialog, CurrentUser, WelcomeService, Auth) {
+  .controller('ContactController', function($scope, $state, $stateParams, $window, $sce, $timeout, $mdDialog, CurrentUser, WelcomeService, Auth) {
 
     $scope.theme = 'ehpad';
     $scope.user = CurrentUser.user();

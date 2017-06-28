@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('HomeController', function($scope, SubmenuService, CalendarService, $sce, NewsService, SlideshowService) {
+  .controller('HomeController', function($scope, SubmenuService, WelcomeService, CalendarService, $sce, NewsService, SlideshowService) {
     $scope.tinymceModel = 'Initial content';
 
     $scope.getContent = function() {
@@ -97,12 +97,34 @@ angular.module('app')
         $scope.listNewsAnon = res.data;
         $scope.listNewsAnon.content = $sce.trustAsHtml(res.data.content);
         console.log('$scope.listNewsAnon.content', $scope.listNewsAnon.content);
-
-
       });
     }
     loadAllNewsAnon();
 
+    
+    var idWel = '';
+    function loadAllWelcomes() {
+      WelcomeService.getAll().then(function(res) {
+        console.log('listWelcomes', res);
+        $scope.welcome = res.data[0];
+        console.log('id Welcome', $scope.welcome._id);
+        idWel = $scope.welcome._id;
+        console.log('idWel', idWel);
+        loadWelcome(idWel);
+      }, function(err) {
+        console.error('error on loadAllWelcomes', err);
+      });
+    }
+    loadAllWelcomes();
+    function loadWelcome(id) {
+        WelcomeService.getOne(idWel).then(function(res) {
+          console.log('res One', res.data);
+          $scope.welcome = res.data;
+          console.log('$scope.Welcome', $scope.welcome);
+        }, function(err) {
+          console.error('error on getOne Welcome', err);
+        });
+    }
 
 
     $scope.currentPageListNews = 0;
@@ -125,21 +147,9 @@ angular.module('app')
     $scope.listImgSlideShow = [];
     loadImgSlideshow = function() {};
     loadImgSlideshow();
-
     $scope.listNewsAnon = [];
 
 
-
-
-
-    // $scope.listEvenements = [];
-    //
-    // function loadEvenements() {
-    //   CalendarService.getAll().then(function(res) {
-    //     $scope.listEvenements = res.data;
-    //   });
-    // }
-    // loadEvenements();
 
     //*****slider*****//
 
@@ -150,8 +160,6 @@ angular.module('app')
 
         console.log('slideChangeStart');
       });
-
-
     };
 
   });
