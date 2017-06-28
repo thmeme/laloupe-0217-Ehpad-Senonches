@@ -6,7 +6,7 @@
       <div layout="column" layout-gt-xs="row">
         <md-card class="" flex flex-gt-xs="100">
 
-          <h2 class="cardTitle">Bienvenue !</h2>
+          <h2 class="cardTitle">Bienvenue</h2>
           <md-card-content>
             <p>La Résidence Périer, établissement d’hébergement pour personnes âgées, située au centre de Senonches, dispose de 128 logements habilités à l’Aide Sociale. Votre prise en charge est assurée au quotidien par une équipe pluriprofessionnelle soucieuse
               de maintenir votre autonomie et répondre à vos besoins. L’environnement géographique, proche des commerces et au sein d’un espace boisé et sécurisé, favorise le maintien du lien social et familial. Ce site vous permettra de mieux connaître
@@ -105,7 +105,7 @@
   </div>
 
   <footer id=footer>
-    <p id="copyright">© EHPAD SENONCHES Tous droits reservés</p>
+    <p class="copyright">© EHPAD SENONCHES Tous droits reservés</p>
     <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login Admin</a>
     <a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
     <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>

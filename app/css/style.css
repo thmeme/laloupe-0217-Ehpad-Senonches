@@ -106,6 +106,9 @@ md-select:not([disabled]):focus .md-select-value {
   color: #dcf84e;
   background-color: #4c959e;
 }
+#logoutNav {
+  float : right;
+}
 
 .md-button.md-default-theme.md-primary, .md-button.md-primary {
   color: #4c959e;
@@ -398,6 +401,7 @@ md-content.md-ehpad-theme {
   margin-left: 15px;
   margin-bottom: 0;
   color:  #265B7E;
+  font-family: 'Oxygen', sans-serif;
   /*border-color: #ff7ed3;*/
 }
 
@@ -494,11 +498,30 @@ md-content.md-ehpad-theme {
   text-decoration: none;
   color: black;
 }
-@media screen and (max-width: 800px)
+@media screen and (max-width: 700px)
 {
   #greenButton {
   margin-left: -20px;
   margin-right: -20px;
+  font-size: 11px !important;
+  line-height: 1.6em !important;
+  }
+  #pinkButton {
+    font-size: 11px !important;
+    line-height: 1.6em !important;
+  }
+  #blueButton {
+  font-size: 11px !important;
+  line-height: 1.6em !important;
+  }
+  #expendPink {
+    display: none;
+  }
+  #expendGreen {
+    display: none;
+  }
+  #expendBlue {
+    display: none;
   }
 }
 
@@ -720,7 +743,7 @@ md-content.md-ehpad-theme {
   color: white;
 }
 
-#copyright{
+.copyright{
 position: absolute;
 bottom:  0;
 margin-bottom: 10px;
