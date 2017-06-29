@@ -74,6 +74,7 @@ angular.module('app')
     $scope.updateSubmenu = function() {
       SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
         console.log('update', res);
+        location.reload(true);
       }, function(err) {
         console.error('error on update Submenus', err);
       });

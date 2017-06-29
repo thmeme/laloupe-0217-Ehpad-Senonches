@@ -65,6 +65,8 @@ angular.module('app')
     $scope.updateNews = function() {
       NewsService.update($scope.idNews, $scope.news).then(function(res) {
         console.log('update', res);
+        location.reload(true);
+
       });
     };
 
