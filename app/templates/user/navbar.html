@@ -19,7 +19,9 @@
 
     <!-- <md-truncate style="position: absolute; left: 90px; right: 170px; top: 13px; bottom: 13px;">Toolbar with Standard Buttons</md-truncate> -->
 
-    <span flex></span>
+    <span flex><md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" class="md-primary" style="color: #ffffff;">
+      Afficher les catégories
+    </md-button></span>
     <!-- <md-button class="md-raised" aria-label="Learn More">
             Guide
         </md-button> -->
@@ -27,8 +29,39 @@
 
             <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
         </md-button> -->
+
         <md-button aria-label="Go Back">
           <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' id="logoutNav">Logout</a></md-button>
   </div>
 
 </md-toolbar>
+<!-- start slide menu -->
+<md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+      <md-toolbar class="md-theme-light">
+        <h1 class="sideTitle">MENU</h1>
+      </md-toolbar>
+      <md-content layout-padding>
+        <ul class="sideLeft">
+          <li><md-button ng-click="close()" aria-label="Go Back">
+            <a ui-sref="user.submenu">Sous-menus</a></md-button></li>
+          <li><md-button ng-click="close()" aria-label="Go Back">
+            <a ui-sref="user.welcome">Bienvenue</a></md-button></li>
+          <li><md-button ng-click="close()" aria-label="Go Back">
+            <a ui-sref="user.news">Actualités</a></md-button></li>
+          <li><md-button ng-click="close()" aria-label="Go Back">
+            <a ui-sref="user.calendar">Agenda</a></md-button></li>
+          <li><md-button ng-click="close()" aria-label="Go Back">
+            <a ui-sref="user.slideshow">Carrousel</a></md-button></li>
+          <li><md-button ng-click="close()" aria-label="Go Back">
+              <a ui-sref="user.contact">Contact</a></md-button></li>
+          <li><md-button ng-click="close()" aria-label="Go Back" ng-if="user.isAdmin">
+            <a ui-sref="user.users">Utilisateurs</a></md-button></li>
+        </ul>
+        <div class="btnClose">
+        <md-button ng-click="close()">
+          Fermer
+        </md-button>
+      </div>
+      </md-content>
+    </md-sidenav>
+    <!-- end slide menu -->

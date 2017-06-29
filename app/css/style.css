@@ -840,7 +840,25 @@ li {
   font-size: 17px;
 }
 
+/*sidenav*/
 
+.sideLeft {
+  display: grid;
+  text-align: left;
+}
+.sideTitle{
+  margin-left: 2vw;
+}
+.sideLeft button {
+  text-align: left;
+}
+.sideLeft a{
+  text-decoration: none;
+  color: #009688;
+}
+.btnClose {
+  text-align: left;
+}
 /*page formulary*/
 
 .formTitle {
