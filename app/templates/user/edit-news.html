@@ -1,4 +1,4 @@
-<div layout="column" layout-align-gt-sm="space-around center">
+<div layout="column" layout-align="center center">
   <div class="columnAdmin">
     <div>
       <md-button class="md-primary md-raised btnRetour" ng-click='redirectListNews()'>Retour à la liste des actualités</md-button>
@@ -6,13 +6,12 @@
 
     <form class="formEditNews" method="post" ng-submit="updateNews()">
       <div ng-cloak>
-        <md-input-container class="md-block" flex-gt-sm >
+        <md-input-container class="md-block" flex-gt-sm>
           <label>Titre</label>
-          <input ng-model="news.title" >
+          <input ng-model="news.title">
         </md-input-container>
       </div>
-
-      <textarea ui-tinymce="tinymceOptions" ng-model="news.content" ></textarea>
+      <textarea ui-tinymce="tinymceOptions" ng-model="news.content"></textarea>
       <div>
         <div layout='row'>
           <md-switch flex='80' class="switch" ng-model="news.isOnline" ng-if='user.isAdmin' aria-label="status">
@@ -21,7 +20,6 @@
           </md-switch>
           <md-button class="md-primary md-raised" type="submit">VAlider</md-button>
           <md-button class="md-primary md-raised" ng-click='OpenModalDisplayText()'><i class="material-icons displayText">remove_red_eye</i></md-button>
-
         </div>
         <div layout="row" layout-align="space-around center">
           <div class="blocButtonsImg">
@@ -30,11 +28,10 @@
             <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
             <md-button ng-if='!news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>Associer</md-button>
             <md-button ng-if='news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociateEdit()'>Changer</md-button>
-            <!-- <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{news.image ? 'Dissocier' : 'Associer'}}</md-button> -->
             <img class='imgAssociatePreview' ng-show='news.image' ng-src="/{{news.image}}">
-            <!-- <md-button class="md-primary md-raised" ng-click='deleteImg(news.image)'>Supprimer</md-button> -->
-
           </div>
+        </div>
+        <div layout="row" layout-align="space-around center">
           <div class="blocButtonsImg">
             <h2>Gestion des pdf</h2>
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadPdf()'>Ajouter</md-button>
@@ -45,9 +42,10 @@
     </form>
 
     <!-- Modal text-->
-    <modal-dialog show='textModalShow' width='550px' height='50%'>
-      <div style="height: 400px; overflow: scroll">
+    <modal-dialog show='textModalShow' width='700px'>
+      <div style="height: 417px; overflow: scroll; background-color: white;">
         <h3>{{news.title}}</h3>
+        <img class="imgModalEditNews" ng-src="/{{news.image}}" alt="">
         <p ng-bind-html="news.content"></p>
       </div>
 
@@ -104,7 +102,7 @@
         <img ng-src="logopdf2.png" class="listImages">
         <p class="namePdf">{{decodeURI(pdf.fileName.split('-').pop())}}</p>
         <div class="btnInsertImg">
-          <md-button class="md-fab md-mini btnInsert"  target='_blank' title="Visualiser"><i class="material-icons">visibility</i></md-button>
+          <md-button class="md-fab md-mini btnInsert" target='_blank' title="Visualiser"><i class="material-icons">visibility</i></md-button>
           <md-button class="md-fab md-mini btnInsert" ng-click-copy="/uploads/pdf/{{pdf.fileName}}" title="Copier"><i class="material-icons">content_copy</i></md-button>
           <md-divider ng-if="!$last"></md-divider>
         </div>

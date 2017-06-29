@@ -1,4 +1,4 @@
-<div layout="column" layout-align-gt-sm="space-around center">
+<div layout="column" layout-align="center center">
   <div class="columnAdmin">
     <md-button class="md-primary md-raised btnRetour" ng-click='redirect()'>Retour à la liste des sous-menus</md-button>
 
@@ -26,13 +26,13 @@
           <md-button class="md-primary md-raised" type="submit">Valider</md-button>
           <md-button class="md-primary md-raised" ng-click='OpenModalDisplayText()'><i class="material-icons displayText">remove_red_eye</i></md-button>
         </div>
-        <div layout="row" layout-align="space-around center">
-          <div class="blocButtonsImg">
+        <div layout="column" layout-align="space-around center" layout-gt-sm="row">
+          <div class="blocButtonsImg" flex>
             <h2>Gestion des images</h2>
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
             <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
           </div>
-          <div class="blocButtonsImg">
+          <div class="blocButtonsImg" flex>
             <h2>Gestion des pdf</h2>
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadPdf()'>Ajouter</md-button>
             <md-button class="md-primary md-raised" ng-click='OpenModalUrlPdf()'>Galerie</md-button>
@@ -42,8 +42,8 @@
     </form>
 
     <!-- Modal text-->
-    <modal-dialog show='textModalShow' width='550px' height='50%'>
-      <div style="height: 400px; overflow: scroll">
+    <modal-dialog show='textModalShow' width='700px'>
+      <div style="height: 417px; overflow: scroll; background-color: white;">
         <h3>{{submenu.menu}}</h3>
         <h3>{{submenu.title}}</h3>
         <p ng-bind-html="submenu.content"></p>
