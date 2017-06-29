@@ -437,8 +437,26 @@ li {
 }
 
 .cardDateEvenement {
-  margin-bottom: 0;
-  color : #FF7ED3;
+
+  margin-bottom: 8px;
+    color: #FF7ED3;
+    margin-top: 7px;
+}
+.cardDateNewsDisplayNews {
+
+  margin-bottom: 8px;
+    color: #FF7ED3;
+    margin-top: -8px;
+}
+.ColNewsDisplayNews {
+  position: relative;
+}
+.btnListNewsDisplayNews {
+  position: absolute;
+}
+
+.cardImgNews {
+  margin-bottom: 7px;
 }
 
 .cardTitleEvenement {
