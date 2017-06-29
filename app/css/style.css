@@ -292,11 +292,6 @@ form .progress {
   margin-top: 1.5em;
 }
 
-
-/*.blocBtnGalerie {
-  border-top: 1px solid #009688;
-}*/
-
 .imgGallery {
   display: inline-block;
   width: 177px;
@@ -453,6 +448,12 @@ li {
 }
 .btnListNewsDisplayNews {
   position: absolute;
+  bottom: 1% !important;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.alignBtn {
+
 }
 
 .cardImgNews {
@@ -899,5 +900,8 @@ margin-left: 15px;
 @media (max-width: 600px) {
   .colAgendaHome {
     height: 390px;
+  }
+  .ColNewsDisplayNews {
+        height: 890px;
   }
 }
