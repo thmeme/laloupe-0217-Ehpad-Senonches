@@ -751,18 +751,19 @@ li {
 
 .swiper-container {
   width: 100%;
-  height: 40vw;
+  height: 42vw;
   position: relative;
+
 }
 
 .swiper-slide {
   max-width: 100%;
-
 }
 
 .swiper-image {
   width: 100%;
-  height: 100%
+  top : 20%;
+  transform: translateY(-20%);
 }
 
 
