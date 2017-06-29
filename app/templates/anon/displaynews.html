@@ -18,7 +18,7 @@
             <div class="md-3-line" ng-repeat="news in listNewsAnon | orderBy: '-date' | startFrom:currentPageNews*pageSizeNews | limitTo:pageSizeNews">
               <h5 class="cardDateEvenement">Postée le {{news.date | date : 'longDate'}}</h5>
               <h3 class="cardLink cardTitleEvenement"><a ui-sref="anon.displaynews({id: news._id})">{{news.title}}</a></h3>
-              <img style="width: 150px" ng-src="/{{news.image}}">
+              <img class="cardImgEvenement" ng-src="/{{news.image}}">
               <md-divider ng-if="!$last"></md-divider>
             </div>
 

@@ -367,7 +367,8 @@ md-content.md-ehpad-theme {
 .btnListNewsHome {
   position: absolute;
   bottom: 2%;
-  left: 21%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 li {
@@ -378,7 +379,8 @@ li {
 .btnListAgendaHome {
   position: absolute;
   bottom: 2%;
-  left: 28%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .imgNewsHome {
@@ -445,6 +447,11 @@ li {
 }
 .ColNewsDisplayNews {
   position: relative;
+  height: 1125px;
+}
+
+.cardImgEvenement {
+  width: 100%;
 }
 .btnListNewsDisplayNews {
   position: absolute;
@@ -902,6 +909,24 @@ margin-left: 15px;
     height: 390px;
   }
   .ColNewsDisplayNews {
-        height: 890px;
+        height: 1770px;
+  }
+  .cardImgEvenement {
+    width: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .ColNewsDisplayNews {
+        height: 1515px;
+  }
+}
+@media (max-width: 375px) {
+  .ColNewsDisplayNews {
+        height: 1375px;
+  }
+}
+@media (max-width: 350px) {
+  .ColNewsDisplayNews {
+        height: 1235px;
   }
 }
