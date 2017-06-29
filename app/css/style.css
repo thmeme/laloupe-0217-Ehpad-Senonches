@@ -27,6 +27,11 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 }
 
 
+#navbarUser {
+  margin-bottom: 20px;
+}
+
+
 /*Login*/
 
 .formLogin {
@@ -542,8 +547,8 @@ li {
 
 #menu {
   text-align: center;
-  margin-bottom: 5vw;
-  margin-top: 5vw;
+  margin-bottom: 2vw;
+  margin-top: 2vw;
   display: list-item;
   font-weight: bold;
 }
@@ -586,6 +591,13 @@ li {
   #expendBlue {
     display: none;
   }
+  .copyright {
+    font-size : 10px;
+  }
+  #footer {
+    bottom: 0;
+  }
+    )
 }
 
 #greenButton {
@@ -780,8 +792,9 @@ li {
 
 .swiper-container {
   width: 100%;
-  height: 40vw;
+  height: 42vw;
   position: relative;
+
 }
 
 .swiper-slide {
@@ -790,6 +803,8 @@ li {
 
 .swiper-image {
   width: 100%;
+  top : 20%;
+  transform: translateY(-20%);
 }
 
 
