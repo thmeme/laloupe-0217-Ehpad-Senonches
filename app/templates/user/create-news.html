@@ -22,8 +22,9 @@
             <h2>Gestion des images</h2>
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
             <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
-            <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{newNews.image ? 'Dissocier' : 'Associer'}}</md-button>
-            <img class='imgAssociatePreview' ng-show='newNews.image' ng-src="/{{newNews.image}}">
+            <md-button ng-if='!news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>Associer</md-button>
+            <md-button ng-if='news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociateEdit()'>Changer</md-button>
+            <img class='imgAssociatePreview' ng-show='news.image' ng-src="/{{news.image}}">
           </div>
           <div class="blocButtonsImg">
             <h2>Gestion des pdf</h2>
