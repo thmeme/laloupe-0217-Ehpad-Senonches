@@ -40,6 +40,7 @@ angular.module('app')
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
           console.log('res One', res);
           $scope.submenu = res.data;
+          $scope.submenu.content = $sce.trustAsHtml(res.data.content);
 
         }, function(err) {
           console.error('error on getOne Submenu', err);
@@ -73,6 +74,7 @@ angular.module('app')
     $scope.updateSubmenu = function() {
       SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
         console.log('update', res);
+        location.reload(true);
       }, function(err) {
         console.error('error on update Submenus', err);
       });

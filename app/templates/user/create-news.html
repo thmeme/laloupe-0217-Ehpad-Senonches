@@ -1,8 +1,8 @@
-<div layout="column" layout layout-align="space-around center">
+<div layout="column" layout-align="center center">
   <div class="columnAdmin">
     <form method="post" ng-submit="addNews()">
       <div ng-cloak>
-        <md-input-container >
+        <md-input-container>
           <label>Nouvelle actualité</label>
           <input ng-model="newNews.title">
         </md-input-container>
@@ -22,9 +22,12 @@
             <h2>Gestion des images</h2>
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
             <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
-            <md-button class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>{{newNews.image ? 'Dissocier' : 'Associer'}}</md-button>
-            <img class='imgAssociatePreview' ng-show='newNews.image' ng-src="/{{newNews.image}}">
+            <md-button ng-if='!news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociate()'>Associer</md-button>
+            <md-button ng-if='news.image' class="md-primary md-raised" ng-click='OpenModalgalleryAssociateEdit()'>Changer</md-button>
+            <img class='imgAssociatePreview' ng-show='news.image' ng-src="/{{news.image}}">
           </div>
+        </div>
+        <div layout="row" layout-align="space-around center">
           <div class="blocButtonsImg">
             <h2>Gestion des pdf</h2>
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadPdf()'>Ajouter</md-button>
