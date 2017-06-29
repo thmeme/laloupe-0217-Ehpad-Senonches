@@ -22,20 +22,22 @@ angular.module('app')
       image: '',
       author: ''
     };
+    $scope.uCanTrust = function(string) {
+      return $sce.trustAsHtml(string);
+    };
 
     function loadNews(id) {
       if (id !== undefined) {
         NewsService.getOne($scope.idNews).then(function(res) {
           console.log('res One', res.data);
           $scope.news = res.data;
+          $scope.news.content = $sce.trustAsHtml(res.data.content);
         });
       }
     }
     loadNews($scope.idNews);
 
-    $scope.uCanTrust = function(string) {
-      return $sce.trustAsHtml(string);
-    };
+
 
     $scope.newNews = {
       content: '',
