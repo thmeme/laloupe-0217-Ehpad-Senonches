@@ -1,4 +1,4 @@
-<md-toolbar id="navbarUser">
+<md-toolbar id="navbarUser" hide show-gt-sm flex>
   <div class="md-toolbar-tools">
     <md-button aria-label="Go Back">
       <a ui-sref="user.submenu">Sous-menus</a></md-button>
@@ -10,58 +10,70 @@
       <a ui-sref="user.calendar">Agenda</a></md-button>
     <md-button aria-label="Go Back">
       <a ui-sref="user.slideshow">Carrousel</a></md-button>
-      <md-button aria-label="Go Back">
-        <a ui-sref="user.contact">Contact</a></md-button>
+    <md-button aria-label="Go Back">
+      <a ui-sref="user.contact">Contact</a></md-button>
     <md-button aria-label="Go Back" ng-if="user.isAdmin">
       <a ui-sref="user.users">Utilisateurs</a></md-button>
-
-
-
-    <!-- <md-truncate style="position: absolute; left: 90px; right: 170px; top: 13px; bottom: 13px;">Toolbar with Standard Buttons</md-truncate> -->
-
-    <span flex><md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" class="md-primary" style="color: #ffffff;">
-      Afficher les catégories
-    </md-button></span>
-    <!-- <md-button class="md-raised" aria-label="Learn More">
-            Guide
-        </md-button> -->
-    <!-- <md-button class="md-fab md-mini" aria-label="Favorite">
-
-            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-        </md-button> -->
-
-        <md-button aria-label="Go Back">
-          <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' id="logoutNav">Logout</a></md-button>
+    <md-button aria-label="Go Back">
+      <a ng-click="logout()" ng-show="auth.isAuthenticated()" ui-sref="anon.home" id="logoutNav">Logout</a></md-button>
   </div>
 
+
+
+
 </md-toolbar>
+<div  hide-gt-sm >
+<span flex flex><md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" class="md-primary md-raised" style="color: #ffffff;">
+  Afficher les catégories
+</md-button></span>
+</div>
+
 <!-- start slide menu -->
 <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
-      <md-toolbar class="md-theme-light">
-        <h1 class="sideTitle">MENU</h1>
-      </md-toolbar>
-      <md-content layout-padding>
-        <ul class="sideLeft">
-          <li><md-button ng-click="close()" aria-label="Go Back">
-            <a ui-sref="user.submenu">Sous-menus</a></md-button></li>
-          <li><md-button ng-click="close()" aria-label="Go Back">
-            <a ui-sref="user.welcome">Bienvenue</a></md-button></li>
-          <li><md-button ng-click="close()" aria-label="Go Back">
-            <a ui-sref="user.news">Actualités</a></md-button></li>
-          <li><md-button ng-click="close()" aria-label="Go Back">
-            <a ui-sref="user.calendar">Agenda</a></md-button></li>
-          <li><md-button ng-click="close()" aria-label="Go Back">
-            <a ui-sref="user.slideshow">Carrousel</a></md-button></li>
-          <li><md-button ng-click="close()" aria-label="Go Back">
-              <a ui-sref="user.contact">Contact</a></md-button></li>
-          <li><md-button ng-click="close()" aria-label="Go Back" ng-if="user.isAdmin">
-            <a ui-sref="user.users">Utilisateurs</a></md-button></li>
-        </ul>
-        <div class="btnClose">
-        <md-button ng-click="close()">
-          Fermer
-        </md-button>
+  <md-toolbar class="md-theme-light">
+    <h1 class="sideTitle">MENU</h1>
+  </md-toolbar>
+  <md-content layout-padding>
+    <ul class="sideLeft">
+      <li>
+        <md-button ng-click="close()" aria-label="Go Back">
+          <a ui-sref="user.submenu">Sous-menus</a></md-button>
+      </li>
+      <li>
+        <md-button ng-click="close()" aria-label="Go Back">
+          <a ui-sref="user.welcome">Bienvenue</a></md-button>
+      </li>
+      <li>
+        <md-button ng-click="close()" aria-label="Go Back">
+          <a ui-sref="user.news">Actualités</a></md-button>
+      </li>
+      <li>
+        <md-button ng-click="close()" aria-label="Go Back">
+          <a ui-sref="user.calendar">Agenda</a></md-button>
+      </li>
+      <li>
+        <md-button ng-click="close()" aria-label="Go Back">
+          <a ui-sref="user.slideshow">Carrousel</a></md-button>
+      </li>
+      <li>
+        <md-button ng-click="close()" aria-label="Go Back">
+          <a ui-sref="user.contact">Contact</a></md-button>
+      </li>
+      <li>
+        <md-button ng-click="close()" aria-label="Go Back" ng-if="user.isAdmin">
+          <a ui-sref="user.users">Utilisateurs</a></md-button>
+      </li>
+      <li>
+        <md-button aria-label="Go Back" >
+          <a ng-click="logout()" ng-show="auth.isAuthenticated()" ui-sref="anon.home">Logout</a></md-button>
+      </li>
       </div>
-      </md-content>
-    </md-sidenav>
-    <!-- end slide menu -->
+    </ul>
+    <!-- <div class="btnClose">
+      <md-button ng-click="close()">
+        Fermer
+      </md-button>
+    </div> -->
+  </md-content>
+</md-sidenav>
+<!-- end slide menu -->
