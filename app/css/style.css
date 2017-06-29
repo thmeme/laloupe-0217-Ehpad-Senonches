@@ -558,6 +558,13 @@ li {
   #expendBlue {
     display: none;
   }
+  .copyright {
+    font-size : 10px;
+  }
+  #footer {
+    bottom: 0;
+  }
+    )
 }
 
 
