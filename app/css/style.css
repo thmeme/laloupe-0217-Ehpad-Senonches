@@ -27,6 +27,10 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
   color: rgba(255, 255, 255, 0.87);
 }
 
+#navbarUser {
+  margin-bottom: 20px;
+}
+
 /*Login*/
 .formLogin{
   background: #f6f6f6;
