@@ -39,6 +39,7 @@
 
     <!-- Modal gallery images insert-->
     <modal-dialog show='galleryInsertModalShow' width='750px'>
+      <p>Sélectionnez une image pour l'insérer dans l'éditeur de texte.</p>
       <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
         <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
         <div class="btnInsertImg">
@@ -61,6 +62,7 @@
 
     <!-- Modal gallery pdf-->
     <modal-dialog show='galleryPdfModalShow' width='750px'>
+      <p>Copier le lien du pdf avant d'utiliser le bouton "Insérer/modifier un lien" dans l'éditeur de texte.</p>
       <div class="pdfGallery" ng-repeat="pdf in listPdf | orderBy : 'fileName':true | startFrom:currentPagePdf*pageSizePdf | limitTo:pageSizePdf">
         <img ng-src="logopdf2.png" class="listImages">
         <p class="namePdf">{{decodeURI(pdf.fileName.split('-').pop())}}</p>
@@ -85,6 +87,7 @@
 
     <!-- Modal gallery images associate-->
     <modal-dialog show='galleryAssociateModalShow' width='750px'>
+      <p>Sélectionnez une image pour l'associer à l'article et l'afficher sur la page d'accueil.</p>
       <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
         <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
         <div class="btnInsertImg">
@@ -124,6 +127,7 @@
     <!-- Upload pdf -->
     <modal-dialog show='UploadPdfModalShow' width='750px'>
       <h5>ATTENTION : Le nom de votre fichier pdf ne doit pas comporter d'accents ni de caractères spéciaux.</h5>
+      <p>Téléchargez un pdf depuis votre ordinateur.</p>
       <div class="addImage" ng-controller="UploadController">
         <form name="upload_form">
           <input type="file" ngf-select ng-model="pdf.file" name="file" ngf-pattern="'.pdf'" />
