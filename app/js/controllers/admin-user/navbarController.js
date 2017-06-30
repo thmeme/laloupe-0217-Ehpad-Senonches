@@ -2,15 +2,15 @@ angular.module('app')
     .controller('NavbarController', function($scope, Auth, CurrentUser, $timeout, $mdSidenav, $log) {
 
       // side
-      $scope.toggleLeft = buildDelayedToggler('left');
-          $scope.toggleLeft = buildToggler('left');
-          // $scope.toggleRight = buildToggler('right');
-          // $scope.isOpenRight = function(){
-          //   return $mdSidenav('right').isOpen();
-          // };
-          $scope.isOpenLeft = function(){
-            return $mdSidenav('left').isOpen();
-          };
+      // $scope.toggleLeft = buildDelayedToggler('left');
+      //     $scope.toggleLeft = buildToggler('left');
+      //     // $scope.toggleRight = buildToggler('right');
+      //     // $scope.isOpenRight = function(){
+      //     //   return $mdSidenav('right').isOpen();
+      //     // };
+      //     $scope.isOpenLeft = function(){
+      //       return $mdSidenav('left').isOpen();
+      //     };
 
       //     /**
       //      * Supplies a function that will continue to operate until the
@@ -55,6 +55,16 @@ angular.module('app')
                 });
             };
           }
+
+          $scope.toggleLeft = buildDelayedToggler('left');
+              $scope.toggleLeft = buildToggler('left');
+              // $scope.toggleRight = buildToggler('right');
+              // $scope.isOpenRight = function(){
+              //   return $mdSidenav('right').isOpen();
+              // };
+              $scope.isOpenLeft = function(){
+                return $mdSidenav('left').isOpen();
+              };
       //   .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
           $scope.close = function () {
             // Component lookup should always be available since we are not using `ng-if`
