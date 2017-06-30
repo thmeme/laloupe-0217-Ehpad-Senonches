@@ -71,7 +71,6 @@ angular.module('app')
           //     });
           // };
       // side
-
         $scope.isCollapsed = true;
         $scope.auth = Auth;
         $scope.user = CurrentUser.user();
