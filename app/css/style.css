@@ -465,7 +465,11 @@ li {
 
 .ColNewsDisplayNews {
   position: relative;
-  height: 1125px;
+  height: 1160px;
+}
+.ColAgendaDisplaySubmenu {
+  position: relative;
+  max-height: 476px
 }
 
 .cardImgEvenement {
