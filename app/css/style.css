@@ -934,6 +934,7 @@ li {
 
 .textSlider {
   margin: 10px;
+  text-align: right;
 }
 
 .text-size-slider .small-letter,
