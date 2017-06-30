@@ -14,19 +14,25 @@
       <a ui-sref="user.contact">Contact</a></md-button>
     <md-button aria-label="Go Back" ng-if="user.isAdmin">
       <a ui-sref="user.users">Utilisateurs</a></md-button>
+      <span flex></span>
     <md-button aria-label="Go Back">
       <a ng-click="logout()" ng-show="auth.isAuthenticated()" ui-sref="anon.home" id="logoutNav">Logout</a></md-button>
   </div>
-
-
-
-
 </md-toolbar>
-<div  hide-gt-sm >
+
+<md-toolbar id="navbarUser" hide-gt-sm>
+  <div class="md-toolbar-tools">
+    <md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()"><i class="material-icons">menu</i></md-button>
+
+  </div>
+</md-toolbar>
+
+
+<!-- <div  hide-gt-sm >
 <span flex flex><md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" class="md-primary md-raised" style="color: #ffffff;">
   Afficher les catégories
 </md-button></span>
-</div>
+</div> -->
 
 <!-- start slide menu -->
 <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
