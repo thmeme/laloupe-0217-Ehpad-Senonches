@@ -64,7 +64,6 @@
         </div>
       </div>
       <section class="blocBtnGalerie" layout="row" layout-align="center center">
-        <p>Copier le lien du pdf avant d'utiliser le bouton "Insérer/modifier un lien".</p>
         <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
           <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
         </md-button>
@@ -79,7 +78,7 @@
 
     <!-- Modal gallery pdf-->
     <modal-dialog show='galleryPdfModalShow' width='750px'>
-      <p>Téléchargez un pdf depuis votre ordinateur.</p>
+      <p>Copier le lien du pdf avant d'utiliser le bouton "Insérer/modifier un lien" dans l'éditeur de texte.</p>
       <div class="pdfGallery" ng-repeat="pdf in listPdf | orderBy : 'fileName':true | startFrom:currentPagePdf*pageSizePdf | limitTo:pageSizePdf">
         <img ng-src="logopdf2.png" class="listImages">
         <p class="namePdf">{{decodeURI(pdf.fileName.split('-').pop())}}</p>
@@ -122,6 +121,7 @@
     <!-- Upload pdf -->
     <modal-dialog show='UploadPdfModalShow' width='750px'>
       <h5>ATTENTION : Le nom de votre fichier pdf ne doit pas comporter d'accents ni de caractères spéciaux.</h5>
+      <p>Téléchargez un pdf depuis votre ordinateur.</p>
       <div class="addImage" ng-controller="UploadController">
         <form name="upload_form">
           <input type="file" ngf-select ng-model="pdf.file" name="file" ngf-pattern="'.pdf'" />

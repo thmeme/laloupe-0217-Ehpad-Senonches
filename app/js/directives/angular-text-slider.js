@@ -20,7 +20,7 @@
       return {
         restrict: 'E',
         // Inline template. For info on how to style the slider please visit: http://www.castillo.io/angular-text-slider
-        template: '<div class="text-size-slider"><span class="small-letter" ng-style="{ fontSize: min + unit }">A</span> <input type="range" min="{{ min }}" max="{{ max }}" ng-model="textSize" class="slider" value="16" /> <span class="big-letter" ng-style="{ fontSize: max + unit }">A</span></div>',
+        template: '<div class="text-size-slider"><span class="small-letter" ng-style="{ fontSize: min + unit }">A</span> <input type="range" min="{{ min }}" max="{{ max }}" ng-model="textSize" class="slider" value="12" /> <span class="big-letter" ng-style="{ fontSize: max + unit }">A</span></div>',
         // Isolated scope
         scope: {
           min: '@',

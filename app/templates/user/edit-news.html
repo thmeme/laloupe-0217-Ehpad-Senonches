@@ -54,6 +54,7 @@
 
     <!-- Modal gallery images insert-->
     <modal-dialog show='galleryInsertModalShow' width='750px'>
+      <p>Sélectionnez une image pour l'insérer dans l'éditeur de texte.</p>
       <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
         <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
         <div class="btnInsertImg">
@@ -75,6 +76,7 @@
 
     <!-- Modal gallery images associate-->
     <modal-dialog show='galleryAssociateModalShow' width='750px'>
+      <p>Sélectionnez une image pour l'associer à l'article et l'afficher sur la page d'accueil.</p>
       <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
         <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
         <div class="btnInsertImg">
