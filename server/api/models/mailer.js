@@ -6,8 +6,8 @@ import hbs from 'nodemailer-express-handlebars';
 var mailer = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
-    user: 'test.node.wcs@gmail.com',
-    pass: 'jecode4laloupe'
+    user: process.env.USER_MAIL,
+    pass: process.env.PASSWORD_MAIL
   }
 });
   var options = {
@@ -29,8 +29,8 @@ var mailer = nodemailer.createTransport({
     console.log(req.body);
     mailer.use('compile', hbs(options));
     mailer.sendMail({
-      from: 'test.node.wcs@gmail.com',
-      to: 'jordan.couard@gmail.com',
+      from: process.env.USER_MAIL,
+      to: process.env.SENDTO,
       subject: req.body.subject,
       template: 'email_body',
       context: {
