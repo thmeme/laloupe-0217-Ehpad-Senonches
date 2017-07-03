@@ -52,12 +52,21 @@ angular.module('app')
           }
         }
       })
-      .state('anon.formulaire', {
-        url: '/formulaire',
+      .state('anon.mailform', {
+        url: '/mailform',
         views: {
           'content@': {
-            templateUrl: 'anon/formulaire.html',
+            templateUrl: 'anon/mailform.html',
             controller: 'MailController'
+          }
+        }
+      })
+      .state('anon.displaylegalnotice', {
+        url: '/displaylegalnotice',
+        views: {
+          'content@': {
+            templateUrl: 'anon/displaylegalnotice.html',
+            controller: 'DisplayLegalnoticeController'
           }
         }
       })
@@ -189,6 +198,15 @@ angular.module('app')
           'content@': {
             templateUrl: 'user/welcome.html',
             controller: 'WelcomeController'
+          }
+        }
+      })
+      .state('user.legalnotice', {
+        url: '/legalnotice',
+        views: {
+          'content@': {
+            templateUrl: 'user/legalnotice.html',
+            controller: 'LegalnoticeController'
           }
         }
       })
