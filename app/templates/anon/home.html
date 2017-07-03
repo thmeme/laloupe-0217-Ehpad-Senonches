@@ -3,8 +3,8 @@
 <div layout-sm="column" layout-align="center center" class="colFront">
   <div class="cards">
     <div class="textSlider">
-    <text-size-slider min="12" max="20" unit="px"></text-size-slider>
-  </div>
+      <text-size-slider min="12" max="20" unit="px"></text-size-slider>
+    </div>
     <md-content class="md-padding cardWelcome">
       <div layout="column" layout-gt-xs="row">
         <md-card class="" flex flex-gt-xs="100">
@@ -95,18 +95,13 @@
             </ng-map>
           </md-card-content>
         </md-card>
-
         <md-card flex class="colHomeLeft">
-
           <md-card-content md-theme="anon" layout-align="center center">
-
             <p id="contactContent"> {{contact.name}} </br> {{contact.street}} </br> {{contact.zipcode}} </br> {{contact.city}} </br>{{contact.phone}}</p>
             <md-button class="md-raised md-primary" id="contactButton" ui-sref="anon.formulaire({'#': 'menu'})">Contact</md-button>
-
-            <md-card-content>
+          </md-card-content>
         </md-card>
       </div>
     </md-content>
     </div>
   </div>
-  </text-size-slider>
