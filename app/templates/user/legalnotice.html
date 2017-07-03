@@ -19,8 +19,18 @@
       </md-input-container>
 
       <md-input-container>
-        <label>Adresse postale</label>
-          <input required ng-model="legal.address"></input>
+        <label>Adresse du propriétaire (n° et rue)</label>
+          <input required ng-model="legal.companyaddress"></input>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Code postal du propriétaire</label>
+          <input required ng-model="legal.companyzipcode"></input>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Commune du propriétaire</label>
+          <input required ng-model="legal.companycity"></input>
       </md-input-container>
 
       <md-input-container>
@@ -39,8 +49,18 @@
       </md-input-container>
 
       <md-input-container>
-        <label>Adresse postale de l'hébergeur</label>
+        <label>Adresse de l'hébergeur (n° et rue)</label>
           <input required ng-model="legal.hostadress"></input>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Code postal de l'hébergeur</label>
+          <input required ng-model="legal.hostzipcode"></input>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Commune de l'hébergeur</label>
+          <input required ng-model="legal.hostcity"></input>
       </md-input-container>
 
       <div layout='row'>
