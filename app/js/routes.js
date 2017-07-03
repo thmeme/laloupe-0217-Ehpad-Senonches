@@ -61,6 +61,15 @@ angular.module('app')
           }
         }
       })
+      .state('anon.displaylegalnotice', {
+        url: '/displaylegalnotice',
+        views: {
+          'content@': {
+            templateUrl: 'anon/displaylegalnotice.html',
+            controller: 'DisplayLegalnoticeController'
+          }
+        }
+      })
       .state('anon.login', {
         url: '/login',
         views: {
@@ -189,6 +198,15 @@ angular.module('app')
           'content@': {
             templateUrl: 'user/welcome.html',
             controller: 'WelcomeController'
+          }
+        }
+      })
+      .state('user.legalnotice', {
+        url: '/legalnotice',
+        views: {
+          'content@': {
+            templateUrl: 'user/legalnotice.html',
+            controller: 'LegalnoticeController'
           }
         }
       })
