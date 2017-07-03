@@ -117,7 +117,7 @@ export default class Submenu {
         });
     }
     update(req, res) {
-      console.log('route admin');
+      console.log('update1');
         model.findByIdAndUpdate(req.params.id,
           req.body, { new: true },function(err, submenu) {
             if (err) {
@@ -131,7 +131,7 @@ export default class Submenu {
         });
     }
     updateByUser(req, res) {
-      console.log('upfate User');
+      console.log('update2');
       delete req.body.isOnline;
         model.findByIdAndUpdate(req.params.id,
           req.body, { new: true },function(err, submenu) {

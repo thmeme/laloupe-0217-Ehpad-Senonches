@@ -14,34 +14,11 @@ angular.module('app')
       "Vos droits"
     ];
 
-    // $scope.submenu = {
-    //   content: '',
-    //   title: '',
-    //   author: ''
-    // };
-
-    // function loadAllSubmenus() {
-    //   SubmenuService.getAll().then(function(res) {
-    //     console.log('listSubmenus', res);
-    //     $scope.listSubmenu = res.data;
-    //     console.log('res.data', res.data);
-    //   }, function(err) {
-    //     console.error('error on loadAllSubmenus', err);
-    //   });
-    // }
-    // loadAllSubmenus();
-
-    // $scope.uCanTrust = function(string) {
-    //   return $sce.trustAsHtml(string);
-    // };
-
     function loadSubmenu(id) {
       if (id !== undefined) {
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
           console.log('res One', res);
           $scope.submenu = res.data;
-          $scope.submenu.content = $sce.trustAsHtml(res.data.content);
-
         }, function(err) {
           console.error('error on getOne Submenu', err);
         });
@@ -53,24 +30,6 @@ angular.module('app')
       return $sce.trustAsHtml(string);
     };
 
-    // $scope.newSubmenu = {
-    //   content: '',
-    //   title: '',
-    //   menu: '',
-    //   author: ''
-    // };
-    // $scope.newSubmenu.author = CurrentUser.user()._id;
-
-    // $scope.addSubmenu = function() {
-    //   SubmenuService.create($scope.newSubmenu).then(function(res) {
-    //     console.log('submenu', $scope.newSubmenu);
-    //     console.log('auteur', $scope.newSubmenu.author);
-    //   $state.go('user.edit-submenu', {id: res.data.submenu._id});
-    //   }, function(err) {
-    //     console.error('error on create', err);
-    //   });
-    // };
-
     $scope.updateSubmenu = function() {
       SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
         console.log('update', res);
@@ -79,28 +38,6 @@ angular.module('app')
         console.error('error on update Submenus', err);
       });
     };
-
-    // $scope.customFullscreen = false;
-    // $scope.showConfirm = function(ev, id) {
-    //   console.log('ev', ev);
-    //   // Appending dialog to document.body to cover sidenav in docs app
-    //   var confirm = $mdDialog.confirm()
-    //     .title('Voulez-vous supprimer ce sous-menus ?')
-    //     .textContent('Tous les éléments seront définitivement perdus')
-    //     .ariaLabel('Lucky day')
-    //     .targetEvent(ev)
-    //     .ok('Supprimer')
-    //     .cancel('Annuler');
-    //
-    //   $mdDialog.show(confirm).then(function() {
-    //     SubmenuService.delete(id).then(function(res) {
-    //       console.log('delete', res);
-    //       loadAllSubmenus();
-    //     }, function(err) {
-    //       console.error('error on show', err);
-    //     });
-    //   });
-    // };
 
     $scope.tinymceOptions = {
       onChange: function(e) {
@@ -201,5 +138,72 @@ angular.module('app')
     for (i = 0; i < $scope.listPdf.length - 1; i++) {
       $scope.listPdf.push("Item " + i);
     }
+
+    // $scope.submenu = {
+    //   content: '',
+    //   title: '',
+    //   author: ''
+    // };
+
+    // function loadAllSubmenus() {
+    //   SubmenuService.getAll().then(function(res) {
+    //     console.log('listSubmenus', res);
+    //     $scope.listSubmenu = res.data;
+    //     console.log('res.data', res.data);
+    //   }, function(err) {
+    //     console.error('error on loadAllSubmenus', err);
+    //   });
+    // }
+    // loadAllSubmenus();
+
+    // $scope.uCanTrust = function(string) {
+    //   return $sce.trustAsHtml(string);
+    // };
+
+
+
+    // $scope.newSubmenu = {
+    //   content: '',
+    //   title: '',
+    //   menu: '',
+    //   author: ''
+    // };
+    // $scope.newSubmenu.author = CurrentUser.user()._id;
+
+    // $scope.addSubmenu = function() {
+    //   SubmenuService.create($scope.newSubmenu).then(function(res) {
+    //     console.log('submenu', $scope.newSubmenu);
+    //     console.log('auteur', $scope.newSubmenu.author);
+    //   $state.go('user.edit-submenu', {id: res.data.submenu._id});
+    //   }, function(err) {
+    //     console.error('error on create', err);
+    //   });
+    // };
+
+
+
+    // $scope.customFullscreen = false;
+    // $scope.showConfirm = function(ev, id) {
+    //   console.log('ev', ev);
+    //   // Appending dialog to document.body to cover sidenav in docs app
+    //   var confirm = $mdDialog.confirm()
+    //     .title('Voulez-vous supprimer ce sous-menus ?')
+    //     .textContent('Tous les éléments seront définitivement perdus')
+    //     .ariaLabel('Lucky day')
+    //     .targetEvent(ev)
+    //     .ok('Supprimer')
+    //     .cancel('Annuler');
+    //
+    //   $mdDialog.show(confirm).then(function() {
+    //     SubmenuService.delete(id).then(function(res) {
+    //       console.log('delete', res);
+    //       loadAllSubmenus();
+    //     }, function(err) {
+    //       console.error('error on show', err);
+    //     });
+    //   });
+    // };
+
+
 
   });
