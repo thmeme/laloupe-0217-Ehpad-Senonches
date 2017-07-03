@@ -52,11 +52,11 @@ angular.module('app')
           }
         }
       })
-      .state('anon.formulaire', {
-        url: '/formulaire',
+      .state('anon.mailform', {
+        url: '/mailform',
         views: {
           'content@': {
-            templateUrl: 'anon/formulaire.html',
+            templateUrl: 'anon/mailform.html',
             controller: 'MailController'
           }
         }
