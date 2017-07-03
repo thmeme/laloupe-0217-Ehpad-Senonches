@@ -15,7 +15,7 @@
     <md-button aria-label="Go Back" ng-if="user.isAdmin">
       <a ui-sref="user.users">Utilisateurs</a></md-button>
     <md-button aria-label="Go Back" ng-if="user.isAdmin">
-      <a ui-sref="user.legalnotice">Mentions légales</a></md-button>
+      <a ui-sref="user.legalnotice">Mentions</a></md-button>
       <span flex></span>
     <md-button aria-label="Go Back">
       <a ng-click="logout()" ng-show="auth.isAuthenticated()" ui-sref="anon.home" id="logoutNav">Logout</a></md-button>
@@ -73,7 +73,7 @@
       </li>
       <li>
         <md-button ng-click="close()" aria-label="Go Back" ng-if="user.isAdmin">
-          <a ui-sref="user.legalnotice">Mentions légales</a></md-button>
+          <a ui-sref="user.legalnotice">Mentions</a></md-button>
       </li>
       <li>
         <md-button aria-label="Go Back" >

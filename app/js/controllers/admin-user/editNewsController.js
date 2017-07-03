@@ -22,6 +22,7 @@ angular.module('app')
       image: '',
       author: ''
     };
+
     $scope.uCanTrust = function(string) {
       return $sce.trustAsHtml(string);
     };
@@ -31,7 +32,6 @@ angular.module('app')
         NewsService.getOne($scope.idNews).then(function(res) {
           console.log('res One', res.data);
           $scope.news = res.data;
-          $scope.news.content = $sce.trustAsHtml(res.data.content);
         });
       }
     }
@@ -66,7 +66,6 @@ angular.module('app')
       NewsService.update($scope.idNews, $scope.news).then(function(res) {
         console.log('update', res);
         location.reload(true);
-
       });
     };
 
