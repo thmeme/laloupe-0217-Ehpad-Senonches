@@ -9,11 +9,15 @@ angular.module('app')
       name: '',
       company: '',
       status: '',
-      address: '',
+      companyaddress: '',
+      companyzipcode: '',
+      companycity: '',
       publisher: '',
       mailpublisher: '',
       host: '',
-      hostadress: ''
+      hostadress: '',
+      hostzipcode: '',
+      hostcity:''
     };
 
     $scope.legal.author = CurrentUser.user()._id;
