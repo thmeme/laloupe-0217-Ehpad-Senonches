@@ -8,7 +8,7 @@ angular.module('app')
       var user = $scope.user;
       user.isAdmin = $scope.user.role === 'admin';
       UserService.create(user).then(function() {
-        $state.go('user.admin');
+        location.reload(true);
       });
     };
 

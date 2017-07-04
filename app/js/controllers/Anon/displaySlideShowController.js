@@ -1,7 +1,6 @@
 angular.module('app')
   .controller('DisplaySlideShowController', function($scope, SubmenuService, CalendarService, NewsService, SlideshowService) {
 
-
     SlideshowService.getAll().then(function(res) {
       console.log('loadImgSlideshow', res.data);
       $scope.listImgSlideShow = res.data;
@@ -9,24 +8,16 @@ angular.module('app')
     });
 
     $scope.listImgSlideShow = [];
-    loadImgSlideshow = function() {
-    };
+    loadImgSlideshow = function() {};
     loadImgSlideshow();
 
+    //*****slider*****//
 
+    $scope.onReadySwiper = function(swiper) {
+      console.log(swiper);
+      swiper.on('init', function() {
 
-
-//*****slider*****//
-
-
-            $scope.onReadySwiper = function(swiper) {
-              console.log(swiper);
-              swiper.on('init', function () {
-
-       console.log('slideChangeStart');
-     });
-
-
-            };
-
+        console.log('slideChangeStart');
+      });
+    };
   });
