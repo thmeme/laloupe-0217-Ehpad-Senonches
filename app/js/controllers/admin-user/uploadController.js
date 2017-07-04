@@ -29,8 +29,7 @@ angular.module('app')
       console.log('imageNormal:', $scope.image);
       if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
         uploadImage($scope.image.file);
-        //call upload function
-        //  console.log('res add', $scope.newImage.title);
+
       }
     };
     $scope.imageLarge = {
@@ -60,8 +59,6 @@ angular.module('app')
       console.log('imageLarge:', $scope.imageLarge);
       if ($scope.upload_form.file.$valid && $scope.imageLarge.file) { //check if from is valid
         uploadImageLarge($scope.imageLarge.file);
-        //call upload function
-        //  console.log('res add', $scope.newImage.title);
       }
     };
 
@@ -92,10 +89,6 @@ angular.module('app')
       console.log('pdfUC:', $scope.pdf);
       if ($scope.upload_form.file.$valid && $scope.pdf.file) { //check if from is valid
         uploadPdf($scope.pdf.file);
-        //call upload function
-        //  console.log('res add', $scope.newImage.title);
       }
     };
-
-
   });

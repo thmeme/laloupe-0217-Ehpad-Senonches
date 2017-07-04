@@ -26,24 +26,17 @@
                 </md-button>
                 <md-divider ng-if="!$last"></md-divider>
               </md-list-item>
-
-
-
             </md-list>
             <section class="blocBtnGalerie" layout="row" layout-align="center center">
               <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageNews == 0" ng-click="currentPageNews=currentPageNews-1">
                 <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
               </md-button>
-
               <div class="pagingGalerieImages">{{currentPageNews+1}}/{{numberOfPagesNews()}}</div>
               <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageNews >= listNews.length/pageSizeNews - 1" ng-click="currentPageNews = currentPageNews+1">
                 <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
               </md-button>
             </section>
           </md-tab>
-
-
-
         </md-tabs>
       </md-content>
     </div>

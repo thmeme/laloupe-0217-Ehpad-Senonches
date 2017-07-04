@@ -73,7 +73,6 @@ angular.module('app')
 
     $scope.tinymceOptions = {
       onChange: function(e) {
-        // put logic here for keypress and cut/paste changes
       },
       inline: false,
       skin: 'ehpad2',
@@ -93,7 +92,6 @@ angular.module('app')
     };
 
     $scope.showConfirm = function(ev, id) {
-      // Appending dialog to document.body to cover sidenav in docs app
       var confirm = $mdDialog.confirm()
         .title('Voulez vous supprimer cet article ?')
         .textContent('Tous les éléments seront définitivement perdus')

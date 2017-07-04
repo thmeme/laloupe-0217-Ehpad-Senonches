@@ -8,7 +8,6 @@ angular.module('app')
         start: undefined,
         end: undefined,
         title: '',
-        // content: '',
         isOnline: false
       };
 
@@ -48,23 +47,6 @@ angular.module('app')
       }
       loadEvenement($scope.idEvenement);
 
-      // $scope.newEvenement = {
-      //   date: '',
-      //   start: '',
-      //   end: '',
-      //   author: '',
-      //   title: ''
-      // };
-      //
-      // $scope.newEvenement.author = CurrentUser.user()._id;
-      // $scope.addEvenement = function() {
-      //   CalendarService.create($scope.newEvenement).then(function(res) {
-      //     console.log('newEvenement', res.data);
-      //
-      //     $state.go('user.edit-calendar', {id: res.data.evenement._id});
-      //   });
-      // };
-
       $scope.redirectCalendar = function() {
         $state.go('user.calendar');
       };
@@ -76,7 +58,6 @@ angular.module('app')
       $scope.customFullscreen = false;
       $scope.showConfirm = function(ev, id) {
         console.log('ev', ev);
-        // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.confirm()
           .title('Voulez-vous supprimer cet évènement ?')
           .textContent('Tous les éléments seront définitivement perdus')
@@ -91,10 +72,4 @@ angular.module('app')
           });
         });
       };
-
-      // $scope.updateEvenement = function() {
-      //   CalendarService.update($scope.idEvenement, $scope.evenement).then(function(res) {
-      //     console.log('update', res);
-      //   });
-      // };
     });

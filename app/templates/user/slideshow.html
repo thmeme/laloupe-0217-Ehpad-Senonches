@@ -5,32 +5,26 @@
   </div>
   <div class="columnAdmin">
     <div ng-cloak class="tabsSubmenu">
-
       <form ng-submit="updateSlideshow()">
-      <md-content>
-        <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab label="Carrousel">
-            <md-list>
-              <md-list-item class="md-3-line " ng-repeat="img in listImgSlideShow | orderBy: '-date'">
-                <div class="md-list-item-text">
-                  <h5>Image ajoutée le {{img.date | date : 'longDate'}}</h5>
-                  <img ng-src="/uploads/imageslarges/{{img.name}}" class="imgListSlideShow">
-                </div>
-
-
-                <md-button class="md-fab md-mini btnListSlideshow" ng-click="showConfirm($event, img._id)">
-                  <md-icon><i class="material-icons md-18" title="Supprimer">delete</i></md-icon>
-                </md-button>
-
-                <md-divider ng-if="!$last"></md-divider>
-              </md-list-item>
-            </md-list>
-          </md-tab>
-        </md-tabs>
-      </md-content>
-    </form>
-
-
+        <md-content>
+          <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Carrousel">
+              <md-list>
+                <md-list-item class="md-3-line " ng-repeat="img in listImgSlideShow | orderBy: '-date'">
+                  <div class="md-list-item-text">
+                    <h5>Image ajoutée le {{img.date | date : 'longDate'}}</h5>
+                    <img ng-src="/uploads/imageslarges/{{img.name}}" class="imgListSlideShow">
+                  </div>
+                  <md-button class="md-fab md-mini btnListSlideshow" ng-click="showConfirm($event, img._id)">
+                    <md-icon><i class="material-icons md-18" title="Supprimer">delete</i></md-icon>
+                  </md-button>
+                  <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+              </md-list>
+            </md-tab>
+          </md-tabs>
+        </md-content>
+      </form>
 
       <!-- Modal gallery images insert-->
       <modal-dialog show='galleryAssociateModalShow' width='750px'>
@@ -45,7 +39,6 @@
           <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
             <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
           </md-button>
-
           <div class="pagingGalerieImages">{{currentPage+1}}/{{numberOfPages()}}</div>
           <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPage >= listimages.length/pageSize - 1" ng-click="currentPage=currentPage+1">
             <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>

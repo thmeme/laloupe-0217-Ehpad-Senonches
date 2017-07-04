@@ -16,25 +16,16 @@
       <a ui-sref="user.users">Utilisateurs</a></md-button>
     <md-button aria-label="Go Back" ng-if="user.isAdmin">
       <a ui-sref="user.legalnotice">Mentions</a></md-button>
-      <span flex></span>
+    <span flex></span>
     <md-button aria-label="Go Back">
       <a ng-click="logout()" ng-show="auth.isAuthenticated()" ui-sref="anon.home" id="logoutNav">Logout</a></md-button>
   </div>
 </md-toolbar>
-
 <md-toolbar id="navbarUser" hide-gt-sm>
   <div class="md-toolbar-tools">
     <md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()"><i class="material-icons">menu</i></md-button>
-
   </div>
 </md-toolbar>
-
-
-<!-- <div  hide-gt-sm >
-<span flex flex><md-button ng-click="toggleLeft()" ng-hide="isOpenLeft()" class="md-primary md-raised" style="color: #ffffff;">
-  Afficher les catégories
-</md-button></span>
-</div> -->
 
 <!-- start slide menu -->
 <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
@@ -76,7 +67,7 @@
           <a ui-sref="user.legalnotice">Mentions</a></md-button>
       </li>
       <li>
-        <md-button aria-label="Go Back" >
+        <md-button aria-label="Go Back">
           <a ng-click="logout()" ng-show="auth.isAuthenticated()" ui-sref="anon.home">Logout</a></md-button>
       </li>
       </div>

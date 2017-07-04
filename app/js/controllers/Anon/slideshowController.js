@@ -6,7 +6,6 @@ angular.module('app')
     console.log('id', $scope.idImg);
 
     $scope.showConfirm = function(ev, id) {
-      // Appending dialog to document.body to cover sidenav in docs app
       var confirm = $mdDialog.confirm()
         .title('Voulez vous supprimer cette image ?')
         .textContent('Tous les éléments seront définitivement perdus')
@@ -26,37 +25,6 @@ angular.module('app')
     $scope.OpenModalUploadImg = function() {
       $scope.UploadImgModalShow = !$scope.UploadImgModalShow;
     };
-    //
-    // $scope.galleryInsertModalShow = false;
-    // $scope.OpenModalgalleryInsert = function() {
-    //   $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
-    //   UploadLargeService.getAll().then(function(res) {
-    //     console.log('load large', res);
-    //     $scope.listImagesLarge = res.data;
-    //   }, function(err) {
-    //     console.error('error on image load', err);
-    //   });
-    // };
-    //
-    // $scope.currentPageNews = 0;
-    // $scope.pageSizeNews = 5;
-    // $scope.listNews = [];
-    // $scope.numberOfPagesNews = function() {
-    //   return Math.ceil($scope.listNews.length / $scope.pageSizeNews);
-    // };
-    // for (var k = 0; k < $scope.listNews.length - 1; k++) {
-    //   $scope.listNews.push("Item " + k);
-    // }
-
-    // $scope.insertImg = function(nameImg) {
-    //   $scope.newNews.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
-    //   $scope.galleryInsertModalShow = false;
-    // };
-    //
-    // $scope.insertImgEditNews = function(nameImg) {
-    //   $scope.news.content += '<p><img src="uploads/images/' + nameImg + '" width="500"/></p>';
-    //   $scope.galleryInsertModalShow = false;
-    // };
 
     $scope.galleryAssociateModalShow = false;
     $scope.OpenModalgalleryAssociate = function() {
@@ -151,6 +119,4 @@ angular.module('app')
     for (i = 0; i < $scope.listPdf.length - 1; i++) {
       $scope.listPdf.push("Item " + i);
     }
-
-
   });

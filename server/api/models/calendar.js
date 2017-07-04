@@ -14,9 +14,9 @@ const evenementSchema = new mongoose.Schema({
     required: true
   },
   author: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'User'
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
   },
   end: {
     type: Date,
@@ -39,8 +39,8 @@ export default class Evenement {
 
   findAll(req, res) {
     model.find({})
-    .populate('author')
-    .exec((err, evenement) => {
+      .populate('author')
+      .exec((err, evenement) => {
         if (err || !evenement) {
           res.sendStatus(403);
         } else {
@@ -51,9 +51,11 @@ export default class Evenement {
   }
 
   findAllAnon(req, res) {
-    model.find({isOnline: true})
-    .populate('author')
-    .exec((err, evenement) => {
+    model.find({
+        isOnline: true
+      })
+      .populate('author')
+      .exec((err, evenement) => {
         if (err || !evenement) {
           res.sendStatus(403);
         } else {
@@ -104,7 +106,10 @@ export default class Evenement {
   }
   update(req, res) {
     model.findByIdAndUpdate(req.params.id,
-      req.body, { new: true },function(err, evenement) {
+      req.body, {
+        new: true
+      },
+      function(err, evenement) {
         if (err) {
           res.status(500).send(err);
         } else {
@@ -118,7 +123,10 @@ export default class Evenement {
   updateByUser(req, res) {
     delete evenement.isOnline;
     model.findByIdAndUpdate(req.params.id,
-      req.body, { new: true },function(err, evenement) {
+      req.body, {
+        new: true
+      },
+      function(err, evenement) {
         if (err) {
           res.status(500).send(err);
         } else {

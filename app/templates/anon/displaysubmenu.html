@@ -1,9 +1,7 @@
 <div layout-sm="column" layout-align="center center" class="colFront">
   <div class="cards">
-  
     <md-content class="md-padding">
       <div layout="column" layout-gt-xs="row">
-
         <md-card flex flex-gt-xs="70">
           <h2 class="cardTitle">Informations pratiques</h2>
           <md-card-content>
@@ -14,38 +12,29 @@
             </div>
           </md-card-content>
         </md-card>
-
-
         <md-card flex class="ColAgendaDisplaySubmenu" flex>
           <h2 class="cardTitle">Agenda</h2>
           <md-card-content>
-
-              <div class="" ng-repeat="evenement in listEvenementsAnon | startFrom:currentPageCalendar*pageSizeCalendar | limitTo:pageSizeCalendar">
-                <h4 class="cardDateEvenement">Le {{evenement.date | date: "dd-MM-yyyy"}}</h4>
-                <p class="cardTitleEvenement">{{evenement.title}}</p>
-                <p class="cardTitleEvenement">De {{evenement.start | date:'shortTime'}} à {{evenement.end | date:'shortTime'}}</p>
-                <md-divider ng-if="!$last"></md-divider>
-              </div>
-              <div class="alignBtn">
-
-            <section class="btnListNewsDisplayNews" layout="row" layout-align="center center" md-theme="anon">
-              <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar == 0" ng-click="currentPageCalendar=currentPageCalendar-1">
-                <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
-              </md-button>
-
-              <div class="pagingCalendarHome">{{currentPageCalendar+1}}/{{numberOfPagesCalendar()}}</div>
-              <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar >= listEvenementsAnon.length/pageSizeCalendar - 1" ng-click="currentPageCalendar = currentPageCalendar+1">
-                <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
-              </md-button>
-            </section>
-          </div>
-
+            <div class="" ng-repeat="evenement in listEvenementsAnon | startFrom:currentPageCalendar*pageSizeCalendar | limitTo:pageSizeCalendar">
+              <h4 class="cardDateEvenement">Le {{evenement.date | date: "dd-MM-yyyy"}}</h4>
+              <p class="cardTitleEvenement">{{evenement.title}}</p>
+              <p class="cardTitleEvenement">De {{evenement.start | date:'shortTime'}} à {{evenement.end | date:'shortTime'}}</p>
+              <md-divider ng-if="!$last"></md-divider>
+            </div>
+            <div class="alignBtn">
+              <section class="btnListNewsDisplayNews" layout="row" layout-align="center center" md-theme="anon">
+                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar == 0" ng-click="currentPageCalendar=currentPageCalendar-1">
+                  <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
+                </md-button>
+                <div class="pagingCalendarHome">{{currentPageCalendar+1}}/{{numberOfPagesCalendar()}}</div>
+                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPageCalendar >= listEvenementsAnon.length/pageSizeCalendar - 1" ng-click="currentPageCalendar = currentPageCalendar+1">
+                  <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                </md-button>
+              </section>
+            </div>
           </md-card-content>
         </md-card>
       </div>
-
     </md-content>
-
-
   </div>
 </div>
