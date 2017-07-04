@@ -10,20 +10,18 @@ var mailer = nodemailer.createTransport({
     pass: process.env.PASSWORD_MAIL
   }
 });
-  var options = {
-    viewEngine: {
-      extname: '.hbs',
-        layoutsDir: '../server/api/views/email/',
-        defaultLayout: 'template',
-        partialsDir: '../server/api/views/partials/'
-    },
-    viewPath: '../server/api/views/email/',
-    extName: '.hbs'
-  };
+var options = {
+  viewEngine: {
+    extname: '.hbs',
+    layoutsDir: '../server/api/views/email/',
+    defaultLayout: 'template',
+    partialsDir: '../server/api/views/partials/'
+  },
+  viewPath: '../server/api/views/email/',
+  extName: '.hbs'
+};
 
-
-
-  export default class Mail {
+export default class Mail {
 
   sendMail(req, res) {
     console.log(req.body);
@@ -41,7 +39,6 @@ var mailer = nodemailer.createTransport({
     }, function(error, response) {
       if (error) {
         console.log(error);
-        // res.sendStatus(500).send(error.message);
       } else {
         console.log('mail send');
         res.sendStatus(200);

@@ -6,24 +6,24 @@ let router = express.Router();
 
 module.exports = (app) => {
 
-    app.get('/token_status', Auth.hasAuthorization, (req, res, next) => {
-        res.sendStatus(200);
-    });
+  app.get('/token_status', Auth.hasAuthorization, (req, res, next) => {
+    res.sendStatus(200);
+  });
 
-    var user = new User();
+  var user = new User();
 
-    app.post('/login', user.connect);
+  app.post('/login', user.connect);
 
-    router.get('/', Auth.isAdministrator, user.findAll);
+  router.get('/', Auth.isAdministrator, user.findAll);
 
-    router.get('/:id', Auth.isAdministrator, user.findById);
+  router.get('/:id', Auth.isAdministrator, user.findById);
 
-    router.post('/', Auth.isAdministrator, user.create);
+  router.post('/', Auth.isAdministrator, user.create);
 
-    router.put('/:id', Auth.isAdministrator, user.update);
+  router.put('/:id', Auth.isAdministrator, user.update);
 
-    router.delete('/:id', Auth.isAdministrator, user.delete);
+  router.delete('/:id', Auth.isAdministrator, user.delete);
 
-    app.use('/users', router);
+  app.use('/users', router);
 
 };
