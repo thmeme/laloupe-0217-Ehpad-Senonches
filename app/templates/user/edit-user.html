@@ -3,15 +3,12 @@
     <md-button class="md-primary md-raised btnRetour" ng-click='redirect()'>Retour à la liste des utilisateurs</md-button>
     <form class="form" name="loginForm" ng-submit="updateUser()">
       <div ng-repeat="error in errors">{{error.error}}</div>
-
       <md-input-container class="md-block" flex-gt-sm>
         <input id="Firstname" type="text" class="form-control" ng-model="user.Firstname" required placeholder="Prénom">
       </md-input-container>
-
       <md-input-container class="md-block" flex-gt-sm>
         <input id="Name" type="text" class="form-control" ng-model="user.Name" required placeholder="Nom">
       </md-input-container>
-
       <md-input-container class="md-block" flex-gt-sm>
         <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Adresse Email">
       </md-input-container>
@@ -21,8 +18,8 @@
           <md-radio-button value="admin">Administrateur</md-radio-button>
           <md-radio-button value="user"> Utilisateur </md-radio-button>
         </md-radio-group>
-
         <md-button type="submit" class="md-primary md-raised btn btn-primary btn-block">Mettre à jour</md-button>
     </form>
+    </div>
   </div>
 </div>
