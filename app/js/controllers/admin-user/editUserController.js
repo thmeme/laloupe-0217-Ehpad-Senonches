@@ -13,9 +13,7 @@ angular.module('app')
     $scope.updateUser = function() {
       $scope.user.isAdmin = $scope.user.role === 'admin';
       UserService.update($scope.idUser, $scope.user).then(function(res) {
-        console.log('update', res);
-      }, function (err) {
-        console.error('error on loadAllSubmenus', err);
+        location.reload(true);
       });
     };
     $scope.passwordPath = function() {

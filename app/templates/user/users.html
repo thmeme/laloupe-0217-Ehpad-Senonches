@@ -8,12 +8,12 @@
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="Liste des utilisateurs">
             <md-list>
-              <md-list-item class="md-3-line" ng-repeat="user in listUsers">
+              <md-list-item class="md-3-line" ng-repeat="user in listUsers" ng-if="$index > 0">
                 <div class="md-list-item-text">
                   <h4>{{user.Firstname}} {{user.Name}}</h4>
                 </div>
                 <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
-                  <a ng-href="/#!/user/users/{{user._id}}" title="Editer">
+                  <a ui-sref="user.edit-user({id: user._id})">
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
                   </a>
                 </md-button>
