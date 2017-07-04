@@ -5,7 +5,6 @@ angular.module('app')
     $scope.user = CurrentUser.user();
     $scope.auth = Auth;
 
-    // $scope.idWelcome = $stateParams.id;
     console.log('id', $scope.idWelcome);
 
     $scope.welcome = {
@@ -22,7 +21,6 @@ angular.module('app')
         console.log('welcome',res);
         console.log('auteur', $scope.welcome.author);
         $scope.welcome = res.data.welcome;
-      // $state.go('user.edit-submenu', {id: res.data.welcome._id});
       });
     };
 

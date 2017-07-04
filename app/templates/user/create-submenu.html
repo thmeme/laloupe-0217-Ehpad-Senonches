@@ -1,22 +1,20 @@
 <div layout="column" layout-align="center center">
   <div class="columnAdmin">
     <md-button class="md-primary md-raised btnRetour" ng-click='redirect()'>Retour à la liste des sous-menus</md-button>
-
     <form method="post" ng-submit="addSubmenu()">
       <div ng-cloak>
-        <md-input-container >
+        <md-input-container>
           <label>Menu</label>
-          <md-select ng-model="newSubmenu.menu" >
+          <md-select ng-model="newSubmenu.menu">
             <md-option ng-repeat="menu in menus" value="{{menu}}">{{menu}}</md-option>
           </md-select>
         </md-input-container>
       </div>
       <md-input-container class="md-block" flex-gt-sm>
         <label>Nouveau sous-menu</label>
-        <input ng-model="newSubmenu.title" >
+        <input ng-model="newSubmenu.title">
       </md-input-container>
-      <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content" ></textarea>
-
+      <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content"></textarea>
       <div>
         <div layout='row'>
           <md-switch class='switch' flex='80' ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
@@ -26,9 +24,8 @@
           <md-button class="md-primary md-raised" type="submit">Valider</md-button>
           <md-button class="md-primary md-raised" ng-click='OpenModalDisplayText()'><i class="material-icons displayText">remove_red_eye</i></md-button>
         </div>
-
         <div layout="column" layout-align="space-around center" layout-gt-sm="row">
-          <div class="blocButtonsImg"flex>
+          <div class="blocButtonsImg" flex>
             <h2>Gestion des images</h2>
             <md-button class="md-primary md-raised" ng-click='OpenModalUploadImg()'>Ajouter</md-button>
             <md-button class="md-primary md-raised" ng-click='OpenModalgalleryInsert()'>insérer</md-button>
@@ -42,17 +39,12 @@
       </div>
     </form>
 
-
     <!-- Modal text-->
 
     <modal-dialog show='textModalShow' width='750px'>
-      <div class="" ng-value="newSubmenu.content">{{newSubmenu.content}}
-
-      </div>
-
+      <div class="" ng-value="newSubmenu.content">{{newSubmenu.content}}</div>
     </modal-dialog>
     <!-- End Modal text-->
-
 
     <!-- Modal gallery images-->
     <modal-dialog show='galleryInsertModalShow' width='750px'>
@@ -84,7 +76,7 @@
         <img ng-src="logopdf2.png" class="listImages">
         <p class="namePdf">{{decodeURI(pdf.fileName.split('-').pop())}}</p>
         <div class="btnInsertImg">
-          <md-button class="md-fab md-mini btnInsert"  target='_blank' title="Visualiser">
+          <md-button class="md-fab md-mini btnInsert" target='_blank' title="Visualiser">
             <a class='linkPdf' ng-href='/uploads/pdf/{{pdf.fileName}}' target="_blank"><i class="material-icons">visibility</i></a></md-button>
           <md-button class="md-fab md-mini btnInsert" ng-click-copy="/uploads/pdf/{{pdf.fileName}}" title="Copier"><i class="material-icons">content_copy</i></md-button>
           <md-divider ng-if="!$last"></md-divider>
@@ -136,6 +128,5 @@
       </div>
     </modal-dialog>
     <!-- End Upload pdf -->
-
   </div>
 </div>

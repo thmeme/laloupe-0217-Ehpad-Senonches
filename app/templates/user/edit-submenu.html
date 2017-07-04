@@ -1,23 +1,21 @@
 <div layout="column" layout-align="center center">
   <div class="columnAdmin">
     <md-button class="md-primary md-raised btnRetour" ng-click='redirect()'>Retour à la liste des sous-menus</md-button>
-
     <form method="post" ng-submit="updateSubmenu()">
       <div ng-cloak>
         <md-input-container style="margin-right: 10px;">
           <label>Menu</label>
-          <md-select ng-model="submenu.menu" >
+          <md-select ng-model="submenu.menu">
             <md-option ng-repeat="menu in menus" value="{{menu}}">{{menu}}</md-option>
           </md-select>
         </md-input-container>
       </div>
       <md-input-container class="md-block" flex-gt-sm>
         <label>Titre du sous-menu</label>
-        <input ng-model="submenu.title" >
+        <input ng-model="submenu.title">
       </md-input-container>
-      <textarea ui-tinymce="tinymceOptions" ng-model="submenu.content" ></textarea>
+      <textarea ui-tinymce="tinymceOptions" ng-model="submenu.content"></textarea>
       <div>
-
         <div layout='row'>
           <md-switch class='switch' flex='80' ng-model="submenu.isOnline" ng-if='user.isAdmin' aria-label="status">
             <span ng-if='submenu.isOnline'>Publié</span>
@@ -48,10 +46,8 @@
         <h3>{{submenu.title}}</h3>
         <p ng-bind-html="uCanTrust(submenu.content)"></p>
       </div>
-
     </modal-dialog>
     <!-- End Modal text-->
-
 
     <!-- Modal gallery images-->
     <modal-dialog show='galleryInsertModalShow' width='750px'>
@@ -92,7 +88,6 @@
         <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPagePdf == 0" ng-click="currentPagePdf=currentPagePdf-1">
           <md-icon><i class="material-icons">keyboard_arrow_left</i></md-icon>
         </md-button>
-
         <div class="pagingGalerieImages">{{currentPagePdf+1}}/{{numberOfPagesPdf()}}</div>
         <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" ng-disabled="currentPagePdf >= listPdf.length/pageSizePdf - 1" ng-click="currentPagePdf=currentPagePdf+1">
           <md-icon><i class="material-icons">keyboard_arrow_right</i></md-icon>
@@ -135,7 +130,5 @@
       </div>
     </modal-dialog>
     <!-- End Upload pdf -->
-
-
   </div>
 </div>

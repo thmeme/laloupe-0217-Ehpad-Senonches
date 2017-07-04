@@ -14,7 +14,5 @@ module.exports = (app) => {
   router.put('/admin/:id', Auth.isAdministrator, legalnotice.update);
   router.put('/:id', Auth.hasAuthorization, legalnotice.updateByUser);
 
-
-
   app.use('/legalnotice', router);
 };

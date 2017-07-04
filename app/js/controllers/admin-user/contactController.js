@@ -19,7 +19,7 @@ angular.module('app')
 
     $scope.addContact = function() {
       ContactService.update('', $scope.contact).then(function(res) {
-        console.log('contact',res);
+        console.log('contact', res);
         console.log('auteur', $scope.contact.author);
         $scope.contact = res.data.contact;
       });
@@ -27,13 +27,13 @@ angular.module('app')
     var idCont = '';
 
     function loadContact(id) {
-        ContactService.getOne(idCont).then(function(res) {
-          console.log('res One', res.data);
-          $scope.contact = res.data;
-          console.log('$scope.contact', $scope.contact);
-        }, function(err) {
-          console.error('error on getOne contact', err);
-        });
+      ContactService.getOne(idCont).then(function(res) {
+        console.log('res One', res.data);
+        $scope.contact = res.data;
+        console.log('$scope.contact', $scope.contact);
+      }, function(err) {
+        console.error('error on getOne contact', err);
+      });
     }
 
     function loadAllContacts() {
@@ -49,8 +49,4 @@ angular.module('app')
       });
     }
     loadAllContacts();
-
-
-
-
   });
