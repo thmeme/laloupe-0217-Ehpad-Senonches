@@ -57,7 +57,9 @@ angular.module('app')
       SubmenuService.create($scope.newSubmenu).then(function(res) {
         console.log('submenu', $scope.newSubmenu);
         console.log('auteur', $scope.newSubmenu.author);
-      $state.go('user.edit-submenu', {id: res.data.submenu._id});
+        $state.go('user.edit-submenu', {
+          id: res.data.submenu._id
+        });
       }, function(err) {
         console.error('error on create', err);
       });
@@ -97,12 +99,19 @@ angular.module('app')
       onChange: function(e) {
         // put logic here for keypress and cut/paste changes
       },
+      selector: 'textarea',
       inline: false,
       skin: 'ehpad2',
       height: 300,
       theme: 'modern',
-      plugins: 'advlist autolink lists colorpicker link textcolor image charmap code table',
-      toolbar1: 'fontsizeselect | undo redo | bold italic underline | alignleft aligncenter alignjustify alignright | bullist numlist outdent indent | preview media | forecolor backcolor | link',
+      plugins: [
+        'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+        'searchreplace wordcount visualblocks visualchars code fullscreen',
+        'insertdatetime media nonbreaking save table contextmenu directionality',
+        'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+      ],
+      toolbar1: 'fontsizeselect | undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+      toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
       fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
       content_css: [
         '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
