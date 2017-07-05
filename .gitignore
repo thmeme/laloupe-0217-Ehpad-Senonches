@@ -10,4 +10,4 @@
 
 .env
 
-/server/public/uploads/*/**
+/server/public/uploads/**/**
