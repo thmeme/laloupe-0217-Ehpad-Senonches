@@ -66,27 +66,64 @@ angular.module('app')
       });
     };
 
-    $scope.customFullscreen = false;
-    $scope.showConfirm = function(ev, id) {
-      console.log('id', id);
-      // Appending dialog to document.body to cover sidenav in docs app
-      var confirm = $mdDialog.confirm()
-        .title('Voulez-vous supprimer cette image du carrousel ?')
-        .textContent('')
-        .ariaLabel('Lucky day')
-        .targetEvent(ev)
-        .ok('Supprimer')
-        .cancel('Annuler');
+    // $scope.customFullscreen = false;
+    // $scope.showConfirm = function(ev, id) {
+    //   console.log('id', id);
+    //   // Appending dialog to document.body to cover sidenav in docs app
+    //   var confirm = $mdDialog.confirm()
+    //     .title('Voulez-vous supprimer cette image du carrousel ?')
+    //     .textContent('')
+    //     .ariaLabel('Lucky day')
+    //     .targetEvent(ev)
+    //     .ok('Supprimer')
+    //     .cancel('Annuler');
+    //
+    //   $mdDialog.show(confirm).then(function() {
+    //     SlideshowService.delete(id).then(function(res) {
+    //       console.log('delete', res);
+    //       loadImgSlideshow();
+    //     }, function(err) {
+    //       console.error('error on show', err);
+    //     });
+    //   });
+    // };
 
-      $mdDialog.show(confirm).then(function() {
+    $scope.showConfirm = function(ev, id) {
+      swal({
+        text: "Voulez-vous supprimer cette image du carrousel ?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Supprimer',
+        cancelButtonText: 'Annuler',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false,
+      }).then(function() {
         SlideshowService.delete(id).then(function(res) {
-          console.log('delete', res);
-          loadImgSlideshow();
-        }, function(err) {
-          console.error('error on show', err);
-        });
+            console.log('delete', res);
+            swal({
+              type: 'success',
+              showConfirmButton: false,
+              text: 'Element supprimé',
+              timer: 2000
+            });
+            loadImgSlideshow();
+          },
+          function(err) {
+            swal({
+              text: 'Une erreur s\'est produite',
+              timer: 2000
+            });
+          });
       });
     };
+
+
+
+
+
+
+
 
     $scope.updateSlideshow = function() {
       SlideshowService.update($scope.img._id, $scope.listImgSlideShow).then(function(res) {

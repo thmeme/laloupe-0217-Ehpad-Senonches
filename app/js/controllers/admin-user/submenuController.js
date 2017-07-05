@@ -86,7 +86,6 @@ angular.module('app')
         buttonsStyling: false,
       }).then(function() {
         SubmenuService.delete(id).then(function(res) {
-            console.log('delete', res);
             swal({
               type: 'success',
               showConfirmButton: false,

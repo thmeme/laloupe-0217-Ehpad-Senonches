@@ -51,22 +51,55 @@ angular.module('app')
       $state.go('user.create-calendar');
     };
 
-    $scope.customFullscreen = false;
-    $scope.showConfirm = function(ev, id) {
-      console.log('ev', ev);
-      // Appending dialog to document.body to cover sidenav in docs app
-      var confirm = $mdDialog.confirm()
-        .title('Voulez-vous supprimer cet évènement ?')
-        .textContent('Tous les éléments seront définitivement perdus')
-        .ariaLabel('Lucky day')
-        .targetEvent(ev)
-        .ok('Supprimer')
-        .cancel('Annuler');
+    // $scope.customFullscreen = false;
+    // $scope.showConfirm = function(ev, id) {
+    //   console.log('ev', ev);
+    //   // Appending dialog to document.body to cover sidenav in docs app
+    //   var confirm = $mdDialog.confirm()
+    //     .title('Voulez-vous supprimer cet évènement ?')
+    //     .textContent('Tous les éléments seront définitivement perdus')
+    //     .ariaLabel('Lucky day')
+    //     .targetEvent(ev)
+    //     .ok('Supprimer')
+    //     .cancel('Annuler');
+    //
+    //   $mdDialog.show(confirm).then(function() {
+    //     CalendarService.delete(id).then(function(res) {
+    //       loadAllEvenements();
+    //     });
+    //   });
+    // };
 
-      $mdDialog.show(confirm).then(function() {
+    $scope.showConfirm = function(ev, id) {
+      swal({
+        text: "Voulez-vous supprimer cet évènement ?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Supprimer',
+        cancelButtonText: 'Annuler',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false,
+      }).then(function() {
         CalendarService.delete(id).then(function(res) {
-          loadAllEvenements();
-        });
+            console.log('delete', res);
+            swal({
+              type: 'success',
+              showConfirmButton: false,
+              text: 'Element supprimé',
+              timer: 2000
+            });
+            loadAllEvenements();
+          },
+          function(err) {
+            swal({
+              text: 'Une erreur s\'est produite',
+              timer: 2000
+            });
+          });
       });
     };
+
+
+
   });

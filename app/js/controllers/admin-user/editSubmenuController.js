@@ -39,7 +39,6 @@ angular.module('app')
             text: 'Le sous-menu a été enregistré avec succès',
             timer: 2000
           }).then(function() {
-
           }, // handling the promise rejection
             function(dismiss) {
               if (dismiss === 'timer') {
@@ -54,8 +53,7 @@ angular.module('app')
           type: 'error',
           text: 'Une erreur s\'est produite',
           timer: 2000
-        } );
-        console.error('error on update Submenus', err);
+        });
       });
     };
 
