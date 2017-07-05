@@ -2,7 +2,6 @@ angular.module('app')
   .controller('MailController', function($scope, $mdDialog, MailService) {
 
     $scope.sendMail = function () {
-        console.log($scope.mail);
        swal(
          'Envoi',
          'Votre email est en cours d\'envoi',

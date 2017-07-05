@@ -32,27 +32,39 @@ angular.module('app')
 
     $scope.updateSubmenu = function() {
       SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
-        console.log('update', res);
-        location.reload(true);
+        if (res.status === 200) {
+          swal({
+            // title: 'Bravo !',
+            text: 'L\'article a été enregistré avec succès',
+            timer: 2000
+          }).then(
+            function() {},
+            // handling the promise rejection
+            function(dismiss) {
+              if (dismiss === 'timer') {
+                console.log('I was closed by the timer');
+              }
+            }
+          );
+        }
       }, function(err) {
+        swal('Une erreur s\'est produite');
         console.error('error on update Submenus', err);
       });
     };
 
     $scope.tinymceOptions = {
-      onChange: function(e) {
-        // put logic here for keypress and cut/paste changes
-      },
+      onChange: function(e) {},
       inline: false,
       skin: 'ehpad2',
       height: 300,
       theme: 'modern',
-      plugins: 'advlist autolink lists colorpicker link textcolor image charmap code table',
-      toolbar1: 'fontsizeselect | undo redo | bold italic underline | alignleft aligncenter alignjustify alignright | bullist numlist outdent indent | preview media | forecolor backcolor | link',
-      fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+      plugins: 'advlist autolink paste lists colorpicker link textcolor image charmap code table emoticons',
+      toolbar1: 'fontsizeselect | undo redo | bold italic underline | alignleft aligncenter alignjustify alignright | bullist numlist outdent indent | preview media | forecolor backcolor emoticons | link',
+      fontsize_formats: '12pt 14pt 18pt 24pt 36pt',
+      paste_as_text: true,
       content_css: [
         '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-        // '//www.tinymce.com/css/codepen.min.css'
       ]
     };
 
