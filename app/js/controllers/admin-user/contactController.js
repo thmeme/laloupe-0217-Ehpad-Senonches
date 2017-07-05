@@ -19,11 +19,33 @@ angular.module('app')
 
     $scope.addContact = function() {
       ContactService.update('', $scope.contact).then(function(res) {
-        console.log('contact', res);
-        console.log('auteur', $scope.contact.author);
-        $scope.contact = res.data.contact;
+        if (res.status === 200) {
+          swal({
+            showConfirmButton: false,
+            type: 'success',
+            text: 'Les éléments ont été enregistrés avec succès',
+            timer: 2000
+          }).then(function() {
+
+          }, // handling the promise rejection
+            function(dismiss) {
+              if (dismiss === 'timer') {
+              }
+            }
+          );
+        }
+      }, function(err) {
+        swal({
+          showConfirmButton: false,
+          type: 'error',
+          text: 'Une erreur s\'est produite',
+          timer: 2000
+        } );
       });
     };
+
+
+
     var idCont = '';
 
     function loadContact(id) {

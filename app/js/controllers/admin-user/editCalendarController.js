@@ -43,7 +43,33 @@ angular.module('app')
 
       $scope.updateEvenement = function() {
         CalendarService.update($scope.idEvenement, $scope.evenement).then(function(res) {
-          console.log('update', res);
+          if (res.status === 200) {
+            swal({
+              showConfirmButton: false,
+              type: 'success',
+              text: 'L\'événement a été enregistré avec succès',
+              timer: 2000
+            }).then(function() {
+            }, // handling the promise rejection
+              function(dismiss) {
+                if (dismiss === 'timer') {
+                  console.log('I was closed by the timer');
+                }
+              }
+            );
+          }
+        }, function(err) {
+          swal({
+            showConfirmButton: false,
+            type: 'error',
+            text: 'Une erreur s\'est produite',
+            timer: 2000
+          });
         });
       };
+
+
+
+
+
     });

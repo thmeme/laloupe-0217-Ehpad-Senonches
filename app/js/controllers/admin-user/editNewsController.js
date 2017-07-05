@@ -45,10 +45,39 @@ angular.module('app')
 
     $scope.updateNews = function() {
       NewsService.update($scope.idNews, $scope.news).then(function(res) {
-        console.log('update', res);
-        location.reload(true);
+        if (res.status === 200) {
+          swal({
+            showConfirmButton: false,
+            type: 'success',
+            text: 'L\'article a été enregistré avec succès',
+            timer: 2000
+          }).then(function() {
+
+          }, // handling the promise rejection
+            function(dismiss) {
+              if (dismiss === 'timer') {
+                console.log('I was closed by the timer');
+              }
+            }
+          );
+        }
+      }, function(err) {
+        swal({
+          showConfirmButton: false,
+          type: 'error',
+          text: 'Une erreur s\'est produite',
+          timer: 2000
+        } );
+        console.error('error on update Submenus', err);
       });
     };
+
+    // $scope.updateNews = function() {
+    //   NewsService.update($scope.idNews, $scope.news).then(function(res) {
+    //     console.log('update', res);
+    //     location.reload(true);
+    //   });
+    // };
 
     $scope.redirectListNews = function() {
       $state.go('user.news');
