@@ -1,6 +1,58 @@
 <footer id=footer>
-  <p class="copyright">© EHPAD SENONCHES Tous droits reservés</p>
-  <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login Admin</a>
-  <a ui-sref="user.submenu" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
-  <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
+  <!-- <div class="footerDiv">
+    <h4>Plan du site:</h4>
+    <ul class="footerList">
+      <li>
+        <div layout="row" flex>
+          <ul>
+              <h5>Votre Admission</h5>
+              <li ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre admission'}">{{Submenu.title}}</li>
+          </ul>
+      </li>
+      <li>
+        <ul>
+            <h5>Votre Séjour</h5>
+            <li ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre séjour'}">{{Submenu.title}}</li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <h5>Vos Droits</h5>
+          <li ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Vos droits'}">{{Submenu.title}}</li>
+        </ul>
+      </li>
+    </ul>
+    </div> -->
+    <div style="text-align: center;">
+      <br>
+    </div>
+    <div class="footerList" layout="row" layout-align="center" flexible>
+        <ul>
+          <h5>Votre Admission</h5>
+          <li ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre admission'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></li>
+        </ul>
+
+        <ul>
+            <h5>Votre Séjour</h5>
+            <li ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre séjour'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></li>
+        </ul>
+
+        <ul>
+          <h5>Vos Droits</h5>
+          <li ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Vos droits'}"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></li>
+        </ul>
+        <ul>
+          <h5>Actualités</h5>
+          <li ng-repeat='news in listNewsAnon track by $index'ng-show="$last"><a ui-sref="anon.displaynews({id: news._id})">Les Actualités</a></li>
+        </ul>
+    </div>
+
+<br>
+<br>
+    <p class="copyright">© EHPAD SENONCHES <a ui-sref="anon.displaylegalnotice">Mentions Légales</a><br>
+      Site réaliser par <span style="font-style: oblique; font-weight: bold;"><a href="https://wildcodeschool.fr/">la Wild Code School.</a></span><br>
+      (T.Même, V.Nicolas, J.Couard)</p>
+    <a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" class="footerLink">Login Admin</a>
+    <a ui-sref="user.submenu" ng-show="auth.isAuthenticated()" class="footerLink">Dashboard</a>
+    <a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#' class="footerLink">Logout</a>
 </footer>
