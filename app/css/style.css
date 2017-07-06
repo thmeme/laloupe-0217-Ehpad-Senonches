@@ -601,7 +601,6 @@ li {
   #footer {
     bottom: 0;
   }
-    )
 }
 
 #greenButton {
@@ -815,7 +814,7 @@ li {
 /***** Footer *****/
 
 #footer {
-  height: 80px;
+  height: auto;
   background-color: #265B7E;
   position: relative;
   margin-top: 20px;
@@ -842,6 +841,57 @@ li {
 .footerLink:hover {
   text-decoration: underline;
   font-size: 17px;
+}
+
+.footerList {
+ margin-left: -100px;
+ margin-bottom: 5vw;
+}
+
+#footer li{
+  display: block;
+}
+
+#footer h4{
+  margin-bottom: -15px;
+  text-transform: uppercase;
+}
+
+#footer h5{
+  text-align: center;
+  text-decoration: underline;
+}
+
+#footer ul{
+  margin-left: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+#footer li{
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#footer a{
+  text-decoration: none;
+  color: white;
+}
+
+.flexible {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 /*sidenav*/
@@ -989,9 +1039,20 @@ li {
     width: 100%;
     margin: auto;
   }
+  .footerList{
+   font-size: 14px;
+   padding-left: 10vw;
+   margin-bottom: 5vw;
+  }
+}
   @media (max-width: 750px) {
     .columnAdmin {
       width: 95%;
+    }
+    .footerList{
+     font-size: 14px;
+     padding-left: 10vw;
+     margin-bottom: 5vw;
     }
   }
   @media (max-width: 600px) {
@@ -1004,19 +1065,46 @@ li {
     .cardImgEvenement {
       width: 100%;
     }
+    .footerList{
+     display: list-item;
+     font-size: 11px;
+     padding-left: 10vw;
+    }
   }
   @media (max-width: 450px) {
     .ColNewsDisplayNews {
       height: 1515px;
+    }
+    .footerList{
+     display: list-item;
+     font-size: 12px;
+     padding-left: 10vw;
+    }
+    .footerLink{
+      font-size: 12px;
     }
   }
   @media (max-width: 375px) {
     .ColNewsDisplayNews {
       height: 1375px;
     }
+    .footerList{
+     display: list-item;
+     font-size: 12px;
+    }
+    .footerLink{
+      font-size: 12px;
+    }
   }
   @media (max-width: 350px) {
     .ColNewsDisplayNews {
       height: 1235px;
+    }
+    .footerList{
+      display: block;
+      font-size: 10px;
+    }
+    .footerLink{
+      font-size: 12px;
     }
   }
