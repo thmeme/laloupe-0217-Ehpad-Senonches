@@ -57,7 +57,9 @@ angular.module('app')
       SubmenuService.create($scope.newSubmenu).then(function(res) {
         console.log('submenu', $scope.newSubmenu);
         console.log('auteur', $scope.newSubmenu.author);
-      $state.go('user.edit-submenu', {id: res.data.submenu._id});
+        $state.go('user.edit-submenu', {
+          id: res.data.submenu._id
+        });
       }, function(err) {
         console.error('error on create', err);
       });
@@ -71,25 +73,33 @@ angular.module('app')
       });
     };
 
-    $scope.customFullscreen = false;
-    $scope.showConfirm = function(ev, id) {
-      console.log('ev', ev);
-      // Appending dialog to document.body to cover sidenav in docs app
-      var confirm = $mdDialog.confirm()
-        .title('Voulez-vous supprimer ce sous-menus ?')
-        .textContent('Tous les éléments seront définitivement perdus')
-        .ariaLabel('Lucky day')
-        .targetEvent(ev)
-        .ok('Supprimer')
-        .cancel('Annuler');
 
-      $mdDialog.show(confirm).then(function() {
+    $scope.showConfirm = function(ev, id) {
+      swal({
+        text: "Voulez-vous supprimer ce sous-menus ?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Supprimer',
+        cancelButtonText: 'Annuler',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false,
+      }).then(function() {
         SubmenuService.delete(id).then(function(res) {
-          console.log('delete', res);
-          loadAllSubmenus();
-        }, function(err) {
-          console.error('error on show', err);
-        });
+            swal({
+              type: 'success',
+              showConfirmButton: false,
+              text: 'Element supprimé',
+              timer: 2000
+            });
+            loadAllSubmenus();
+          },
+          function(err) {
+            swal({
+              text: 'Une erreur s\'est produite',
+              timer: 2000
+            });
+          });
       });
     };
 

@@ -18,9 +18,28 @@ angular.module('app')
 
     $scope.addWelcome = function() {
       WelcomeService.update('', $scope.welcome).then(function(res) {
-        console.log('welcome',res);
-        console.log('auteur', $scope.welcome.author);
-        $scope.welcome = res.data.welcome;
+        if (res.status === 200) {
+          swal({
+            showConfirmButton: false,
+            type: 'success',
+            text: 'Les éléments ont été enregistrés avec succès',
+            timer: 2000
+          }).then(function() {
+
+          }, // handling the promise rejection
+            function(dismiss) {
+              if (dismiss === 'timer') {
+              }
+            }
+          );
+        }
+      }, function(err) {
+        swal({
+          showConfirmButton: false,
+          type: 'error',
+          text: 'Une erreur s\'est produite',
+          timer: 2000
+        } );
       });
     };
 

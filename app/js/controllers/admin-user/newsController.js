@@ -43,21 +43,52 @@ angular.module('app')
     };
 
     $scope.showConfirm = function(ev, id) {
-      // Appending dialog to document.body to cover sidenav in docs app
-      var confirm = $mdDialog.confirm()
-        .title('Voulez vous supprimer cet article ?')
-        .textContent('Tous les éléments seront définitivement perdus')
-        .ariaLabel('Lucky day')
-        .targetEvent(ev)
-        .ok('Supprimer')
-        .cancel('Annuler');
-
-      $mdDialog.show(confirm).then(function() {
+      swal({
+        text: "Voulez-vous supprimer ce sous-menus ?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Supprimer',
+        cancelButtonText: 'Annuler',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false,
+      }).then(function() {
         NewsService.delete(id).then(function(res) {
-          loadAllNews();
-        });
+            console.log('delete', res);
+            swal({
+              type: 'success',
+              showConfirmButton: false,
+              text: 'Element supprimé',
+              timer: 2000
+            });
+            loadAllNews();
+          },
+          function(err) {
+            swal({
+              text: 'Une erreur s\'est produite',
+              timer: 2000
+            });
+          });
       });
     };
+
+
+    // $scope.showConfirm = function(ev, id) {
+    //   // Appending dialog to document.body to cover sidenav in docs app
+    //   var confirm = $mdDialog.confirm()
+    //     .title('Voulez vous supprimer cet article ?')
+    //     .textContent('Tous les éléments seront définitivement perdus')
+    //     .ariaLabel('Lucky day')
+    //     .targetEvent(ev)
+    //     .ok('Supprimer')
+    //     .cancel('Annuler');
+    //
+    //   $mdDialog.show(confirm).then(function() {
+    //     NewsService.delete(id).then(function(res) {
+    //       loadAllNews();
+    //     });
+    //   });
+    // };
 
 
     $scope.currentPageNews = 0;
