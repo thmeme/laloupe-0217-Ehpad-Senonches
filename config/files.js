@@ -12,8 +12,8 @@ module.exports = function(lineman) {
             vendor: [
                 "vendor/js/jquery.js",
                 "vendor/js/bootstrap.js",
-                "vendor/js/swiper.js",
                 "vendor/js/angular.js",
+                "vendor/js/swiper.js",
                 "vendor/js/angular-ui-router.js",
                 "vendor/js/tinymce.js",
                 "vendor/js/moment.js",
