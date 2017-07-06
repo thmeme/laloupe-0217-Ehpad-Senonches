@@ -10,16 +10,16 @@ angular.module('app')
       $scope.tinymceModel = 'Time: ' + (new Date());
     };
 
-    $scope.tinymceOptions = {
-      onChange: function(e) {
-        // put logic here for keypress and cut/paste changes
-      },
-      inline: false,
-      skin: 'lightgray',
-      theme: 'modern',
-      plugins: 'link image code',
-      toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
-    };
+    // $scope.tinymceOptions = {
+    //   onChange: function(e) {
+    //     // put logic here for keypress and cut/paste changes
+    //   },
+    //   inline: false,
+    //   skin: 'lightgray',
+    //   theme: 'modern',
+    //   plugins: 'link image code',
+    //   toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+    // };
 
     // var dateGlobale = new Date();
     //
