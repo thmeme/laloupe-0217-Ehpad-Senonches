@@ -6,9 +6,9 @@ import dir from 'node-dir';
 
 let imageDir = path.join(__dirname, '../../public/uploads/imageslarges/');
 
-if (!fs.existsSync(imageDir)) {
-  fs.mkdirSync(imageDir);
-}
+// if (!fs.existsSync(imageDir)) {
+//   fs.mkdirSync(imageDir);
+// }
 
 /* Multer storage settings */
 let storage = multer.diskStorage({
