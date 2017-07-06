@@ -34,12 +34,12 @@ angular.module('app')
       SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
         if (res.status === 200) {
           swal({
-            // title: 'Bravo !',
-            text: 'L\'article a été enregistré avec succès',
+            showConfirmButton: false,
+            type: 'success',
+            text: 'Le sous-menu a été enregistré avec succès',
             timer: 2000
-          }).then(
-            function() {},
-            // handling the promise rejection
+          }).then(function() {
+          }, // handling the promise rejection
             function(dismiss) {
               if (dismiss === 'timer') {
                 console.log('I was closed by the timer');
@@ -48,8 +48,12 @@ angular.module('app')
           );
         }
       }, function(err) {
-        swal('Une erreur s\'est produite');
-        console.error('error on update Submenus', err);
+        swal({
+          showConfirmButton: false,
+          type: 'error',
+          text: 'Une erreur s\'est produite',
+          timer: 2000
+        });
       });
     };
 
