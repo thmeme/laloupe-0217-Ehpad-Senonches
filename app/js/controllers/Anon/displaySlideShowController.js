@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('DisplaySlideShowController', function($scope, SubmenuService, CalendarService, NewsService, SlideshowService) {
+  .controller('DisplaySlideShowController', function($scope, SlideshowService) {
 
     SlideshowService.getAll().then(function(res) {
       console.log('loadImgSlideshow', res.data);
