@@ -6,9 +6,9 @@ import dir from 'node-dir';
 
 let imageDir = path.join(__dirname, '../../public/uploads/images/');
 
-if (!fs.existsSync(imageDir)) {
-  fs.mkdirSync(imageDir);
-}
+// if (!fs.existsSync(imageDir)) {
+//   fs.mkdirSync(imageDir);
+// }
 
 /* Multer storage settings */
 let storage = multer.diskStorage({
@@ -46,7 +46,8 @@ export default class Image {
     dir.files(imageDir, function(err, files) {
       if (err) throw err;
       console.log(files);
-      let fileNames = files.map((file) => {
+
+      let fileNames = files.filter(file => file.split('.').pop() === 'jpg').map((file) => {
         return {
           fileName: file.split('/').pop()
         };

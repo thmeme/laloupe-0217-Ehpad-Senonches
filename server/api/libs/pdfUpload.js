@@ -6,9 +6,9 @@ import dir from 'node-dir';
 
 let pdfDir = path.join(__dirname, '../../public/uploads/pdf/');
 
-if (!fs.existsSync(pdfDir)) {
-  fs.mkdirSync(pdfDir);
-}
+// if (!fs.existsSync(pdfDir)) {
+//   fs.mkdirSync(pdfDir);
+// }
 
 /* Multer storage settings */
 let name = '';
@@ -48,11 +48,14 @@ export default class Pdf {
   }
 
   getAll(req, res) {
-    dir.files(pdfDir, function(err, files) {
+    dir.files(imageDir, function(err, files) {
       if (err) throw err;
       console.log(files);
-      let fileNames = files.map((file) => {
-        return {fileName: file.split('/').pop()};
+
+      let fileNames = files.filter(file => file.split('.').pop() === 'pdf').map((file) => {
+        return {
+          fileName: file.split('/').pop()
+        };
       });
       console.log(fileNames);
       res.json(fileNames);
