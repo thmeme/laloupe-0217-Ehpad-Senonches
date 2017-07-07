@@ -36,8 +36,7 @@ angular.module('app')
     };
 
     $scope.tinymceOptions = {
-      onChange: function(e) {
-      },
+      onChange: function(e) {},
       inline: false,
       skin: 'ehpad2',
       height: 300,
@@ -69,6 +68,9 @@ angular.module('app')
         console.error('error on image load', err);
       });
     };
+  
+
+
     $scope.textmodal = [];
     $scope.textModalShow = false;
     $scope.OpenModalDisplayText = function() {
