@@ -6,9 +6,9 @@ import dir from 'node-dir';
 
 let pdfDir = path.join(__dirname, '../../public/uploads/pdf/');
 
-if (!fs.existsSync(pdfDir)) {
-  fs.mkdirSync(pdfDir);
-}
+// if (!fs.existsSync(pdfDir)) {
+//   fs.mkdirSync(pdfDir);
+// }
 
 /* Multer storage settings */
 let name = '';
