@@ -5,6 +5,11 @@ import fs from 'fs';
 import dir from 'node-dir';
 
 let imageDir = path.join(__dirname, '../../public/uploads/images/');
+
+if (!fs.existsSync(imageDir)) {
+  fs.mkdirSync(imageDir);
+}
+
 /* Multer storage settings */
 let storage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -42,7 +47,9 @@ export default class Image {
       if (err) throw err;
       console.log(files);
       let fileNames = files.map((file) => {
-        return {fileName: file.split('/').pop()};
+        return {
+          fileName: file.split('/').pop()
+        };
       });
       console.log(fileNames);
       res.json(fileNames);

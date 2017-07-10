@@ -21,8 +21,34 @@ angular.module('app')
     $scope.legal.author = CurrentUser.user()._id;
 
     $scope.addlegalnotice = function() {
-      LegalnoticeService.update('', $scope.legal);
+      LegalnoticeService.update('', $scope.legal).then(function(res) {
+        if (res.status === 200) {
+          swal({
+            showConfirmButton: false,
+            type: 'success',
+            text: 'Les éléments ont été enregistrés avec succès',
+            timer: 2000
+          }).then(function() {
+
+          }, // handling the promise rejection
+            function(dismiss) {
+              if (dismiss === 'timer') {
+              }
+            }
+          );
+        }
+      }, function(err) {
+        swal({
+          showConfirmButton: false,
+          type: 'error',
+          text: 'Une erreur s\'est produite',
+          timer: 2000
+        } );
+      });
     };
+
+
+
 
     var idLeg = '';
 
