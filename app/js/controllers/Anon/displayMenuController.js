@@ -2,9 +2,7 @@ angular.module('app')
   .controller('DisplayMenuController', function($scope, SubmenuService, CalendarService, NewsService, SlideshowService) {
     $scope.tinymceModel = 'Initial content';
 
-    $scope.getContent = function() {
-      console.log('Editor content:', $scope.tinymceModel);
-    };
+    $scope.getContent = function() {};
 
     $scope.setContent = function() {
       $scope.tinymceModel = 'Time: ' + (new Date());
@@ -26,7 +24,6 @@ angular.module('app')
     function loadAllSubmenusAnon() {
       SubmenuService.getAllAnon().then(function(res) {
         $scope.listSubmenusAnon = res.data;
-        console.log('listSubmenusAno', res.data);
       });
     }
     loadAllSubmenusAnon();

@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import evenement from './calendar.js';
 
-
 const evenementSchema = new mongoose.Schema({
   date: {
     type: Date,
@@ -45,7 +44,6 @@ export default class Evenement {
           res.sendStatus(403);
         } else {
           res.json(evenement);
-          console.log('getAll');
         }
       });
   }
@@ -60,13 +58,11 @@ export default class Evenement {
           res.sendStatus(403);
         } else {
           res.json(evenement);
-          console.log('getAll');
         }
       });
   }
 
   findById(req, res) {
-    console.log('req in back', req.params, req.body, req.query);
     model.findById(req.params.id, function(err, evenement) {
       if (err || !evenement) {
         res.sendStatus(403);

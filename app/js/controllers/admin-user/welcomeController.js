@@ -5,8 +5,6 @@ angular.module('app')
     $scope.user = CurrentUser.user();
     $scope.auth = Auth;
 
-    console.log('id', $scope.idWelcome);
-
     $scope.welcome = {
       title: '',
       content: '',
@@ -24,12 +22,9 @@ angular.module('app')
             type: 'success',
             text: 'Les éléments ont été enregistrés avec succès',
             timer: 2000
-          }).then(function() {
-
-          }, // handling the promise rejection
+          }).then(function() {},
             function(dismiss) {
-              if (dismiss === 'timer') {
-              }
+              if (dismiss === 'timer') {}
             }
           );
         }
@@ -39,34 +34,25 @@ angular.module('app')
           type: 'error',
           text: 'Une erreur s\'est produite',
           timer: 2000
-        } );
+        });
       });
     };
 
     var idWel = '';
 
     function loadWelcome(id) {
-        WelcomeService.getOne(idWel).then(function(res) {
-          console.log('res One', res.data);
-          $scope.welcome = res.data;
-          console.log('$scope.Welcome', $scope.welcome);
-        }, function(err) {
-          console.error('error on getOne Welcome', err);
-        });
+      WelcomeService.getOne(idWel).then(function(res) {
+        $scope.welcome = res.data;
+      }, function(err) {});
     }
 
 
     function loadAllWelcomes() {
       WelcomeService.getAll().then(function(res) {
-        console.log('listWelcomes', res);
         $scope.welcome = res.data[0];
-        console.log('id Welcome', $scope.welcome._id);
         idWel = $scope.welcome._id;
-        console.log('idWel', idWel);
         loadWelcome(idWel);
-      }, function(err) {
-        console.error('error on loadAllWelcomes', err);
-      });
+      }, function(err) {});
     }
     loadAllWelcomes();
   });
