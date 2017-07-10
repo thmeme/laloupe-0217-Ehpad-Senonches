@@ -9,4 +9,4 @@
 .sass-cache
 
 .env
-/server/public/uploads/**/**
+---------server/public/uploads/**/**
