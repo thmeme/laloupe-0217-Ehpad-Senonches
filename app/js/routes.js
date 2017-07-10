@@ -102,24 +102,6 @@ angular.module('app')
           }
         }
       })
-      .state('user.dashboard', {
-        url: '/dashboard',
-        views: {
-          'content@': {
-            templateUrl: 'user/dashboard.html',
-            controller: 'DashboardController'
-          }
-        }
-      })
-      .state('user.admin', {
-        url: '/admin',
-        views: {
-          'content@': {
-            templateUrl: 'user/admin.html',
-            controller: 'AdminController'
-          }
-        }
-      })
       .state('user.submenu', {
         url: '/submenu',
         views: {
@@ -261,29 +243,6 @@ angular.module('app')
           'content@': {
             templateUrl: 'user/profile.html',
             controller: 'ProfileController'
-          }
-        }
-      });
-    $stateProvider
-      .state('admin', {
-        abstract: true,
-        url: '/admin',
-        views: {
-          'navbar@': {
-            templateUrl: 'admin/navbar.html',
-            controller: 'NavbarController'
-          }
-        },
-        data: {
-          access: AccessLevels.admin
-        }
-      })
-      .state('admin.register', {
-        url: '/register',
-        views: {
-          'content@': {
-            templateUrl: 'admin/register.html',
-            controller: 'RegisterController'
           }
         }
       });
