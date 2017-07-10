@@ -5,13 +5,10 @@ angular.module('app')
     $scope.auth = Auth;
 
     $scope.idNews = $stateParams.id;
-    console.log('id', $scope.idNews);
 
     function loadAllNews() {
       NewsService.getAll().then(function(res) {
-        console.log('listNews', res);
         $scope.listNews = res.data;
-        console.log('res.data', res.data);
       });
     }
     loadAllNews();
@@ -26,7 +23,6 @@ angular.module('app')
     function loadNews(id) {
       if (id !== undefined) {
         NewsService.getOne($scope.idNews).then(function(res) {
-          console.log('res One', res);
           $scope.news = res.data;
         });
       }
@@ -54,7 +50,6 @@ angular.module('app')
         buttonsStyling: false,
       }).then(function() {
         NewsService.delete(id).then(function(res) {
-            console.log('delete', res);
             swal({
               type: 'success',
               showConfirmButton: false,
@@ -72,25 +67,6 @@ angular.module('app')
       });
     };
 
-
-    // $scope.showConfirm = function(ev, id) {
-    //   // Appending dialog to document.body to cover sidenav in docs app
-    //   var confirm = $mdDialog.confirm()
-    //     .title('Voulez vous supprimer cet article ?')
-    //     .textContent('Tous les éléments seront définitivement perdus')
-    //     .ariaLabel('Lucky day')
-    //     .targetEvent(ev)
-    //     .ok('Supprimer')
-    //     .cancel('Annuler');
-    //
-    //   $mdDialog.show(confirm).then(function() {
-    //     NewsService.delete(id).then(function(res) {
-    //       loadAllNews();
-    //     });
-    //   });
-    // };
-
-
     $scope.currentPageNews = 0;
     $scope.pageSizeNews = 5;
     $scope.listNews = [];
@@ -100,5 +76,4 @@ angular.module('app')
     for (var i = 0; i < $scope.listNews.length - 1; i++) {
       $scope.listNews.push("Item " + i);
     }
-
   });

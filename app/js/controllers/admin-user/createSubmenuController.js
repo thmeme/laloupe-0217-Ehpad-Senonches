@@ -13,7 +13,6 @@ angular.module('app')
 
     $scope.auth = Auth;
     $scope.idSubmenu = $stateParams.id;
-    console.log('id', $scope.idSubmenu);
 
     $scope.newSubmenu = {
       content: '',
@@ -25,19 +24,15 @@ angular.module('app')
 
     $scope.addSubmenu = function() {
       SubmenuService.create($scope.newSubmenu).then(function(res) {
-        console.log('submenu', $scope.newSubmenu);
-        console.log('auteur', $scope.newSubmenu.author);
         $state.go('user.edit-submenu', {
           id: res.data.submenu._id
         });
       }, function(err) {
-        console.error('error on create', err);
       });
     };
 
     $scope.tinymceOptions = {
-      onChange: function(e) {
-      },
+      onChange: function(e) {},
       inline: false,
       skin: 'ehpad2',
       height: 300,
@@ -63,18 +58,18 @@ angular.module('app')
     $scope.OpenModalgalleryInsert = function() {
       $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
       UploadService.getAll().then(function(res) {
-        console.log('load', res);
         $scope.listimages = res.data;
       }, function(err) {
-        console.error('error on image load', err);
       });
     };
+
+
+
     $scope.textmodal = [];
     $scope.textModalShow = false;
     $scope.OpenModalDisplayText = function() {
       $scope.textModalShow = !$scope.textModalShow;
     };
-    console.log('$scope.textmodal', $scope.textmodal);
 
 
     $scope.UploadImgModalShow = false;
@@ -89,7 +84,6 @@ angular.module('app')
 
     $scope.insertImgEdit = function(name) {
       $scope.submenu.content += '<p><img src="uploads/images/' + name + '" width="100%"/></p>';
-      console.log('submenu.content', $scope.submenu.content);
       $scope.galleryInsertModalShow = false;
     };
 
@@ -112,11 +106,8 @@ angular.module('app')
     $scope.OpenModalUrlPdf = function() {
       $scope.galleryPdfModalShow = !$scope.galleryPdfModalShow;
       UploadPdfService.getAll().then(function(res) {
-        console.log('loadpdf', res);
         $scope.listPdf = res.data;
-        console.log('listpdf', res.data);
       }, function(err) {
-        console.error('error on image load', err);
       });
     };
 

@@ -6,10 +6,6 @@ import dir from 'node-dir';
 
 let pdfDir = path.join(__dirname, '../../public/uploads/pdf/');
 
-if (!fs.existsSync(pdfDir)) {
-  fs.mkdirSync(pdfDir);
-}
-
 /* Multer storage settings */
 let name = '';
 
@@ -20,7 +16,7 @@ let storage = multer.diskStorage({
   filename: function(req, file, cb) {
     let datetimestamp = Date.now();
 
-  name = file.originalname.split('.').shift();
+    name = file.originalname.split('.').shift();
     cb(null, datetimestamp + '-' + encodeURIComponent(name).replace(/%20/gi, "-") + '.pdf');
 
   }
@@ -48,15 +44,14 @@ export default class Pdf {
   }
 
   getAll(req, res) {
-    dir.files(pdfDir, function(err, files) {
+    dir.files(imageDir, function(err, files) {
       if (err) throw err;
-      console.log(files);
-      let fileNames = files.map((file) => {
-        return {fileName: file.split('/').pop()};
+      let fileNames = files.filter(file => file.split('.').pop() === 'pdf').map((file) => {
+        return {
+          fileName: file.split('/').pop()
+        };
       });
-      console.log(fileNames);
       res.json(fileNames);
     });
   }
-
 }

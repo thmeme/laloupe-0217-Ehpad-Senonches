@@ -1065,7 +1065,7 @@
 
 #footer h4{
   margin-bottom: -15px;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 #footer h5{
@@ -1076,13 +1076,13 @@
 #footer ul{
   margin-left: 15px;
   text-align: center;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   margin-bottom: 10px;
 }
 
 #footer li{
   text-align: center;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 #footer a{

@@ -5,8 +5,6 @@ angular.module('app')
     $scope.user = CurrentUser.user();
     $scope.auth = Auth;
 
-    console.log('id', $scope.idlegal);
-
     $scope.legal = {
       name: '',
       company: '',
@@ -30,10 +28,9 @@ angular.module('app')
             timer: 2000
           }).then(function() {
 
-          }, // handling the promise rejection
+            }, // handling the promise rejection
             function(dismiss) {
-              if (dismiss === 'timer') {
-              }
+              if (dismiss === 'timer') {}
             }
           );
         }
@@ -43,21 +40,17 @@ angular.module('app')
           type: 'error',
           text: 'Une erreur s\'est produite',
           timer: 2000
-        } );
+        });
       });
     };
-
-
-
 
     var idLeg = '';
 
     function loadLegalnotice(id) {
-        LegalnoticeService.getOne(idLeg).then(function(res) {
-          $scope.legal = res.data;
-        });
+      LegalnoticeService.getOne(idLeg).then(function(res) {
+        $scope.legal = res.data;
+      });
     }
-
 
     function loadAllLegalnotices() {
       LegalnoticeService.getAll().then(function(res) {

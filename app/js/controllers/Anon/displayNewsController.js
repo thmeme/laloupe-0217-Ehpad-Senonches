@@ -6,14 +6,10 @@ angular.module('app')
     $scope.auth = Auth;
 
     $scope.idNews = $stateParams.id;
-    console.log('id', $scope.idNews);
 
     function loadAllNewsAnon() {
       NewsService.getAllAnon().then(function(res) {
-        console.log('listNewsAnon', res);
         $scope.listNewsAnon = res.data;
-
-        console.log('res.data Anon', res.data);
       });
     }
     loadAllNewsAnon();
@@ -21,10 +17,8 @@ angular.module('app')
     function loadNews(id) {
       if (id !== undefined) {
         NewsService.getOne($scope.idNews).then(function(res) {
-          console.log('res One', res);
           $scope.news = res.data;
           $scope.news.content = $sce.trustAsHtml(res.data.content);
-
         });
       }
     }

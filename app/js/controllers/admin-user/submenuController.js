@@ -13,16 +13,11 @@ angular.module('app')
 
     $scope.auth = Auth;
     $scope.idSubmenu = $stateParams.id;
-    console.log('id', $scope.idSubmenu);
 
     function loadAllSubmenus() {
       SubmenuService.getAll().then(function(res) {
-        console.log('listSubmenus', res);
         $scope.listSubmenu = res.data;
-        console.log('res.data', res.data);
-      }, function(err) {
-        console.error('error on loadAllSubmenus', err);
-      });
+      }, function(err) {});
     }
     loadAllSubmenus();
 
@@ -33,14 +28,9 @@ angular.module('app')
     function loadSubmenu(id) {
       if (id !== undefined) {
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
-          console.log('res One', res);
           $scope.submenu = res.data;
           $scope.submenu.content = $sce.trustAsHtml(res.data.content);
-          console.log('content', $scope.submenu.content);
-
-        }, function(err) {
-          console.error('error on getOne Submenu', err);
-        });
+        }, function(err) {});
       }
     }
     loadSubmenu($scope.idSubmenu);
@@ -55,22 +45,14 @@ angular.module('app')
 
     $scope.addSubmenu = function() {
       SubmenuService.create($scope.newSubmenu).then(function(res) {
-        console.log('submenu', $scope.newSubmenu);
-        console.log('auteur', $scope.newSubmenu.author);
         $state.go('user.edit-submenu', {
           id: res.data.submenu._id
         });
-      }, function(err) {
-        console.error('error on create', err);
-      });
+      }, function(err) {});
     };
 
     $scope.updateSubmenu = function() {
-      SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
-        console.log('update', res);
-      }, function(err) {
-        console.error('error on loadAllSubmenus', err);
-      });
+      SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {}, function(err) {});
     };
 
 
@@ -116,7 +98,6 @@ angular.module('app')
       fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
       content_css: [
         '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-        // '//www.tinymce.com/css/codepen.min.css'
       ]
     };
     $scope.redirect = function() {
@@ -131,18 +112,14 @@ angular.module('app')
     $scope.OpenModalgalleryInsert = function() {
       $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
       UploadService.getAll().then(function(res) {
-        console.log('load', res);
         $scope.listimages = res.data;
-      }, function(err) {
-        console.error('error on image load', err);
-      });
+      }, function(err) {});
     };
     $scope.textmodal = [];
     $scope.textModalShow = false;
     $scope.OpenModalDisplayText = function() {
       $scope.textModalShow = !$scope.textModalShow;
     };
-    console.log('$scope.textmodal', $scope.textmodal);
 
 
     $scope.UploadImgModalShow = false;
@@ -157,7 +134,6 @@ angular.module('app')
 
     $scope.insertImgEdit = function(name) {
       $scope.submenu.content += '<p><img src="uploads/images/' + name + '" width="500"/></p>';
-      console.log('submenu.content', $scope.submenu.content);
       $scope.galleryInsertModalShow = false;
     };
 
@@ -180,12 +156,8 @@ angular.module('app')
     $scope.OpenModalUrlPdf = function() {
       $scope.galleryPdfModalShow = !$scope.galleryPdfModalShow;
       UploadPdfService.getAll().then(function(res) {
-        console.log('loadpdf', res);
         $scope.listPdf = res.data;
-        console.log('listpdf', res.data);
-      }, function(err) {
-        console.error('error on image load', err);
-      });
+      }, function(err) {});
     };
 
     $scope.decodeURI = function(filename) {
