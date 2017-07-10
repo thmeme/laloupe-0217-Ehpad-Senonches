@@ -6,7 +6,6 @@ angular.module('app')
     $scope.auth = Auth;
 
     $scope.idSubmenu = $stateParams.id;
-    console.log('id', $scope.idSubmenu);
 
     $scope.menus = [
       "Votre admission",
@@ -17,10 +16,8 @@ angular.module('app')
     function loadSubmenu(id) {
       if (id !== undefined) {
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
-          console.log('res One', res);
           $scope.submenu = res.data;
         }, function(err) {
-          console.error('error on getOne Submenu', err);
         });
       }
     }
@@ -84,7 +81,6 @@ angular.module('app')
     $scope.OpenModalgalleryInsert = function() {
       $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
       UploadService.getAll().then(function(res) {
-        console.log('load', res);
         $scope.listimages = res.data;
       }, function(err) {
         console.error('error on image load', err);
@@ -95,7 +91,6 @@ angular.module('app')
     $scope.OpenModalDisplayText = function() {
       $scope.textModalShow = !$scope.textModalShow;
     };
-    console.log('$scope.textmodal', $scope.textmodal);
 
 
     $scope.UploadImgModalShow = false;
@@ -133,11 +128,8 @@ angular.module('app')
     $scope.OpenModalUrlPdf = function() {
       $scope.galleryPdfModalShow = !$scope.galleryPdfModalShow;
       UploadPdfService.getAll().then(function(res) {
-        console.log('loadpdf', res);
         $scope.listPdf = res.data;
-        console.log('listpdf', res.data);
       }, function(err) {
-        console.error('error on image load', err);
       });
     };
 

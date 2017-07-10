@@ -5,8 +5,6 @@ angular.module('app')
     $scope.user = CurrentUser.user();
     $scope.auth = Auth;
 
-    console.log('id', $scope.idContact);
-
     $scope.contact = {
       name: '',
       street: '',
@@ -50,24 +48,17 @@ angular.module('app')
 
     function loadContact(id) {
       ContactService.getOne(idCont).then(function(res) {
-        console.log('res One', res.data);
         $scope.contact = res.data;
-        console.log('$scope.contact', $scope.contact);
       }, function(err) {
-        console.error('error on getOne contact', err);
       });
     }
 
     function loadAllContacts() {
       ContactService.getAll().then(function(res) {
-        console.log('listContacts', res);
         $scope.contact = res.data[0];
-        console.log('id contact', $scope.contact._id);
         idCont = $scope.contact._id;
-        console.log('idCont', idCont);
         loadContact(idCont);
       }, function(err) {
-        console.error('error on loadAllContacts', err);
       });
     }
     loadAllContacts();

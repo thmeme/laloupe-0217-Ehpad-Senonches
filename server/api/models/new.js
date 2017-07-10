@@ -68,7 +68,6 @@ export default class News {
       });
   }
   findById(req, res) {
-    console.log('req in back', req.params, req.body, req.query);
     model.findById(req.params.id, function(err, news) {
       if (err || !news) {
         res.sendStatus(403);
@@ -79,7 +78,6 @@ export default class News {
   }
   create(req, res) {
     let news = req.body;
-    console.log('back', req.body);
     news.date = new Date().toISOString();
     model.create(news, (err, news) => {
       if (err) {
@@ -96,7 +94,6 @@ export default class News {
   }
   createByUser(req, res) {
     let news = req.body;
-    console.log('back', req.body);
     news.date = new Date().toISOString();
     delete news.isOnline;
     model.create(news, (err, news) => {

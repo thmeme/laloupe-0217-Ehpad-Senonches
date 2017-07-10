@@ -3,7 +3,6 @@ angular.module('app')
     $scope.user = CurrentUser.user();
 
     $scope.idImg = $stateParams.id;
-    console.log('id', $scope.idImg);
 
     $scope.showConfirm = function(ev, id) {
       var confirm = $mdDialog.confirm()
@@ -30,7 +29,6 @@ angular.module('app')
     $scope.OpenModalgalleryAssociate = function() {
       $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
       UploadLargeService.getAll().then(function(res) {
-        console.log('load', res);
         $scope.listImagesLarges = res.data;
       }, function(err) {
         console.error('error on image load', err);
@@ -39,7 +37,6 @@ angular.module('app')
 
     loadImgSlideshow = function() {
       SlideshowService.getAll().then(function(res) {
-        console.log('loadImgSlideshow', res.data);
         $scope.listImgSlideShow = res.data;
 
       });
@@ -56,7 +53,6 @@ angular.module('app')
         name: img
       };
       SlideshowService.create(newImgSlideShow).then(function(res) {
-        console.log('img Slideshow', res);
         $scope.galleryAssociateModalShow = false;
         loadImgSlideshow();
 
@@ -65,28 +61,6 @@ angular.module('app')
         console.error('err slideshow', err);
       });
     };
-
-    // $scope.customFullscreen = false;
-    // $scope.showConfirm = function(ev, id) {
-    //   console.log('id', id);
-    //   // Appending dialog to document.body to cover sidenav in docs app
-    //   var confirm = $mdDialog.confirm()
-    //     .title('Voulez-vous supprimer cette image du carrousel ?')
-    //     .textContent('')
-    //     .ariaLabel('Lucky day')
-    //     .targetEvent(ev)
-    //     .ok('Supprimer')
-    //     .cancel('Annuler');
-    //
-    //   $mdDialog.show(confirm).then(function() {
-    //     SlideshowService.delete(id).then(function(res) {
-    //       console.log('delete', res);
-    //       loadImgSlideshow();
-    //     }, function(err) {
-    //       console.error('error on show', err);
-    //     });
-    //   });
-    // };
 
     $scope.showConfirm = function(ev, id) {
       swal({
@@ -100,7 +74,6 @@ angular.module('app')
         buttonsStyling: false,
       }).then(function() {
         SlideshowService.delete(id).then(function(res) {
-            console.log('delete', res);
             swal({
               type: 'success',
               showConfirmButton: false,
@@ -118,19 +91,8 @@ angular.module('app')
       });
     };
 
-
-
-
-
-
-
-
     $scope.updateSlideshow = function() {
-      SlideshowService.update($scope.img._id, $scope.listImgSlideShow).then(function(res) {
-        console.log('update', res);
-      }, function(err) {
-        console.error('error on loadAllSubmenus', err);
-      });
+      SlideshowService.update($scope.img._id, $scope.listImgSlideShow).then(function(res) {}, function(err) {});
     };
 
     $scope.currentPage = 0;
