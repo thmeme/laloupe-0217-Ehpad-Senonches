@@ -658,7 +658,6 @@
     #footer {
       bottom: 0;
     }
-    )
   }
 
   #greenButton {
@@ -1057,7 +1056,8 @@
 
 .footerList {
  margin-left: -100px;
-}
+ margin-bottom: 15px;
+ }
 
 #footer li{
   display: block;
@@ -1077,13 +1077,11 @@
 #footer ul{
   margin-left: 80px;
   text-align: center;
-  /*text-transform: uppercase;*/
   margin-bottom: 10px;
 }
 
 #footer li{
   text-align: center;
-  /*text-transform: uppercase;*/
 }
 
 #footer a{
@@ -1233,6 +1231,14 @@
   border: 0;
 }
 
+@media (min-width: 1410px)
+ {
+   .footerList {
+    margin-left: -100px;
+    margin-bottom: -20px;
+    font-size: 15px;
+  }
+}
 
 @media (max-width: 1025px)
  {
@@ -1267,6 +1273,7 @@
     margin-bottom: 5vw;
   }
 }
+
   @media (max-width: 750px) {
     .columnAdmin {
       width: 95%;
@@ -1276,188 +1283,8 @@
      padding-left: 10vw;
      margin-bottom: 5vw;
     }
-  /***** Footer *****/
-
-  #footer {
-    height: 80px;
-    background-color: #265B7E;
-    position: relative;
-    margin-top: 20px;
-    color: white;
   }
 
-  .copyright {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 10px;
-    margin-left: 15px;
-  }
-
-  .footerLink {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 10px;
-    margin-right: 15px;
-  }
-
-  .footerLink:hover {
-    text-decoration: underline;
-    font-size: 17px;
-  }
-  /*sidenav*/
-
-  .sideLeft {
-    display: grid;
-    text-align: left;
-  }
-
-  .sideTitle {
-    margin-left: 2vw;
-  }
-
-  .sideLeft button {
-    text-align: left;
-  }
-
-  .sideLeft a {
-    text-decoration: none;
-    color: #009688;
-  }
-
-  .btnClose {
-    text-align: left;
-  }
-  /*page formulary*/
-
-  .formTitle {
-    text-align: center;
-  }
-
-  .formInput {
-    width: 75%;
-    text-align: center;
-    margin-left: 10%;
-    font-size: 19px;
-  }
-
-  .formMessage {
-    width: 75%;
-    text-align: center;
-    margin-left: 10%;
-    font-size: 19px;
-  }
-
-  .obligation {
-    font-style: oblique;
-    font-weight: bold;
-  }
-
-  .boxForm {
-    margin: 20px;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 4px 4px 4px #CACACA;
-  }
-
-  .formBtn {
-    float: right;
-    margin-top: 25px;
-    color: white;
-  }
-
-  .timer {
-    float: right;
-    margin: 20px;
-    width: 250px;
-    height: 100px;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    font-style: italic;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 4px 4px 4px #CACACA;
-    background-color: #fafafa;
-  }
-
-  .imgTimer {
-    width: 100%;
-    height: 100%;
-  }
-
-  .timerDate {
-    position: absolute;
-    margin-top: 15px;
-    margin-left: 10px;
-  }
-  /*text Slider*/
-
-  .text-size-slider {
-    line-height: 100%;
-    font-size: 14px;
-    color: #ff7ed3;
-  }
-
-  .textSlider {
-    margin: 10px;
-    text-align: right;
-  }
-
-  .text-size-slider .small-letter, .text-size-slider .big-letter {
-    font-weight: bold;
-  }
-
-  .text-size-slider .slider {
-    -webkit-appearance: none;
-    margin: 0 8px;
-  }
-
-  .text-size-slider .slider:focus {
-    outline: none;
-  }
-
-  .text-size-slider .slider::-webkit-slider-thumb {
-    border: none;
-    cursor: pointer;
-    -webkit-appearance: none;
-    background-color: #76eaff;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-top: -6px;
-  }
-
-  .text-size-slider .slider::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 2px;
-    cursor: pointer;
-    background: #abe852;
-    border: 0;
-  }
-  /*@media (min-width: 960px)
-.md-padding {
-  padding: 0;
-
-}*/
-
-  @media (max-width: 960px) {
-    .md-card-content.Une.flex-55 {
-      width: 100%;
-    }
-    .imgNewsHome {
-      max-width: 100%;
-    }
-    .colFront {
-      width: 100%;
-      margin: auto;
-    }
-    .footerList{
-     display: list-item;
-     font-size: 11px;
-     padding-left: 10vw;
-    }
-  }
   @media (max-width: 450px) {
     .ColNewsDisplayNews {
       height: 1515px;
@@ -1517,7 +1344,7 @@
       font-size: 8px;
     }
   }
-    @media (max-width: 750px) {
+    /*@media (max-width: 750px) {
       .columnAdmin {
         width: 95%;
       }
@@ -1532,19 +1359,4 @@
       .cardImgEvenement {
         width: 100%;
       }
-    }
-    @media (max-width: 450px) {
-      .ColNewsDisplayNews {
-        height: 1515px;
-      }
-    }
-    @media (max-width: 375px) {
-      .ColNewsDisplayNews {
-        height: 1375px;
-      }
-    }
-    @media (max-width: 350px) {
-      .ColNewsDisplayNews {
-        height: 1235px;
-      }
-    }
+    }*/
