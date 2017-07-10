@@ -826,6 +826,7 @@ li {
   bottom: 0;
   margin-bottom: 10px;
   margin-left: 15px;
+  font-size: 12px;
 }
 
 .footerLink {
@@ -845,16 +846,16 @@ li {
 
 .footerList {
  margin-left: -100px;
- margin-bottom: 5vw;
 }
 
 #footer li{
   display: block;
+
 }
 
 #footer h4{
   margin-bottom: -15px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 #footer h5{
@@ -863,15 +864,15 @@ li {
 }
 
 #footer ul{
-  margin-left: 15px;
+  margin-left: 80px;
   text-align: center;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   margin-bottom: 10px;
 }
 
 #footer li{
   text-align: center;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 #footer a{
@@ -1022,11 +1023,17 @@ li {
 }
 
 
-/*@media (min-width: 960px)
-.md-padding {
-  padding: 0;
-
-}*/
+@media (max-width: 1025px)
+ {
+   .footerList {
+    margin-left: -100px;
+    margin-bottom: 15px;
+    font-size: 13px;
+  }
+  .copyright{
+    font-size: 11px;
+  }
+}
 
 @media (max-width: 960px) {
   .md-card-content.Une.flex-55 {
@@ -1039,10 +1046,9 @@ li {
     width: 100%;
     margin: auto;
   }
-  .footerList{
-   font-size: 14px;
-   padding-left: 10vw;
-   margin-bottom: 5vw;
+  .footerList {
+    font-size: 14px;
+    margin-bottom: 5vw;
   }
 }
   @media (max-width: 750px) {
@@ -1076,24 +1082,39 @@ li {
       height: 1515px;
     }
     .footerList{
-     display: list-item;
-     font-size: 12px;
-     padding-left: 10vw;
+      display: flex;
+      font-size: 12px;
+      padding-left: 20vw;
+      margin-right: 10vw;
     }
     .footerLink{
       font-size: 12px;
     }
+    #footer ul{
+      margin-left: 0px;
+    }
+    .copyright{
+      font-size: 10px;
+    }
   }
-  @media (max-width: 375px) {
+  @media (max-width: 376px) {
     .ColNewsDisplayNews {
       height: 1375px;
     }
     .footerList{
-     display: list-item;
-     font-size: 12px;
+      display: flex;
+      font-size: 10px;
+      margin-right: 10vw;
+      padding-left: 25vw;
     }
     .footerLink{
       font-size: 12px;
+    }
+    #footer ul{
+      margin-left: 0px;
+    }
+    .copyright{
+      font-size: 9px;
     }
   }
   @media (max-width: 350px) {
@@ -1101,10 +1122,17 @@ li {
       height: 1235px;
     }
     .footerList{
-      display: block;
-      font-size: 10px;
+      display: flex;
+      font-size: 9px;
+      margin-left: -115px
+    }
+    .footerList ul{
+      margin-right: -20px;
     }
     .footerLink{
       font-size: 12px;
+    }
+    .copyright{
+      font-size: 8px;
     }
   }
