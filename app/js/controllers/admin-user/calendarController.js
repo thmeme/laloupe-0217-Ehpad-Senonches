@@ -1,7 +1,6 @@
 angular.module('app')
   .controller('CalendarController', function($scope, $state, $stateParams, $mdDialog, CurrentUser, CalendarService) {
     $scope.user = CurrentUser.user();
-    console.log('params', $state.params);
     $scope.newEvenement = {
       date: undefined,
       start: undefined,
@@ -12,12 +11,10 @@ angular.module('app')
     };
 
     $scope.idEvenement = $stateParams.id;
-    console.log('id', $scope.idEvenement);
 
     function loadAllEvenements() {
       CalendarService.getAll().then(function(res) {
         $scope.evenements = res.data;
-        console.log('loadAllEvenements', res.data);
       });
     }
     loadAllEvenements();
@@ -35,9 +32,7 @@ angular.module('app')
     function loadEvenement(id) {
       if (id !== undefined) {
         CalendarService.getOne($scope.idEvenement).then(function(res) {
-          console.log('res One', res);
           $scope.evenement = res.data;
-          console.log('res.data.strat', res.data.start);
         });
       }
     }
@@ -51,25 +46,6 @@ angular.module('app')
       $state.go('user.create-calendar');
     };
 
-    // $scope.customFullscreen = false;
-    // $scope.showConfirm = function(ev, id) {
-    //   console.log('ev', ev);
-    //   // Appending dialog to document.body to cover sidenav in docs app
-    //   var confirm = $mdDialog.confirm()
-    //     .title('Voulez-vous supprimer cet évènement ?')
-    //     .textContent('Tous les éléments seront définitivement perdus')
-    //     .ariaLabel('Lucky day')
-    //     .targetEvent(ev)
-    //     .ok('Supprimer')
-    //     .cancel('Annuler');
-    //
-    //   $mdDialog.show(confirm).then(function() {
-    //     CalendarService.delete(id).then(function(res) {
-    //       loadAllEvenements();
-    //     });
-    //   });
-    // };
-
     $scope.showConfirm = function(ev, id) {
       swal({
         text: "Voulez-vous supprimer cet évènement ?",
@@ -82,7 +58,6 @@ angular.module('app')
         buttonsStyling: false,
       }).then(function() {
         CalendarService.delete(id).then(function(res) {
-            console.log('delete', res);
             swal({
               type: 'success',
               showConfirmButton: false,
@@ -99,7 +74,4 @@ angular.module('app')
           });
       });
     };
-
-
-
   });

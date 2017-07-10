@@ -25,7 +25,6 @@ export default class Slideshow {
       });
   }
   findById(req, res) {
-    console.log('req in back', req.params, req.body, req.query);
     model.findById(req.params.id, function(err, slideshow) {
       if (err || !slideshow) {
         res.sendStatus(403);
@@ -36,7 +35,6 @@ export default class Slideshow {
   }
   create(req, res) {
     let slideshow = req.body;
-    console.log('back', req.body);
     slideshow.date = new Date().toISOString();
     model.create(slideshow, (err, slideshow) => {
       if (err) {
@@ -53,7 +51,6 @@ export default class Slideshow {
   }
   createByUser(req, res) {
     let slideshow = req.body;
-    console.log('back', req.body);
     news.date = new Date().toISOString();
     delete submenu.isOnline;
     model.create(slideshow, (err, slideshow) => {
@@ -70,7 +67,6 @@ export default class Slideshow {
     });
   }
   update(req, res) {
-    console.log('req update', req.body);
     model.update(req.body, function(err, slideshow) {
       if (err) {
         res.status(500).send(err);
@@ -83,8 +79,6 @@ export default class Slideshow {
     });
   }
   updateByUser(req, res) {
-    console.log('req update', req.body);
-
     model.update(
       req.body, {
         slideshow: true
@@ -101,7 +95,6 @@ export default class Slideshow {
       });
   }
   delete(req, res) {
-    console.log('delete', req.params.id);
     model.findByIdAndRemove(req.params.id, function(err) {
       if (err) {
         res.status(500).send(err.message);

@@ -63,7 +63,6 @@ export default class Legalnotice {
 
 
   findAllByUser(req, res) {
-    console.log('find2');
     model.find({})
       .populate('author')
       .exec((err, legalnotice) => {
@@ -75,8 +74,6 @@ export default class Legalnotice {
       });
   }
   findById(req, res) {
-    console.log('find4');
-    console.log('req in back', req.params, req.body, req.query);
     model.findById(req.params.id, (err, legalnotice) => {
       if (err || !legalnotice) {
         res.sendStatus(403);
@@ -86,8 +83,6 @@ export default class Legalnotice {
     });
   }
   update(req, res) {
-    console.log('route admin');
-    console.log('rep update', req.body);
     model.findOneAndUpdate(req.params.id,
       req.body, {
         upsert: true
@@ -104,7 +99,6 @@ export default class Legalnotice {
       });
   }
   updateByUser(req, res) {
-    console.log('req update user', req.body);
     model.findOneAndUpdate(req.params.id,
       req.body, {
         upsert: true,

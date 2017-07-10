@@ -44,7 +44,6 @@ export default class Submenu {
         }
       });
   }
-
   findAllByUser(req, res) {
     model.find({})
       .populate('author')
@@ -56,7 +55,6 @@ export default class Submenu {
         }
       });
   }
-
   findAllAnon(req, res) {
     model.find({
         isOnline: true
@@ -70,9 +68,7 @@ export default class Submenu {
         }
       });
   }
-
   findById(req, res) {
-    console.log('req in back', req.params, req.body, req.query);
     model.findById(req.params.id, (err, submenu) => {
       if (err || !submenu) {
         res.sendStatus(403);
@@ -81,11 +77,8 @@ export default class Submenu {
       }
     });
   }
-
   create(req, res) {
-    console.log('route admin');
     let submenu = req.body;
-    console.log('back', req.body);
     submenu.date = new Date().toISOString();
     model.create(submenu, (err, submenu) => {
       if (err) {
@@ -100,11 +93,8 @@ export default class Submenu {
       }
     });
   }
-
   createByUser(req, res) {
-    console.log('route non admin');
     let submenu = req.body;
-    console.log('back', req.body);
     submenu.date = new Date().toISOString();
     delete submenu.isOnline;
     model.create(submenu, (err, submenu) => {
@@ -120,9 +110,7 @@ export default class Submenu {
       }
     });
   }
-
   update(req, res) {
-    console.log('update1');
     model.findByIdAndUpdate(req.params.id,
       req.body, {
         new: true
@@ -138,9 +126,7 @@ export default class Submenu {
         }
       });
   }
-
   updateByUser(req, res) {
-    console.log('update2');
     delete req.body.isOnline;
     model.findByIdAndUpdate(req.params.id,
       req.body, {
@@ -157,9 +143,7 @@ export default class Submenu {
         }
       });
   }
-
   delete(req, res) {
-    console.log('req remove', req.params);
     model.findByIdAndRemove(req.params.id, function(err) {
       if (err) {
         res.status(500).send(err.message);

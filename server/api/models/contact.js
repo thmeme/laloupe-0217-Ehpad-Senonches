@@ -38,7 +38,6 @@ let model = mongoose.model('Contact', contactSchema);
 export default class Contact {
 
   findAllByUser(req, res) {
-    console.log('find2');
     model.find({})
       .populate('author')
       .exec((err, contact) => {
@@ -49,10 +48,7 @@ export default class Contact {
         }
       });
   }
-
   findById(req, res) {
-    console.log('find4');
-    console.log('req in back', req.params, req.body, req.query);
     model.findById(req.params.id, (err, contact) => {
       if (err || !contact) {
         res.sendStatus(403);
@@ -62,8 +58,6 @@ export default class Contact {
     });
   }
   update(req, res) {
-    console.log('route admin');
-    console.log('rep update', req.body);
     model.findOneAndUpdate(req.params.id,
       req.body, {
         upsert: true
@@ -80,7 +74,6 @@ export default class Contact {
       });
   }
   updateByUser(req, res) {
-    console.log('req update user', req.body);
     model.findOneAndUpdate(req.params.id,
       req.body, {
         upsert: true,

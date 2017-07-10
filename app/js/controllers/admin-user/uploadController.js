@@ -9,7 +9,6 @@ angular.module('app')
 
     function uploadImage(imageFile) {
       UploadService.uploadImage(imageFile).then(function(res) {
-        console.log('After upload: ', res);
         if (res.data.success) { //validate success
           console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
         } else {
@@ -26,7 +25,6 @@ angular.module('app')
     }
 
     $scope.uploadImage = function() {
-      console.log('imageNormal:', $scope.image);
       if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
         uploadImage($scope.image.file);
 
@@ -56,8 +54,7 @@ angular.module('app')
     }
 
     $scope.uploadImageLarge = function() {
-      console.log('imageLarge:', $scope.imageLarge);
-      if ($scope.upload_form.file.$valid && $scope.imageLarge.file) { //check if from is valid
+      if ($scope.upload_form.file.$valid && $scope.imageLarge.file) {
         uploadImageLarge($scope.imageLarge.file);
       }
     };
@@ -69,7 +66,6 @@ angular.module('app')
 
     function uploadPdf(pdfFile) {
       UploadPdfService.uploadPdf(pdfFile).then(function(res) {
-        console.log('After upload: ', res);
         if (res.data.success) { //validate success
           console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
         } else {
@@ -81,13 +77,12 @@ angular.module('app')
         console.log('evt during upload: ', evt);
         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
         console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
-        $scope.pdf.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
+        $scope.pdf.progress = 'progress: ' + progressPercentage + '% '; 
       });
     }
 
     $scope.uploadPdf = function() {
-      console.log('pdfUC:', $scope.pdf);
-      if ($scope.upload_form.file.$valid && $scope.pdf.file) { //check if from is valid
+      if ($scope.upload_form.file.$valid && $scope.pdf.file) {
         uploadPdf($scope.pdf.file);
       }
     };

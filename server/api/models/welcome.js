@@ -33,7 +33,6 @@ let model = mongoose.model('Welcome', welcomeSchema);
 export default class Welcome {
 
   findAllByUser(req, res) {
-    console.log('find2');
     model.find({})
       .populate('author')
       .exec((err, welcome) => {
@@ -46,8 +45,6 @@ export default class Welcome {
   }
 
   findById(req, res) {
-    console.log('find4');
-    console.log('req in back', req.params, req.body, req.query);
     model.findById(req.params.id, (err, welcome) => {
       if (err || !welcome) {
         res.sendStatus(403);
@@ -58,9 +55,6 @@ export default class Welcome {
   }
 
   update(req, res) {
-    console.log('route admin');
-    console.log('rep update', req.body);
-
     model.findOneAndUpdate(req.params.id,
       req.body, {
         upsert: true
@@ -77,7 +71,6 @@ export default class Welcome {
       });
   }
   updateByUser(req, res) {
-    console.log('req update user', req.body);
     model.findOneAndUpdate(req.params.id,
       req.body, {
         upsert: true,
