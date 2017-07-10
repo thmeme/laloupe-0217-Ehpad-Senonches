@@ -3,7 +3,6 @@ angular.module('app')
     $scope.theme = 'ehpad';
     $scope.user = CurrentUser.user();
     $scope.auth = Auth;
-    console.log('id', $scope.idlegal);
 
     $scope.legal = {
       name: '',
@@ -17,7 +16,7 @@ angular.module('app')
       host: '',
       hostadress: '',
       hostzipcode: '',
-      hostcity:''
+      hostcity: ''
     };
 
     $scope.legal.author = CurrentUser.user()._id;
@@ -26,27 +25,16 @@ angular.module('app')
 
     function loadLegalnotice(id) {
       LegalnoticeService.getOne(idLeg).then(function(res) {
-        console.log('res One', res.data);
         $scope.legal = res.data;
-        console.log('$scope.legal', $scope.legal);
-      }, function(err) {
-        console.error('error on getOne legal', err);
-      });
+      }, function(err) {});
     }
-
 
     function loadAllLegalnotices() {
       LegalnoticeService.getAll().then(function(res) {
-        console.log('listlegales', res);
         $scope.legal = res.data[0];
-        console.log('id legal', $scope.legal._id);
         idLeg = $scope.legal._id;
-        console.log('idWLegel', idLeg);
         loadLegalnotice(idLeg);
-      }, function(err) {
-        console.error('error on loadAllLegalnotices', err);
-      });
+      }, function(err) {});
     }
     loadAllLegalnotices();
-
   });

@@ -1,7 +1,6 @@
 angular.module('app')
   .controller('NavbarController', function($scope, Auth, CurrentUser, $timeout, $mdSidenav, $log) {
 
-
     function debounce(func, wait, context) {
       var timer;
 

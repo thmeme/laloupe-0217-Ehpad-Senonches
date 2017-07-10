@@ -24,7 +24,6 @@ var options = {
 export default class Mail {
 
   sendMail(req, res) {
-    console.log(req.body);
     mailer.use('compile', hbs(options));
     mailer.sendMail({
       from: process.env.USER_MAIL,
