@@ -17,7 +17,7 @@ let storage = multer.diskStorage({
     let datetimestamp = Date.now();
 
     name = file.originalname.split('.').shift();
-    cb(null, datetimestamp + '-' + encodeURIComponent(name).replace(/%20/gi, "-") + '.pdf');
+    cb(null, datetimestamp + '-' + encodeURIComponent(name).replace(/%20/gi, "_") + '.pdf');
 
   }
 });
