@@ -5,16 +5,16 @@
       <div ng-cloak>
         <md-input-container style="margin-right: 10px;">
           <label>Menu</label>
-          <md-select ng-model="submenu.menu">
+          <md-select ng-model="submenu.menu" required>
             <md-option ng-repeat="menu in menus" value="{{menu}}">{{menu}}</md-option>
           </md-select>
         </md-input-container>
       </div>
       <md-input-container class="md-block" flex-gt-sm>
         <label>Titre du sous-menu</label>
-        <input ng-model="submenu.title">
+        <input ng-model="submenu.title" required>
       </md-input-container>
-      <textarea ui-tinymce="tinymceOptions" ng-model="submenu.content"></textarea>
+      <textarea ui-tinymce="tinymceOptions" ng-model="submenu.content" required></textarea>
       <div>
         <div layout='row'>
           <md-switch class='switch' flex='80' ng-model="submenu.isOnline" ng-if='user.isAdmin' aria-label="status">

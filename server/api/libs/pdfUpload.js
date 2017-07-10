@@ -44,7 +44,7 @@ export default class Pdf {
   }
 
   getAll(req, res) {
-    dir.files(imageDir, function(err, files) {
+    dir.files(pdfDir, function(err, files) {
       if (err) throw err;
       let fileNames = files.filter(file => file.split('.').pop() === 'pdf').map((file) => {
         return {
