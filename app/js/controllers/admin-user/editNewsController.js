@@ -49,23 +49,16 @@ angular.module('app')
             type: 'success',
             text: 'L\'article a été enregistré avec succès',
             timer: 2000
-          }).then(function() {
-
-          }, // handling the promise rejection
-            function(dismiss) {
-              if (dismiss === 'timer') {
-                console.log('I was closed by the timer');
-              }
-            }
-          );
+          });
         }
       }, function(err) {
         swal({
           showConfirmButton: false,
           type: 'error',
-          text: 'Une erreur s\'est produite',
+          title: 'Une erreur s\'est produite',
+          text: 'Vous pouvez réessayer',
           timer: 2000
-        } );
+        });
       });
     };
 
@@ -74,8 +67,7 @@ angular.module('app')
     };
 
     $scope.tinymceOptions = {
-      onChange: function(e) {
-      },
+      onChange: function(e) {},
       inline: false,
       skin: 'ehpad2',
       height: 300,
@@ -103,8 +95,7 @@ angular.module('app')
       $scope.galleryInsertModalShow = !$scope.galleryInsertModalShow;
       UploadService.getAll().then(function(res) {
         $scope.listimages = res.data;
-      }, function(err) {
-      });
+      }, function(err) {});
     };
 
     $scope.currentPageNews = 0;
@@ -135,8 +126,7 @@ angular.module('app')
         $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
         UploadService.getAll().then(function(res) {
           $scope.listimages = res.data;
-        }, function(err) {
-        });
+        }, function(err) {});
       }
     };
 
@@ -144,8 +134,7 @@ angular.module('app')
       $scope.newNews.image += 'uploads/images/' + nameImg;
       $scope.news.image = 'uploads/images/' + nameImg;
       $scope.galleryAssociateModalShow = false;
-      NewsService.update($scope.idNews, $scope.news).then(function(res) {
-      });
+      NewsService.update($scope.idNews, $scope.news).then(function(res) {});
     };
 
     $scope.currentPage = 0;
@@ -168,8 +157,7 @@ angular.module('app')
       $scope.galleryPdfModalShow = !$scope.galleryPdfModalShow;
       UploadPdfService.getAll().then(function(res) {
         $scope.listPdf = res.data;
-      }, function(err) {
-      });
+      }, function(err) {});
     };
 
     $scope.decodeURI = function(filename) {
@@ -187,14 +175,13 @@ angular.module('app')
     }
 
     $scope.OpenModalgalleryAssociateEdit = function() {
-        $scope.news.image = '';
-        $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
-        UploadService.getAll().then(function(res) {
-          $scope.listimages = res.data;
-        }, function(err) {
-          console.error('error on image load', err);
-        });
-        NewsService.update($scope.idNews, $scope.news).then(function(res) {
-        });
+      $scope.news.image = '';
+      $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
+      UploadService.getAll().then(function(res) {
+        $scope.listimages = res.data;
+      }, function(err) {
+        console.error('error on image load', err);
+      });
+      NewsService.update($scope.idNews, $scope.news).then(function(res) {});
     };
   });

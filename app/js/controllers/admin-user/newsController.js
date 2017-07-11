@@ -60,7 +60,9 @@ angular.module('app')
           },
           function(err) {
             swal({
-              text: 'Une erreur s\'est produite',
+              type: 'error',
+              title: 'Une erreur s\'est produite',
+              text: 'Vous pouvez réessayer',
               timer: 2000
             });
           });

@@ -19,19 +19,14 @@ angular.module('app')
               type: 'success',
               text: 'L\'utilisateur a été enregistré avec succès',
               timer: 2000
-            }).then(function() {}, // handling the promise rejection
-              function(dismiss) {
-                if (dismiss === 'timer') {
-                  console.log('I was closed by the timer');
-                }
-              }
-            );
+            });
           }
         }, function(err) {
           swal({
             showConfirmButton: false,
             type: 'error',
-            text: 'Une erreur s\'est produite',
+            title: 'Une erreur s\'est produite',
+            text: 'Vous pouvez réessayer',
             timer: 2000
           });
         });
