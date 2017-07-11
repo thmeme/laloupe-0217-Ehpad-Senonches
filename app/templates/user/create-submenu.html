@@ -3,7 +3,7 @@
     <md-button class="md-primary md-raised btnRetour" ng-click='redirect()'>Retour à la liste des sous-menus</md-button>
     <form method="post" ng-submit="addSubmenu()">
       <div ng-cloak>
-        <md-input-container >
+        <md-input-container>
           <label>Menu</label>
           <md-select ng-model="newSubmenu.menu" required>
             <md-option ng-repeat="menu in menus" value="{{menu}}">{{menu}}</md-option>
@@ -50,7 +50,7 @@
       <p>Sélectionnez une image pour l'insérer dans l'éditeur de texte.</p>
       <div class="imgGallery" ng-repeat="image in listimages | orderBy : 'fileName':true | startFrom:currentPage*pageSize | limitTo:pageSize">
         <img ng-src="/uploads/images/{{image.fileName}}" class="listImages">
-        <div class="btnInsertImg" >
+        <div class="btnInsertImg">
           <md-button class="md-fab md-mini btnInsert" ng-click='insertImg(image.fileName)' title="Insérer"><i class="material-icons">input</i></md-button>
           <md-divider ng-if="!$last"></md-divider>
         </div>
@@ -75,10 +75,9 @@
         <img ng-src="logopdf2.png" class="listImages">
         <p class="namePdf">{{decodeURI(pdf.fileName.split('-').pop())}}</p>
         <div class="btnInsertImg">
-          <md-button class="md-fab md-mini btnInsert" target='_blank' title="Visualiser">
             <md-button class="md-fab md-mini btnInsert" title="Visualiser"><a ng-href='/uploads/pdf/{{pdf.fileName}}' target='_blank'><i class="material-icons">visibility</i></a></md-button>
-          <md-button class="md-fab md-mini btnInsert" ng-click-copy="/uploads/pdf/{{pdf.fileName}}" title="Copier"><i class="material-icons">content_copy</i></md-button>
-          <md-divider ng-if="!$last"></md-divider>
+            <md-button class="md-fab md-mini btnInsert" ng-click-copy="/uploads/pdf/{{pdf.fileName}}" title="Copier"><i class="material-icons">content_copy</i></md-button>
+            <md-divider ng-if="!$last"></md-divider>
         </div>
       </div>
       <section class="blocBtnGalerie" layout="row" layout-align="center center">
