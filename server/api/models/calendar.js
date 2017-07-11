@@ -49,22 +49,6 @@ export default class Evenement {
       });
   }
 
-  // findAllAnon(req, res) {
-  //   model.find({
-  //       isOnline: true
-  //     })
-  //     .populate('author')
-  //     .exec((err, evenement) => {
-  //       if (err || !evenement) {
-  //         res.sendStatus(403);
-  //       } else {
-  //         res.json(evenement);
-  //         console.log('evenement', evenement);
-  //
-  //       }
-  //     });
-  // }
-
   findAllAnon(req, res) {
     model.find({
         isOnline: true
@@ -75,8 +59,6 @@ export default class Evenement {
           res.sendStatus(403);
         } else {
           res.json(evenements.filter(evenement => moment().isBefore(evenement.date)));
-          console.log('evenement', evenement);
-
         }
       });
   }
