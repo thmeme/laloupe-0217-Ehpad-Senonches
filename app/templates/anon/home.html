@@ -56,7 +56,7 @@
         <md-card flex class="colHomeLeft colAgendaHome">
           <h2 class="cardTitle">Agenda</h2>
           <md-card-content>
-            <div class="" ng-repeat="evenement in listEvenementsAnon | orderBy : '-date' | startFrom:currentPageCalendar*pageSizeCalendar | limitTo:pageSizeCalendar">
+            <div class="" ng-repeat="evenement in listEvenementsAnon | orderBy : 'date' | startFrom:currentPageCalendar*pageSizeCalendar | limitTo:pageSizeCalendar">
               <h4 class="cardDateEvenement">Le {{evenement.date | date: "EEEE dd MMMM yyyy"}}</h4>
                 <p class="cardTitleEvenement">{{evenement.title}}</p>
                 <p class="cardTitleEvenement">De {{evenement.start | date:'shortTime'}} à {{evenement.end | date:'shortTime'}}</p>
