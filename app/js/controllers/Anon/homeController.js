@@ -9,7 +9,6 @@ angular.module('app')
     };
 
     $scope.listSubmenusAnon = [];
-
     function loadAllSubmenusAnon() {
       SubmenuService.getAllAnon().then(function(res) {
         $scope.listSubmenusAnon = res.data;
@@ -46,7 +45,6 @@ angular.module('app')
     loadAllNewsAnon();
 
     var idWel = '';
-
     function loadWelcome(id) {
       WelcomeService.getOne(idWel).then(function(res) {
         $scope.welcome = res.data;
@@ -63,7 +61,6 @@ angular.module('app')
     loadAllWelcomes();
 
     var idCont = '';
-
     function loadContact(id) {
       ContactService.getOne(idCont).then(function(res) {
         $scope.contact = res.data;
