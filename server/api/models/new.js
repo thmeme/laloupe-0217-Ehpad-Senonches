@@ -20,9 +20,7 @@ const newsSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-  date: {
-    type: Date,
-  },
+  date: Date,
   isOnline: {
     type: Boolean,
     default: false,

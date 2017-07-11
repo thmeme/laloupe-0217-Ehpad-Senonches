@@ -37,9 +37,7 @@ export default class Mail {
       }
     }, function(error, response) {
       if (error) {
-        console.log(error);
       } else {
-        console.log('mail send');
         res.sendStatus(200);
       }
     });

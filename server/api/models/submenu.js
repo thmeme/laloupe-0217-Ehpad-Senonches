@@ -20,9 +20,7 @@ const submenuSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  date: {
-    type: Date,
-  },
+  date: Date,
   isOnline: {
     type: Boolean,
     default: false,
