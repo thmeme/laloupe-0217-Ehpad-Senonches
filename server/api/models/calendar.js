@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import evenement from './calendar.js';
+import moment from 'moment'
 
 const evenementSchema = new mongoose.Schema({
   date: {
@@ -48,16 +49,34 @@ export default class Evenement {
       });
   }
 
+  // findAllAnon(req, res) {
+  //   model.find({
+  //       isOnline: true
+  //     })
+  //     .populate('author')
+  //     .exec((err, evenement) => {
+  //       if (err || !evenement) {
+  //         res.sendStatus(403);
+  //       } else {
+  //         res.json(evenement);
+  //         console.log('evenement', evenement);
+  //
+  //       }
+  //     });
+  // }
+
   findAllAnon(req, res) {
     model.find({
         isOnline: true
       })
       .populate('author')
-      .exec((err, evenement) => {
-        if (err || !evenement) {
+      .exec((err, evenements) => {
+        if (err || !evenements) {
           res.sendStatus(403);
         } else {
-          res.json(evenement);
+          res.json(evenements.filter(evenement => moment().isBefore(evenement.date)));
+          console.log('evenement', evenement);
+
         }
       });
   }
