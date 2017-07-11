@@ -8,9 +8,9 @@ module.exports = (app) => {
 
   let imgl = new Imgl();
 
-  router.post('/imagel/', Auth.hasAuthorization, imgl.create);
+  router.post('/imagel/', imgl.create);
 
-  router.get('/', Auth.hasAuthorization, imgl.getAll);
+  router.get('/', imgl.getAll);
 
-  app.use('/uploadimglarge', router);
+  app.use('/uploadimglarge', Auth.hasAuthorization, router);
 };
