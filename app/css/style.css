@@ -446,11 +446,6 @@
       transform: translateX(-50%);
     }
 
-    li {
-      list-style: none;
-      display: inline;
-    }
-
     .btnListAgendaHome {
       position: absolute;
       bottom: 2%;
