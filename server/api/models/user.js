@@ -9,11 +9,11 @@ const hashCode = (s) => s.split("").reduce((a, b) => {
 }, 0);
 
 const userSchema = new mongoose.Schema({
-  Firstname: {
+  firstName: {
     type: String,
     required: true
   },
-  Name: {
+  name: {
     type: String,
     required: true
   },

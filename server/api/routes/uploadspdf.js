@@ -8,9 +8,9 @@ module.exports = (app) => {
 
   let pdf = new Pdf();
 
-  router.post('/pdf/', Auth.hasAuthorization, pdf.create);
+  router.post('/pdf/', pdf.create);
 
-  router.get('/', Auth.hasAuthorization, pdf.getAll);
+  router.get('/', pdf.getAll);
 
-  app.use('/uploadpdf', router);
+  app.use('/uploadpdf', Auth.hasAuthorization, router);
 };

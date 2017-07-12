@@ -23,11 +23,11 @@ npm install
 #### API installation
 
 ```bash
-run Sudo mongod
-in one terminal
+- In one terminal
 npm run createAdmin
-in a new terminal
-curl -d "email=admin@mail.com&password=12345&isSuperAdmin=true&isAdmin=true&Firstname=Admin&Name=Admin" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/
+
+- In a new terminal
+curl -d "email=admin@mail.com&password=12345&isSuperAdmin=true&isAdmin=true&firstName=Admin&name=Admin" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/
 ```
 
 #### Development

@@ -23,8 +23,6 @@ angular.module('app')
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
           $scope.submenu = res.data;
           $scope.submenu.content = $sce.trustAsHtml(res.data.content);
-        }, function(err) {
-          console.error('error on getOne Submenu', err);
         });
       }
     }

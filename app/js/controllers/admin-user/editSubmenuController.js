@@ -17,8 +17,7 @@ angular.module('app')
       if (id !== undefined) {
         SubmenuService.getOne($scope.idSubmenu).then(function(res) {
           $scope.submenu = res.data;
-        }, function(err) {
-        });
+        }, function(err) {});
       }
     }
     loadSubmenu($scope.idSubmenu);
@@ -35,20 +34,14 @@ angular.module('app')
             type: 'success',
             text: 'Le sous-menu a été enregistré avec succès',
             timer: 2000
-          }).then(function() {
-          }, // handling the promise rejection
-            function(dismiss) {
-              if (dismiss === 'timer') {
-                console.log('I was closed by the timer');
-              }
-            }
-          );
+          });
         }
       }, function(err) {
         swal({
           showConfirmButton: false,
           type: 'error',
-          text: 'Une erreur s\'est produite',
+          title: 'Une erreur s\'est produite',
+          text: 'Vous pouvez réessayer',
           timer: 2000
         });
       });
@@ -129,8 +122,7 @@ angular.module('app')
       $scope.galleryPdfModalShow = !$scope.galleryPdfModalShow;
       UploadPdfService.getAll().then(function(res) {
         $scope.listPdf = res.data;
-      }, function(err) {
-      });
+      }, function(err) {});
     };
 
     $scope.decodeURI = function(filename) {

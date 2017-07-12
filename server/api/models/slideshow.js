@@ -6,9 +6,7 @@ const slideshowSchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  date: {
-    type: Date
-  }
+  date: Date
 });
 let model = mongoose.model('slideshow', slideshowSchema);
 

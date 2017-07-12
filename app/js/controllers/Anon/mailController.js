@@ -1,6 +1,11 @@
 angular.module('app')
   .controller('MailController', function($scope, $mdDialog, MailService) {
-
+    $scope.mail = {
+      email: '',
+      name: '',
+      subject: '',
+      message: ''
+    };
     $scope.sendMail = function() {
       swal({
         title: 'Envoi',
@@ -25,11 +30,5 @@ angular.module('app')
           );
         }
       });
-      $scope.mail = {
-        email: '',
-        name: '',
-        subject: '',
-        message: ''
-      };
     };
   });

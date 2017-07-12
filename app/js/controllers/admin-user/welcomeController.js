@@ -22,11 +22,7 @@ angular.module('app')
             type: 'success',
             text: 'Les éléments ont été enregistrés avec succès',
             timer: 2000
-          }).then(function() {},
-            function(dismiss) {
-              if (dismiss === 'timer') {}
-            }
-          );
+          });
         }
       }, function(err) {
         swal({
