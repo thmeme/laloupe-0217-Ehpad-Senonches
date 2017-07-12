@@ -14,7 +14,7 @@
         <label>Titre du sous-menu</label>
         <input ng-model="submenu.title" required>
       </md-input-container>
-      <textarea ui-tinymce="tinymceOptions" ng-model="submenu.content" required></textarea>
+      <textarea ui-tinymce="tinymceOptions" ng-model="submenu.content"></textarea>
       <div>
         <div layout='row'>
           <md-switch class='switch' flex='80' ng-model="submenu.isOnline" ng-if='user.isAdmin' aria-label="status">
