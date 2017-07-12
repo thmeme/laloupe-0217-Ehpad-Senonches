@@ -7,10 +7,6 @@ angular.module('app')
           access: AccessLevels.anon
         },
         views: {
-          'navbar@': {
-            templateUrl: 'anon/navbar.html',
-            controller: 'NavbarController'
-          },
           'slider@': {
             templateUrl: 'anon/slider.html',
             controller: 'DisplaySlideShowController'
@@ -234,15 +230,6 @@ angular.module('app')
           'content@': {
             templateUrl: 'user/edit-user.html',
             controller: 'editUserController'
-          }
-        }
-      })
-      .state('user.profile', {
-        url: '/profile',
-        views: {
-          'content@': {
-            templateUrl: 'user/profile.html',
-            controller: 'ProfileController'
           }
         }
       });
