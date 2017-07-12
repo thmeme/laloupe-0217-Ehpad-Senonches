@@ -8,9 +8,9 @@ module.exports = (app) => {
 
   let image = new Image();
 
-  router.post('/image/', Auth.hasAuthorization, image.create);
+  router.post('/image/', image.create);
 
-  router.get('/', Auth.hasAuthorization, image.getAll);
+  router.get('/', image.getAll);
 
-  app.use('/upload', router);
+  app.use('/upload', Auth.hasAuthorization, router);
 };

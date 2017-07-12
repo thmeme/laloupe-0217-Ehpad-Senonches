@@ -30,8 +30,6 @@ angular.module('app')
       $scope.galleryAssociateModalShow = !$scope.galleryAssociateModalShow;
       UploadLargeService.getAll().then(function(res) {
         $scope.listImagesLarges = res.data;
-      }, function(err) {
-        console.error('error on image load', err);
       });
     };
 
@@ -55,10 +53,6 @@ angular.module('app')
       SlideshowService.create(newImgSlideShow).then(function(res) {
         $scope.galleryAssociateModalShow = false;
         loadImgSlideshow();
-
-
-      }, function(err) {
-        console.error('err slideshow', err);
       });
     };
 
@@ -84,7 +78,9 @@ angular.module('app')
           },
           function(err) {
             swal({
-              text: 'Une erreur s\'est produite',
+              type: 'error',
+              title: 'Une erreur s\'est produite',
+              text: 'Vous pouvez réessayer',
               timer: 2000
             });
           });

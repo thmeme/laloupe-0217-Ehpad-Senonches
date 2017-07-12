@@ -20,12 +20,7 @@ const welcomeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  date: {
-    type: Date,
-  },
-  id: {
-    type: String,
-  }
+  date: Date
 });
 
 let model = mongoose.model('Welcome', welcomeSchema);

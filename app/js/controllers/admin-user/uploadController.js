@@ -9,23 +9,16 @@ angular.module('app')
 
     function uploadImage(imageFile) {
       UploadService.uploadImage(imageFile).then(function(res) {
-        if (res.data.success) { //validate success
-          console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
-        } else {
-          console.error('An error occured during upload (file:' + res.config.data.name + ')');
+        if (res.data.success) {} else {
         }
-      }, function(err) { //catch error
-        console.log('Error status: ' + err.status);
-      }, function(evt) {
-        console.log('evt during upload: ', evt);
+      }, function(err) {}, function(evt) {
         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
-        $scope.image.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
+        $scope.image.progress = 'progress: ' + progressPercentage + '% ';
       });
     }
 
     $scope.uploadImage = function() {
-      if ($scope.upload_form.file.$valid && $scope.image.file) { //check if from is valid
+      if ($scope.upload_form.file.$valid && $scope.image.file) {
         uploadImage($scope.image.file);
 
       }
@@ -37,19 +30,11 @@ angular.module('app')
 
     function uploadImageLarge(imageFile) {
       UploadLargeService.uploadImageLarge(imageFile).then(function(res) {
-        console.log('After upload: ', res);
-        if (res.data.success) { //validate success
-          console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
-        } else {
-          console.error('An error occured during upload (file:' + res.config.data.name + ')');
+        if (res.data.success) {} else {
         }
-      }, function(err) { //catch error
-        console.log('Error status: ' + err.status);
-      }, function(evt) {
-        console.log('evt during upload large: ', evt);
+      }, function(err) {}, function(evt) {
         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
-        $scope.image.progress = 'progress large: ' + progressPercentage + '% '; // capture upload progress
+        $scope.image.progress = 'progress large: ' + progressPercentage + '% ';
       });
     }
 
@@ -66,18 +51,11 @@ angular.module('app')
 
     function uploadPdf(pdfFile) {
       UploadPdfService.uploadPdf(pdfFile).then(function(res) {
-        if (res.data.success) { //validate success
-          console.log('Success ' + res.config.data.name + 'uploaded. Response: ');
-        } else {
-          console.error('An error occured during upload (file:' + res.config.data.name + ')');
+        if (res.data.success) {} else {
         }
-      }, function(err) { //catch error
-        console.log('Error status: ' + err.status);
-      }, function(evt) {
-        console.log('evt during upload: ', evt);
+      }, function(err) {}, function(evt) {
         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress (file: ' + evt.config.data.name + '): ' + progressPercentage + '% ');
-        $scope.pdf.progress = 'progress: ' + progressPercentage + '% '; 
+        $scope.pdf.progress = 'progress: ' + progressPercentage + '% ';
       });
     }
 
