@@ -12,7 +12,7 @@
               <md-list-item class="md-3-line" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre admission'} | orderBy: '-date'">
                 <div class="md-list-item-text">
                   <h4>Créé le {{Submenu.date | date : 'medium'}}</h4>
-                  <h4>Par&nbsp;{{Submenu.author.Firstname}}&nbsp;{{Submenu.author.Name}}</h4>
+                  <h4>Par&nbsp;{{Submenu.author.firstName}}&nbsp;{{Submenu.author.name}}</h4>
                   <h4>{{Submenu.title}}</h4>
                 </div>
                 <h5 class='statusPublie' ng-if="Submenu.isOnline">Publié</h5>
@@ -36,7 +36,7 @@
                 <md-list-item class="md-3-line" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre séjour'} | orderBy: '-date'">
                   <div class="md-list-item-text">
                     <h4>Créé le {{Submenu.date | date : 'medium'}}</h4>
-                    <h4>Par&nbsp;{{Submenu.author.Firstname}}&nbsp;{{Submenu.author.Name}}</h4>
+                    <h4>Par&nbsp;{{Submenu.author.firstName}}&nbsp;{{Submenu.author.name}}</h4>
                     <h4>{{Submenu.title}}</h4>
                   </div>
                   <h5 class='statusPublie' ng-if="Submenu.isOnline">Publié</h5>
@@ -61,7 +61,7 @@
                 <md-list-item class="md-3-line" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'} | orderBy: '-date'">
                   <div class="md-list-item-text">
                     <h4>Créé le {{Submenu.date | date : 'medium'}}</h4>
-                    <h4>Par&nbsp;{{Submenu.author.Firstname}}&nbsp;{{Submenu.author.Name}}</h4>
+                    <h4>Par&nbsp;{{Submenu.author.firstName}}&nbsp;{{Submenu.author.name}}</h4>
                     <h4>{{Submenu.title}}</h4>
                   </div>
                   <div>
