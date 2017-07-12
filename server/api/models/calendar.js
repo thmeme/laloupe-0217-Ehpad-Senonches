@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import evenement from './calendar.js';
-import moment from 'moment'
+import moment from 'moment';
 
 const evenementSchema = new mongoose.Schema({
   date: {

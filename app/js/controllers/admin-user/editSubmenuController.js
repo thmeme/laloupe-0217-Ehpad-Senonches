@@ -28,6 +28,7 @@ angular.module('app')
 
     $scope.updateSubmenu = function() {
       SubmenuService.update($scope.idSubmenu, $scope.submenu).then(function(res) {
+        console.log('res', res);
         if (res.status === 200) {
           swal({
             showConfirmButton: false,

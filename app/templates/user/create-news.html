@@ -7,7 +7,7 @@
           <input ng-model="newNews.title" required>
         </md-input-container>
       </div>
-      <textarea ui-tinymce="tinymceOptions" ng-model="newNews.content" required></textarea>
+      <textarea ui-tinymce="tinymceOptions" ng-model="newNews.content"></textarea>
       <div>
         <div layout='row'>
           <md-switch flex='80' class="switch" ng-model="newNews.isOnline" ng-if='user.isAdmin' aria-label="status">
