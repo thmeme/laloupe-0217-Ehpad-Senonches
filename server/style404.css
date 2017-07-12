@@ -1,5 +1,3 @@
-/*PAge 404*/
-
 #fof {
   display: block;
   width: 100%;
@@ -15,7 +13,6 @@
 #fof .hgroup h1 {
   margin-bottom: 25px;
   font-size: 80px;
-  color: red;
 }
 
 #fof .hgroup h1 span {
