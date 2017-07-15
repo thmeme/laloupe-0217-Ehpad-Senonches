@@ -18,8 +18,7 @@ let storage = multer.diskStorage({
 });
 
 let upload = multer({
-  storage: storage,
-  limits: { fileSize:10000000 }
+  storage: storage
 }).single('image');
 
 export default class Image {
