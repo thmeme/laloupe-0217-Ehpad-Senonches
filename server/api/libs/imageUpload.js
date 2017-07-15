@@ -17,11 +17,9 @@ let storage = multer.diskStorage({
   }
 });
 
-let maxSize = 1024 * 1024 * 1024;
-
 let upload = multer({
   storage: storage,
-  limits: { fileSize: maxSize }
+  limits: { fileSize:10000000 }
 }).single('image');
 
 export default class Image {
