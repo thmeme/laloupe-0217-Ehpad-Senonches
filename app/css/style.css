@@ -384,6 +384,7 @@ body {
 
   .namePdf {
     text-align: center;
+    word-break: break-all;
   }
 
   .linkPdf {
