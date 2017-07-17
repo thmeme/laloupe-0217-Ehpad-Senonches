@@ -10,6 +10,9 @@ import path from 'path';
 
 var app = express();
 
+app.use(express.json({limit: '15mb'}));
+app.use(express.urlencoded({limit: '15mb'}));
+
 /* Config Upload */
 let publicDir = path.join(__dirname, '../public/');
 app.use(express.static(publicDir));
@@ -37,5 +40,6 @@ db(() => {
   app.server.listen(process.env.PORT || 3000);
   console.log(`Server started`);
 });
+
 
 export default app;
