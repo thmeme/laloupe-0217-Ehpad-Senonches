@@ -23,7 +23,7 @@ let storage = multer.diskStorage({
 });
 
 let upload = multer({
-  storage: storage,
+  storage: storage, 
   limits: {
     fileSize: 10000000
   }
