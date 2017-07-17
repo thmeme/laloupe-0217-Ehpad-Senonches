@@ -23,10 +23,8 @@ let storage = multer.diskStorage({
 });
 
 let upload = multer({
-  storage: storage, 
-  limits: {
-    fileSize: 10000000
-  }
+  storage: storage,
+  limits: {fileSize: 10000000}
 }).single('pdf');
 
 export default class Pdf {
