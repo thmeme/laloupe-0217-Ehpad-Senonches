@@ -24,7 +24,7 @@ angular.module('app')
     loadAllEvenementsAnon();
 
     $scope.currentPageCalendar = 0;
-    $scope.pageSizeCalendar = 3;
+    $scope.pageSizeCalendar = 4;
     $scope.listEvenementsAnon = [];
     $scope.numberOfPagesCalendar = function() {
       return Math.ceil($scope.listEvenementsAnon.length / $scope.pageSizeCalendar);
@@ -77,7 +77,7 @@ angular.module('app')
     loadAllContacts();
 
     $scope.currentPageListNews = 0;
-    $scope.pageSizeListNews = 3;
+    $scope.pageSizeListNews = 4;
     $scope.listNewsAnon = [];
     $scope.numberOfPagesListNews = function() {
       return Math.ceil($scope.listNewsAnon.length / $scope.pageSizeListNews);
