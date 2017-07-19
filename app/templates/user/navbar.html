@@ -1,24 +1,51 @@
 <md-toolbar id="navbarUser" hide show-gt-sm flex>
   <div class="md-toolbar-tools">
-    <md-button aria-label="Go Back">
-      <a ui-sref="user.submenu">Sous-menus</a></md-button>
-    <md-button aria-label="Go Back"  ng-if="user.isAdmin">
-      <a ui-sref="user.welcome">Bienvenue</a></md-button>
-    <md-button aria-label="Go Back">
-      <a ui-sref="user.news">Actualités</a></md-button>
-    <md-button aria-label="Go Back">
-      <a ui-sref="user.calendar">Agenda</a></md-button>
-    <md-button aria-label="Go Back">
-      <a ui-sref="user.slideshow">Carrousel</a></md-button>
-    <md-button aria-label="Go Back" ng-if="user.isAdmin">
-      <a ui-sref="user.contact">Contact</a></md-button>
-    <md-button aria-label="Go Back" ng-if="user.isAdmin">
-      <a ui-sref="user.users">Utilisateurs</a></md-button>
-    <md-button aria-label="Go Back" ng-if="user.isAdmin">
-      <a ui-sref="user.legalnotice">Mentions</a></md-button>
+    <a ui-sref="user.submenu">
+      <md-button aria-label="Go Back">
+        Sous-menus
+      </md-button>
+    </a>
+    <a ui-sref="user.welcome">
+      <md-button aria-label="Go Back" ng-if="user.isAdmin">
+        Bienvenue
+      </md-button>
+    </a>
+    <a ui-sref="user.news">
+      <md-button aria-label="Go Back">
+        Actualités
+      </md-button>
+    </a>
+    <a ui-sref="user.calendar">
+      <md-button aria-label="Go Back">
+        Agenda
+      </md-button>
+    </a>
+    <a ui-sref="user.slideshow">
+      <md-button aria-label="Go Back">
+        Carrousel
+      </md-button>
+    </a>
+    <a ui-sref="user.contact">
+      <md-button aria-label="Go Back" ng-if="user.isAdmin">
+        Contact
+      </md-button>
+    </a>
+    <a ui-sref="user.users">
+      <md-button aria-label="Go Back" ng-if="user.isAdmin">
+        Utilisateurs
+      </md-button>
+    </a>
+    <a ui-sref="user.legalnotice">
+      <md-button aria-label="Go Back" ng-if="user.isAdmin">
+        Mentions
+      </md-button>
+    </a>
     <span flex></span>
-    <md-button aria-label="Go Back">
-      <a ng-click="logout()" ng-show="auth.isAuthenticated()" ui-sref="anon.home" id="logoutNav">Logout</a></md-button>
+    <a ng-click="logout()" ng-show="auth.isAuthenticated()" ui-sref="anon.home" id="logoutNav">
+      <md-button aria-label="Go Back">
+        Logout
+      </md-button>
+    </a>
   </div>
 </md-toolbar>
 <md-toolbar id="navbarUser" hide-gt-sm>
