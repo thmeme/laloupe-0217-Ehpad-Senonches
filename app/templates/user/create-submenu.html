@@ -14,7 +14,9 @@
         <label>Nouveau sous-menu</label>
         <input ng-model="newSubmenu.title" required>
       </md-input-container>
+      <td>
       <textarea ui-tinymce="tinymceOptions" ng-model="newSubmenu.content"></textarea>
+    </td>
       <div>
         <div layout='row'>
           <md-switch class='switch' flex='80' ng-model="newSubmenu.isOnline" ng-if='user.isAdmin' aria-label="status">
