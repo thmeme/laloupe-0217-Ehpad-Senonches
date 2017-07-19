@@ -434,6 +434,7 @@ form .progress {
 
 .colAgendaHome {
   position: relative;
+  min-height: 500px;
 }
 
 .signatureWelcome {
@@ -490,6 +491,7 @@ md-content.md-ehpad-theme {
 
 .colHomeLeft {
   min-width: 200px !important;
+  min-height: 480px !important;
 }
 
 .colListNews {
