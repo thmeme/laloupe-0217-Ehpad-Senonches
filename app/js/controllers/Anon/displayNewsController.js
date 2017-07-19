@@ -29,7 +29,7 @@ angular.module('app')
     };
 
     $scope.currentPageNews = 0;
-    $scope.pageSizeNews = 5;
+    $scope.pageSizeNews = 4;
     $scope.listNewsAnon = [];
     $scope.numberOfPagesNews = function() {
       return Math.ceil($scope.listNewsAnon.length / $scope.pageSizeNews);
