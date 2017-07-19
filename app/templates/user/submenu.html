@@ -32,7 +32,7 @@
           <md-tab label="Votre séjour">
             <md-content class="md-padding">
               <md-list>
-                <h2>Votre séjour</h2>
+                <h2 class="headListSubmenu">Votre séjour</h2>
                 <md-list-item class="md-3-line" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Votre séjour'} | orderBy: '-date'">
                   <div class="md-list-item-text">
                     <h4>Créé le {{Submenu.date | date : 'medium'}}</h4>
@@ -57,7 +57,7 @@
           <md-tab label="Vos droits">
             <md-content class="md-padding">
               <md-list>
-                <h2>Vos droits</h2>
+                <h2 class="headListSubmenu">Vos droits</h2>
                 <md-list-item class="md-3-line" ng-repeat="Submenu in listSubmenu | filter: {menu: 'Vos droits'} | orderBy: '-date'">
                   <div class="md-list-item-text">
                     <h4>Créé le {{Submenu.date | date : 'medium'}}</h4>
