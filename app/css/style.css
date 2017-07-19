@@ -662,6 +662,9 @@ md-content.md-ehpad-theme {
   #footer {
     bottom: 0;
   }
+  .colFront {
+    width: 100%;
+  }
 }
 
 #greenButton {
