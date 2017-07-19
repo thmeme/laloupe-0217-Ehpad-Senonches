@@ -12,11 +12,11 @@
                 <div class="md-list-item-text">
                   <h4>{{user.firstName}} {{user.name}}</h4>
                 </div>
+                <a ui-sref="user.edit-user({id: user._id})">
                 <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
-                  <a ui-sref="user.edit-user({id: user._id})">
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
-                  </a>
                 </md-button>
+              </a>
                 <md-button class="md-fab md-mini btnListSubmenu" ng-if="user.isAdmin" ng-disabled="true" title="Administrateur" aria-label="Eat cake">
                   <md-icon><i class="material-icons">person</i></md-icon>
                 </md-button>
