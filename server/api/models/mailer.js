@@ -38,7 +38,7 @@ export default class Mail {
     }, function(error, response) {
       if (error) {
         console.log(error);
-        res.status(500).send(err.message);
+        res.status(500).send(error.message);
       } else {
         res.sendStatus(200);
       }
