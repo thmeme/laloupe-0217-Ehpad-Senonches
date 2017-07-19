@@ -17,11 +17,11 @@
                 </div>
                 <h5 class='statusPublie' ng-if="evenement.isOnline">Publié</h5>
                 <h5 class='statusBrouillon' ng-if="!evenement.isOnline">Brouillon</h5>
-                <md-button class="md-fab md-mini btnListSubmenu" title="Editer">
-                  <a ui-sref="user.edit-calendar({id: evenement._id})">
+                <a ui-sref="user.edit-calendar({id: evenement._id})">
+                  <md-button class="md-fab md-mini btnListSubmenu" title="Editer">
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
-                  </a>
-                </md-button>
+                  </md-button>
+                </a>
                 <md-button class="md-fab md-mini btnListSubmenu" ng-click="showConfirm($event, evenement._id)" ng-if='user.isAdmin'>
                   <md-icon><i class="material-icons" title="Supprimer">delete</i></md-icon>
                 </md-button>

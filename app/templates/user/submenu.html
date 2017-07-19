@@ -17,11 +17,13 @@
                 </div>
                 <h5 class='statusPublie' ng-if="Submenu.isOnline">Publié</h5>
                 <h5 class='statusBrouillon' ng-if="!Submenu.isOnline">Brouillon</h5>
-                <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" title="Editer">
-                  <a ui-sref="user.edit-submenu({id: Submenu._id})">
+                <a ui-sref="user.edit-submenu({id: Submenu._id})">
+
+                  <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake" title="Editer">
                     <md-icon><i class="material-icons md-18">create</i></md-icon>
-                  </a>
-                </md-button>
+                  </md-button>
+                </a>
+
                 <md-button class="md-fab md-mini btnListSubmenu" ng-if='user.isAdmin' title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
                   <md-icon><i class="material-icons">delete</i></md-icon>
                 </md-button>
@@ -41,11 +43,11 @@
                   </div>
                   <h5 class='statusPublie' ng-if="Submenu.isOnline">Publié</h5>
                   <h5 class='statusBrouillon' ng-if="!Submenu.isOnline">Brouillon</h5>
-                  <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
-                    <a ui-sref="user.edit-submenu({id: Submenu._id})">
+                  <a ui-sref="user.edit-submenu({id: Submenu._id})">
+                    <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
                       <md-icon><i class="material-icons md-18">create</i></md-icon>
-                    </a>
-                  </md-button>
+                    </md-button>
+                  </a>
                   <md-button class="md-fab md-mini btnListSubmenu" ng-if='user.isAdmin' title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
                     <md-icon><i class="material-icons">delete</i></md-icon>
                   </md-button>
@@ -68,11 +70,11 @@
                     <h5 class='statusPublie' ng-if="Submenu.isOnline">Publié</h5>
                     <h5 class='statusBrouillon' ng-if="!Submenu.isOnline">Brouillon</h5>
                   </div>
-                  <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
-                    <a ui-sref="user.edit-submenu({id: Submenu._id})">
+                  <a ui-sref="user.edit-submenu({id: Submenu._id})">
+                    <md-button class="md-fab md-mini btnListSubmenu" aria-label="Eat cake">
                       <md-icon><i class="material-icons md-18">create</i></md-icon>
-                    </a>
-                  </md-button>
+                    </md-button>
+                  </a>
                   <md-button class="md-fab md-mini btnListSubmenu" ng-if='user.isAdmin' title="Supprimer" ng-click="showConfirm($event, Submenu._id)">
                     <md-icon><i class="material-icons">delete</i></md-icon>
                   </md-button>
