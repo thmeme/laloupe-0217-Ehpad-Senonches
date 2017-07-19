@@ -662,9 +662,6 @@ md-content.md-ehpad-theme {
   #footer {
     bottom: 0;
   }
-  .colFront {
-    width: 100%;
-  }
 }
 
 #greenButton {
@@ -1085,6 +1082,13 @@ md-content.md-ehpad-theme {
     font-size: 12px;
   }
 }
+@media (max-width: 800px) {
+  .ColAgendaDisplaySubmenu {
+    min-height: 450 !important;
+  }
+  .colFront {
+    width: 100%;
+  }
 @media (max-width: 750px) {
   .columnAdmin {
     width: 95%;
