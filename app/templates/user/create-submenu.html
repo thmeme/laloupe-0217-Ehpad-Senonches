@@ -77,7 +77,9 @@
         <img ng-src="logopdf.png" class="listImages">
         <p class="namePdf">{{decodeURI(pdf.fileName.split('-').pop())}}</p>
         <div class="btnInsertImg">
-            <md-button class="md-fab md-mini btnInsert" title="Visualiser"><a ng-href='/uploads/pdf/{{pdf.fileName}}' target='_blank'><i class="material-icons">visibility</i></a></md-button>
+            <a ng-href='/uploads/pdf/{{pdf.fileName}}' target='_blank'>
+              <md-button class="md-fab md-mini btnInsert" title="Visualiser"><i class="material-icons">visibility</i></md-button>
+            </a>
             <md-button class="md-fab md-mini btnInsert" ng-click-copy="/uploads/pdf/{{pdf.fileName}}" title="Copier"><i class="material-icons">content_copy</i></md-button>
             <md-divider ng-if="!$last"></md-divider>
         </div>

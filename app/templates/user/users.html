@@ -1,6 +1,10 @@
 <div layout="column" layout layout-align="space-around center">
   <div class="">
-    <md-button class="md-primary md-raised" ng-if="user.isAdmin" <a ui-sref="user.register">Creer un utilisateur</a>
+    <a ui-sref="user.register">
+      <md-button class="md-primary md-raised" ng-if="user.isAdmin">
+        Creer un utilisateur
+      </md-button>
+    </a>
   </div>
   <div class="columnAdmin">
     <div ng-cloak class="tabsSubmenu">

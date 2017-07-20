@@ -5,7 +5,11 @@
     </md-button>
     <md-menu-content width="4" id="pinkContent">
       <md-menu-item ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre admission'}">
-        <md-button md-menu-align-target class="displaySubmenu"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
+        <a ui-sref="anon.displaysubmenu({id: Submenu._id})">
+        <md-button md-menu-align-target class="displaySubmenu">
+          {{Submenu.title}}
+        </md-button>
+      </a>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
@@ -15,7 +19,11 @@
     </md-button>
     <md-menu-content width="4" id="greenContent">
       <md-menu-item ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Votre séjour'}">
-        <md-button md-menu-align-target class="displaySubmenu"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
+        <a ui-sref="anon.displaysubmenu({id: Submenu._id})">
+        <md-button md-menu-align-target class="displaySubmenu">
+            {{Submenu.title}}
+        </md-button>
+      </a>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
@@ -25,7 +33,11 @@
     </md-button>
     <md-menu-content width="4" id="blueContent">
       <md-menu-item ng-repeat="Submenu in listSubmenusAnon | filter: {menu: 'Vos droits'}">
-        <md-button md-menu-align-target class="displaySubmenu"><a ui-sref="anon.displaysubmenu({id: Submenu._id})">{{Submenu.title}}</a></md-button>
+        <a ui-sref="anon.displaysubmenu({id: Submenu._id})">
+          <md-button md-menu-align-target class="displaySubmenu">
+              {{Submenu.title}}
+          </md-button>
+        </a>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
